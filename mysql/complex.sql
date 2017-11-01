@@ -29,7 +29,7 @@ CREATE TABLE `GO` (
   `nsp` char(1) NOT NULL,
   PRIMARY KEY (`go_i`),
   UNIQUE KEY `go_id` (`go_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `atCorrTF` (
   `at_i2` int(11) NOT NULL,
   `corr` float DEFAULT NULL,
   PRIMARY KEY (`at_i1`,`at_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `atGO` (
   `g_i` int(11) unsigned NOT NULL,
   `go_i` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`go_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `atGene` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`at_i`),
   UNIQUE KEY `at_id` (`at_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `atGene_old` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`at_i`),
   UNIQUE KEY `at_id` (`at_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `atTF` (
   `tf_i` int(11) NOT NULL AUTO_INCREMENT,
   `tf_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`tf_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +147,7 @@ CREATE TABLE `at_gg_centr` (
   `avnn` float NOT NULL,
   `avnn_r` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`th`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `atgo_sl` (
   `gene` varchar(20) DEFAULT NULL,
   KEY `GENE` (`gene`),
   KEY `GO` (`go_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +196,7 @@ CREATE TABLE `atos` (
   `os_i2` int(11) NOT NULL,
   `corr2` float NOT NULL,
   PRIMARY KEY (`at_i1`,`at_i2`,`os_i1`,`os_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +216,7 @@ CREATE TABLE `atosNod` (
   KEY `corr` (`corr`),
   KEY `at_i` (`at_i`),
   KEY `os_i` (`os_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +234,7 @@ CREATE TABLE `atos_old` (
   `os_i2` int(11) NOT NULL,
   `corr2` float NOT NULL,
   PRIMARY KEY (`at_i1`,`at_i2`,`os_i1`,`os_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +254,7 @@ CREATE TABLE `atptNod` (
   KEY `corr` (`corr`),
   KEY `pt_i` (`pt_i`),
   KEY `at_i` (`at_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +300,7 @@ CREATE TABLE `osCorrTF` (
   `corr` float DEFAULT NULL,
   PRIMARY KEY (`os_i1`,`os_i2`),
   KEY `os_i2` (`os_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +314,7 @@ CREATE TABLE `osGO` (
   `g_i` int(11) unsigned NOT NULL,
   `go_i` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`go_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,7 @@ CREATE TABLE `osGene` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`os_i`),
   UNIQUE KEY `os_id` (`os_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -348,7 +348,7 @@ CREATE TABLE `osGene_old` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`os_i`),
   UNIQUE KEY `os_id` (`os_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -362,7 +362,7 @@ CREATE TABLE `osTF` (
   `tf_i` int(11) NOT NULL AUTO_INCREMENT,
   `tf_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`tf_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -388,7 +388,7 @@ CREATE TABLE `os_gg_centr` (
   `avnn` float NOT NULL,
   `avnn_r` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`th`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +408,7 @@ CREATE TABLE `osatNod` (
   KEY `corr` (`corr`),
   KEY `at_i` (`at_i`),
   KEY `os_i` (`os_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -439,7 +439,7 @@ CREATE TABLE `osgo_sl` (
   `gene` varchar(20) DEFAULT NULL,
   KEY `GO` (`go_id`),
   KEY `GENE` (`gene`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -459,7 +459,7 @@ CREATE TABLE `osptNod` (
   KEY `type` (`type`),
   KEY `pt_i` (`pt_i`),
   KEY `os_i` (`os_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -490,7 +490,7 @@ CREATE TABLE `ptCorrTF` (
   `corr` float DEFAULT NULL,
   PRIMARY KEY (`pt_i1`,`pt_i2`),
   KEY `pt_i2` (`pt_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -504,7 +504,7 @@ CREATE TABLE `ptGO` (
   `g_i` int(11) unsigned NOT NULL,
   `go_i` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`go_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,7 +521,7 @@ CREATE TABLE `ptGene` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`pt_i`),
   UNIQUE KEY `pt_id` (`pt_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -538,7 +538,7 @@ CREATE TABLE `ptGene_old` (
   `taird` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`pt_i`),
   UNIQUE KEY `pt_id` (`pt_id`) USING HASH
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -552,7 +552,7 @@ CREATE TABLE `ptTF` (
   `tf_i` int(11) NOT NULL AUTO_INCREMENT,
   `tf_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`tf_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -578,7 +578,7 @@ CREATE TABLE `pt_gg_centr` (
   `avnn` float NOT NULL,
   `avnn_r` int(11) unsigned NOT NULL,
   PRIMARY KEY (`g_i`,`th`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -596,7 +596,7 @@ CREATE TABLE `ptat` (
   `at_i2` int(11) NOT NULL,
   `corr2` float NOT NULL,
   PRIMARY KEY (`pt_i1`,`pt_i2`,`at_i1`,`at_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -616,7 +616,7 @@ CREATE TABLE `ptatNod` (
   KEY `corr` (`corr`),
   KEY `pt_i` (`pt_i`),
   KEY `at_i` (`at_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -647,7 +647,7 @@ CREATE TABLE `ptgo_sl` (
   `gene` varchar(20) DEFAULT NULL,
   KEY `GENE` (`gene`),
   KEY `GO` (`go_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -665,7 +665,7 @@ CREATE TABLE `ptos` (
   `os_i2` int(11) NOT NULL,
   `corr2` float NOT NULL,
   PRIMARY KEY (`pt_i1`,`pt_i2`,`os_i1`,`os_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -685,7 +685,7 @@ CREATE TABLE `ptosNod` (
   KEY `type` (`type`),
   KEY `pt_i` (`pt_i`),
   KEY `os_i` (`os_i`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -703,7 +703,7 @@ CREATE TABLE `ptos_old` (
   `os_i2` int(11) NOT NULL,
   `corr2` float NOT NULL,
   PRIMARY KEY (`pt_i1`,`pt_i2`,`os_i1`,`os_i2`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
