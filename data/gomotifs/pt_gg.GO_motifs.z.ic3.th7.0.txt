@@ -1,0 +1,1635 @@
+GO:0050832	defense response to fungus	P	896	534	180	nan	nan	-6.17023891315	7.00032294581
+GO:0051788	response to misfolded protein	P	315	51	49	nan	nan	-2.14020054444	6.71601311959
+GO:0006598	polyamine catabolic process	P	100	4	8	nan	nan	nan	nan
+GO:0006595	polyamine metabolic process	P	118	4	8	nan	nan	nan	nan
+GO:0046658	anchored to plasma membrane	C	81	15	16	nan	nan	0.19249911195	2.3611253444
+GO:0007623	circadian rhythm	P	198	44	44	nan	nan	-2.14861211295	5.68736791901
+GO:0006629	lipid metabolic process	P	2296	2570	633	nan	nan	-6.77164289567	7.05747883737
+GO:0006625	protein targeting to peroxisome	P	161	7	13	nan	nan	0.20203050891	nan
+GO:0006626	protein targeting to mitochondrion	P	128	4	5	nan	nan	-1.8390181015	4.94974746831
+GO:0006623	protein targeting to vacuole	P	189	5	9	nan	nan	0.462910049886	nan
+GO:0000280	nuclear division	P	162	45	21	nan	nan	1.17290348047	5.74636620823
+GO:0006974	response to DNA damage stimulus	P	418	42	43	nan	nan	-4.26220042378	6.63969346468
+GO:0006970	response to osmotic stress	P	1495	588	363	nan	nan	-6.47657344843	7.03102675015
+GO:0006972	hyperosmotic response	P	552	109	95	nan	nan	-4.02667879266	6.63911754044
+GO:0006979	response to oxidative stress	P	1179	330	225	nan	nan	-6.44854526946	7.00365069594
+GO:0051273	beta-glucan metabolic process	P	362	108	60	nan	nan	-4.54738313414	6.67835646459
+GO:0051276	chromosome organization	P	1008	533	166	nan	nan	-3.64241415841	6.98634991411
+GO:0051274	beta-glucan biosynthetic process	P	194	35	26	nan	nan	-4.31728463724	6.5630492666
+GO:0044712	single-organism catabolic process	P	674	113	122	nan	nan	-5.3624509705	6.90206858207
+GO:0044711	single-organism biosynthetic process	P	2693	4146	797	nan	nan	-6.94023616301	7.06502414657
+GO:0033043	regulation of organelle organization	P	470	27	35	nan	nan	-1.70694077026	6.33909302806
+GO:0051667	establishment of plastid localization	P	148	447	78	nan	nan	1.44392878464	6.86184803978
+GO:0006364	rRNA processing	P	334	2589	154	nan	nan	-4.38810229477	7.04476452158
+GO:0035383	thioester metabolic process	P	233	70	51	nan	nan	-1.887915584	5.99563276767
+GO:0042545	cell wall modification	P	644	107	88	nan	nan	-4.77343070799	6.89042404911
+GO:0052315	phytoalexin biosynthetic process	P	39	11	11	nan	nan	0.0150527772427	4.06302254164
+GO:0052314	phytoalexin metabolic process	P	39	11	11	nan	nan	0.208402118341	3.63416329533
+GO:0052317	camalexin metabolic process	P	37	11	11	nan	nan	0.196243546108	3.49543440419
+GO:0042542	response to hydrogen peroxide	P	524	83	70	nan	nan	-4.54733256655	6.65601700434
+GO:0009814	defense response, incompatible interaction	P	1219	784	267	nan	nan	-6.56324160077	7.04094595529
+GO:0009812	flavonoid metabolic process	P	160	22	17	nan	nan	-2.68999368024	5.82948277114
+GO:0006109	regulation of carbohydrate metabolic process	P	61	17	10	nan	nan	-2.00641644253	4.5094804722
+GO:0042402	cellular biogenic amine catabolic process	P	250	19	31	nan	nan	-1.88324515878	4.94974746831
+GO:0070887	cellular response to chemical stimulus	P	2418	1753	572	nan	nan	-6.81278389259	7.05958535513
+GO:0004857	enzyme inhibitor activity	M	104	6	10	nan	nan	0.554700196225	nan
+GO:0009505	plant-type cell wall	C	437	135	96	nan	nan	-2.75911981252	6.78141080488
+GO:0010400	rhamnogalacturonan I side chain metabolic process	P	24	10	7	nan	nan	-2.10816347805	4.71600186335
+GO:0009055	electron carrier activity	M	384	78	60	nan	nan	-4.25858112263	6.87107191636
+GO:0048731	system development	P	3916	2788	965	nan	nan	-6.97494906212	7.06688392397
+GO:0005102	receptor binding	M	75	5	9	nan	nan	0.493864798325	nan
+GO:0009108	coenzyme biosynthetic process	P	200	16	25	nan	nan	0.738548945876	nan
+GO:0010109	regulation of photosynthesis	P	36	28	15	nan	nan	-0.362561995826	5.09883213805
+GO:0010106	cellular response to iron ion starvation	P	184	31	25	nan	nan	-1.51580900173	5.48713697958
+GO:0009106	lipoate metabolic process	P	79	12	20	nan	nan	0.612165546121	nan
+GO:0009100	glycoprotein metabolic process	P	464	41	42	nan	nan	-1.30783841693	5.94455313756
+GO:0009101	glycoprotein biosynthetic process	P	459	41	42	nan	nan	-1.56428116998	5.78312331756
+GO:0018377	protein myristoylation	P	243	16	22	nan	nan	-0.613950551093	5.3235666095
+GO:1901362	organic cyclic compound biosynthetic process	P	2513	3238	717	nan	nan	-6.82827568309	7.06114244832
+GO:1901361	organic cyclic compound catabolic process	P	681	98	117	nan	nan	-5.58146999656	6.92611257003
+GO:0015711	organic anion transport	P	707	97	93	nan	nan	-2.85340155563	6.26998155549
+GO:0072655	establishment of protein localization to mitochondrion	P	128	4	5	nan	nan	-1.45	3.03315017762
+GO:0043436	oxoacid metabolic process	P	2810	5138	829	nan	nan	-6.8696720819	7.06340511653
+GO:0019953	sexual reproduction	P	340	4	8	nan	nan	nan	nan
+GO:0016192	vesicle-mediated transport	P	1010	181	149	nan	nan	-5.42503927822	6.95822392406
+GO:0071103	DNA conformation change	P	95	24	12	nan	nan	-0.249631963875	4.41924183573
+GO:0003676	nucleic acid binding	M	2641	1296	583	nan	nan	-6.86494044553	7.06167498038
+GO:0003677	DNA binding	M	1646	567	321	nan	nan	-6.37398718764	7.03245274699
+GO:0005730	nucleolus	C	488	148	91	nan	nan	-4.19822623897	6.86024029548
+GO:0005739	mitochondrion	C	2493	781	521	nan	nan	-6.60963406829	7.05522370092
+GO:0006644	phospholipid metabolic process	P	599	1168	189	nan	nan	-1.75436860075	7.00551637353
+GO:0006643	membrane lipid metabolic process	P	255	12	21	nan	nan	0.274410649974	nan
+GO:0045017	glycerolipid biosynthetic process	P	244	17	31	nan	nan	0.349641800638	nan
+GO:0045010	actin nucleation	P	243	15	18	nan	nan	-2.71823315328	4.65544951231
+GO:0006913	nucleocytoplasmic transport	P	291	17	23	nan	nan	-0.771075729115	5.75475815124
+GO:0051329	interphase of mitotic cell cycle	P	183	49	23	nan	nan	-3.06075599448	6.32588164002
+GO:0080167	response to karrikin	P	287	47	46	nan	nan	-4.03160544194	6.47935193657
+GO:0090421	embryonic meristem initiation	P	114	7	13	nan	nan	0.291729982996	nan
+GO:0007346	regulation of mitotic cell cycle	P	150	133	33	nan	nan	3.52193918729	6.51681938805
+GO:0071359	cellular response to dsRNA	P	228	6	10	nan	nan	0.515710623129	nan
+GO:0035639	purine ribonucleoside triphosphate binding	M	2396	724	428	nan	nan	-6.80192040634	7.0554175089
+GO:0006342	chromatin silencing	P	416	151	66	nan	nan	-1.89578211512	6.77847302649
+GO:0006346	methylation-dependent chromatin silencing	P	219	40	26	nan	nan	2.20145639778	5.55789061186
+GO:0046467	membrane lipid biosynthetic process	P	212	11	19	nan	nan	0.462910049886	nan
+GO:0017038	protein import	P	427	34	49	nan	nan	-1.95983376395	6.06842909677
+GO:0009832	plant-type cell wall biogenesis	P	410	272	96	nan	nan	-5.70143916232	6.96964091719
+GO:0009833	primary cell wall biogenesis	P	24	10	7	nan	nan	-2.05445295595	4.23446064267
+GO:0009834	secondary cell wall biogenesis	P	89	140	30	nan	nan	-3.59550141164	6.7225545233
+GO:0004872	receptor activity	M	303	7	13	nan	nan	0.141421356237	nan
+GO:0004871	signal transducer activity	M	443	27	38	nan	nan	-1.3909900863	6.31200945933
+GO:0050662	coenzyme binding	M	361	41	29	nan	nan	-2.92571539197	6.18481929742
+GO:0050661	NADP binding	M	64	16	10	nan	nan	-0.0856676765288	5.08609346458
+GO:0050665	hydrogen peroxide biosynthetic process	P	185	29	19	nan	nan	-3.24181605381	5.96852240566
+GO:0046283	anthocyanin-containing compound metabolic process	P	85	12	8	nan	nan	-1.19105864241	4.57259092706
+GO:0048532	anatomical structure arrangement	P	473	24	40	nan	nan	-4.66149010748	7.07106781187
+GO:0048284	organelle fusion	P	95	7	11	nan	nan	-3.2892950959	7.07106781187
+GO:0048285	organelle fission	P	197	46	23	nan	nan	0.648142085784	5.74091377593
+GO:0048037	cofactor binding	M	482	74	47	nan	nan	-4.00119978128	6.75596134694
+GO:0048464	flower calyx development	P	108	5	5	nan	nan	0.173812946276	1.47901994577
+GO:0048465	corolla development	P	166	7	9	nan	nan	-1.10883190643	3.4278273002
+GO:0051049	regulation of transport	P	576	321	99	nan	nan	-5.78690766167	6.96968850481
+GO:0009694	jasmonic acid metabolic process	P	270	70	53	nan	nan	-1.66626448456	6.28601825366
+GO:0009695	jasmonic acid biosynthetic process	P	214	62	46	nan	nan	-2.26157519254	6.39081371971
+GO:0009696	salicylic acid metabolic process	P	602	439	144	nan	nan	-6.16997642051	7.00893130207
+GO:0009697	salicylic acid biosynthetic process	P	583	432	139	nan	nan	-6.37353529001	6.99501576071
+GO:0009692	ethylene metabolic process	P	268	49	29	nan	nan	1.97000834855	5.25134262133
+GO:0009693	ethylene biosynthetic process	P	268	49	29	nan	nan	2.14830881776	4.68450658191
+GO:0009698	phenylpropanoid metabolic process	P	488	115	85	nan	nan	-5.40233470295	6.90286877837
+GO:0009218	pyrimidine ribonucleotide metabolic process	P	199	17	23	nan	nan	0.344625313831	3.03315017762
+GO:0071456	cellular response to hypoxia	P	53	8	10	nan	nan	-0.861082699068	3.4278273002
+GO:0016818	hydrolase activity, acting on acid anhydrides, in phosphorus-containing anhydrides	M	921	219	149	nan	nan	-5.53416951643	6.98314487573
+GO:0016817	hydrolase activity, acting on acid anhydrides	M	937	219	149	nan	nan	-5.98508988846	6.97407409612
+GO:0032412	regulation of ion transmembrane transporter activity	P	152	38	15	nan	nan	-3.26846984337	5.95370301051
+GO:0008565	protein transporter activity	M	135	8	12	nan	nan	-1.2918296964	4.94974746831
+GO:0043412	macromolecule modification	P	3450	1824	750	nan	nan	-6.93504882498	7.06676852167
+GO:0043413	macromolecule glycosylation	P	459	41	42	nan	nan	-1.41927734788	6.00603240494
+GO:0043414	macromolecule methylation	P	783	432	160	nan	nan	-4.93719889694	6.91707591855
+GO:0009966	regulation of signal transduction	P	282	27	30	nan	nan	-3.14021508244	6.03041008183
+GO:0048869	cellular developmental process	P	2133	854	374	nan	nan	-6.59606253588	7.04248114384
+GO:0009962	regulation of flavonoid biosynthetic process	P	298	38	39	nan	nan	-1.53677187281	4.95487606432
+GO:0045036	protein targeting to chloroplast	P	89	23	26	nan	nan	-0.347875746774	3.414145232
+GO:0006664	glycolipid metabolic process	P	189	9	16	nan	nan	0.441941738242	nan
+GO:0051187	cofactor catabolic process	P	124	9	15	nan	nan	0.472490457546	nan
+GO:0051186	cofactor metabolic process	P	874	3173	296	nan	nan	-5.64649668018	7.05050927394
+GO:0009570	chloroplast stroma	C	825	3349	332	nan	nan	-5.62745975204	7.0490529537
+GO:0051188	cofactor biosynthetic process	P	355	637	93	nan	nan	0.84192481032	6.91059730513
+GO:0051239	regulation of multicellular organismal process	P	1268	470	249	nan	nan	-5.96483102531	6.99406886086
+GO:0051234	establishment of localization	P	4648	5172	1276	nan	nan	-6.97354928994	7.06823320139
+GO:0090407	organophosphate biosynthetic process	P	1090	1533	281	nan	nan	-4.30059545133	7.0274643489
+GO:0019899	enzyme binding	M	313	28	31	nan	nan	-3.22741608319	6.32030174621
+GO:0019898	extrinsic to membrane	C	107	19	15	nan	nan	-1.92762396488	5.63324112578
+GO:0032880	regulation of protein localization	P	126	4	7	nan	nan	0.431331092814	nan
+GO:0071370	cellular response to gibberellin stimulus	P	141	16	20	nan	nan	-4.03734396106	6.125
+GO:0071806	protein transmembrane transport	P	202	11	18	nan	nan	-4.1350006153	7.07106781187
+GO:1901137	carbohydrate derivative biosynthetic process	P	1226	407	230	nan	nan	-5.89163330466	7.0075133666
+GO:1901136	carbohydrate derivative catabolic process	P	183	13	20	nan	nan	-1.81407425003	3.4278273002
+GO:1901135	carbohydrate derivative metabolic process	P	1721	2006	446	nan	nan	-6.33007573533	7.05166539866
+GO:0061458	reproductive system development	P	2318	692	456	nan	nan	-6.60055634664	7.04614567115
+GO:0006325	chromatin organization	P	757	475	130	nan	nan	-1.97746167114	6.96188111931
+GO:0045935	positive regulation of nucleobase-containing compound metabolic process	P	612	314	140	nan	nan	-4.12734105574	6.84919468382
+GO:0045934	negative regulation of nucleobase-containing compound metabolic process	P	603	187	96	nan	nan	-3.67520097879	6.83387116482
+GO:0006497	protein lipidation	P	254	16	22	nan	nan	-0.887266377752	4.69171558409
+GO:0006499	N-terminal protein myristoylation	P	243	16	22	nan	nan	-0.943366054045	6.31200945933
+GO:0006498	N-terminal protein lipidation	P	243	16	22	nan	nan	-0.677492103205	7.07106781187
+GO:0031978	plastid thylakoid lumen	C	75	257	38	nan	nan	2.35882613131	6.63318232009
+GO:0031976	plastid thylakoid	C	480	6015	253	nan	nan	0.867877182753	7.06201327978
+GO:0031977	thylakoid lumen	C	94	341	47	nan	nan	1.30603445411	6.82457367911
+GO:0031974	membrane-enclosed lumen	C	748	204	133	nan	nan	-5.70829045768	6.94202567311
+GO:0031975	envelope	C	1157	3731	361	nan	nan	-5.32814847488	7.05141156924
+GO:0022900	electron transport chain	P	110	743	63	nan	nan	-1.26233754597	6.92813525895
+GO:0048519	negative regulation of biological process	P	2139	1332	466	nan	nan	-6.91969010931	7.05118651861
+GO:0005527	macrolide binding	M	20	9	7	nan	nan	1.24795141918	3.5162139039
+GO:0002376	immune system process	P	1762	1292	385	nan	nan	-6.58242031114	7.04715384895
+GO:0048646	anatomical structure formation involved in morphogenesis	P	2377	1491	482	nan	nan	-6.74558696467	7.05923323017
+GO:0009141	nucleoside triphosphate metabolic process	P	191	22	24	nan	nan	-2.97225926991	5.59047624604
+GO:0009142	nucleoside triphosphate biosynthetic process	P	81	7	5	nan	nan	1.19077416298	2.59124621795
+GO:0009143	nucleoside triphosphate catabolic process	P	121	10	14	nan	nan	-1.28309082593	3.4278273002
+GO:0009144	purine nucleoside triphosphate metabolic process	P	187	20	22	nan	nan	-2.63816940249	5.84904284574
+GO:0009145	purine nucleoside triphosphate biosynthetic process	P	78	7	5	nan	nan	0.988285276942	3.18724592483
+GO:0009146	purine nucleoside triphosphate catabolic process	P	121	10	14	nan	nan	-0.943460139651	3.03315017762
+GO:0003723	RNA binding	M	707	331	136	nan	nan	-5.561738638	6.97457301982
+GO:0008094	DNA-dependent ATPase activity	M	44	13	7	nan	nan	1.01665765617	3.62265707066
+GO:0008092	cytoskeletal protein binding	M	157	8	10	nan	nan	-1.51244711158	5.75475815124
+GO:0016835	carbon-oxygen lyase activity	M	117	4	6	nan	nan	0.760638829256	nan
+GO:0016830	carbon-carbon lyase activity	M	107	11	12	nan	nan	-1.55074236844	4.90249019503
+GO:0016832	aldehyde-lyase activity	M	23	5	5	nan	nan	0.837425559698	1.62568666811
+GO:0008233	peptidase activity	M	486	76	73	nan	nan	-2.32401558669	6.24648795926
+GO:0008236	serine-type peptidase activity	M	171	9	17	nan	nan	0.25	nan
+GO:0042802	identical protein binding	M	349	36	45	nan	nan	-2.81418998505	5.89208047958
+GO:0042803	protein homodimerization activity	M	145	11	13	nan	nan	-1.74017817626	3.71281783645
+GO:0071495	cellular response to endogenous stimulus	P	1438	984	338	nan	nan	-6.59851038597	7.03373163661
+GO:0071496	cellular response to external stimulus	P	599	104	96	nan	nan	-5.44634499251	6.90352647536
+GO:0031407	oxylipin metabolic process	P	60	17	18	nan	nan	-1.98999771012	5.79874742493
+GO:0019288	isopentenyl diphosphate biosynthetic process, mevalonate-independent pathway	P	341	1128	165	nan	nan	-0.859765427682	6.99729812718
+GO:0030832	regulation of actin filament length	P	257	15	18	nan	nan	-1.97294247996	5.19898938416
+GO:0030833	regulation of actin filament polymerization	P	257	15	18	nan	nan	-2.34359812199	6.3926263493
+GO:0030838	positive regulation of actin filament polymerization	P	243	15	18	nan	nan	-2.3495684002	4.99987774912
+GO:0016226	iron-sulfur cluster assembly	P	137	57	47	nan	nan	-0.577069234353	5.22993821725
+GO:0051726	regulation of cell cycle	P	394	271	69	nan	nan	1.82517328425	6.77241610183
+GO:1901575	organic substance catabolic process	P	2634	3926	733	nan	nan	-6.88232365362	7.06161104546
+GO:0035264	multicellular organism growth	P	4	5	4	nan	nan	0.421080096819	2.2921356876
+GO:0030529	ribonucleoprotein complex	C	575	457	167	nan	nan	-6.18048707697	7.02079114874
+GO:0030163	protein catabolic process	P	705	192	123	nan	nan	-5.05948989244	6.95417737885
+GO:0043038	amino acid activation	P	55	4	6	nan	nan	0.623782861552	nan
+GO:0043039	tRNA aminoacylation	P	55	4	6	nan	nan	0.431331092814	nan
+GO:0000226	microtubule cytoskeleton organization	P	510	284	98	nan	nan	-3.18958276604	6.87609800902
+GO:0000229	cytoplasmic chromosome	C	19	5	4	nan	nan	-0.0166205623829	2.05781537208
+GO:0042631	cellular response to water deprivation	P	100	20	16	nan	nan	-3.37800840924	5.93719479952
+GO:0009553	embryo sac development	P	331	11	17	nan	nan	-2.12771565606	7.07106781187
+GO:0080129	proteasome core complex assembly	P	231	34	36	nan	nan	-1.49167599631	6.02031672835
+GO:0010089	xylem development	P	197	37	26	nan	nan	-4.51541223861	6.60991618549
+GO:0010087	phloem or xylem histogenesis	P	232	37	26	nan	nan	-4.37038148555	6.43301793784
+GO:0009559	embryo sac central cell differentiation	P	52	6	9	nan	nan	-3.23248814257	4.94974746831
+GO:0032271	regulation of protein polymerization	P	260	15	18	nan	nan	-2.62236737957	5.34416091318
+GO:0032273	positive regulation of protein polymerization	P	244	15	18	nan	nan	-2.52428656937	4.94974746831
+GO:0007243	intracellular protein kinase cascade	P	573	333	127	nan	nan	-6.10619047895	6.99019831544
+GO:0071822	protein complex subunit organization	P	756	2442	232	nan	nan	-6.08544417053	7.04038115162
+GO:0016036	cellular response to phosphate starvation	P	220	20	30	nan	nan	-2.17231667386	5.3235666095
+GO:0022621	shoot system development	P	1062	876	214	nan	nan	-4.29952141706	6.9912789713
+GO:0006306	DNA methylation	P	272	165	51	nan	nan	0.913769674147	6.71798203698
+GO:0006305	DNA alkylation	P	272	165	51	nan	nan	0.313159813092	6.61697597924
+GO:0006304	DNA modification	P	273	167	52	nan	nan	0.20542625857	6.53094617475
+GO:0006302	double-strand break repair	P	165	16	11	nan	nan	-2.22340200195	5.42883048822
+GO:0035670	plant-type ovary development	P	249	21	30	nan	nan	0.691490665634	-0.20203050891
+GO:0010043	response to zinc ion	P	142	7	11	nan	nan	0.462910049886	nan
+GO:0010476	gibberellin mediated signaling pathway	P	139	16	20	nan	nan	-4.79436288707	6.70382693292
+GO:0090351	seedling development	P	323	18	28	nan	nan	-1.47379341806	3.4278273002
+GO:0005654	nucleoplasm	C	195	7	11	nan	nan	-3.23248814257	7.07106781187
+GO:0002682	regulation of immune system process	P	1047	542	209	nan	nan	-6.0889844952	7.02135778781
+GO:0017076	purine nucleotide binding	M	2540	764	447	nan	nan	-6.74614713061	7.05861347579
+GO:0009308	amine metabolic process	P	628	62	78	nan	nan	-2.27739816556	6.29714065644
+GO:0009309	amine biosynthetic process	P	221	14	23	nan	nan	-3.64256677124	7.07106781187
+GO:0006586	indolalkylamine metabolic process	P	159	13	21	nan	nan	-3.43026388983	4.94974746831
+GO:0009654	oxygen evolving complex	C	23	36	15	nan	nan	1.49656343888	5.50048114826
+GO:0042546	cell wall biogenesis	P	745	756	186	nan	nan	-6.39384151526	7.02192094851
+GO:0016853	isomerase activity	M	219	48	29	nan	nan	-0.662536532681	5.52069035339
+GO:0016859	cis-trans isomerase activity	M	57	25	12	nan	nan	2.01821243178	5.01968005095
+GO:0009817	defense response to fungus, incompatible interaction	P	120	12	11	nan	nan	-2.39716925405	5.14246198374
+GO:0042548	regulation of photosynthesis, light reaction	P	23	11	9	nan	nan	0.0593158809214	3.57071421427
+GO:0008213	protein alkylation	P	435	273	72	nan	nan	0.699704445325	6.83899148078
+GO:0043155	negative regulation of photosynthesis, light reaction	P	13	4	6	nan	nan	0.840900095559	nan
+GO:0034440	lipid oxidation	P	288	29	39	nan	nan	0.426236165407	3.03315017762
+GO:0019915	lipid storage	P	149	4	7	nan	nan	0.462910049886	nan
+GO:0044093	positive regulation of molecular function	P	196	308	66	nan	nan	-3.95542949405	6.95723486618
+GO:0044092	negative regulation of molecular function	P	128	6	11	nan	nan	0.36514837167	nan
+GO:0046034	ATP metabolic process	P	125	8	7	nan	nan	-0.13077696928	2.87719310966
+GO:0051701	interaction with host	P	234	9	14	nan	nan	0.511019866882	nan
+GO:0051707	response to other organism	P	2528	2074	614	nan	nan	-6.89985063176	7.06510207471
+GO:0051704	multi-organism process	P	2966	2341	698	nan	nan	-6.92887494521	7.06499773511
+GO:0030145	manganese ion binding	M	33	6	8	nan	nan	-1.92988744703	3.4278273002
+GO:0006511	ubiquitin-dependent protein catabolic process	P	529	113	78	nan	nan	-2.86472397039	6.72110227437
+GO:0003746	translation elongation factor activity	M	39	5	9	nan	nan	0.291729982996	nan
+GO:0031090	organelle membrane	C	1514	458	326	nan	nan	-6.64807014706	7.0460818332
+GO:0005351	sugar:hydrogen symporter activity	M	96	6	10	nan	nan	0.554700196225	nan
+GO:0042651	thylakoid membrane	C	392	4402	200	nan	nan	0.600333366876	7.04906604677
+GO:0031234	extrinsic to internal side of plasma membrane	C	63	4	5	nan	nan	-1.49290198302	2.16024689947
+GO:0009531	secondary cell wall	C	7	4	4	nan	nan	0.621966321647	1.35400640077
+GO:0009538	photosystem I reaction center	C	7	10	5	nan	nan	-3.06731738567	3.58610145529
+GO:0016054	organic acid catabolic process	P	631	111	118	nan	nan	-5.15621341608	6.89792550678
+GO:0016052	carbohydrate catabolic process	P	906	2406	257	nan	nan	-5.53773929537	7.04555068458
+GO:0016053	organic acid biosynthetic process	P	1910	2620	497	nan	nan	-6.71838010197	7.05846756969
+GO:0016051	carbohydrate biosynthetic process	P	1418	1288	370	nan	nan	-6.78429054086	7.05431130143
+GO:0019637	organophosphate metabolic process	P	1513	4293	407	nan	nan	-4.65593541181	7.04663411439
+GO:0043228	non-membrane-bounded organelle	C	1143	693	268	nan	nan	-6.67343124479	7.05169873168
+GO:0031984	organelle subcompartment	C	483	6015	253	nan	nan	0.975244418096	7.05965978057
+GO:0034654	nucleobase-containing compound biosynthetic process	P	822	368	148	nan	nan	-4.383450049	6.97637221005
+GO:0034655	nucleobase-containing compound catabolic process	P	342	39	41	nan	nan	-3.88508661922	6.19951543945
+GO:0015833	peptide transport	P	297	25	27	nan	nan	-3.85008485065	6.50768776141
+GO:0046777	protein autophosphorylation	P	437	30	43	nan	nan	-1.14054843594	4.69171558409
+GO:0005982	starch metabolic process	P	373	348	113	nan	nan	-2.9042533112	6.88665465277
+GO:0005984	disaccharide metabolic process	P	288	244	85	nan	nan	-2.63060923261	6.77404712401
+GO:0009535	chloroplast thylakoid membrane	C	361	4328	195	nan	nan	0.468528053156	7.05459024466
+GO:0030554	adenyl nucleotide binding	M	2284	588	375	nan	nan	-6.7341111666	7.04675697682
+GO:0009203	ribonucleoside triphosphate catabolic process	P	121	10	14	nan	nan	-1.13805735268	7.07106781187
+GO:0015075	ion transmembrane transporter activity	M	731	93	102	nan	nan	-4.28769785465	6.96695337847
+GO:0010103	stomatal complex morphogenesis	P	295	266	71	nan	nan	-1.93346513618	6.83341426258
+GO:0000315	organellar large ribosomal subunit	C	4	5	4	nan	nan	0.0361787302646	2.8
+GO:0016879	ligase activity, forming carbon-nitrogen bonds	M	379	27	38	nan	nan	-1.0064570083	4.94974746831
+GO:0016874	ligase activity	M	497	46	56	nan	nan	-2.01606347455	4.77493455453
+GO:0016875	ligase activity, forming carbon-oxygen bonds	M	54	4	6	nan	nan	0.738548945876	nan
+GO:0016876	ligase activity, forming aminoacyl-tRNA and related compounds	M	54	4	6	nan	nan	0.54992668133	nan
+GO:0000079	regulation of cyclin-dependent protein kinase activity	P	54	20	10	nan	nan	-0.937758714466	5.20141405737
+GO:0010558	negative regulation of macromolecule biosynthetic process	P	608	189	100	nan	nan	-3.98514075198	6.80013917486
+GO:0008270	zinc ion binding	M	1220	191	171	nan	nan	-6.18896145734	7.00453429127
+GO:0070727	cellular macromolecule localization	P	1922	842	386	nan	nan	-6.60823528302	7.05124344493
+GO:0070585	protein localization to mitochondrion	P	128	4	5	nan	nan	-1.64386959928	2.73861278753
+GO:0070589	cellular component macromolecule biosynthetic process	P	395	393	84	nan	nan	-4.59007399004	6.92616322061
+GO:0071453	cellular response to oxygen levels	P	57	8	10	nan	nan	-0.613251894374	2.50713268211
+GO:0016265	death	P	316	30	42	nan	nan	-1.39517506811	5.89208047958
+GO:0045892	negative regulation of transcription, DNA-dependent	P	588	187	96	nan	nan	-3.9661661439	6.88678620697
+GO:0045893	positive regulation of transcription, DNA-dependent	P	603	312	138	nan	nan	-3.40205734662	6.89104549289
+GO:0006534	cysteine metabolic process	P	389	906	130	nan	nan	-5.72619352314	6.9939201741
+GO:0003727	single-stranded RNA binding	M	52	34	16	nan	nan	-1.39211165735	6.08845574632
+GO:0016881	acid-amino acid ligase activity	M	316	22	32	nan	nan	0.742439654452	nan
+GO:0010304	PSII associated light-harvesting complex II catabolic process	P	36	23	14	nan	nan	-2.5237101977	5.15842384933
+GO:0022622	root system development	P	1301	449	209	nan	nan	-5.05016208672	7.00276409782
+GO:0051169	nuclear transport	P	291	17	23	nan	nan	-0.679774041836	6.31200945933
+GO:0022626	cytosolic ribosome	C	375	235	111	nan	nan	-2.90023177781	6.77233750397
+GO:0022627	cytosolic small ribosomal subunit	C	106	35	25	nan	nan	-0.329426832131	5.16064458762
+GO:0022624	proteasome accessory complex	C	41	4	5	nan	nan	-1.99313533916	4.94974746831
+GO:0022625	cytosolic large ribosomal subunit	C	136	60	39	nan	nan	-1.41586659849	5.9771063932
+GO:0010048	vernalization response	P	135	5	7	nan	nan	-2.4002840741	7.07106781187
+GO:0005372	water transmembrane transporter activity	M	35	14	12	nan	nan	-1.29570912372	4.65495273548
+GO:0022804	active transmembrane transporter activity	M	619	86	88	nan	nan	-4.2147883023	6.78850367037
+GO:1901265	nucleoside phosphate binding	M	3458	1548	676	nan	nan	-6.89048299398	7.06580670607
+GO:1901264	carbohydrate derivative transport	P	52	4	8	nan	nan	nan	nan
+GO:0006888	ER to Golgi vesicle-mediated transport	P	320	19	29	nan	nan	-0.603400593992	4.0
+GO:0006886	intracellular protein transport	P	1834	792	356	nan	nan	-6.6398044779	7.05143272954
+GO:0016070	RNA metabolic process	P	1993	4691	541	nan	nan	-6.73329302503	7.05573041721
+GO:0016071	mRNA metabolic process	P	625	134	84	nan	nan	-4.39337980911	6.80658405419
+GO:0016072	rRNA metabolic process	P	335	2589	154	nan	nan	-4.55303768107	7.0378302971
+GO:0008509	anion transmembrane transporter activity	M	280	19	32	nan	nan	0.368425039247	-0.141421356237
+GO:0016620	oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor	M	61	9	7	nan	nan	-1.05692505445	3.61714645036
+GO:0043248	proteasome assembly	P	315	51	49	nan	nan	-2.23787516764	6.51359481331
+GO:0034637	cellular carbohydrate biosynthetic process	P	867	791	217	nan	nan	-6.6538410782	7.04161621646
+GO:0034329	cell junction assembly	P	4	4	4	nan	nan	0.50262468995	1.41421356237
+GO:0005618	cell wall	C	978	495	258	nan	nan	-5.61852129032	6.99855922602
+GO:0002213	defense response to insect	P	36	4	5	nan	nan	-1.88524762494	2.73861278753
+GO:0006865	amino acid transport	P	631	79	81	nan	nan	-2.5530169964	6.42674903406
+GO:0006862	nucleotide transport	P	176	11	12	nan	nan	0.504517233122	1.80277563773
+GO:0031668	cellular response to extracellular stimulus	P	593	104	96	nan	nan	-5.26638694559	6.9137851621
+GO:0031669	cellular response to nutrient levels	P	548	85	84	nan	nan	-3.90031333586	6.82524448384
+GO:0071322	cellular response to carbohydrate stimulus	P	211	7	12	nan	nan	0.403567156136	nan
+GO:0045088	regulation of innate immune response	P	1041	542	209	nan	nan	-6.11741309064	7.02551283234
+GO:0009700	indole phytoalexin biosynthetic process	P	39	11	11	nan	nan	0.341931259337	3.25191722098
+GO:0009706	chloroplast inner membrane	C	85	22	15	nan	nan	-0.143972665418	4.80494684554
+GO:0009705	plant-type vacuole membrane	C	108	9	14	nan	nan	-1.54919333848	7.07106781187
+GO:0009555	pollen development	P	474	26	45	nan	nan	0.234888087806	nan
+GO:0046983	protein dimerization activity	M	348	30	37	nan	nan	-2.90239027135	5.84237394672
+GO:0046982	protein heterodimerization activity	M	61	5	7	nan	nan	0.799866735805	nan
+GO:0016791	phosphatase activity	M	297	27	34	nan	nan	-3.14319356639	6.26174685565
+GO:0016798	hydrolase activity, acting on glycosyl bonds	M	368	81	63	nan	nan	-3.22794291694	6.532592378
+GO:0071478	cellular response to radiation	P	97	22	24	nan	nan	-1.61254603755	4.49517882326
+GO:0071472	cellular response to salt stress	P	44	6	10	nan	nan	0.378810979048	nan
+GO:0010564	regulation of cell cycle process	P	212	143	41	nan	nan	2.03352179278	6.44608883388
+GO:0010565	regulation of cellular ketone metabolic process	P	71	19	16	nan	nan	-3.45232549737	5.77877310088
+GO:0070301	cellular response to hydrogen peroxide	P	151	31	23	nan	nan	-1.08430818387	5.303963798
+GO:0007131	reciprocal meiotic recombination	P	219	5	9	nan	nan	0.431331092814	nan
+GO:0033365	protein localization to organelle	P	787	95	111	nan	nan	-4.38659310476	6.58379773021
+GO:0006412	translation	P	545	515	174	nan	nan	-6.31363713695	7.01068972579
+GO:0061135	endopeptidase regulator activity	M	22	4	6	nan	nan	0.803219328902	nan
+GO:0061134	peptidase regulator activity	M	22	4	6	nan	nan	0.707106781187	nan
+GO:0017111	nucleoside-triphosphatase activity	M	875	209	142	nan	nan	-5.3376534384	6.95442533622
+GO:0003700	sequence-specific DNA binding transcription factor activity	M	1374	432	269	nan	nan	-5.90629033062	6.99902474781
+GO:0006555	methionine metabolic process	P	193	11	16	nan	nan	-2.16685674164	3.4278273002
+GO:0031050	dsRNA fragmentation	P	228	6	10	nan	nan	0.472490457546	nan
+GO:0010363	regulation of plant-type hypersensitive response	P	956	512	194	nan	nan	-5.64178785294	6.99005964894
+GO:0022603	regulation of anatomical structure morphogenesis	P	224	8	13	nan	nan	-3.86634275146	7.07106781187
+GO:0009063	cellular amino acid catabolic process	P	290	46	57	nan	nan	-3.004218493	6.33960646456
+GO:0009062	fatty acid catabolic process	P	337	30	41	nan	nan	0.295422624484	4.0
+GO:0010029	regulation of seed germination	P	107	10	13	nan	nan	-1.3945045203	3.03315017762
+GO:0009066	aspartate family amino acid metabolic process	P	233	11	16	nan	nan	-3.31693328011	7.07106781187
+GO:0010027	thylakoid membrane organization	P	299	1043	146	nan	nan	-0.437566445282	6.97963288538
+GO:0009616	virus induced gene silencing	P	195	5	10	nan	nan	nan	nan
+GO:0032774	RNA biosynthetic process	P	326	217	80	nan	nan	-2.97821133096	6.76637088223
+GO:0070469	respiratory chain	C	86	7	10	nan	nan	0.721906970891	nan
+GO:0043269	regulation of ion transport	P	525	315	89	nan	nan	-5.64965953621	6.93337899399
+GO:0034614	cellular response to reactive oxygen species	P	180	33	26	nan	nan	-1.25850115699	5.49570209842
+GO:0005802	trans-Golgi network	C	378	75	63	nan	nan	-4.67199330775	6.80711750625
+GO:0001071	nucleic acid binding transcription factor activity	M	1374	432	269	nan	nan	-5.91280178276	6.99258347091
+GO:0010033	response to organic substance	P	4125	4356	1173	nan	nan	-6.98184831428	7.06727994975
+GO:0009073	aromatic amino acid family biosynthetic process	P	108	42	36	nan	nan	-3.19344122522	6.13216803342
+GO:0006766	vitamin metabolic process	P	153	14	22	nan	nan	0.637193092864	nan
+GO:0031667	response to nutrient levels	P	569	86	86	nan	nan	-3.94709355319	6.73024279793
+GO:0048481	ovule development	P	249	21	30	nan	nan	0.607918758874	-0.20203050891
+GO:0006139	nucleobase-containing compound metabolic process	P	3485	8475	920	nan	nan	-6.9454381957	7.06480347611
+GO:0004702	receptor signaling protein serine/threonine kinase activity	M	88	6	10	nan	nan	0.487713110004	nan
+GO:0000038	very long-chain fatty acid metabolic process	P	67	13	14	nan	nan	0.482867084985	2.69468719759
+GO:0000030	mannosyltransferase activity	M	33	11	9	nan	nan	-2.3052555167	4.51663591625
+GO:0004721	phosphoprotein phosphatase activity	M	191	6	12	nan	nan	nan	nan
+GO:0009804	coumarin metabolic process	P	146	19	25	nan	nan	-1.38779748995	5.89208047958
+GO:0042886	amide transport	P	309	33	36	nan	nan	-3.79289826558	6.6304311189
+GO:0042887	amide transmembrane transporter activity	M	41	4	6	nan	nan	0.621857659469	nan
+GO:0016759	cellulose synthase activity	M	43	19	13	nan	nan	-2.61438237566	5.39821268202
+GO:0032991	macromolecular complex	C	1974	2699	560	nan	nan	-6.90544799766	7.06267159622
+GO:0007568	aging	P	255	17	24	nan	nan	-4.0008588407	7.07106781187
+GO:0009725	response to hormone stimulus	P	2484	1696	631	nan	nan	-6.78546643211	7.06269717151
+GO:0009723	response to ethylene stimulus	P	770	310	145	nan	nan	-4.36901293741	6.94519618432
+GO:0019755	one-carbon compound transport	P	18	4	6	nan	nan	0.621966321647	nan
+GO:0019757	glycosinolate metabolic process	P	375	234	100	nan	nan	-3.91219481655	6.88718391355
+GO:0019751	polyol metabolic process	P	134	26	18	nan	nan	0.28902030853	5.18633966515
+GO:0019752	carboxylic acid metabolic process	P	2797	5116	818	nan	nan	-6.92389320612	7.06135397698
+GO:0044070	regulation of anion transport	P	162	38	15	nan	nan	-3.44411258396	6.04671808956
+GO:0010583	response to cyclopentenone	P	372	102	74	nan	nan	-4.30019293079	6.85352881374
+GO:2000762	regulation of phenylpropanoid metabolic process	P	340	39	40	nan	nan	-1.27532375379	4.8677099443
+GO:0007155	cell adhesion	P	225	9	13	nan	nan	-2.44865489211	4.0
+GO:0007154	cell communication	P	3251	2211	768	nan	nan	-6.88294301988	7.0637948886
+GO:0035825	reciprocal DNA recombination	P	222	5	9	nan	nan	0.431331092814	nan
+GO:0035821	modification of morphology or physiology of other organism	P	213	8	12	nan	nan	0.770551750371	nan
+GO:0017171	serine hydrolase activity	M	171	9	17	nan	nan	0.20203050891	nan
+GO:0045859	regulation of protein kinase activity	P	84	21	12	nan	nan	-1.27170481911	5.18225026381
+GO:0006576	cellular biogenic amine metabolic process	P	297	20	33	nan	nan	-2.15317489488	7.07106781187
+GO:0034284	response to monosaccharide stimulus	P	392	94	69	nan	nan	-5.57670407787	6.90772605014
+GO:0031072	heat shock protein binding	M	133	7	14	nan	nan	nan	nan
+GO:0072330	monocarboxylic acid biosynthetic process	P	1356	1097	318	nan	nan	-6.65518278763	7.05123779501
+GO:0015996	chlorophyll catabolic process	P	95	9	15	nan	nan	0.441941738242	nan
+GO:0015994	chlorophyll metabolic process	P	287	699	106	nan	nan	-1.54930220201	6.96556759864
+GO:0015995	chlorophyll biosynthetic process	P	184	570	71	nan	nan	1.31619203272	6.93821629935
+GO:0015992	proton transport	P	78	9	8	nan	nan	-0.339547162518	3.96970058408
+GO:0009267	cellular response to starvation	P	532	80	80	nan	nan	-3.52631790206	6.55563205291
+GO:0009266	response to temperature stimulus	P	1600	907	344	nan	nan	-6.74014664798	7.05536303916
+GO:0048367	shoot development	P	1059	876	214	nan	nan	-4.86324680978	7.00477928277
+GO:0048366	leaf development	P	587	188	95	nan	nan	-2.82889957395	6.74086229206
+GO:0048364	root development	P	1300	449	209	nan	nan	-5.33780294619	7.00218127935
+GO:0051128	regulation of cellular component organization	P	582	42	46	nan	nan	-2.29068239571	6.31208366109
+GO:0008652	cellular amino acid biosynthetic process	P	856	1154	222	nan	nan	-6.3454663196	7.01338529508
+GO:0046889	positive regulation of lipid biosynthetic process	P	26	10	7	nan	nan	-1.94301062714	4.43822341383
+GO:0051338	regulation of transferase activity	P	92	21	12	nan	nan	-1.25071129459	5.51300621546
+GO:0043632	modification-dependent macromolecule catabolic process	P	531	113	78	nan	nan	-3.10176689375	6.72894179043
+GO:0015267	channel activity	M	147	15	14	nan	nan	-1.09543313546	4.22494807889
+GO:0019693	ribose phosphate metabolic process	P	430	43	53	nan	nan	-4.12230250775	6.32909973901
+GO:2000241	regulation of reproductive process	P	640	156	80	nan	nan	-3.30545883365	6.86260929679
+GO:0016168	chlorophyll binding	M	24	73	16	nan	nan	-4.46260849889	6.33481696505
+GO:0016799	hydrolase activity, hydrolyzing N-glycosyl compounds	M	19	5	6	nan	nan	-0.61176098029	3.03315017762
+GO:0005829	cytosol	C	2806	1673	736	nan	nan	-6.93028170086	7.06567798273
+GO:0009117	nucleotide metabolic process	P	987	2457	249	nan	nan	-5.36639160748	7.0311594356
+GO:0009116	nucleoside metabolic process	P	254	23	27	nan	nan	-3.34093745269	5.89924700633
+GO:0071470	cellular response to osmotic stress	P	64	6	10	nan	nan	0.441941738242	nan
+GO:0009892	negative regulation of metabolic process	P	883	300	149	nan	nan	-5.56368271229	6.95453911286
+GO:0010117	photoprotection	P	10	5	4	nan	nan	-0.0931371653815	1.57470235283
+GO:0009926	auxin polar transport	P	239	49	46	nan	nan	-3.85572743545	6.52041430742
+GO:0006740	NADPH regeneration	P	280	2090	133	nan	nan	1.99007556102	7.03040796787
+GO:0048608	reproductive structure development	P	2318	692	456	nan	nan	-6.58586667257	7.05110023353
+GO:0048609	multicellular organismal reproductive process	P	632	39	57	nan	nan	-3.80239389818	5.50597761289
+GO:0005215	transporter activity	M	1289	294	227	nan	nan	-6.16826451594	7.02530997659
+GO:0031625	ubiquitin protein ligase binding	M	124	4	5	nan	nan	-1.91349835767	3.4278273002
+GO:0009941	chloroplast envelope	C	806	3528	302	nan	nan	-3.43365514896	7.0451791114
+GO:0022414	reproductive process	P	3187	1045	581	nan	nan	-6.77618400217	7.05446167759
+GO:0009746	response to hexose stimulus	P	389	94	69	nan	nan	-5.50062139634	6.8959566853
+GO:0009744	response to sucrose stimulus	P	430	319	86	nan	nan	-5.11665872367	6.9387967262
+GO:0009743	response to carbohydrate stimulus	P	811	459	159	nan	nan	-6.24452679003	7.00741969923
+GO:0009740	gibberellic acid mediated signaling pathway	P	137	16	20	nan	nan	-3.47340123352	5.34416091318
+GO:0009741	response to brassinosteroid stimulus	P	219	13	17	nan	nan	-2.40457426879	4.97736813471
+GO:0009749	response to glucose stimulus	P	212	24	19	nan	nan	-2.77692270924	5.79040123529
+GO:0008299	isoprenoid biosynthetic process	P	609	1617	212	nan	nan	-1.61531862591	7.02049957426
+GO:0019220	regulation of phosphate metabolic process	P	411	816	103	nan	nan	-5.3428302389	7.00885874296
+GO:0019222	regulation of metabolic process	P	3854	5386	1054	nan	nan	-6.96724850128	7.06720683219
+GO:2000030	regulation of response to red or far red light	P	38	5	9	nan	nan	0.36514837167	nan
+GO:1901564	organonitrogen compound metabolic process	P	2355	5734	663	nan	nan	-6.82412005328	7.06488613913
+GO:1901566	organonitrogen compound biosynthetic process	P	1615	2804	431	nan	nan	-6.41174661536	7.05625705021
+GO:0016757	transferase activity, transferring glycosyl groups	M	522	190	92	nan	nan	-4.91900134205	6.96826306674
+GO:0045491	xylan metabolic process	P	394	394	83	nan	nan	-4.8754019784	6.97229505364
+GO:0042157	lipoprotein metabolic process	P	254	16	22	nan	nan	-0.862057386682	5.75475815124
+GO:0042158	lipoprotein biosynthetic process	P	254	16	22	nan	nan	-0.984301216829	7.07106781187
+GO:0043543	protein acylation	P	291	17	24	nan	nan	-1.01937225997	6.31200945933
+GO:0043549	regulation of kinase activity	P	84	21	12	nan	nan	-1.05150477181	5.16965129529
+GO:0016571	histone methylation	P	424	273	72	nan	nan	0.839562728285	6.8268675777
+GO:0045727	positive regulation of translation	P	23	6	4	nan	nan	-1.25290360438	1.93666851358
+GO:0044270	cellular nitrogen compound catabolic process	P	626	86	102	nan	nan	-4.77535841803	6.83576531161
+GO:0012501	programmed cell death	P	173	8	14	nan	nan	0.493864798325	nan
+GO:0012505	endomembrane system	C	399	34	38	nan	nan	-5.20899843967	6.73344439904
+GO:0043094	cellular metabolic compound salvage	P	266	100	48	nan	nan	-4.53905551946	6.79779704599
+GO:0043090	amino acid import	P	278	24	28	nan	nan	-0.900249277081	4.54355614459
+GO:0031012	extracellular matrix	C	50	4	7	nan	nan	0.431331092814	nan
+GO:0009240	isopentenyl diphosphate biosynthetic process	P	352	1130	168	nan	nan	-1.03807523875	7.00498510853
+GO:0009247	glycolipid biosynthetic process	P	170	8	14	nan	nan	0.398862017609	nan
+GO:0044389	small conjugating protein ligase binding	M	124	4	5	nan	nan	-1.66360078371	2.73861278753
+GO:0036094	small molecule binding	M	3517	1571	687	nan	nan	-6.95067697473	7.06621403033
+GO:0008194	UDP-glycosyltransferase activity	M	243	63	38	nan	nan	-3.99442106028	6.62372548455
+GO:0004888	transmembrane signaling receptor activity	M	211	4	7	nan	nan	0.291729982996	nan
+GO:0080090	regulation of primary metabolic process	P	3164	2979	784	nan	nan	-6.92383165838	7.06288485398
+GO:0006820	anion transport	P	1092	244	187	nan	nan	-5.62226871381	6.96116219726
+GO:0006826	iron ion transport	P	203	32	27	nan	nan	-2.09935920723	6.03743932451
+GO:0016538	cyclin-dependent protein kinase regulator activity	M	26	15	9	nan	nan	0.0667651459734	4.03917404531
+GO:0070647	protein modification by small protein conjugation or removal	P	634	71	73	nan	nan	-4.95115038017	6.85707587251
+GO:0070646	protein modification by small protein removal	P	337	42	35	nan	nan	-3.83659086889	6.54214213317
+GO:0016246	RNA interference	P	293	13	19	nan	nan	0.654375839489	-0.141421356237
+GO:0000502	proteasome complex	C	71	8	8	nan	nan	-2.7141001382	4.77297527595
+GO:0019344	cysteine biosynthetic process	P	386	906	130	nan	nan	-5.59648267891	7.01265900043
+GO:0015144	carbohydrate transmembrane transporter activity	M	122	6	10	nan	nan	0.431331092814	nan
+GO:0016144	S-glycoside biosynthetic process	P	328	194	89	nan	nan	-3.98898956848	6.78402625766
+GO:0016143	S-glycoside metabolic process	P	375	234	100	nan	nan	-3.77078530301	6.88582802875
+GO:0005840	ribosome	C	480	443	151	nan	nan	-5.94516363275	6.99608035587
+GO:0046217	indole phytoalexin metabolic process	P	39	11	11	nan	nan	0.282031443036	3.63416329533
+GO:1901605	alpha-amino acid metabolic process	P	879	1066	221	nan	nan	-6.26519680252	7.01082072691
+GO:1901607	alpha-amino acid biosynthetic process	P	645	952	162	nan	nan	-6.12521097624	7.00185334207
+GO:1901606	alpha-amino acid catabolic process	P	280	45	56	nan	nan	-2.24682273068	6.101618296
+GO:0030001	metal ion transport	P	999	540	220	nan	nan	-6.71024585523	7.02732439
+GO:0030003	cellular cation homeostasis	P	390	209	64	nan	nan	-2.72711364114	6.77000184664
+GO:0003680	AT DNA binding	M	6	7	6	nan	nan	-2.44756801704	3.60019859387
+GO:0048442	sepal development	P	108	5	5	nan	nan	0.227506037655	1.41421356237
+GO:0048443	stamen development	P	354	27	35	nan	nan	-0.510580001308	4.94974746831
+GO:0048440	carpel development	P	339	30	39	nan	nan	0.379267353374	1.80277563773
+GO:0048441	petal development	P	166	7	9	nan	nan	-0.951163520056	3.4278273002
+GO:0048446	petal morphogenesis	P	117	6	7	nan	nan	-0.429221004949	2.73861278753
+GO:0048447	sepal morphogenesis	P	102	5	5	nan	nan	0.127688479614	1.62568666811
+GO:0048444	floral organ morphogenesis	P	305	31	27	nan	nan	0.593659329498	5.26005708456
+GO:0048449	floral organ formation	P	264	29	23	nan	nan	1.28441005623	5.41323656866
+GO:0009902	chloroplast relocation	P	148	447	78	nan	nan	1.47474077577	6.85746680662
+GO:0009908	flower development	P	1079	144	147	nan	nan	-4.40508429094	6.8551640876
+GO:0009909	regulation of flower development	P	533	142	68	nan	nan	-2.15100067049	6.63413687141
+GO:0048193	Golgi vesicle transport	P	747	124	104	nan	nan	-5.86060119062	6.93268303423
+GO:0009765	photosynthesis, light harvesting	P	42	146	26	nan	nan	-4.02878809583	6.49305171946
+GO:0009767	photosynthetic electron transport chain	P	76	671	58	nan	nan	-2.69979057511	6.98837019008
+GO:0060089	molecular transducer activity	M	443	27	38	nan	nan	-1.48171113377	5.3235666095
+GO:0010638	positive regulation of organelle organization	P	313	20	25	nan	nan	-2.52234760107	5.74322464255
+GO:0044036	cell wall macromolecule metabolic process	P	634	460	129	nan	nan	-5.70777362106	6.9434317632
+GO:0071900	regulation of protein serine/threonine kinase activity	P	80	21	12	nan	nan	-1.60471408548	5.62394482235
+GO:0044038	cell wall macromolecule biosynthetic process	P	395	393	84	nan	nan	-4.3168566104	6.94131467877
+GO:0016779	nucleotidyltransferase activity	M	164	7	12	nan	nan	0.441941738242	nan
+GO:0016773	phosphotransferase activity, alcohol group as acceptor	M	1374	200	177	nan	nan	-3.55031234425	6.80073784922
+GO:0016772	transferase activity, transferring phosphorus-containing groups	M	1682	296	228	nan	nan	-5.26671062803	6.99419980961
+GO:0019243	methylglyoxal catabolic process to D-lactate	P	97	5	9	nan	nan	0.20203050891	nan
+GO:1901565	organonitrogen compound catabolic process	P	659	133	148	nan	nan	-4.67375817982	6.88710679067
+GO:0042170	plastid membrane	C	132	26	18	nan	nan	-0.624113182787	4.73911254735
+GO:0043565	sequence-specific DNA binding	M	368	133	79	nan	nan	-4.06119630199	6.74651015395
+GO:0016558	protein import into peroxisome matrix	P	159	7	13	nan	nan	0.141421356237	nan
+GO:0016556	mRNA modification	P	249	103	46	nan	nan	-3.55468509446	6.6243797742
+GO:0019866	organelle inner membrane	C	303	47	37	nan	nan	-2.36317425342	5.70949915987
+GO:0001883	purine nucleoside binding	M	2529	764	447	nan	nan	-6.72481445871	7.05416207269
+GO:0045814	negative regulation of gene expression, epigenetic	P	418	151	66	nan	nan	-1.6633376896	6.68791665567
+GO:0006468	protein phosphorylation	P	1338	307	209	nan	nan	-5.59651358425	7.01632775658
+GO:0006461	protein complex assembly	P	735	2435	231	nan	nan	-6.35367833799	7.04147204614
+GO:0009220	pyrimidine ribonucleotide biosynthetic process	P	199	17	23	nan	nan	0.389385820893	2.16024689947
+GO:0006464	cellular protein modification process	P	2986	1337	586	nan	nan	-6.85470210312	7.06331955684
+GO:0010383	cell wall polysaccharide metabolic process	P	517	425	104	nan	nan	-5.11261204469	6.96472210031
+GO:0010389	regulation of G2/M transition of mitotic cell cycle	P	94	115	29	nan	nan	3.41456719801	6.09944439788
+GO:0035194	posttranscriptional gene silencing by RNA	P	308	15	22	nan	nan	0.584897651866	-0.20203050891
+GO:0035195	gene silencing by miRNA	P	220	7	12	nan	nan	0.403567156136	nan
+GO:0035196	production of miRNAs involved in gene silencing by miRNA	P	213	5	9	nan	nan	0.329690236698	nan
+GO:0048856	anatomical structure development	P	4529	3630	1148	nan	nan	-6.97771329944	7.06876110457
+GO:0009595	detection of biotic stimulus	P	309	232	90	nan	nan	-6.04994309506	6.95568124161
+GO:0050801	ion homeostasis	P	466	233	75	nan	nan	-3.29920950497	6.77195980156
+GO:0000151	ubiquitin ligase complex	C	238	17	26	nan	nan	-1.421548563	4.94974746831
+GO:0004312	fatty acid synthase activity	M	29	4	7	nan	nan	0.329690236698	nan
+GO:0033044	regulation of chromosome organization	P	233	7	12	nan	nan	0.378810979048	nan
+GO:0022607	cellular component assembly	P	1192	3005	327	nan	nan	-6.51661881986	7.05285156943
+GO:0016126	sterol biosynthetic process	P	329	113	77	nan	nan	-1.49680555829	6.59403903868
+GO:0016125	sterol metabolic process	P	344	114	78	nan	nan	-1.56026666225	6.5071512012
+GO:0016128	phytosteroid metabolic process	P	286	51	46	nan	nan	-0.583727929932	5.88722968434
+GO:0016129	phytosteroid biosynthetic process	P	285	51	46	nan	nan	-0.469577405801	5.63437775848
+GO:0007033	vacuole organization	P	127	6	12	nan	nan	nan	nan
+GO:0007030	Golgi organization	P	429	97	82	nan	nan	-2.42720379968	6.71389991011
+GO:0007031	peroxisome organization	P	196	10	18	nan	nan	0.234888087806	nan
+GO:0007034	vacuolar transport	P	205	5	9	nan	nan	0.398862017609	nan
+GO:0009067	aspartate family amino acid biosynthetic process	P	202	10	15	nan	nan	-2.90346193111	4.0
+GO:0030243	cellulose metabolic process	P	351	103	59	nan	nan	-4.74464284464	6.78366115389
+GO:0030246	carbohydrate binding	M	267	9	15	nan	nan	0.50262468995	nan
+GO:0030244	cellulose biosynthetic process	P	183	33	25	nan	nan	-3.92133415845	6.44694962867
+GO:0009069	serine family amino acid metabolic process	P	490	977	151	nan	nan	-5.76075263586	7.02223739103
+GO:0010026	trichome differentiation	P	353	17	23	nan	nan	-1.22283766306	4.0
+GO:0030029	actin filament-based process	P	472	35	42	nan	nan	-2.48535283816	6.21945641073
+GO:0042343	indole glucosinolate metabolic process	P	48	6	9	nan	nan	-2.78112613462	7.07106781187
+GO:0006259	DNA metabolic process	P	990	540	148	nan	nan	-3.01927034103	6.98168117751
+GO:0048466	androecium development	P	354	27	35	nan	nan	-0.818058711652	4.74453773279
+GO:0048467	gynoecium development	P	364	30	39	nan	nan	0.411331828108	1.54919333848
+GO:0005783	endoplasmic reticulum	C	806	98	120	nan	nan	-5.77086388127	6.95690230815
+GO:0048468	cell development	P	1385	418	198	nan	nan	-5.58044526089	7.02528944573
+GO:0048469	cell maturation	P	896	309	135	nan	nan	-4.49898656123	6.92346069492
+GO:0005788	endoplasmic reticulum lumen	C	27	5	6	nan	nan	-0.64614930005	4.0
+GO:0009967	positive regulation of signal transduction	P	74	6	10	nan	nan	0.836660026534	nan
+GO:0009965	leaf morphogenesis	P	299	141	68	nan	nan	-1.00922204881	6.54892202118
+GO:0006787	porphyrin-containing compound catabolic process	P	98	9	15	nan	nan	0.311085508419	nan
+GO:0009963	positive regulation of flavonoid biosynthetic process	P	263	32	35	nan	nan	-0.67784568478	4.94974746831
+GO:0009960	endosperm development	P	64	4	8	nan	nan	nan	nan
+GO:0006073	cellular glucan metabolic process	P	757	578	200	nan	nan	-6.08177490533	7.02234681584
+GO:0000097	sulfur amino acid biosynthetic process	P	535	933	153	nan	nan	-6.03241711154	7.01130438023
+GO:0000096	sulfur amino acid metabolic process	P	593	973	167	nan	nan	-6.25909773725	7.00376129395
+GO:0042752	regulation of circadian rhythm	P	64	8	9	nan	nan	0.291729982996	3.03315017762
+GO:0010393	galacturonan metabolic process	P	159	39	29	nan	nan	-3.00670151271	6.08120343397
+GO:0010243	response to organic nitrogen	P	979	1024	226	nan	nan	-5.58788176572	7.02166075471
+GO:0009838	abscission	P	58	7	13	nan	nan	0.431331092814	nan
+GO:0005528	FK506 binding	M	20	9	7	nan	nan	1.03440102605	3.71912763322
+GO:0042446	hormone biosynthetic process	P	533	82	93	nan	nan	-3.05489909204	6.26665638839
+GO:0048645	organ formation	P	368	33	31	nan	nan	-0.0507423125157	4.93910804434
+GO:0005524	ATP binding	M	2145	546	355	nan	nan	-6.62097411837	7.04491771178
+GO:0005525	GTP binding	M	255	31	35	nan	nan	-2.66062566944	5.80337334111
+GO:0046907	intracellular transport	P	2345	1074	480	nan	nan	-6.90738382262	7.06118463559
+GO:0046906	tetrapyrrole binding	M	289	131	64	nan	nan	-5.49635278058	6.86261789758
+GO:0032504	multicellular organism reproduction	P	665	40	59	nan	nan	-4.21309463552	7.07106781187
+GO:0032508	DNA duplex unwinding	P	13	9	5	nan	nan	-1.27663340873	3.79488808875
+GO:0016717	oxidoreductase activity, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water	M	17	4	7	nan	nan	0.431331092814	nan
+GO:0000956	nuclear-transcribed mRNA catabolic process	P	202	20	21	nan	nan	-0.570437333748	4.73698649944
+GO:0034220	ion transmembrane transport	P	222	26	23	nan	nan	-1.20710931023	4.95646846398
+GO:0034599	cellular response to oxidative stress	P	186	33	26	nan	nan	-0.948261239867	4.96333864842
+GO:0015977	carbon fixation	P	17	14	9	nan	nan	-1.64093895269	4.64772874515
+GO:0015979	photosynthesis	P	432	6910	262	nan	nan	1.74751675399	7.06158638067
+GO:0044419	interspecies interaction between organisms	P	252	9	14	nan	nan	0.490610171125	nan
+GO:0045834	positive regulation of lipid metabolic process	P	26	10	7	nan	nan	-1.80649875989	5.3559842386
+GO:0009207	purine ribonucleoside triphosphate catabolic process	P	121	10	14	nan	nan	-1.54016006417	4.94974746831
+GO:0009206	purine ribonucleoside triphosphate biosynthetic process	P	78	7	5	nan	nan	1.00768498375	2.77450978376
+GO:0009205	purine ribonucleoside triphosphate metabolic process	P	187	20	22	nan	nan	-2.63770900909	5.77234787586
+GO:0009201	ribonucleoside triphosphate biosynthetic process	P	78	7	5	nan	nan	1.03549791376	2.81439017892
+GO:0046129	purine ribonucleoside biosynthetic process	P	99	7	5	nan	nan	1.07719026949	2.75142155605
+GO:0046128	purine ribonucleoside metabolic process	P	226	23	27	nan	nan	-3.48696722057	6.21945641073
+GO:0005694	chromosome	C	171	23	22	nan	nan	-1.21157128347	4.94444444444
+GO:0048878	chemical homeostasis	P	535	240	83	nan	nan	-3.36286349848	6.8966863946
+GO:0065003	macromolecular complex assembly	P	800	2446	236	nan	nan	-6.227025351	7.04057843535
+GO:0065002	intracellular protein transmembrane transport	P	202	11	18	nan	nan	-3.47182537415	7.07106781187
+GO:0065001	specification of axis polarity	P	194	11	19	nan	nan	0.441941738242	nan
+GO:0065009	regulation of molecular function	P	549	401	115	nan	nan	-6.16682391814	7.00010808344
+GO:0065008	regulation of biological quality	P	1863	848	414	nan	nan	-6.62279202415	7.04999966755
+GO:0052386	cell wall thickening	P	126	23	21	nan	nan	-2.81340917092	6.05580392632
+GO:0051325	interphase	P	183	49	23	nan	nan	-2.90274617344	5.91077695152
+GO:0009718	anthocyanin-containing compound biosynthetic process	P	80	12	8	nan	nan	-1.05053239429	4.4823969872
+GO:0016117	carotenoid biosynthetic process	P	174	279	66	nan	nan	-0.782068617793	6.77074762197
+GO:0045165	cell fate commitment	P	86	6	7	nan	nan	-0.359752575313	2.50713268211
+GO:0000139	Golgi membrane	C	81	11	9	nan	nan	-1.90405926801	5.50905919866
+GO:0004332	fructose-bisphosphate aldolase activity	M	8	4	4	nan	nan	0.680231655513	1.90692517849
+GO:0006869	lipid transport	P	184	11	17	nan	nan	-0.787194176044	7.07106781187
+GO:0045229	external encapsulating structure organization	P	1233	442	226	nan	nan	-4.72250714178	6.99394814249
+GO:0045596	negative regulation of cell differentiation	P	110	4	6	nan	nan	0.637193092864	nan
+GO:0045595	regulation of cell differentiation	P	261	13	22	nan	nan	0.311085508419	nan
+GO:0051093	negative regulation of developmental process	P	245	19	28	nan	nan	-2.44314225934	7.07106781187
+GO:0032268	regulation of cellular protein metabolic process	P	459	906	118	nan	nan	-5.43133749891	7.01652576774
+GO:0051094	positive regulation of developmental process	P	99	4	7	nan	nan	0.462910049886	nan
+GO:0051540	metal cluster binding	M	94	14	12	nan	nan	0.982721668805	3.52849899304
+GO:0071554	cell wall organization or biogenesis	P	1690	1307	379	nan	nan	-6.66526904022	7.05178226875
+GO:0071555	cell wall organization	P	1150	434	216	nan	nan	-4.69886973712	6.97920220857
+GO:0010467	gene expression	P	1807	4193	529	nan	nan	-6.67042983986	7.0551436221
+GO:0015103	inorganic anion transmembrane transporter activity	M	120	5	10	nan	nan	nan	nan
+GO:0010468	regulation of gene expression	P	2751	1470	638	nan	nan	-6.95689641053	7.06029291787
+GO:0019104	DNA N-glycosylase activity	M	16	5	6	nan	nan	-0.627405684049	3.03315017762
+GO:0005886	plasma membrane	C	4177	2271	1004	nan	nan	-6.95739253634	7.06696425459
+GO:0007015	actin filament organization	P	299	24	28	nan	nan	-2.86211783923	5.82753519668
+GO:0007017	microtubule-based process	P	582	408	127	nan	nan	-3.066373607	6.87186534672
+GO:0007010	cytoskeleton organization	P	929	433	163	nan	nan	-4.48931657143	6.97535870362
+GO:0032993	protein-DNA complex	C	40	7	10	nan	nan	0.812003248019	-0.20203050891
+GO:0007018	microtubule-based movement	P	91	38	30	nan	nan	0.602114048188	5.39305180097
+GO:0004252	serine-type endopeptidase activity	M	105	5	9	nan	nan	0.25	nan
+GO:0052018	modulation by symbiont of RNA levels in host	P	195	5	10	nan	nan	nan	nan
+GO:0016108	tetraterpenoid metabolic process	P	180	279	66	nan	nan	-0.805480720409	6.83438518335
+GO:0016109	tetraterpenoid biosynthetic process	P	174	279	66	nan	nan	-0.868468631986	6.66896080509
+GO:0016458	gene silencing	P	592	224	86	nan	nan	-4.18428816656	6.79189064841
+GO:0030599	pectinesterase activity	M	83	9	11	nan	nan	-0.37512212995	4.94974746831
+GO:0042325	regulation of phosphorylation	P	94	21	12	nan	nan	-1.29846308584	5.48631255946
+GO:0010120	camalexin biosynthetic process	P	37	11	11	nan	nan	0.246159113141	3.66816221189
+GO:0006270	DNA replication initiation	P	85	73	26	nan	nan	2.54913956073	5.64445221075
+GO:0009164	nucleoside catabolic process	P	125	10	14	nan	nan	-1.84808526905	4.0
+GO:0006275	regulation of DNA replication	P	180	210	42	nan	nan	3.75884242752	6.76980810554
+GO:0009165	nucleotide biosynthetic process	P	491	54	56	nan	nan	-4.74485985172	6.46312617856
+GO:0043331	response to dsRNA	P	228	6	10	nan	nan	0.472490457546	nan
+GO:0044281	small molecule metabolic process	P	3994	9186	1202	nan	nan	-6.96685266744	7.06779157725
+GO:0044282	small molecule catabolic process	P	674	113	122	nan	nan	-5.37245923294	6.87360702091
+GO:0009887	organ morphogenesis	P	837	237	144	nan	nan	-4.20972846885	6.90193426914
+GO:0000303	response to superoxide	P	148	14	15	nan	nan	-1.53719934445	4.2177569494
+GO:0000302	response to reactive oxygen species	P	786	147	120	nan	nan	-5.89646710844	6.96932976711
+GO:0009886	post-embryonic morphogenesis	P	805	334	133	nan	nan	-4.73606808167	6.9474322227
+GO:0009943	adaxial/abaxial axis specification	P	192	11	19	nan	nan	0.462910049886	nan
+GO:0009944	polarity specification of adaxial/abaxial axis	P	192	11	19	nan	nan	0.383717687635	-0.141421356237
+GO:0009699	phenylpropanoid biosynthetic process	P	385	91	64	nan	nan	-4.63812828951	6.82076450037
+GO:0010260	organ senescence	P	191	14	18	nan	nan	-3.01997090259	5.89208047958
+GO:0010267	production of ta-siRNAs involved in RNA interference	P	189	5	9	nan	nan	0.291729982996	nan
+GO:0010264	myo-inositol hexakisphosphate biosynthetic process	P	79	24	14	nan	nan	0.641019604716	4.61840168513
+GO:0097305	response to alcohol	P	1250	417	224	nan	nan	-5.1454940369	6.97310400762
+GO:0097306	cellular response to alcohol	P	611	213	100	nan	nan	-1.8451076343	6.76473750387
+GO:0009410	response to xenobiotic stimulus	P	96	8	12	nan	nan	-3.82684126116	7.07106781187
+GO:0009411	response to UV	P	463	197	111	nan	nan	-4.85171165843	6.875520352
+GO:0009416	response to light stimulus	P	1919	2123	458	nan	nan	-6.77066024364	7.0480787317
+GO:0009414	response to water deprivation	P	749	298	176	nan	nan	-5.38433316774	6.95652345813
+GO:0009415	response to water stimulus	P	754	298	176	nan	nan	-5.54237862702	6.96301588732
+GO:0005509	calcium ion binding	M	237	38	29	nan	nan	-1.82904445344	6.2580901235
+GO:0005506	iron ion binding	M	277	30	38	nan	nan	-2.74407765169	6.29948154549
+GO:0005507	copper ion binding	M	299	51	43	nan	nan	-3.21483607949	6.41745064484
+GO:0071944	cell periphery	C	4776	3306	1270	nan	nan	-7.00203502376	7.06868240061
+GO:0070013	intracellular organelle lumen	C	739	189	127	nan	nan	-5.43002387751	6.93297123169
+GO:0070011	peptidase activity, acting on L-amino acid peptides	M	468	76	73	nan	nan	-2.51844085354	6.47182512745
+GO:0016597	amino acid binding	M	78	6	10	nan	nan	0.472490457546	nan
+GO:0019827	stem cell maintenance	P	89	4	6	nan	nan	0.790466603491	nan
+GO:0019825	oxygen binding	M	150	17	23	nan	nan	-2.83716077179	6.31200945933
+GO:0030968	endoplasmic reticulum unfolded protein response	P	397	93	66	nan	nan	-0.903009644259	6.31223434221
+GO:0046490	isopentenyl diphosphate metabolic process	P	352	1130	168	nan	nan	-0.836591426557	7.01385559357
+GO:0046496	nicotinamide nucleotide metabolic process	P	294	2090	133	nan	nan	1.51074857205	7.03149910468
+GO:0044432	endoplasmic reticulum part	C	164	8	12	nan	nan	-1.58276803075	7.07106781187
+GO:0044431	Golgi apparatus part	C	131	13	13	nan	nan	-2.58918374883	6.18791483076
+GO:0044430	cytoskeletal part	C	181	24	23	nan	nan	-3.66306613334	6.09413931257
+GO:0044437	vacuolar part	C	951	207	193	nan	nan	-5.26453477153	6.97321935252
+GO:0044436	thylakoid part	C	433	4870	225	nan	nan	1.50611319382	7.05568600787
+GO:0009880	embryonic pattern specification	P	107	5	9	nan	nan	0.329690236698	nan
+GO:0009889	regulation of biosynthetic process	P	2915	1643	689	nan	nan	-6.94351806186	7.0653454949
+GO:0009888	tissue development	P	1898	743	332	nan	nan	-5.98547307486	7.02850819387
+GO:0046149	pigment catabolic process	P	95	9	15	nan	nan	0.532500748337	nan
+GO:0046148	pigment biosynthetic process	P	367	1010	124	nan	nan	-0.684646422843	6.98948522788
+GO:0008135	translation factor activity, nucleic acid binding	M	143	9	14	nan	nan	0.679946566733	-0.141421356237
+GO:0070838	divalent metal ion transport	P	463	307	112	nan	nan	-5.81522538677	6.94196268489
+GO:0009086	methionine biosynthetic process	P	180	10	15	nan	nan	-3.66816221189	7.07106781187
+GO:0070482	response to oxygen levels	P	170	22	26	nan	nan	-2.52198884401	6.0764362025
+GO:0009629	response to gravity	P	339	22	32	nan	nan	-0.99896854021	4.94974746831
+GO:0009628	response to abiotic stimulus	P	4212	5386	1186	nan	nan	-6.98322207772	7.06732665634
+GO:0009620	response to fungus	P	1112	732	235	nan	nan	-6.41726496776	7.02877909201
+GO:0009627	systemic acquired resistance	P	1081	579	236	nan	nan	-6.37293996205	7.0314084781
+GO:0009626	plant-type hypersensitive response	P	135	6	10	nan	nan	0.50262468995	nan
+GO:0010197	polar nucleus fusion	P	46	6	9	nan	nan	-3.24961536185	4.94974746831
+GO:0010196	nonphotochemical quenching	P	6	8	5	nan	nan	-0.189706309029	2.34312861017
+GO:0010191	mucilage metabolic process	P	70	16	13	nan	nan	-2.99029007884	5.47342590371
+GO:0010193	response to ozone	P	139	7	13	nan	nan	0.20203050891	nan
+GO:0010192	mucilage biosynthetic process	P	57	11	9	nan	nan	-2.35339362166	5.46438277425
+GO:0051567	histone H3-K9 methylation	P	287	267	61	nan	nan	2.02433146119	6.68640655412
+GO:0033554	cellular response to stress	P	2056	710	413	nan	nan	-6.59902416272	7.04145648011
+GO:0033559	unsaturated fatty acid metabolic process	P	130	107	43	nan	nan	-2.41671283124	6.37856881303
+GO:0000325	plant-type vacuole	C	202	13	20	nan	nan	-1.57393542665	4.0
+GO:0031334	positive regulation of protein complex assembly	P	244	15	18	nan	nan	-2.35834029884	4.84229444933
+GO:0090332	stomatal closure	P	25	5	5	nan	nan	0.178841645608	2.31840462387
+GO:0010205	photoinhibition	P	13	4	6	nan	nan	0.571771874897	nan
+GO:0050776	regulation of immune response	P	1044	542	209	nan	nan	-6.50339892892	7.01325736956
+GO:0010200	response to chitin	P	947	1020	222	nan	nan	-5.55918618719	7.00682272509
+GO:0005740	mitochondrial envelope	C	273	23	29	nan	nan	-2.04917804222	4.74453773279
+GO:0005746	mitochondrial respiratory chain	C	84	7	10	nan	nan	0.641766629531	-0.20203050891
+GO:0022838	substrate-specific channel activity	M	146	15	14	nan	nan	-1.53740202041	4.70268221857
+GO:0009438	methylglyoxal metabolic process	P	98	5	9	nan	nan	0.398862017609	nan
+GO:0046943	carboxylic acid transmembrane transporter activity	M	102	6	11	nan	nan	0.25	nan
+GO:0006984	ER-nucleus signaling pathway	P	415	99	69	nan	nan	-0.389411600178	6.50497889336
+GO:0006986	response to unfolded protein	P	400	93	66	nan	nan	-0.777755210504	6.28788247028
+GO:0000910	cytokinesis	P	439	368	88	nan	nan	1.53851406999	6.89391437942
+GO:0000911	cytokinesis by cell plate formation	P	409	342	82	nan	nan	1.10818161155	6.86482001181
+GO:0032549	ribonucleoside binding	M	2536	768	448	nan	nan	-6.84539689998	7.05727253307
+GO:0015931	nucleobase-containing compound transport	P	292	14	18	nan	nan	0.169595122091	3.4278273002
+GO:0015934	large ribosomal subunit	C	162	78	48	nan	nan	-4.14180176825	6.49900104658
+GO:0015935	small ribosomal subunit	C	117	35	25	nan	nan	-0.342407289555	4.79984396722
+GO:0044455	mitochondrial membrane part	C	152	15	19	nan	nan	-0.773419554208	4.45102900382
+GO:0044451	nucleoplasm part	C	176	5	7	nan	nan	-2.78599895601	7.07106781187
+GO:0044459	plasma membrane part	C	347	40	32	nan	nan	-3.43983892242	6.15550264121
+GO:0046165	alcohol biosynthetic process	P	578	181	125	nan	nan	-3.79588556513	6.86061103596
+GO:0030414	peptidase inhibitor activity	M	22	4	6	nan	nan	0.942809041582	nan
+GO:0009625	response to insect	P	119	20	16	nan	nan	-3.38124540672	5.86276141538
+GO:0009624	response to nematode	P	245	9	12	nan	nan	-2.43341576719	6.31200945933
+GO:0006152	purine nucleoside catabolic process	P	124	10	14	nan	nan	-1.43527000944	4.94974746831
+GO:0006401	RNA catabolic process	P	210	20	21	nan	nan	-0.403897665479	3.45257640123
+GO:0009606	tropism	P	333	21	30	nan	nan	-0.636856806652	3.03315017762
+GO:0009605	response to external stimulus	P	1542	657	331	nan	nan	-6.24310333317	7.04592615972
+GO:0019320	hexose catabolic process	P	861	2348	245	nan	nan	-5.62152872277	7.03422263139
+GO:0008017	microtubule binding	M	61	7	8	nan	nan	-1.28698375394	5.3235666095
+GO:0032956	regulation of actin cytoskeleton organization	P	257	15	18	nan	nan	-2.23552733484	5.34416091318
+GO:0007059	chromosome segregation	P	288	14	21	nan	nan	0.56706720712	nan
+GO:0016679	oxidoreductase activity, acting on diphenols and related substances as donors	M	54	5	9	nan	nan	0.329690236698	nan
+GO:0051174	regulation of phosphorus metabolic process	P	411	816	103	nan	nan	-5.27966237381	6.98920366727
+GO:0010440	stomatal lineage progression	P	62	11	6	nan	nan	-2.27967703289	3.78729199542
+GO:1901681	sulfur compound binding	M	41	5	8	nan	nan	0.624134157249	nan
+GO:0043481	anthocyanin accumulation in tissues in response to UV light	P	280	136	64	nan	nan	-2.82151348613	6.73298933981
+GO:0043480	pigment accumulation in tissues	P	280	136	64	nan	nan	-2.50675260941	6.68340565001
+GO:0072511	divalent inorganic cation transport	P	465	307	112	nan	nan	-5.68153405882	6.95797460754
+GO:0006098	pentose-phosphate shunt	P	278	2029	131	nan	nan	1.26091825512	7.03178010773
+GO:0006091	generation of precursor metabolites and energy	P	863	5971	321	nan	nan	-4.1479892301	7.05409827271
+GO:0006090	pyruvate metabolic process	P	346	1128	165	nan	nan	-0.880009418623	6.98295194001
+GO:0006096	glycolysis	P	440	76	67	nan	nan	-5.03763426845	6.91582884308
+GO:0006094	gluconeogenesis	P	303	30	38	nan	nan	-2.10271227037	4.97736813471
+GO:0009827	plant-type cell wall modification	P	389	26	27	nan	nan	-0.34549054734	5.877262731
+GO:0010228	vegetative to reproductive phase transition of meristem	P	744	130	108	nan	nan	-6.2282152939	6.98953096565
+GO:0010227	floral organ abscission	P	44	5	9	nan	nan	0.329690236698	nan
+GO:0010224	response to UV-B	P	156	29	25	nan	nan	-2.70253607416	5.90753215566
+GO:0022857	transmembrane transporter activity	M	1037	227	186	nan	nan	-6.09875294258	6.94890211536
+GO:0005768	endosome	C	480	81	72	nan	nan	-4.53494226661	6.79399110496
+GO:0004497	monooxygenase activity	M	108	10	14	nan	nan	-3.13221621909	7.07106781187
+GO:0009451	RNA modification	P	577	230	121	nan	nan	-5.31268093366	6.97115355402
+GO:0001510	RNA methylation	P	274	125	71	nan	nan	-1.07829204573	6.46529796498
+GO:0051179	localization	P	4860	5333	1330	nan	nan	-7.01533835333	7.06831072134
+GO:0051241	negative regulation of multicellular organismal process	P	130	11	16	nan	nan	-1.33771210812	4.94974746831
+GO:0051246	regulation of protein metabolic process	P	478	911	123	nan	nan	-5.68680562643	7.00329989045
+GO:0051247	positive regulation of protein metabolic process	P	40	7	6	nan	nan	-1.77938404972	3.16463189922
+GO:0032561	guanyl ribonucleotide binding	M	255	31	35	nan	nan	-2.91856959303	5.44642556195
+GO:0033218	amide binding	M	61	6	9	nan	nan	0.654375839489	-0.141421356237
+GO:0046365	monosaccharide catabolic process	P	861	2348	245	nan	nan	-5.66714488576	7.0441456402
+GO:0046364	monosaccharide biosynthetic process	P	324	30	38	nan	nan	-2.22917006499	4.69171558409
+GO:0046185	aldehyde catabolic process	P	100	5	9	nan	nan	0.291729982996	nan
+GO:0048527	lateral root development	P	246	13	18	nan	nan	-2.02245509729	4.45102900382
+GO:0006399	tRNA metabolic process	P	136	17	21	nan	nan	0.91895083528	3.03315017762
+GO:0006396	RNA processing	P	1143	2777	270	nan	nan	-6.51366352115	7.05395220543
+GO:0043295	glutathione binding	M	30	5	8	nan	nan	0.514259477227	nan
+GO:0048589	developmental growth	P	1095	396	175	nan	nan	-4.89790570392	6.96232817008
+GO:0048588	developmental cell growth	P	876	268	129	nan	nan	-4.14076068963	6.9001410013
+GO:0048585	negative regulation of response to stimulus	P	796	507	177	nan	nan	-5.96740600628	7.01826495087
+GO:0048584	positive regulation of response to stimulus	P	293	15	25	nan	nan	0.511019866882	-0.141421356237
+GO:0048583	regulation of response to stimulus	P	1515	882	325	nan	nan	-6.47251670823	7.0481634356
+GO:0048581	negative regulation of post-embryonic development	P	122	10	14	nan	nan	-1.57727767944	4.0
+GO:0048580	regulation of post-embryonic development	P	711	184	102	nan	nan	-3.87816697268	6.92950019538
+GO:0042538	hyperosmotic salinity response	P	349	81	65	nan	nan	-1.82142822349	6.3846608073
+GO:0042537	benzene-containing compound metabolic process	P	678	480	156	nan	nan	-6.12729711499	7.01876873782
+GO:0009845	seed germination	P	316	18	28	nan	nan	-2.06928327124	4.94974746831
+GO:0009846	pollen germination	P	100	15	11	nan	nan	-2.47116996694	5.38025318217
+GO:0048767	root hair elongation	P	544	196	93	nan	nan	-2.78363037165	6.76798728523
+GO:0048765	root hair cell differentiation	P	896	309	135	nan	nan	-4.48483148087	6.91182322334
+GO:0048764	trichoblast maturation	P	896	309	135	nan	nan	-4.50359435901	6.9368020495
+GO:0048768	root hair cell tip growth	P	48	4	6	nan	nan	0.760529027487	nan
+GO:0042451	purine nucleoside biosynthetic process	P	99	7	5	nan	nan	1.00583998767	2.88617393793
+GO:0042455	ribonucleoside biosynthetic process	P	107	7	5	nan	nan	0.978534949803	2.3908633791
+GO:0042454	ribonucleoside catabolic process	P	125	10	14	nan	nan	-1.18574030312	4.94974746831
+GO:0015204	urea transmembrane transporter activity	M	13	4	6	nan	nan	0.595879571531	nan
+GO:0070918	production of small RNA involved in gene silencing by RNA	P	228	6	10	nan	nan	0.398862017609	nan
+GO:0009664	plant-type cell wall organization	P	749	209	124	nan	nan	-3.69544775989	6.80557739415
+GO:0044271	cellular nitrogen compound biosynthetic process	P	1528	1466	374	nan	nan	-6.01038842057	7.03956708883
+GO:0036293	response to decreased oxygen levels	P	170	22	26	nan	nan	-2.50964714982	5.77234787586
+GO:0009668	plastid membrane organization	P	299	1043	146	nan	nan	-0.281390912973	6.9511811172
+GO:0036294	cellular response to decreased oxygen levels	P	57	8	10	nan	nan	-0.714760595294	2.73861278753
+GO:0019207	kinase regulator activity	M	40	15	9	nan	nan	0.121345263418	4.92022771829
+GO:0001708	cell fate specification	P	76	6	7	nan	nan	-0.657240779901	2.73861278753
+GO:0032970	regulation of actin filament-based process	P	257	15	18	nan	nan	-2.46366443042	5.34416091318
+GO:0033517	myo-inositol hexakisphosphate metabolic process	P	79	24	14	nan	nan	0.636655845838	4.42345901332
+GO:2000280	regulation of root development	P	57	5	4	nan	nan	0.134030115483	1.60188568127
+GO:0016655	oxidoreductase activity, acting on NAD(P)H, quinone or similar compound as acceptor	M	31	7	9	nan	nan	-0.440044006601	4.0
+GO:0035967	cellular response to topologically incorrect protein	P	400	93	66	nan	nan	-1.07516178725	6.14782787013
+GO:0016651	oxidoreductase activity, acting on NAD(P)H	M	98	16	12	nan	nan	-0.954872052385	4.99271136639
+GO:0004222	metalloendopeptidase activity	M	50	9	10	nan	nan	0.544556040715	2.16024689947
+GO:0043467	regulation of generation of precursor metabolites and energy	P	25	11	9	nan	nan	-0.00945185494905	3.51910542888
+GO:0040008	regulation of growth	P	662	190	128	nan	nan	-2.88620832118	6.88281409094
+GO:0034765	regulation of ion transmembrane transport	P	152	38	15	nan	nan	-2.80941274892	5.90694963353
+GO:0034762	regulation of transmembrane transport	P	152	38	15	nan	nan	-2.85466403372	5.78883764738
+GO:0051790	short-chain fatty acid biosynthetic process	P	180	10	15	nan	nan	-2.29415733871	3.4278273002
+GO:0060255	regulation of macromolecule metabolic process	P	2962	2628	718	nan	nan	-6.86412872497	7.0628791101
+GO:0006612	protein targeting to membrane	P	972	534	196	nan	nan	-6.16645186745	7.03221678513
+GO:0055035	plastid thylakoid membrane	C	362	4343	196	nan	nan	0.497530477613	7.0594204454
+GO:0023056	positive regulation of signaling	P	74	6	10	nan	nan	0.493864798325	nan
+GO:0023052	signaling	P	2837	1884	643	nan	nan	-6.72941804365	7.06418653548
+GO:0023051	regulation of signaling	P	282	27	30	nan	nan	-2.77871892386	5.52939628215
+GO:0000725	recombinational repair	P	116	14	10	nan	nan	-2.38180217197	4.87714692239
+GO:0000724	double-strand break repair via homologous recombination	P	116	14	10	nan	nan	-2.05475125928	4.99113911751
+GO:0052689	carboxylic ester hydrolase activity	M	246	35	29	nan	nan	-2.67004888969	6.23275071253
+GO:0045454	cell redox homeostasis	P	105	5	9	nan	nan	0.431331092814	nan
+GO:0034976	response to endoplasmic reticulum stress	P	770	164	130	nan	nan	-3.61634813863	6.76351774305
+GO:0009579	thylakoid	C	602	7397	319	nan	nan	1.66585472968	7.05805099408
+GO:0001932	regulation of protein phosphorylation	P	90	21	12	nan	nan	-1.47128970861	4.59264649908
+GO:0046434	organophosphate catabolic process	P	174	10	14	nan	nan	-1.57107584938	4.94974746831
+GO:0051656	establishment of organelle localization	P	154	447	78	nan	nan	1.1654785194	6.87241165843
+GO:0010206	photosystem II repair	P	16	13	8	nan	nan	0.158486509952	4.00192348501
+GO:0048563	post-embryonic organ morphogenesis	P	305	31	27	nan	nan	0.445546365031	4.76582064468
+GO:0048569	post-embryonic organ development	P	1090	142	140	nan	nan	-3.89722512852	6.865736558
+GO:0009863	salicylic acid mediated signaling pathway	P	892	564	197	nan	nan	-6.49316527238	7.03537053425
+GO:0009862	systemic acquired resistance, salicylic acid mediated signaling pathway	P	623	354	141	nan	nan	-6.14726854379	6.99974803946
+GO:0009860	pollen tube growth	P	433	23	27	nan	nan	-1.33330411375	6.01269753485
+GO:0009867	jasmonic acid mediated signaling pathway	P	695	388	155	nan	nan	-5.65540338742	7.01874241738
+GO:0042435	indole-containing compound biosynthetic process	P	244	42	52	nan	nan	-3.1125169576	6.36489467181
+GO:0042436	indole-containing compound catabolic process	P	178	14	23	nan	nan	-4.66149010748	7.07106781187
+GO:0004842	ubiquitin-protein ligase activity	M	274	16	24	nan	nan	0.586047849828	-0.141421356237
+GO:0042430	indole-containing compound metabolic process	P	274	45	56	nan	nan	-1.79577492276	6.45108040224
+GO:0009648	photoperiodism	P	228	18	26	nan	nan	-1.0307764064	4.94974746831
+GO:0044257	cellular protein catabolic process	P	697	192	123	nan	nan	-5.26955982648	6.9698074348
+GO:0009646	response to absence of light	P	67	15	20	nan	nan	-3.17443660061	6.33909302806
+GO:0044255	cellular lipid metabolic process	P	1796	2139	473	nan	nan	-6.19501112493	7.04221662881
+GO:0009642	response to light intensity	P	538	363	119	nan	nan	-5.86218443026	6.99259638422
+GO:0009640	photomorphogenesis	P	343	24	25	nan	nan	-2.65449775078	6.21191001923
+GO:2000112	regulation of cellular macromolecule biosynthetic process	P	2583	1331	588	nan	nan	-6.77763539054	7.06258300546
+GO:2000113	negative regulation of cellular macromolecule biosynthetic process	P	608	189	100	nan	nan	-3.63493266466	6.83593726037
+GO:0008514	organic anion transmembrane transporter activity	M	141	10	16	nan	nan	0.676123403783	nan
+GO:0019362	pyridine nucleotide metabolic process	P	298	2090	133	nan	nan	1.71640925399	7.02111245727
+GO:0019897	extrinsic to plasma membrane	C	64	4	5	nan	nan	-1.79363671325	2.73861278753
+GO:0043449	cellular alkene metabolic process	P	268	49	29	nan	nan	2.19545487581	5.14262155306
+GO:0019187	beta-1,4-mannosyltransferase activity	M	29	11	9	nan	nan	-2.11463264726	4.20164802832
+GO:0034285	response to disaccharide stimulus	P	430	319	86	nan	nan	-5.52222108345	6.96979485746
+GO:1900378	positive regulation of secondary metabolite biosynthetic process	P	273	32	35	nan	nan	-0.414492800113	4.5
+GO:1900376	regulation of secondary metabolite biosynthetic process	P	321	39	41	nan	nan	-1.78901411002	4.66330608336
+GO:0050826	response to freezing	P	157	5	9	nan	nan	0.398862017609	nan
+GO:0020037	heme binding	M	263	37	43	nan	nan	-2.94627825494	6.24378740906
+GO:0050793	regulation of developmental process	P	1465	551	291	nan	nan	-6.29063555126	7.03769180991
+GO:0050790	regulation of catalytic activity	P	386	353	89	nan	nan	-5.52745470798	6.96195622267
+GO:0022891	substrate-specific transmembrane transporter activity	M	891	161	144	nan	nan	-5.55933882834	7.00507561791
+GO:0022890	inorganic cation transmembrane transporter activity	M	322	24	25	nan	nan	-2.20496776361	5.60723176219
+GO:0022892	substrate-specific transporter activity	M	1016	179	161	nan	nan	-6.17691275754	6.97048823969
+GO:0022898	regulation of transmembrane transporter activity	P	152	38	15	nan	nan	-3.21369066506	6.33504166984
+GO:0006633	fatty acid biosynthetic process	P	455	190	101	nan	nan	-5.12712508779	6.89242491961
+GO:0006631	fatty acid metabolic process	P	850	332	184	nan	nan	-6.12928187616	7.00129056373
+GO:0006637	acyl-CoA metabolic process	P	233	70	51	nan	nan	-1.57863949822	6.09881111606
+GO:0006636	unsaturated fatty acid biosynthetic process	P	130	107	43	nan	nan	-2.47108753147	6.45145407984
+GO:0006635	fatty acid beta-oxidation	P	269	29	39	nan	nan	0.466419340181	2.03610901238
+GO:0031399	regulation of protein modification process	P	375	816	101	nan	nan	-4.72330344527	6.97972192856
+GO:0046942	carboxylic acid transport	P	689	89	92	nan	nan	-2.01583091127	6.30167948303
+GO:0043933	macromolecular complex subunit organization	P	825	2453	237	nan	nan	-5.91333769245	7.03883786106
+GO:0008725	DNA-3-methyladenine glycosylase activity	M	8	5	6	nan	nan	-0.547299467437	2.16024689947
+GO:0048046	apoplast	C	559	524	152	nan	nan	-6.59503086902	7.00828399685
+GO:0035556	intracellular signal transduction	P	940	698	195	nan	nan	-5.81639379238	7.01055799869
+GO:0000741	karyogamy	P	94	7	11	nan	nan	-3.39135671821	4.94974746831
+GO:0004674	protein serine/threonine kinase activity	M	1079	127	124	nan	nan	-3.17146475752	6.88729903639
+GO:0004672	protein kinase activity	M	1207	186	160	nan	nan	-3.63695628764	6.8168117838
+GO:0060918	auxin transport	P	243	49	46	nan	nan	-4.02473313696	6.46245220599
+GO:0046873	metal ion transmembrane transporter activity	M	238	4	8	nan	nan	nan	nan
+GO:0046872	metal ion binding	M	1155	315	222	nan	nan	-6.30392087127	7.02111649932
+GO:0044700	single organism signaling	P	2833	1883	642	nan	nan	-6.78311310348	7.05986401796
+GO:0044703	multi-organism reproductive process	P	672	84	61	nan	nan	-4.71909522953	6.75033583128
+GO:0044702	single organism reproductive process	P	1434	145	133	nan	nan	-3.96613533093	6.81406017362
+GO:0044706	multi-multicellular organism process	P	648	82	58	nan	nan	-4.38093126478	6.616819924
+GO:0009261	ribonucleotide catabolic process	P	121	10	14	nan	nan	-1.12414748668	7.07106781187
+GO:0009260	ribonucleotide biosynthetic process	P	310	25	30	nan	nan	-1.1089555346	4.61388315173
+GO:0006354	DNA-dependent transcription, elongation	P	77	12	12	nan	nan	0.0	4.40334677375
+GO:0006355	regulation of transcription, DNA-dependent	P	2455	1177	560	nan	nan	-6.82330209801	7.05945194614
+GO:0006351	transcription, DNA-dependent	P	323	216	78	nan	nan	-2.31905837251	6.86601054527
+GO:0009615	response to virus	P	330	23	37	nan	nan	-1.22186867381	7.07106781187
+GO:0046417	chorismate metabolic process	P	7	4	4	nan	nan	0.514259477227	1.54919333848
+GO:0009611	response to wounding	P	758	307	134	nan	nan	-3.17056779865	6.8702455855
+GO:0042578	phosphoric ester hydrolase activity	M	363	29	36	nan	nan	-3.86507281675	6.37085589839
+GO:0042579	microbody	C	281	47	33	nan	nan	-3.59193289393	6.54498946031
+GO:0043168	anion binding	M	2948	1013	552	nan	nan	-6.83067871004	7.05617825136
+GO:0009809	lignin biosynthetic process	P	91	34	15	nan	nan	-1.35156878641	6.06376987409
+GO:0009808	lignin metabolic process	P	117	39	24	nan	nan	-2.51588383324	5.97135393309
+GO:0009805	coumarin biosynthetic process	P	146	19	25	nan	nan	-1.18726813433	5.50597761289
+GO:0043161	proteasomal ubiquitin-dependent protein catabolic process	P	241	30	41	nan	nan	-1.06241681677	6.31200945933
+GO:0043167	ion binding	M	4975	2959	1202	nan	nan	-7.01821891069	7.06819872859
+GO:0004866	endopeptidase inhibitor activity	M	22	4	6	nan	nan	0.770551750371	nan
+GO:0010119	regulation of stomatal movement	P	141	7	11	nan	nan	-3.47128110805	4.94974746831
+GO:0010118	stomatal movement	P	102	6	7	nan	nan	-0.632397141641	3.4278273002
+GO:0010115	regulation of abscisic acid biosynthetic process	P	30	10	7	nan	nan	-2.16024689947	4.2177569494
+GO:0010114	response to red light	P	214	814	82	nan	nan	-1.85329827448	6.9521504136
+GO:0009119	ribonucleoside metabolic process	P	239	23	27	nan	nan	-2.66082126846	6.14524036908
+GO:0010116	positive regulation of abscisic acid biosynthetic process	P	26	10	7	nan	nan	-2.35613738971	4.40922845253
+GO:0032392	DNA geometric change	P	14	9	5	nan	nan	-1.50501470506	3.2589307097
+GO:0016614	oxidoreductase activity, acting on CH-OH group of donors	M	243	22	23	nan	nan	-3.2522983161	6.08980647594
+GO:0016616	oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor	M	215	18	22	nan	nan	-2.72813415851	6.14524036908
+GO:0019439	aromatic compound catabolic process	P	661	93	110	nan	nan	-5.00026221828	6.84978002152
+GO:0019438	aromatic compound biosynthetic process	P	2142	2805	581	nan	nan	-6.77121348212	7.06150155367
+GO:0015706	nitrate transport	P	385	61	58	nan	nan	-2.92139530377	6.45260793824
+GO:0030865	cortical cytoskeleton organization	P	64	14	13	nan	nan	-2.38109565519	5.61783326282
+GO:0015077	monovalent inorganic cation transmembrane transporter activity	M	195	19	18	nan	nan	-2.14655202831	5.73247396865
+GO:0010287	plastoglobule	C	82	295	44	nan	nan	-2.15674653474	6.80643751043
+GO:0010286	heat acclimation	P	152	33	31	nan	nan	-1.53894740251	5.04508619717
+GO:0006655	phosphatidylglycerol biosynthetic process	P	100	10	19	nan	nan	0.291729982996	nan
+GO:0006650	glycerophospholipid metabolic process	P	298	18	32	nan	nan	0.36514837167	nan
+GO:0004650	polygalacturonase activity	M	56	9	7	nan	nan	0.627250048187	2.36485819694
+GO:0033014	tetrapyrrole biosynthetic process	P	221	593	79	nan	nan	0.970225515478	6.91058288467
+GO:0032544	plastid translation	P	11	8	7	nan	nan	-1.56669593946	4.73698649944
+GO:0009561	megagametogenesis	P	282	10	15	nan	nan	-1.50989293493	3.4278273002
+GO:0051225	spindle assembly	P	86	40	16	nan	nan	1.86655002157	5.95217019413
+GO:0018130	heterocycle biosynthetic process	P	1594	1598	409	nan	nan	-5.97502027871	7.03929906547
+GO:0019887	protein kinase regulator activity	M	38	15	9	nan	nan	0.185227537429	4.11308403968
+GO:0044728	DNA methylation or demethylation	P	273	167	52	nan	nan	0.173417668567	6.59843873113
+GO:0044723	single-organism carbohydrate metabolic process	P	2389	4179	670	nan	nan	-6.8872232644	7.06058377609
+GO:0044724	single-organism carbohydrate catabolic process	P	906	2406	257	nan	nan	-5.8268469515	7.03563274153
+GO:1901292	nucleoside phosphate catabolic process	P	123	10	14	nan	nan	-1.37360563949	7.07106781187
+GO:1901293	nucleoside phosphate biosynthetic process	P	492	54	56	nan	nan	-4.03642254763	6.62314789467
+GO:0048511	rhythmic process	P	198	44	44	nan	nan	-1.90081499829	5.79838164477
+GO:0048513	organ development	P	3123	2052	704	nan	nan	-6.90195061404	7.06252328007
+GO:0048518	positive regulation of biological process	P	1640	706	340	nan	nan	-6.60129162019	7.04687574429
+GO:0006333	chromatin assembly or disassembly	P	129	9	10	nan	nan	-0.966915003046	2.9735677667
+GO:0046474	glycerophospholipid biosynthetic process	P	223	16	29	nan	nan	0.345705358827	nan
+GO:0046471	phosphatidylglycerol metabolic process	P	101	11	21	nan	nan	0.141421356237	nan
+GO:0042592	homeostatic process	P	735	301	123	nan	nan	-5.10953657073	6.92823536057
+GO:0042594	response to starvation	P	537	80	80	nan	nan	-4.10545486103	6.7823444375
+GO:0009826	unidimensional cell growth	P	842	301	128	nan	nan	-3.53254764245	6.93351910685
+GO:0009825	multidimensional cell growth	P	295	146	64	nan	nan	-2.11169666595	6.73454175472
+GO:0006486	protein glycosylation	P	459	41	42	nan	nan	-1.26380687135	5.87558284843
+GO:0006487	protein N-linked glycosylation	P	221	12	20	nan	nan	0.511019866882	nan
+GO:0009737	response to abscisic acid stimulus	P	1067	354	192	nan	nan	-4.82662619259	6.96886081801
+GO:0009736	cytokinin mediated signaling pathway	P	113	9	15	nan	nan	0.472490457546	nan
+GO:0048528	post-embryonic root development	P	263	13	18	nan	nan	-2.32797418771	4.69171558409
+GO:0048523	negative regulation of cellular process	P	1455	557	259	nan	nan	-6.26683386604	7.03938354755
+GO:0048522	positive regulation of cellular process	P	1401	625	306	nan	nan	-6.18523865058	7.03191878599
+GO:0009738	abscisic acid mediated signaling pathway	P	486	203	88	nan	nan	-1.26871187254	6.74217217417
+GO:0016310	phosphorylation	P	1438	321	225	nan	nan	-5.89615513685	7.03266540991
+GO:0051052	regulation of DNA metabolic process	P	271	217	48	nan	nan	3.7179901873	6.72786327414
+GO:0009683	indoleacetic acid metabolic process	P	194	20	32	nan	nan	-3.96705111674	7.07106781187
+GO:0009682	induced systemic resistance	P	64	9	14	nan	nan	-3.32098182899	4.94974746831
+GO:0009687	abscisic acid metabolic process	P	68	5	9	nan	nan	0.25	nan
+GO:0009684	indoleacetic acid biosynthetic process	P	193	20	32	nan	nan	-4.05809541171	7.07106781187
+GO:0006220	pyrimidine nucleotide metabolic process	P	209	19	24	nan	nan	-0.715804749798	4.45102900382
+GO:0071482	cellular response to light stimulus	P	97	22	24	nan	nan	-1.29757788809	5.49153863567
+GO:0072663	establishment of protein localization to peroxisome	P	161	7	13	nan	nan	0.291729982996	nan
+GO:0072662	protein localization to peroxisome	P	161	7	13	nan	nan	0.20203050891	nan
+GO:0072666	establishment of protein localization to vacuole	P	189	5	9	nan	nan	0.36514837167	nan
+GO:0072665	protein localization to vacuole	P	189	5	9	nan	nan	0.20203050891	nan
+GO:0071489	cellular response to red or far red light	P	60	9	13	nan	nan	-1.35227304347	4.94974746831
+GO:0016491	oxidoreductase activity	M	1325	772	284	nan	nan	-6.56229262443	7.02407962814
+GO:0000413	protein peptidyl-prolyl isomerization	P	17	7	6	nan	nan	1.96396101212	2.75698206718
+GO:0032409	regulation of transporter activity	P	152	38	15	nan	nan	-2.64388569703	5.89862380903
+GO:0072598	protein localization to chloroplast	P	89	23	26	nan	nan	-0.39735970712	3.75820940489
+GO:0072594	establishment of protein localization to organelle	P	564	59	72	nan	nan	-4.14342954278	6.36346269772
+GO:0072596	establishment of protein localization to chloroplast	P	89	23	26	nan	nan	-0.449579126172	3.343050865
+GO:0072593	reactive oxygen species metabolic process	P	342	75	54	nan	nan	-5.16329060979	6.71143255144
+GO:0035295	tube development	P	491	43	39	nan	nan	-2.43643111382	6.58819059524
+GO:2001141	regulation of RNA biosynthetic process	P	2455	1177	560	nan	nan	-6.85670175479	7.05843666329
+GO:0006928	cellular component movement	P	243	42	34	nan	nan	-0.206859478917	5.3852249067
+GO:0000785	chromatin	C	72	4	7	nan	nan	0.431331092814	nan
+GO:0000786	nucleosome	C	37	4	7	nan	nan	0.141421356237	nan
+GO:0042626	ATPase activity, coupled to transmembrane movement of substances	M	217	19	22	nan	nan	-1.68401031686	5.33719457515
+GO:0042623	ATPase activity, coupled	M	391	58	50	nan	nan	-3.30333823561	6.71798177057
+GO:0090066	regulation of anatomical structure size	P	390	77	59	nan	nan	-4.79860164826	6.77916920937
+GO:0010090	trichome morphogenesis	P	340	17	23	nan	nan	-1.73149875949	4.94974746831
+GO:0032870	cellular response to hormone stimulus	P	1434	963	337	nan	nan	-6.49922604558	7.04778625495
+GO:0044744	protein targeting to nucleus	P	225	12	19	nan	nan	0.753858593783	nan
+GO:0032879	regulation of localization	P	669	339	118	nan	nan	-5.92184320769	6.99911186639
+GO:0044743	intracellular protein transmembrane import	P	201	11	18	nan	nan	-3.56355404842	4.94974746831
+GO:0071365	cellular response to auxin stimulus	P	149	9	14	nan	nan	-3.5097357629	7.07106781187
+GO:0071369	cellular response to ethylene stimulus	P	318	108	54	nan	nan	-3.98530099016	6.68578087473
+GO:0071368	cellular response to cytokinin stimulus	P	113	9	15	nan	nan	0.514259477227	nan
+GO:0080134	regulation of response to stress	P	1269	758	267	nan	nan	-6.22756235339	7.0422520521
+GO:0009547	plastid ribosome	C	7	9	6	nan	nan	0.854099715616	3.5295693125
+GO:0009543	chloroplast thylakoid lumen	C	75	257	38	nan	nan	2.41756383785	6.77070058544
+GO:0042023	DNA endoreduplication	P	125	66	24	nan	nan	0.551072032925	5.92839946169
+GO:0006310	DNA recombination	P	383	31	28	nan	nan	-3.47811500794	5.86168764939
+GO:0046459	short-chain fatty acid metabolic process	P	204	13	20	nan	nan	-3.5097357629	4.94974746831
+GO:0048437	floral organ development	P	879	118	115	nan	nan	-2.89669860702	6.73600051779
+GO:1900673	olefin metabolic process	P	268	49	29	nan	nan	2.29567454439	4.85062588009
+GO:1900674	olefin biosynthetic process	P	268	49	29	nan	nan	2.17321944134	4.91405899463
+GO:0031969	chloroplast membrane	C	125	26	18	nan	nan	-0.30556149886	4.93722985336
+GO:0031967	organelle envelope	C	1157	3731	361	nan	nan	-5.54411652783	7.05396325824
+GO:0031966	mitochondrial membrane	C	251	22	28	nan	nan	-1.88397490307	5.34416091318
+GO:0010876	lipid localization	P	332	15	24	nan	nan	-1.31888819324	7.07106781187
+GO:0006402	mRNA catabolic process	P	202	20	21	nan	nan	-0.43942599979	3.98381985897
+GO:0009647	skotomorphogenesis	P	9	6	4	nan	nan	-1.59862900282	2.36662365395
+GO:0048507	meristem development	P	885	191	145	nan	nan	-3.49254754733	6.81860921276
+GO:0048509	regulation of meristem development	P	510	174	111	nan	nan	-2.63030213926	6.87577626303
+GO:0048508	embryonic meristem development	P	148	8	15	nan	nan	0.20203050891	nan
+GO:0008234	cysteine-type peptidase activity	M	93	7	10	nan	nan	0.673325980226	-0.25
+GO:0008237	metallopeptidase activity	M	82	9	10	nan	nan	0.470399421698	1.81196112679
+GO:0005402	cation:sugar symporter activity	M	96	6	10	nan	nan	0.645497224368	nan
+GO:0009644	response to high light intensity	P	457	293	90	nan	nan	-5.92088962393	6.92416202878
+GO:0009154	purine ribonucleotide catabolic process	P	121	10	14	nan	nan	-1.2173282364	2.73861278753
+GO:0009152	purine ribonucleotide biosynthetic process	P	120	8	7	nan	nan	-0.132907399493	3.40225549684
+GO:0009150	purine ribonucleotide metabolic process	P	242	24	29	nan	nan	-3.77424817822	5.95107081981
+GO:0036211	protein modification process	P	2986	1337	586	nan	nan	-6.82537633275	7.05941358147
+GO:0016820	hydrolase activity, acting on acid anhydrides, catalyzing transmembrane movement of substances	M	222	19	22	nan	nan	-1.52048327094	5.42085918335
+GO:0016829	lyase activity	M	341	30	34	nan	nan	-3.29712227674	6.43057308943
+GO:0000041	transition metal ion transport	P	441	124	76	nan	nan	-3.76086571521	6.65785266627
+GO:0015295	solute:hydrogen symporter activity	M	100	6	10	nan	nan	0.524404424085	nan
+GO:0015294	solute:cation symporter activity	M	133	9	14	nan	nan	0.480337334868	nan
+GO:0015297	antiporter activity	M	136	5	10	nan	nan	nan	nan
+GO:0015291	secondary active transmembrane transporter activity	M	347	25	35	nan	nan	-1.52901914422	3.4278273002
+GO:0015293	symporter activity	M	154	9	14	nan	nan	0.563699396262	-0.141421356237
+GO:0008202	steroid metabolic process	P	478	141	99	nan	nan	-2.16492065563	6.69430171104
+GO:0015748	organophosphate ester transport	P	189	12	14	nan	nan	0.068323482177	1.81196112679
+GO:0015031	protein transport	P	1929	830	377	nan	nan	-6.53104623009	7.05902548008
+GO:0051716	cellular response to stimulus	P	4131	3102	1017	nan	nan	-6.98249475603	7.06855192426
+GO:0044550	secondary metabolite biosynthetic process	P	715	334	177	nan	nan	-5.9390285479	6.98425217057
+GO:0030170	pyridoxal phosphate binding	M	93	4	7	nan	nan	0.25	nan
+GO:0030173	integral to Golgi membrane	C	31	10	7	nan	nan	-2.0724050332	3.44902352584
+GO:0042254	ribosome biogenesis	P	444	2789	193	nan	nan	-5.14498161963	7.03795988365
+GO:0003774	motor activity	M	88	24	20	nan	nan	-0.232966471858	4.94974746831
+GO:0003777	microtubule motor activity	M	71	24	20	nan	nan	-0.174230367503	4.30002220337
+GO:0048316	seed development	P	1113	204	177	nan	nan	-5.86742460281	6.97362396535
+GO:0043492	ATPase activity, coupled to movement of substances	M	217	19	22	nan	nan	-1.60051692461	5.14291175157
+GO:0006694	steroid biosynthetic process	P	443	139	96	nan	nan	-1.8846359539	6.67775514189
+GO:0005342	organic acid transmembrane transporter activity	M	108	8	14	nan	nan	0.36514837167	nan
+GO:0031228	intrinsic to Golgi membrane	C	31	10	7	nan	nan	-2.05427670957	4.51602196439
+GO:0031224	intrinsic to membrane	C	1135	298	214	nan	nan	-6.28674120732	7.01851104518
+GO:0010072	primary shoot apical meristem specification	P	107	6	11	nan	nan	0.20203050891	nan
+GO:0009522	photosystem I	C	19	53	14	nan	nan	-3.61718804122	6.08118448671
+GO:0009523	photosystem II	C	40	138	24	nan	nan	-0.100981026513	6.58136969449
+GO:0010075	regulation of meristem growth	P	460	155	101	nan	nan	-2.46225568742	6.49960045228
+GO:0009528	plastid inner membrane	C	87	22	15	nan	nan	-0.496127844758	4.52356516049
+GO:0008544	epidermis development	P	1094	389	180	nan	nan	-5.07775811811	6.96552966666
+GO:0007275	multicellular organismal development	P	4917	3718	1234	nan	nan	-7.00184165452	7.06815038199
+GO:0044767	single-organism developmental process	P	3833	2622	883	nan	nan	-6.95188000805	7.06771732881
+GO:1901700	response to oxygen-containing compound	P	3820	4197	1061	nan	nan	-6.9821657648	7.067768473
+GO:1901701	cellular response to oxygen-containing compound	P	1797	1254	406	nan	nan	-6.721858502	7.05453593279
+GO:0052716	hydroquinone:oxygen oxidoreductase activity	M	32	4	7	nan	nan	0.398862017609	nan
+GO:0016021	integral to membrane	C	951	154	146	nan	nan	-6.05842670312	6.95332222069
+GO:0043687	post-translational protein modification	P	128	6	6	nan	nan	-1.08443533694	3.43361611514
+GO:0009607	response to biotic stimulus	P	2541	2087	621	nan	nan	-6.92136773425	7.06425180816
+GO:0015020	glucuronosyltransferase activity	M	19	9	8	nan	nan	-0.314112110528	2.90912457285
+GO:0043234	protein complex	C	1406	1710	327	nan	nan	-6.81327350272	7.05034125816
+GO:0043232	intracellular non-membrane-bounded organelle	C	1143	693	268	nan	nan	-6.7028841189	7.05032745852
+GO:0043233	organelle lumen	C	739	189	127	nan	nan	-5.25117967559	6.89160984221
+GO:0034660	ncRNA metabolic process	P	484	2951	204	nan	nan	-4.15047661988	7.04497710384
+GO:0006195	purine nucleotide catabolic process	P	121	10	14	nan	nan	-1.65278774108	4.94974746831
+GO:0015824	proline transport	P	162	15	24	nan	nan	0.579214842387	nan
+GO:0006739	NADP metabolic process	P	285	2090	133	nan	nan	1.87060081193	7.03068149813
+GO:0006732	coenzyme metabolic process	P	669	2454	225	nan	nan	-4.78403571123	7.0453023392
+GO:0009314	response to radiation	P	2016	2163	471	nan	nan	-6.78990169322	7.05681395308
+GO:0009311	oligosaccharide metabolic process	P	328	264	95	nan	nan	-2.78137093414	6.81229177146
+GO:0009310	amine catabolic process	P	254	19	31	nan	nan	-2.06919148415	4.94974746831
+GO:0008047	enzyme activator activity	M	82	5	7	nan	nan	-2.72717802866	4.94974746831
+GO:0052541	plant-type cell wall cellulose metabolic process	P	95	5	8	nan	nan	0.554700196225	nan
+GO:0052542	defense response by callose deposition	P	229	23	32	nan	nan	-1.61653034212	6.125
+GO:0052543	callose deposition in cell wall	P	99	7	11	nan	nan	-3.47182537415	4.94974746831
+GO:0052544	defense response by callose deposition in cell wall	P	84	7	11	nan	nan	-3.94244304244	7.07106781187
+GO:0052545	callose localization	P	250	24	34	nan	nan	-1.97105491331	6.3926263493
+GO:0052546	cell wall pectin metabolic process	P	142	28	27	nan	nan	-1.72507434639	5.7451551911
+GO:0008266	poly(U) RNA binding	M	26	32	12	nan	nan	-0.0173339470943	5.8474442004
+GO:0016903	oxidoreductase activity, acting on the aldehyde or oxo group of donors	M	94	15	12	nan	nan	-1.93273527866	4.90732106143
+GO:0032446	protein modification by small protein conjugation	P	371	25	36	nan	nan	-0.820550681677	4.97736813471
+GO:0034470	ncRNA processing	P	391	2597	163	nan	nan	-4.65167779249	7.03299752053
+GO:0019901	protein kinase binding	M	77	16	11	nan	nan	-0.7958539891	4.5284112971
+GO:0019900	kinase binding	M	83	16	11	nan	nan	-0.542628345666	4.58799565628
+GO:1901069	guanosine-containing compound catabolic process	P	56	7	11	nan	nan	0.402738614266	-0.141421356237
+GO:1901068	guanosine-containing compound metabolic process	P	75	10	14	nan	nan	-2.5297719646	4.0
+GO:0071669	plant-type cell wall organization or biogenesis	P	945	437	177	nan	nan	-6.11322415138	6.98474114612
+GO:0035251	UDP-glucosyltransferase activity	M	144	22	24	nan	nan	-4.08692494811	6.02611229266
+GO:0007051	spindle organization	P	89	40	16	nan	nan	1.3977579157	5.01034811804
+GO:0032958	inositol phosphate biosynthetic process	P	79	24	14	nan	nan	0.798111392133	3.83890375955
+GO:0042277	peptide binding	M	52	6	9	nan	nan	0.596083014881	nan
+GO:0042278	purine nucleoside metabolic process	P	227	23	27	nan	nan	-3.54801637895	6.01997500077
+GO:0003755	peptidyl-prolyl cis-trans isomerase activity	M	53	21	11	nan	nan	1.82906920496	3.89780818587
+GO:0010330	cellulose synthase complex	C	24	10	7	nan	nan	-2.16585253889	5.29906116789
+GO:0009508	plastid chromosome	C	19	5	4	nan	nan	0.257399333645	1.96015640058
+GO:0009059	macromolecule biosynthetic process	P	2764	3345	804	nan	nan	-6.9310201169	7.06667932896
+GO:0051170	nuclear import	P	228	12	19	nan	nan	0.640182024208	nan
+GO:0051171	regulation of nitrogen compound metabolic process	P	2670	1372	606	nan	nan	-6.81746645901	7.06235593281
+GO:0051172	negative regulation of nitrogen compound metabolic process	P	604	187	96	nan	nan	-3.76837374623	6.90773132162
+GO:0051173	positive regulation of nitrogen compound metabolic process	P	623	315	142	nan	nan	-4.27198454651	6.90371528903
+GO:0009056	catabolic process	P	3032	4351	864	nan	nan	-6.94987164818	7.06584365861
+GO:0009057	macromolecule catabolic process	P	1035	343	201	nan	nan	-6.00428254321	7.02867966118
+GO:0009506	plasmodesma	C	1873	771	422	nan	nan	-6.38702181424	7.04776504269
+GO:0010054	trichoblast differentiation	P	927	342	151	nan	nan	-5.2112213591	6.96139918688
+GO:0010051	xylem and phloem pattern formation	P	223	16	25	nan	nan	-2.74145879602	4.0
+GO:0010053	root epidermal cell differentiation	P	933	342	151	nan	nan	-4.89762744584	6.98199444496
+GO:0051287	NAD binding	M	63	4	5	nan	nan	-1.99794555673	3.03315017762
+GO:0018193	peptidyl-amino acid modification	P	83	17	11	nan	nan	0.460975892719	4.50329643383
+GO:0032787	monocarboxylic acid metabolic process	P	2137	2896	595	nan	nan	-6.80214688967	7.06030710894
+GO:0043648	dicarboxylic acid metabolic process	P	64	6	7	nan	nan	-0.505649896847	4.0
+GO:0052482	defense response by cell wall thickening	P	84	7	11	nan	nan	-3.24961536185	4.94974746831
+GO:0043647	inositol phosphate metabolic process	P	110	24	14	nan	nan	0.581448753482	3.70284110624
+GO:0016049	cell growth	P	1178	427	194	nan	nan	-4.46896983976	6.93866381281
+GO:0016045	detection of bacterium	P	75	7	13	nan	nan	0.25	nan
+GO:0016044	cellular membrane organization	P	958	1162	237	nan	nan	-5.18150721296	7.02513327878
+GO:0016043	cellular component organization	P	4766	8596	1367	nan	nan	-7.02141980216	7.06882575976
+GO:0016042	lipid catabolic process	P	427	39	51	nan	nan	-1.79229304041	6.1975068301
+GO:0043254	regulation of protein complex assembly	P	260	15	18	nan	nan	-2.20715901192	5.89208047958
+GO:0043255	regulation of carbohydrate biosynthetic process	P	48	15	8	nan	nan	-2.9831562642	5.12834218748
+GO:0044283	small molecule biosynthetic process	P	2348	3334	657	nan	nan	-6.84487081648	7.06212374986
+GO:0034641	cellular nitrogen compound metabolic process	P	4107	9321	1137	nan	nan	-6.94555683404	7.06687691237
+GO:0034645	cellular macromolecule biosynthetic process	P	2574	3023	731	nan	nan	-6.92050988653	7.06717210157
+GO:0043622	cortical microtubule organization	P	59	12	11	nan	nan	-2.3608493214	5.42744123444
+GO:0008610	lipid biosynthetic process	P	1595	2105	461	nan	nan	-6.56887559185	7.05754675718
+GO:0015804	neutral amino acid transport	P	169	15	24	nan	nan	0.456740059526	nan
+GO:0015802	basic amino acid transport	P	138	7	10	nan	nan	-2.98151355471	7.07106781187
+GO:0005996	monosaccharide metabolic process	P	1063	2398	279	nan	nan	-6.10179966772	7.05011960627
+GO:0009991	response to extracellular stimulus	P	616	106	99	nan	nan	-5.05819424012	6.881507795
+GO:0006714	sesquiterpenoid metabolic process	P	90	6	11	nan	nan	0.329690236698	nan
+GO:0005198	structural molecule activity	M	483	413	153	nan	nan	-5.86892841492	6.98915700514
+GO:0009526	plastid envelope	C	827	3651	307	nan	nan	-3.76913331776	7.04233687683
+GO:0008064	regulation of actin polymerization or depolymerization	P	257	15	18	nan	nan	-2.4905159616	5.89208047958
+GO:0016860	intramolecular oxidoreductase activity	M	48	4	5	nan	nan	-1.72465068582	4.0
+GO:0000003	reproduction	P	3200	1067	588	nan	nan	-6.74896948569	7.05493375773
+GO:0009199	ribonucleoside triphosphate metabolic process	P	187	20	22	nan	nan	-2.50434465363	5.47252058578
+GO:0004713	protein tyrosine kinase activity	M	598	26	38	nan	nan	0.701159445443	-0.36514837167
+GO:0003924	GTPase activity	M	148	15	23	nan	nan	0.44230600249	nan
+GO:0070592	cell wall polysaccharide biosynthetic process	P	395	393	84	nan	nan	-4.15676455786	6.88201613717
+GO:0015250	water channel activity	M	35	14	12	nan	nan	-1.02735917745	4.43235226256
+GO:0016787	hydrolase activity	M	2787	1271	611	nan	nan	-6.87317464445	7.05983246558
+GO:0016788	hydrolase activity, acting on ester bonds	M	858	107	116	nan	nan	-5.6388075471	6.93495556423
+GO:0044042	glucan metabolic process	P	757	578	200	nan	nan	-6.06449475721	7.01438097168
+GO:0010557	positive regulation of macromolecule biosynthetic process	P	627	315	140	nan	nan	-4.28992371344	6.93208237649
+GO:0010556	regulation of macromolecule biosynthetic process	P	2583	1331	588	nan	nan	-6.85936847412	7.06373434746
+GO:0071462	cellular response to water stimulus	P	100	20	16	nan	nan	-3.48193336507	5.71433418933
+GO:0051753	mannan synthase activity	M	29	11	9	nan	nan	-2.30059050168	4.53984245228
+GO:0007126	meiosis	P	308	17	21	nan	nan	-0.953377413544	4.94974746831
+GO:0007127	meiosis I	P	228	5	9	nan	nan	0.291729982996	nan
+GO:0030312	external encapsulating structure	C	1002	506	267	nan	nan	-5.72469516108	7.01322462844
+GO:0033993	response to lipid	P	1382	468	264	nan	nan	-5.63252307295	7.00594125978
+GO:0006520	cellular amino acid metabolic process	P	1215	1301	306	nan	nan	-6.578651747	7.04352648405
+GO:0003735	structural constituent of ribosome	M	359	387	129	nan	nan	-5.94378014971	6.97289302048
+GO:0043067	regulation of programmed cell death	P	985	525	200	nan	nan	-5.96963524619	7.00051303239
+GO:0046688	response to copper ion	P	31	4	7	nan	nan	0.141421356237	nan
+GO:0046686	response to cadmium ion	P	940	236	198	nan	nan	-6.06491403832	7.0071456629
+GO:0043069	negative regulation of programmed cell death	P	589	175	94	nan	nan	-2.12745445866	6.71844267073
+GO:0000279	M phase	P	529	255	75	nan	nan	1.30719677049	6.72149895103
+GO:0000278	mitotic cell cycle	P	349	134	47	nan	nan	-1.04665504134	6.65127495008
+GO:0045087	innate immune response	P	1509	903	325	nan	nan	-6.51593386441	7.04083958303
+GO:0000271	polysaccharide biosynthetic process	P	1057	987	285	nan	nan	-6.69828302195	7.04791030463
+GO:0000272	polysaccharide catabolic process	P	106	13	16	nan	nan	1.14678216935	-0.493864798325
+GO:0031047	gene silencing by RNA	P	479	86	59	nan	nan	-1.39266237816	6.61653304297
+GO:0031048	chromatin silencing by small RNA	P	197	34	26	nan	nan	1.4427116329	5.61660168028
+GO:0072341	modified amino acid binding	M	37	5	8	nan	nan	0.54992668133	nan
+GO:0009295	nucleoid	C	43	19	13	nan	nan	-0.302146132961	4.13615012722
+GO:0010310	regulation of hydrogen peroxide metabolic process	P	503	296	114	nan	nan	-5.74136691241	6.97905352652
+GO:0010319	stromule	C	59	102	19	nan	nan	-3.87827965978	6.54501134348
+GO:0051119	sugar transmembrane transporter activity	M	117	6	10	nan	nan	0.770551750371	nan
+GO:0004386	helicase activity	M	182	6	12	nan	nan	nan	nan
+GO:0010038	response to metal ion	P	1109	292	242	nan	nan	-6.21008440574	7.00609661293
+GO:0010039	response to iron ion	P	75	6	7	nan	nan	-0.465428702129	2.50713268211
+GO:0009074	aromatic amino acid family catabolic process	P	162	16	25	nan	nan	-1.77471301883	7.07106781187
+GO:0010035	response to inorganic substance	P	1955	964	522	nan	nan	-6.9012825665	7.05726117335
+GO:0009070	serine family amino acid biosynthetic process	P	396	907	131	nan	nan	-5.69598034613	6.96502660886
+GO:0009071	serine family amino acid catabolic process	P	102	26	28	nan	nan	-1.76647471597	6.04925287537
+GO:0009072	aromatic amino acid family metabolic process	P	382	114	99	nan	nan	-4.62134978239	6.88401758519
+GO:0018208	peptidyl-proline modification	P	29	12	8	nan	nan	1.98976914001	3.28225537503
+GO:0045492	xylan biosynthetic process	P	377	391	80	nan	nan	-3.78934585396	6.94125304167
+GO:0016758	transferase activity, transferring hexosyl groups	M	362	147	77	nan	nan	-4.57035288121	6.83030377891
+GO:0006891	intra-Golgi vesicle-mediated transport	P	100	4	8	nan	nan	nan	nan
+GO:0008654	phospholipid biosynthetic process	P	511	1157	186	nan	nan	-1.67863994156	7.01462246923
+GO:0019001	guanyl nucleotide binding	M	261	31	35	nan	nan	-2.40912635895	4.85676660116
+GO:0042044	fluid transport	P	343	64	56	nan	nan	-5.15463802231	6.69882379371
+GO:0009816	defense response to bacterium, incompatible interaction	P	116	4	6	nan	nan	0.621966321647	nan
+GO:0034330	cell junction organization	P	8	4	4	nan	nan	0.621857659469	1.54919333848
+GO:0034620	cellular response to unfolded protein	P	400	93	66	nan	nan	-0.747063318107	6.35927737768
+GO:0034622	cellular macromolecular complex assembly	P	756	2434	230	nan	nan	-6.04042351936	7.03739096771
+GO:0005819	spindle	C	61	6	6	nan	nan	-1.41063847765	3.06562526288
+GO:0009853	photorespiration	P	242	95	47	nan	nan	-4.44032244329	6.81751209151
+GO:0010817	regulation of hormone levels	P	856	333	184	nan	nan	-4.20728888586	6.90346506764
+GO:0046218	indolalkylamine catabolic process	P	150	13	21	nan	nan	-3.15857858934	7.07106781187
+GO:0009813	flavonoid biosynthetic process	P	153	22	17	nan	nan	-2.5846337337	6.04606869294
+GO:0005975	carbohydrate metabolic process	P	2829	4709	803	nan	nan	-6.93249601683	7.06583067808
+GO:0005976	polysaccharide metabolic process	P	1314	1177	358	nan	nan	-6.76458195859	7.0566029739
+GO:0006778	porphyrin-containing compound metabolic process	P	323	725	115	nan	nan	-1.45176610489	6.96201508429
+GO:0006779	porphyrin-containing compound biosynthetic process	P	215	593	79	nan	nan	0.947644530713	6.95993306869
+GO:0030054	cell junction	C	1876	771	422	nan	nan	-6.25724286213	7.04009755839
+GO:0046527	glucosyltransferase activity	M	164	40	31	nan	nan	-4.38152005094	6.62311451526
+GO:0016570	histone modification	P	513	420	97	nan	nan	-0.56453778645	6.89368003524
+GO:0016572	histone phosphorylation	P	108	90	26	nan	nan	-0.0231639945363	6.25397374148
+GO:0000394	RNA splicing, via endonucleolytic cleavage and ligation	P	227	10	15	nan	nan	-4.33112233603	7.07106781187
+GO:0004553	hydrolase activity, hydrolyzing O-glycosyl compounds	M	345	66	56	nan	nan	-3.07975065832	6.49445256434
+GO:0016887	ATPase activity	M	524	95	71	nan	nan	-4.9635678602	6.74317319711
+GO:0000023	maltose metabolic process	P	238	234	77	nan	nan	-2.23543702814	6.74315563415
+GO:0042445	hormone metabolic process	P	587	83	94	nan	nan	-2.16470119341	6.57978555742
+GO:0004364	glutathione transferase activity	M	39	5	8	nan	nan	0.487713110004	nan
+GO:0045333	cellular respiration	P	129	6	10	nan	nan	0.403567156136	nan
+GO:0005743	mitochondrial inner membrane	C	214	17	22	nan	nan	-1.10514328852	4.24484982067
+GO:0009719	response to endogenous stimulus	P	2818	2295	717	nan	nan	-6.71711378943	7.06025631531
+GO:0051327	M phase of meiotic cell cycle	P	308	17	21	nan	nan	-1.01716124207	4.56782342031
+GO:0051321	meiotic cell cycle	P	342	18	23	nan	nan	-0.966333614503	5.06814034056
+GO:0051322	anaphase	P	207	211	52	nan	nan	3.39438260017	6.77910212837
+GO:0019761	glucosinolate biosynthetic process	P	328	194	89	nan	nan	-4.23904800108	6.78283808291
+GO:0019760	glucosinolate metabolic process	P	375	234	100	nan	nan	-4.14112874366	6.85231745406
+GO:0019941	modification-dependent protein catabolic process	P	531	113	78	nan	nan	-2.85887246508	6.81999698959
+GO:0071407	cellular response to organic cyclic compound	P	1164	610	223	nan	nan	-6.34736657098	7.02736161436
+GO:0006544	glycine metabolic process	P	107	26	28	nan	nan	-1.6546297071	5.61871028024
+GO:0006546	glycine catabolic process	P	100	26	28	nan	nan	-1.81058925764	6.35960436092
+GO:0072329	monocarboxylic acid catabolic process	P	356	38	47	nan	nan	-0.794394290126	4.84229444933
+GO:0010374	stomatal complex development	P	372	308	85	nan	nan	-4.80574040809	6.90596919972
+GO:0051130	positive regulation of cellular component organization	P	320	20	25	nan	nan	-2.46081034572	6.33909302806
+GO:0010014	meristem initiation	P	377	22	36	nan	nan	-4.33529088779	7.07106781187
+GO:0010015	root morphogenesis	P	1052	409	174	nan	nan	-5.30370377646	6.9856265094
+GO:0010016	shoot morphogenesis	P	705	766	173	nan	nan	-3.47376200565	6.98901997801
+GO:0010017	red or far-red light signaling pathway	P	60	9	13	nan	nan	-1.21467633405	3.4278273002
+GO:0001666	response to hypoxia	P	164	20	23	nan	nan	-2.1407321782	5.77234787586
+GO:0022613	ribonucleoprotein complex biogenesis	P	458	2789	193	nan	nan	-5.17628934744	7.04389688162
+GO:0022611	dormancy process	P	273	22	33	nan	nan	-3.83827293056	6.31200945933
+GO:0022610	biological adhesion	P	225	9	13	nan	nan	-2.45352581364	3.4278273002
+GO:0045298	tubulin complex	C	25	5	8	nan	nan	0.433460723432	nan
+GO:0040007	growth	P	1311	515	221	nan	nan	-4.85139358741	6.9774900324
+GO:0044087	regulation of cellular component biogenesis	P	280	16	20	nan	nan	-2.33849634803	4.56782342031
+GO:0019684	photosynthesis, light reaction	P	346	5448	219	nan	nan	0.0746176923711	7.05484331635
+GO:0019682	glyceraldehyde-3-phosphate metabolic process	P	341	1128	165	nan	nan	-1.05988854639	6.97690413764
+GO:0044085	cellular component biogenesis	P	2109	5584	649	nan	nan	-6.92871130439	7.06680817798
+GO:0044265	cellular macromolecule catabolic process	P	917	285	171	nan	nan	-5.94630837893	6.99351839581
+GO:0015035	protein disulfide oxidoreductase activity	M	69	4	7	nan	nan	0.36514837167	nan
+GO:0015036	disulfide oxidoreductase activity	M	80	4	7	nan	nan	0.462910049886	nan
+GO:0034357	photosynthetic membrane	C	399	4521	208	nan	nan	1.14193114071	7.05485308885
+GO:0005838	proteasome regulatory particle	C	41	4	5	nan	nan	-2.79373097048	7.07106781187
+GO:0005834	heterotrimeric G-protein complex	C	62	4	5	nan	nan	-2.02937067184	4.94974746831
+GO:0051495	positive regulation of cytoskeleton organization	P	249	15	18	nan	nan	-2.18528800955	5.06814034056
+GO:0051493	regulation of cytoskeleton organization	P	268	15	18	nan	nan	-2.13539043933	5.68736791901
+GO:0015840	urea transport	P	10	4	6	nan	nan	0.487177351846	nan
+GO:0006284	base-excision repair	P	26	5	6	nan	nan	-0.681562196008	4.0
+GO:0006281	DNA repair	P	352	33	35	nan	nan	-4.03503780567	6.34354411111
+GO:0015849	organic acid transport	P	689	89	92	nan	nan	-2.63522221051	6.47655506209
+GO:0002679	respiratory burst involved in defense response	P	344	280	70	nan	nan	1.193627359	6.73615134955
+GO:0030076	light-harvesting complex	C	27	65	16	nan	nan	-2.89858673394	6.28330482919
+GO:0006753	nucleoside phosphate metabolic process	P	990	2458	250	nan	nan	-4.99897337546	7.04238686396
+GO:0006754	ATP biosynthetic process	P	72	7	5	nan	nan	0.985424955135	2.35404145971
+GO:0048638	regulation of developmental growth	P	602	185	120	nan	nan	-2.38807275139	6.76730571029
+GO:0048610	cellular process involved in reproduction	P	1107	78	82	nan	nan	-2.23742599414	6.39607560695
+GO:0014070	response to organic cyclic compound	P	1682	1012	372	nan	nan	-6.55460277388	7.03039298932
+GO:0008284	positive regulation of cell proliferation	P	104	7	13	nan	nan	0.291729982996	nan
+GO:0008283	cell proliferation	P	229	306	67	nan	nan	3.89501130712	6.69008167591
+GO:0008289	lipid binding	M	227	15	24	nan	nan	-1.27869292322	7.07106781187
+GO:0022402	cell cycle process	P	1065	608	164	nan	nan	-2.99999250659	6.94264222818
+GO:0022403	cell cycle phase	P	673	307	97	nan	nan	-1.3901049068	6.83235801601
+GO:0051301	cell division	P	627	412	124	nan	nan	-1.86742413056	6.92324633064
+GO:0009733	response to auxin stimulus	P	661	117	111	nan	nan	-3.44123248602	6.63057806682
+GO:0009735	response to cytokinin stimulus	P	210	23	30	nan	nan	-0.873391591709	4.45102900382
+GO:0009734	auxin mediated signaling pathway	P	114	7	10	nan	nan	-3.01697604722	7.07106781187
+GO:0009739	response to gibberellin stimulus	P	236	25	31	nan	nan	-2.33472394615	4.56782342031
+GO:0019747	regulation of isoprenoid metabolic process	P	33	10	7	nan	nan	-1.96083101123	4.54438115643
+GO:0019216	regulation of lipid metabolic process	P	98	28	21	nan	nan	-3.39289404129	6.11849368675
+GO:0019219	regulation of nucleobase-containing compound metabolic process	P	2630	1319	589	nan	nan	-6.84695862831	7.06532925206
+GO:0019748	secondary metabolic process	P	1260	682	329	nan	nan	-6.54164924251	7.0443934444
+GO:0070085	glycosylation	P	468	41	42	nan	nan	-1.4676978992	5.4254712808
+GO:0044003	modification by symbiont of host morphology or physiology	P	213	8	12	nan	nan	0.697633152315	nan
+GO:0010598	NAD(P)H dehydrogenase complex (plastoquinone)	C	10	18	8	nan	nan	-0.192932977265	4.31455497304
+GO:2000026	regulation of multicellular organismal development	P	1254	469	248	nan	nan	-5.77747793323	7.00399985939
+GO:0007165	signal transduction	P	2734	1825	621	nan	nan	-6.78749154386	7.05902498755
+GO:0007166	cell surface receptor signaling pathway	P	341	21	36	nan	nan	0.467124494902	-0.141421356237
+GO:0007167	enzyme linked receptor protein signaling pathway	P	290	20	34	nan	nan	0.38432886218	nan
+GO:0007169	transmembrane receptor protein tyrosine kinase signaling pathway	P	290	20	34	nan	nan	0.38432886218	nan
+GO:0016740	transferase activity	M	2930	1055	587	nan	nan	-6.78142605985	7.05559420678
+GO:0016741	transferase activity, transferring one-carbon groups	M	244	12	16	nan	nan	0.0707212871075	2.31840462387
+GO:0016746	transferase activity, transferring acyl groups	M	280	20	31	nan	nan	-0.6677248833	4.94974746831
+GO:0016747	transferase activity, transferring acyl groups other than amino-acyl groups	M	237	19	30	nan	nan	-0.984522612246	4.0
+GO:0016567	protein ubiquitination	P	349	23	33	nan	nan	-1.06005496513	4.45102900382
+GO:0007043	cell-cell junction assembly	P	4	4	4	nan	nan	0.623782861552	1.62568666811
+GO:0016298	lipase activity	M	124	4	6	nan	nan	0.770551750371	nan
+GO:0016568	chromatin modification	P	656	430	108	nan	nan	-1.70113550567	6.92814561123
+GO:0016569	covalent chromatin modification	P	604	426	104	nan	nan	-0.628190141879	6.90455817273
+GO:0006569	tryptophan catabolic process	P	150	13	21	nan	nan	-3.2172072043	4.94974746831
+GO:0006568	tryptophan metabolic process	P	159	13	21	nan	nan	-4.40334677375	7.07106781187
+GO:1900750	oligopeptide binding	M	30	5	8	nan	nan	0.607918758874	nan
+GO:0034613	cellular protein localization	P	1878	808	368	nan	nan	-6.76778916475	7.05104575933
+GO:0015985	energy coupled proton transport, down electrochemical gradient	P	25	7	5	nan	nan	0.986033260806	2.48246747968
+GO:0015986	ATP synthesis coupled proton transport	P	25	7	5	nan	nan	0.830022861292	2.63111966616
+GO:0015980	energy derivation by oxidation of organic compounds	P	129	6	10	nan	nan	0.403567156136	nan
+GO:0046394	carboxylic acid biosynthetic process	P	1910	2620	497	nan	nan	-6.88234723632	7.05672008287
+GO:0046395	carboxylic acid catabolic process	P	631	111	118	nan	nan	-4.51045133515	6.93393777265
+GO:0046390	ribose phosphate biosynthetic process	P	310	25	30	nan	nan	-1.64857565127	5.267119058
+GO:0009250	glucan biosynthetic process	P	481	375	125	nan	nan	-4.34578258919	6.95561463623
+GO:0010359	regulation of anion channel activity	P	152	38	15	nan	nan	-3.90094676391	5.97470725333
+GO:0009259	ribonucleotide metabolic process	P	430	43	53	nan	nan	-3.24889489313	6.67859092557
+GO:0048825	cotyledon development	P	137	7	12	nan	nan	0.441941738242	nan
+GO:0048827	phyllome development	P	658	208	105	nan	nan	-3.74706904264	6.78727473502
+GO:0002020	protease binding	M	22	4	5	nan	nan	-1.98340818945	3.03315017762
+GO:0032259	methylation	P	798	435	161	nan	nan	-5.93771630707	7.0075843739
+GO:0044391	ribosomal subunit	C	279	218	92	nan	nan	-4.00355203067	6.87231813163
+GO:0046890	regulation of lipid biosynthetic process	P	45	10	7	nan	nan	-2.19403342325	4.25768551225
+GO:0043623	cellular protein complex assembly	P	691	2423	225	nan	nan	-6.11266389376	7.04409460116
+GO:0040029	regulation of gene expression, epigenetic	P	651	311	105	nan	nan	-3.62040001914	6.86942178434
+GO:0010431	seed maturation	P	337	26	40	nan	nan	-3.18469370024	7.07106781187
+GO:0015405	P-P-bond-hydrolysis-driven transmembrane transporter activity	M	278	23	28	nan	nan	-1.93212255019	5.49540747454
+GO:0008374	O-acyltransferase activity	M	58	4	6	nan	nan	0.686406472984	nan
+GO:0005856	cytoskeleton	C	207	30	28	nan	nan	-3.59511459381	5.80278964963
+GO:0071215	cellular response to abscisic acid stimulus	P	526	207	94	nan	nan	-1.91560844478	6.76016689018
+GO:0071214	cellular response to abiotic stimulus	P	250	69	52	nan	nan	-2.95637971328	6.63410257493
+GO:0009755	hormone-mediated signaling pathway	P	1381	958	331	nan	nan	-6.50050199599	7.0433024657
+GO:0046700	heterocycle catabolic process	P	628	87	103	nan	nan	-4.70985662057	6.87578859219
+GO:0009756	carbohydrate mediated signaling	P	196	5	9	nan	nan	0.291729982996	nan
+GO:0009751	response to salicylic acid stimulus	P	1050	633	234	nan	nan	-6.41624013042	7.04265572068
+GO:0009750	response to fructose stimulus	P	349	52	53	nan	nan	-4.75202480179	6.76452906187
+GO:0009753	response to jasmonic acid stimulus	P	1012	620	221	nan	nan	-6.21194233495	7.01561539734
+GO:1901617	organic hydroxy compound biosynthetic process	P	602	181	125	nan	nan	-3.39284298664	6.80340424513
+GO:1901615	organic hydroxy compound metabolic process	P	730	194	144	nan	nan	-4.12504385751	6.86764986849
+GO:0009933	meristem structural organization	P	471	24	40	nan	nan	-3.47128110805	7.07106781187
+GO:0009932	cell tip growth	P	745	257	110	nan	nan	-3.84822722528	6.88663896422
+GO:0006006	glucose metabolic process	P	944	2382	263	nan	nan	-5.95031729406	7.03865155396
+GO:0006007	glucose catabolic process	P	861	2348	245	nan	nan	-5.41669631342	7.04185928064
+GO:0005200	structural constituent of cytoskeleton	M	38	8	10	nan	nan	0.727170529118	-0.291729982996
+GO:0043169	cation binding	M	2396	820	512	nan	nan	-6.83741873882	7.06247009471
+GO:0010605	negative regulation of macromolecule metabolic process	P	843	286	134	nan	nan	-5.4318679055	6.97654635711
+GO:0010604	positive regulation of macromolecule metabolic process	P	653	323	145	nan	nan	-4.37453409083	6.97857780212
+GO:0010608	posttranscriptional regulation of gene expression	P	420	48	45	nan	nan	-3.06316347452	6.40167636948
+GO:0009759	indole glucosinolate biosynthetic process	P	13	4	5	nan	nan	-1.5860979813	2.31840462387
+GO:0015238	drug transmembrane transporter activity	M	101	4	7	nan	nan	0.398862017609	nan
+GO:0001882	nucleoside binding	M	2537	781	449	nan	nan	-6.78470576227	7.05608815901
+GO:0019725	cellular homeostasis	P	531	252	96	nan	nan	-3.5658359218	6.87546472056
+GO:0019758	glycosinolate biosynthetic process	P	328	194	89	nan	nan	-3.64167335234	6.76030204739
+GO:0042646	plastid nucleoid	C	28	8	8	nan	nan	-0.889240170178	3.27502088129
+GO:0031226	intrinsic to plasma membrane	C	148	16	17	nan	nan	0.565960540526	2.49035797531
+GO:0045488	pectin metabolic process	P	159	39	29	nan	nan	-2.99246228532	5.81931895317
+GO:0016760	cellulose synthase (UDP-forming) activity	M	32	10	7	nan	nan	-2.01475070165	3.48263016573
+GO:0000988	protein binding transcription factor activity	M	51	4	7	nan	nan	0.291729982996	nan
+GO:0044267	cellular protein metabolic process	P	4430	3482	1096	nan	nan	-7.01559229083	7.06878840479
+GO:0031225	anchored to membrane	C	171	49	40	nan	nan	-1.61757540492	5.52642962668
+GO:0009855	determination of bilateral symmetry	P	268	15	23	nan	nan	-3.8364088399	7.07106781187
+GO:0031122	cytoplasmic microtubule organization	P	59	12	11	nan	nan	-2.48293484135	5.39334616893
+GO:0045730	respiratory burst	P	344	280	70	nan	nan	1.10135885538	6.78074263683
+GO:0045735	nutrient reservoir activity	M	52	10	15	nan	nan	-3.78918916728	7.07106781187
+GO:0043086	negative regulation of catalytic activity	P	115	5	9	nan	nan	0.462910049886	nan
+GO:0043085	positive regulation of catalytic activity	P	196	308	66	nan	nan	-4.08032714499	6.90305723077
+GO:0005057	receptor signaling protein activity	M	88	6	10	nan	nan	0.462910049886	nan
+GO:0009581	detection of external stimulus	P	175	21	29	nan	nan	-1.05188735459	4.97736813471
+GO:0008187	poly-pyrimidine tract binding	M	26	32	12	nan	nan	-0.346993653918	5.00937124299
+GO:0016765	transferase activity, transferring alkyl or aryl (other than methyl) groups	M	97	11	13	nan	nan	-0.0084137654111	2.50713268211
+GO:0000160	phosphorelay signal transduction system	P	348	110	56	nan	nan	-3.92101065099	6.72433297259
+GO:0045132	meiotic chromosome segregation	P	199	6	10	nan	nan	0.492057256668	nan
+GO:0000165	MAPK cascade	P	554	333	127	nan	nan	-6.16048111543	6.95118534222
+GO:0000166	nucleotide binding	M	3458	1548	676	nan	nan	-6.95813514109	7.0656228052
+GO:0016762	xyloglucan:xyloglucosyl transferase activity	M	26	4	7	nan	nan	0.493864798325	nan
+GO:0010073	meristem maintenance	P	631	163	113	nan	nan	-2.62610067507	6.76016503984
+GO:0009524	phragmoplast	C	92	7	8	nan	nan	-1.33818164662	4.45102900382
+GO:0008361	regulation of cell size	P	164	45	39	nan	nan	-3.78293787171	6.49759525018
+GO:0006839	mitochondrial transport	P	179	4	5	nan	nan	-1.7470906048	2.73861278753
+GO:0019538	protein metabolic process	P	4797	3937	1219	nan	nan	-7.02092023893	7.06914144108
+GO:0009521	photosystem	C	59	397	40	nan	nan	-3.8126916108	6.98170861759
+GO:0004091	carboxylesterase activity	M	101	20	13	nan	nan	-0.620309951695	5.54237971393
+GO:0015399	primary active transmembrane transporter activity	M	284	24	30	nan	nan	-1.90980970459	5.33719457515
+GO:0019395	fatty acid oxidation	P	275	29	39	nan	nan	0.294349766304	2.17300511263
+GO:0051536	iron-sulfur cluster binding	M	94	14	12	nan	nan	1.10467377307	2.8899642032
+GO:0051537	2 iron, 2 sulfur cluster binding	M	32	11	8	nan	nan	0.561844185126	2.6087942852
+GO:0042793	transcription from plastid promoter	P	95	117	48	nan	nan	-0.729338120969	6.39598911038
+GO:0010410	hemicellulose metabolic process	P	404	396	85	nan	nan	-4.42864458853	6.97080630928
+GO:0015171	amino acid transmembrane transporter activity	M	74	5	9	nan	nan	nan	nan
+GO:0033612	receptor serine/threonine kinase binding	M	53	4	7	nan	nan	0.554700196225	nan
+GO:0046274	lignin catabolic process	P	36	5	9	nan	nan	0.462910049886	nan
+GO:0046271	phenylpropanoid catabolic process	P	36	5	9	nan	nan	0.25	nan
+GO:0005911	cell-cell junction	C	1876	771	422	nan	nan	-6.44932188697	7.05369200309
+GO:0030258	lipid modification	P	352	32	43	nan	nan	0.309692964106	2.33314131314
+GO:0030036	actin cytoskeleton organization	P	359	31	36	nan	nan	-2.2004333252	5.3138769402
+GO:0008219	cell death	P	316	30	42	nan	nan	-0.838391147846	5.89208047958
+GO:0048451	petal formation	P	102	5	5	nan	nan	0.157949437948	1.62568666811
+GO:0048453	sepal formation	P	102	5	5	nan	nan	0.0346687622641	1.41421356237
+GO:0010207	photosystem II assembly	P	195	2159	127	nan	nan	-2.79851669934	7.04076717703
+GO:0006605	protein targeting	P	1704	737	334	nan	nan	-6.34743744411	7.04865920681
+GO:0045184	establishment of protein localization	P	1929	830	377	nan	nan	-6.61662514208	7.05597570643
+GO:0009913	epidermal cell differentiation	P	1092	387	179	nan	nan	-5.77045337782	6.97987885402
+GO:0009914	hormone transport	P	243	49	46	nan	nan	-3.50728274034	6.67414252892
+GO:0006066	alcohol metabolic process	P	706	194	144	nan	nan	-3.84682159111	6.85805250461
+GO:0006796	phosphate-containing compound metabolic process	P	2947	5217	714	nan	nan	-6.65423055452	7.0638952842
+GO:0006790	sulfur compound metabolic process	P	938	1718	299	nan	nan	-6.44710443762	7.03937102979
+GO:0006793	phosphorus metabolic process	P	3082	5342	767	nan	nan	-6.80695775538	7.06485512505
+GO:0000087	M phase of mitotic cell cycle	P	139	33	14	nan	nan	1.16106320809	4.68135477292
+GO:0031349	positive regulation of defense response	P	201	6	10	nan	nan	0.532500748337	nan
+GO:0031348	negative regulation of defense response	P	664	465	159	nan	nan	-5.97513807853	7.00011270461
+GO:0031347	regulation of defense response	P	1243	741	260	nan	nan	-6.17865491495	7.03315359563
+GO:0002831	regulation of response to biotic stimulus	P	330	230	88	nan	nan	-5.90335252892	6.95731098001
+GO:0010629	negative regulation of gene expression	P	770	266	123	nan	nan	-4.83168327856	6.8984735177
+GO:0010628	positive regulation of gene expression	P	608	313	140	nan	nan	-4.04133034388	6.93373682138
+GO:0009773	photosynthetic electron transport in photosystem I	P	64	611	54	nan	nan	-2.28605818188	6.92168903835
+GO:0046914	transition metal ion binding	M	671	154	117	nan	nan	-5.68806846084	6.9869474658
+GO:0010182	sugar mediated signaling pathway	P	196	5	9	nan	nan	0.329690236698	nan
+GO:0052249	modulation of RNA levels in other organism involved in symbiotic interaction	P	195	5	10	nan	nan	nan	nan
+GO:0044765	single-organism transport	P	4210	3506	1103	nan	nan	-6.97200636911	7.06859073308
+GO:0016705	oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen	M	294	30	43	nan	nan	-3.90158579409	5.45627617709
+GO:0019253	reductive pentose-phosphate cycle	P	9	12	8	nan	nan	-2.77170134222	4.57259092706
+GO:0019252	starch biosynthetic process	P	282	317	90	nan	nan	-1.92050057293	6.8672324677
+GO:0071396	cellular response to lipid	P	723	236	120	nan	nan	-3.06299379306	6.87614108428
+GO:0071395	cellular response to jasmonic acid stimulus	P	695	388	155	nan	nan	-6.28540896703	6.99905744101
+GO:0043574	peroxisomal transport	P	161	7	13	nan	nan	0.291729982996	nan
+GO:0034050	host programmed cell death induced by symbiont	P	135	6	10	nan	nan	0.578859684234	nan
+GO:0044403	symbiosis, encompassing mutualism through parasitism	P	240	9	14	nan	nan	0.672088699344	-0.141421356237
+GO:0006479	protein methylation	P	435	273	72	nan	nan	0.912872420795	6.741365338
+GO:0010395	rhamnogalacturonan I metabolic process	P	24	10	7	nan	nan	-2.11686942595	4.34981027412
+GO:0046130	purine ribonucleoside catabolic process	P	123	10	14	nan	nan	-1.13362158989	4.0
+GO:0048863	stem cell differentiation	P	90	4	6	nan	nan	0.578859684234	nan
+GO:0048864	stem cell development	P	89	4	6	nan	nan	0.705656304211	nan
+GO:0048868	pollen tube development	P	491	43	39	nan	nan	-2.62932517061	6.40483249439
+GO:0008168	methyltransferase activity	M	231	7	11	nan	nan	0.670672861447	nan
+GO:0006818	hydrogen transport	P	78	9	8	nan	nan	-0.216589928	2.87363660289
+GO:0006812	cation transport	P	1336	738	311	nan	nan	-6.66714458419	7.04898809012
+GO:0006811	ion transport	P	1869	1136	457	nan	nan	-6.87431138471	7.0639126305
+GO:0006810	transport	P	4537	3890	1202	nan	nan	-7.01372713326	7.06925472215
+GO:0006816	calcium ion transport	P	270	70	52	nan	nan	-2.49269580047	6.25674236467
+GO:0031408	oxylipin biosynthetic process	P	60	17	18	nan	nan	-1.67589718114	5.96482047337
+GO:0031406	carboxylic acid binding	M	112	9	16	nan	nan	0.36514837167	nan
+GO:0032270	positive regulation of cellular protein metabolic process	P	34	7	6	nan	nan	-2.19860933465	4.52043263687
+GO:0010150	leaf senescence	P	143	11	13	nan	nan	-2.59124621795	5.50597761289
+GO:0010155	regulation of proton transport	P	236	262	54	nan	nan	-2.64963226041	6.71590182022
+GO:0010154	fruit development	P	1146	209	185	nan	nan	-6.12192293364	6.98328086247
+GO:0044272	sulfur compound biosynthetic process	P	856	1610	279	nan	nan	-6.63655306814	7.04790868104
+GO:0016131	brassinosteroid metabolic process	P	284	51	46	nan	nan	-0.599282998888	5.88015725958
+GO:0016132	brassinosteroid biosynthetic process	P	283	51	46	nan	nan	-0.555835504659	5.53664177119
+GO:0046039	GTP metabolic process	P	62	9	12	nan	nan	-2.38478590055	4.94974746831
+GO:0007020	microtubule nucleation	P	154	11	20	nan	nan	0.25	nan
+GO:0032989	cellular component morphogenesis	P	1236	407	195	nan	nan	-4.52705488321	6.99886772778
+GO:0071705	nitrogen compound transport	P	1449	307	227	nan	nan	-5.93433985689	7.01061894503
+GO:0071702	organic substance transport	P	2918	1363	606	nan	nan	-6.889010657	7.06123849576
+GO:0016209	antioxidant activity	M	120	14	16	nan	nan	-0.743913929761	4.14815602932
+GO:0030234	enzyme regulator activity	M	285	40	36	nan	nan	-4.39956428076	6.64580921285
+GO:1901657	glycosyl compound metabolic process	P	621	322	137	nan	nan	-5.36727154122	6.97004203388
+GO:0080135	regulation of cellular response to stress	P	967	514	197	nan	nan	-6.04575515047	7.01747194445
+GO:1901658	glycosyl compound catabolic process	P	170	12	18	nan	nan	-1.4645701174	4.0
+GO:1901659	glycosyl compound biosynthetic process	P	419	242	95	nan	nan	-4.12035970244	6.89909964859
+GO:0061025	membrane fusion	P	616	106	80	nan	nan	-3.59007105823	6.71884750116
+GO:0061024	membrane organization	P	958	1162	237	nan	nan	-5.14956690967	6.9941496014
+GO:0042335	cuticle development	P	104	11	14	nan	nan	-0.278932256402	2.50713268211
+GO:0031981	nuclear lumen	C	671	175	111	nan	nan	-4.96242008093	6.827308937
+GO:0006260	DNA replication	P	351	360	67	nan	nan	3.24530251241	6.80945518904
+GO:0006261	DNA-dependent DNA replication	P	278	319	60	nan	nan	3.34655496375	6.81073585096
+GO:0006268	DNA unwinding involved in replication	P	9	9	5	nan	nan	-0.92639287539	2.81278946735
+GO:0005794	Golgi apparatus	C	1507	573	350	nan	nan	-6.67180939711	7.04821464526
+GO:0000313	organellar ribosome	C	13	9	6	nan	nan	0.908229880915	3.60890259632
+GO:0000311	plastid large ribosomal subunit	C	4	5	4	nan	nan	-0.274410649974	1.73488558984
+GO:0042744	hydrogen peroxide catabolic process	P	138	30	21	nan	nan	-0.619584075519	5.3860046301
+GO:0042743	hydrogen peroxide metabolic process	P	313	72	50	nan	nan	-5.25450345269	6.62481051553
+GO:0042742	defense response to bacterium	P	866	785	215	nan	nan	-6.69662882489	7.03614165079
+GO:0031365	N-terminal protein amino acid modification	P	246	16	22	nan	nan	-0.523766040111	6.31200945933
+GO:0022803	passive transmembrane transporter activity	M	147	15	14	nan	nan	-1.27830919975	4.99070253132
+GO:0048653	anther development	P	179	20	26	nan	nan	-0.718999422943	4.66149010748
+GO:0009791	post-embryonic development	P	2943	1366	630	nan	nan	-6.84277082914	7.05934971788
+GO:0009790	embryo development	P	953	140	132	nan	nan	-5.63370784234	6.93282526553
+GO:0009793	embryo development ending in seed dormancy	P	858	104	105	nan	nan	-5.00456653195	6.79761998289
+GO:0009799	specification of symmetry	P	270	15	23	nan	nan	-2.85700006873	7.07106781187
+GO:0009798	axis specification	P	207	11	19	nan	nan	0.54992668133	nan
+GO:0010647	positive regulation of cell communication	P	77	6	10	nan	nan	0.524404424085	nan
+GO:0010646	regulation of cell communication	P	285	27	30	nan	nan	-2.54592338619	6.36346269772
+GO:0055080	cation homeostasis	P	430	226	67	nan	nan	-2.42640559127	6.696387269
+GO:0055081	anion homeostasis	P	54	6	6	nan	nan	-1.02902934351	2.55750973236
+GO:0055082	cellular chemical homeostasis	P	417	211	68	nan	nan	-2.85380172496	6.79304192869
+GO:0055085	transmembrane transport	P	905	155	146	nan	nan	-5.93517485446	6.9803402646
+GO:0055086	nucleobase-containing small molecule metabolic process	P	1024	2459	251	nan	nan	-5.55366097782	7.04911954438
+GO:0038023	signaling receptor activity	M	246	5	9	nan	nan	0.291729982996	nan
+GO:0015631	tubulin binding	M	68	7	8	nan	nan	-1.27034875902	5.3235666095
+GO:0015630	microtubule cytoskeleton	C	152	22	19	nan	nan	-2.9020867852	5.52264031797
+GO:0060548	negative regulation of cell death	P	599	187	96	nan	nan	-2.05272206237	6.69436859884
+GO:0046486	glycerolipid metabolic process	P	327	20	36	nan	nan	0.291729982996	nan
+GO:0046482	para-aminobenzoic acid metabolic process	P	84	7	11	nan	nan	0.65648795189	nan
+GO:0046483	heterocycle metabolic process	P	4253	9564	1186	nan	nan	-6.95450933505	7.06687889518
+GO:0044428	nuclear part	C	809	225	134	nan	nan	-5.65038042027	6.95610057649
+GO:0044429	mitochondrial part	C	308	25	31	nan	nan	-1.34347530444	5.50597761289
+GO:0044425	membrane part	C	1741	1271	390	nan	nan	-6.77577554304	7.05132974674
+GO:0044426	cell wall part	C	28	4	4	nan	nan	0.521026049295	1.54919333848
+GO:0044427	chromosomal part	C	119	14	15	nan	nan	0.335441903407	3.03959379437
+GO:0045828	positive regulation of isoprenoid metabolic process	P	26	10	7	nan	nan	-1.93526917544	4.96115732868
+GO:0009894	regulation of catabolic process	P	79	6	10	nan	nan	0.433460723432	nan
+GO:0006457	protein folding	P	498	91	74	nan	nan	-3.95685238691	6.68335339632
+GO:0009893	positive regulation of metabolic process	P	959	468	224	nan	nan	-5.74698629225	7.01886185179
+GO:0009890	negative regulation of biosynthetic process	P	622	190	101	nan	nan	-3.96397130491	6.84398495623
+GO:0009891	positive regulation of biosynthetic process	P	920	427	210	nan	nan	-5.73538600421	6.99132170614
+GO:0009898	internal side of plasma membrane	C	71	4	5	nan	nan	-1.49290198302	3.03315017762
+GO:0035966	response to topologically incorrect protein	P	712	175	131	nan	nan	-3.56577177944	6.84153420776
+GO:0035303	regulation of dephosphorylation	P	278	791	89	nan	nan	-3.5759204118	6.97654101789
+GO:0035304	regulation of protein dephosphorylation	P	274	791	89	nan	nan	-3.86104664727	6.97549082691
+GO:0008144	drug binding	M	22	9	7	nan	nan	1.32851525422	3.60478503355
+GO:0048226	Casparian strip	C	4	4	4	nan	nan	0.759815495781	1.90692517849
+GO:0048229	gametophyte development	P	791	50	74	nan	nan	-0.896250708633	4.97736813471
+GO:0006873	cellular ion homeostasis	P	405	210	66	nan	nan	-2.81563592321	6.9111718416
+GO:0045216	cell-cell junction organization	P	8	4	4	nan	nan	0.621966321647	1.90692517849
+GO:0009639	response to red or far red light	P	673	898	137	nan	nan	-5.8211883487	7.00289521023
+GO:0009630	gravitropism	P	323	18	26	nan	nan	-0.867650999426	7.07106781187
+GO:0009637	response to blue light	P	322	858	82	nan	nan	-2.6779433437	6.99347364382
+GO:0010187	negative regulation of seed germination	P	40	7	8	nan	nan	-0.524102007912	2.73861278753
+GO:0006833	water transport	P	343	64	56	nan	nan	-5.16948780285	6.75520642453
+GO:0007005	mitochondrion organization	P	155	5	7	nan	nan	-2.33193292875	3.4278273002
+GO:0006733	oxidoreduction coenzyme metabolic process	P	388	2328	158	nan	nan	-0.0213034617334	7.03537717637
+GO:0033037	polysaccharide localization	P	253	24	34	nan	nan	-2.19550618342	5.89208047958
+GO:0033036	macromolecule localization	P	2303	970	461	nan	nan	-6.73682839987	7.05300578246
+GO:0016441	posttranscriptional gene silencing	P	316	16	24	nan	nan	0.607918758874	-0.20203050891
+GO:0016116	carotenoid metabolic process	P	180	279	66	nan	nan	-1.00177012399	6.71166279411
+GO:0016114	terpenoid biosynthetic process	P	355	320	79	nan	nan	-1.76531319741	6.83015070473
+GO:0031163	metallo-sulfur cluster assembly	P	137	57	47	nan	nan	-1.23379826526	5.04111969984
+GO:0009955	adaxial/abaxial pattern specification	P	198	12	21	nan	nan	0.383717687635	-0.141421356237
+GO:0031301	integral to organelle membrane	C	91	11	9	nan	nan	-2.08801706967	4.55728437768
+GO:0031300	intrinsic to organelle membrane	C	109	11	9	nan	nan	-2.1307748496	4.29703351644
+GO:0010214	seed coat development	P	88	20	18	nan	nan	-3.01811850646	5.1809543228
+GO:0010212	response to ionizing radiation	P	122	4	5	nan	nan	-1.66797939805	2.50713268211
+GO:0010218	response to far red light	P	218	803	82	nan	nan	-3.11909769548	6.98310009971
+GO:0009404	toxin metabolic process	P	422	71	68	nan	nan	-2.05402937648	6.32667941709
+GO:0009407	toxin catabolic process	P	422	71	68	nan	nan	-2.12665612299	6.69133962477
+GO:0009409	response to cold	P	1056	699	220	nan	nan	-6.59997627193	7.02451752134
+GO:0009408	response to heat	P	519	78	71	nan	nan	-4.38590967458	6.63863217307
+GO:0002237	response to molecule of bacterial origin	P	232	19	20	nan	nan	-0.593405736229	4.13493072265
+GO:0005516	calmodulin binding	M	264	21	32	nan	nan	-2.26799347953	6.125
+GO:0005515	protein binding	M	3396	2035	799	nan	nan	-6.99063605224	7.06691949143
+GO:0004176	ATP-dependent peptidase activity	M	31	8	6	nan	nan	0.450153184692	3.69021351432
+GO:0004175	endopeptidase activity	M	269	41	48	nan	nan	-2.09503237321	5.5955838843
+GO:0055062	phosphate ion homeostasis	P	23	5	4	nan	nan	0.0557278212575	2.03222930476
+GO:0006996	organelle organization	P	3011	5210	799	nan	nan	-6.95206598701	7.06498446426
+GO:0006997	nucleus organization	P	129	9	15	nan	nan	-4.76394851772	7.07106781187
+GO:0006995	cellular response to nitrogen starvation	P	109	6	10	nan	nan	0.462910049886	nan
+GO:0042127	regulation of cell proliferation	P	187	68	35	nan	nan	-3.98896175352	6.71403731203
+GO:0003006	developmental process involved in reproduction	P	2856	915	530	nan	nan	-6.69565445698	7.0539089333
+GO:0003002	regionalization	P	452	31	50	nan	nan	-5.15374836837	7.07106781187
+GO:0032535	regulation of cellular component size	P	390	77	59	nan	nan	-4.80440271691	6.84150813177
+GO:0021700	developmental maturation	P	922	313	141	nan	nan	-5.19572409729	6.88965969625
+GO:0016301	kinase activity	M	1476	233	194	nan	nan	-4.62164497301	6.93395291491
+GO:0051603	proteolysis involved in cellular protein catabolic process	P	661	162	106	nan	nan	-4.5736333912	6.87919538325
+GO:0051606	detection of stimulus	P	377	245	101	nan	nan	-6.22829268886	6.96722547675
+GO:0051607	defense response to virus	P	275	14	25	nan	nan	0.329690236698	nan
+GO:0051604	protein maturation	P	103	6	8	nan	nan	-0.922466968094	4.94974746831
+GO:0044445	cytosolic part	C	418	243	122	nan	nan	-3.12209344119	6.84481223894
+GO:0046173	polyol biosynthetic process	P	84	24	14	nan	nan	0.757168124677	3.87147346209
+GO:0060560	developmental growth involved in morphogenesis	P	1017	366	156	nan	nan	-4.00510886521	6.91553463954
+GO:0048571	long-day photoperiodism	P	49	7	9	nan	nan	-0.239737320771	7.07106781187
+GO:0006857	oligopeptide transport	P	297	25	27	nan	nan	-3.75515950491	6.18465843843
+GO:0009534	chloroplast thylakoid	C	480	6015	253	nan	nan	0.815231890427	7.05440162375
+GO:0010065	primary meristem tissue development	P	41	5	9	nan	nan	0.36514837167	nan
+GO:0070925	organelle assembly	P	97	40	16	nan	nan	1.37587592512	5.23992141552
+GO:0010417	glucuronoxylan biosynthetic process	P	17	11	7	nan	nan	0.465915891906	3.51060170403
+GO:0010067	procambium histogenesis	P	39	5	9	nan	nan	0.36514837167	nan
+GO:0009532	plastid stroma	C	841	3680	340	nan	nan	-5.60117830267	7.04793541261
+GO:0010413	glucuronoxylan metabolic process	P	377	391	80	nan	nan	-3.91881536247	6.93328304737
+GO:0080008	Cul4-RING ubiquitin ligase complex	C	118	5	9	nan	nan	0.398862017609	nan
+GO:0009617	response to bacterium	P	1153	949	274	nan	nan	-6.6334280352	7.04366546548
+GO:0009612	response to mechanical stimulus	P	108	76	25	nan	nan	0.958521763105	6.12544761549
+GO:0051596	methylglyoxal catabolic process	P	98	5	9	nan	nan	0.291729982996	nan
+GO:0008324	cation transmembrane transporter activity	M	513	56	64	nan	nan	-4.08281995834	6.67466414175
+GO:0007062	sister chromatid cohesion	P	269	13	19	nan	nan	0.667218168777	-0.291729982996
+GO:1901476	carbohydrate transporter activity	M	122	6	10	nan	nan	0.676123403783	nan
+GO:0005874	microtubule	C	82	11	13	nan	nan	-1.50845698576	4.1984465133
+GO:0033015	tetrapyrrole catabolic process	P	98	9	15	nan	nan	0.398862017609	nan
+GO:0033013	tetrapyrrole metabolic process	P	326	725	115	nan	nan	-1.72674546472	6.98373570723
+GO:0016684	oxidoreductase activity, acting on peroxide as acceptor	M	91	10	10	nan	nan	-0.53721217337	3.20723432895
+GO:0016682	oxidoreductase activity, acting on diphenols and related substances as donors, oxygen as acceptor	M	42	4	7	nan	nan	0.431331092814	nan
+GO:0009873	ethylene mediated signaling pathway	P	307	108	54	nan	nan	-3.97589820907	6.64504604599
+GO:0043562	cellular response to nitrogen levels	P	119	6	10	nan	nan	0.472490457546	nan
+GO:1901698	response to nitrogen compound	P	1226	1053	248	nan	nan	-5.49965633408	7.02005507779
+GO:1901699	cellular response to nitrogen compound	P	279	8	14	nan	nan	0.291729982996	nan
+GO:0016462	pyrophosphatase activity	M	912	218	147	nan	nan	-5.78191561262	6.93786924003
+GO:0003905	alkylbase DNA N-glycosylase activity	M	9	5	6	nan	nan	-0.513035099607	3.4278273002
+GO:0072506	trivalent inorganic anion homeostasis	P	23	5	4	nan	nan	0.0182331239372	2.22911395953
+GO:0006221	pyrimidine nucleotide biosynthetic process	P	208	19	24	nan	nan	-0.629419366191	3.58590234839
+GO:0007264	small GTPase mediated signal transduction	P	86	4	5	nan	nan	-2.03216375358	4.0
+GO:0006084	acetyl-CoA metabolic process	P	228	70	51	nan	nan	-1.72030911591	6.15317407158
+GO:0006081	cellular aldehyde metabolic process	P	448	1190	181	nan	nan	-1.7553607254	6.99078100294
+GO:0006082	organic acid metabolic process	P	2811	5138	829	nan	nan	-6.91937924847	7.06307956845
+GO:0006089	lactate metabolic process	P	97	5	9	nan	nan	0.398862017609	nan
+GO:0030095	chloroplast photosystem II	C	20	44	12	nan	nan	0.610240447643	5.84865936296
+GO:0030093	chloroplast photosystem I	C	6	12	6	nan	nan	-0.667996283824	4.20896893563
+GO:0030091	protein repair	P	16	13	8	nan	nan	-0.0727746206377	4.16198735628
+GO:0031328	positive regulation of cellular biosynthetic process	P	920	427	210	nan	nan	-5.39449551369	6.9925387766
+GO:0031327	negative regulation of cellular biosynthetic process	P	618	189	100	nan	nan	-3.50874812325	6.82856595187
+GO:0031326	regulation of cellular biosynthetic process	P	2908	1617	684	nan	nan	-6.92800641525	7.06551883127
+GO:0031325	positive regulation of cellular metabolic process	P	948	467	222	nan	nan	-5.61886365658	6.99527132766
+GO:0031324	negative regulation of cellular metabolic process	P	697	210	116	nan	nan	-3.58520674995	6.89584171576
+GO:0031323	regulation of cellular metabolic process	P	3426	3795	876	nan	nan	-6.95439163892	7.06509017649
+GO:0090304	nucleic acid metabolic process	P	2761	5428	715	nan	nan	-6.8926473295	7.06541557637
+GO:0090305	nucleic acid phosphodiester bond hydrolysis	P	206	5	9	nan	nan	0.291729982996	nan
+GO:0010941	regulation of cell death	P	1002	576	208	nan	nan	-6.1788479677	7.00648198672
+GO:0048439	flower morphogenesis	P	162	12	18	nan	nan	-2.63111966616	4.0
+GO:0048438	floral whorl development	P	776	83	95	nan	nan	-3.29872571414	6.57147155595
+GO:0005576	extracellular region	C	2195	1702	595	nan	nan	-6.8816959387	7.06404837556
+GO:0002252	immune effector process	P	624	305	97	nan	nan	-0.416268334653	6.81731541764
+GO:0055044	symplast	C	1873	771	422	nan	nan	-6.4942065894	7.0558407315
+GO:0019685	photosynthesis, dark reaction	P	10	15	9	nan	nan	-2.24738085124	4.90615222658
+GO:0000904	cell morphogenesis involved in differentiation	P	767	56	66	nan	nan	-3.68582821882	6.33960646456
+GO:0000902	cell morphogenesis	P	1169	397	182	nan	nan	-5.06931192309	6.95856007989
+GO:2000377	regulation of reactive oxygen species metabolic process	P	529	300	116	nan	nan	-6.20145520713	6.97906820187
+GO:0032559	adenyl ribonucleotide binding	M	2281	588	375	nan	nan	-6.5191454063	7.03870274447
+GO:0090484	drug transporter activity	M	107	5	9	nan	nan	0.141421356237	nan
+GO:0032555	purine ribonucleotide binding	M	2530	764	447	nan	nan	-6.84073992026	7.05465212404
+GO:0032550	purine ribonucleoside binding	M	2529	764	447	nan	nan	-6.87508121199	7.05749236522
+GO:0032553	ribonucleotide binding	M	2565	793	457	nan	nan	-6.83176207115	7.04855071431
+GO:0033205	cell cycle cytokinesis	P	415	345	83	nan	nan	1.20553375583	6.75721386174
+GO:0015078	hydrogen ion transmembrane transporter activity	M	123	17	15	nan	nan	-1.82875956398	5.52579789368
+GO:0015672	monovalent inorganic cation transport	P	361	25	25	nan	nan	-3.77423205251	5.60153560304
+GO:0044462	external encapsulating structure part	C	52	6	8	nan	nan	-0.94295925976	7.07106781187
+GO:0009850	auxin metabolic process	P	245	21	34	nan	nan	-4.04607135562	7.07106781187
+GO:0009851	auxin biosynthetic process	P	214	21	34	nan	nan	-3.84695016585	7.07106781187
+GO:0009856	pollination	P	648	82	58	nan	nan	-4.29322031149	6.80020770076
+GO:0006418	tRNA aminoacylation for protein translation	P	55	4	6	nan	nan	0.703989469396	nan
+GO:0006417	regulation of translation	P	94	18	14	nan	nan	-1.64197899004	5.36707045452
+GO:0008104	protein localization	P	1973	844	386	nan	nan	-6.72035714473	7.05965422285
+GO:0004812	aminoacyl-tRNA ligase activity	M	54	4	6	nan	nan	0.731602549715	nan
+GO:0042440	pigment metabolic process	P	467	1130	158	nan	nan	-2.79998806083	7.01947557144
+GO:0009166	nucleotide catabolic process	P	123	10	14	nan	nan	-1.20635638843	4.94974746831
+GO:0055114	oxidation-reduction process	P	1589	4469	446	nan	nan	-6.39983265478	7.05258647881
+GO:0031461	cullin-RING ubiquitin ligase complex	C	167	11	16	nan	nan	-1.65380814314	4.0
+GO:0044248	cellular catabolic process	P	2221	1003	539	nan	nan	-6.86602014837	7.06131895054
+GO:0006944	cellular membrane fusion	P	616	106	80	nan	nan	-3.64350888223	6.67290554859
+GO:0006949	syncytium formation	P	32	7	9	nan	nan	0.961523947641	-0.329690236698
+GO:0009651	response to salt stress	P	1428	536	343	nan	nan	-6.48211864982	7.0373719449
+GO:0044264	cellular polysaccharide metabolic process	P	1106	989	292	nan	nan	-6.74765106092	7.04923208851
+GO:0044262	cellular carbohydrate metabolic process	P	1207	1038	313	nan	nan	-6.6945999784	7.05113567865
+GO:0071446	cellular response to salicylic acid stimulus	P	896	564	197	nan	nan	-6.23742973915	7.02311123222
+GO:0009657	plastid organization	P	558	3536	274	nan	nan	-3.8706792675	7.03641691022
+GO:0009163	nucleoside biosynthetic process	P	107	7	5	nan	nan	0.914565926663	2.92304670961
+GO:0019318	hexose metabolic process	P	984	2388	269	nan	nan	-6.008515236	7.04205828184
+GO:0019319	hexose biosynthetic process	P	306	30	38	nan	nan	-1.99313533916	3.90878469425
+GO:0016926	protein desumoylation	P	198	33	22	nan	nan	-3.15558024361	6.05942409914
+GO:0010498	proteasomal protein catabolic process	P	370	57	58	nan	nan	-3.57483690165	6.69025048855
+GO:0070271	protein complex biogenesis	P	736	2436	233	nan	nan	-6.15909440725	7.0330852529
+GO:0007049	cell cycle	P	1110	626	168	nan	nan	-4.168242017	6.97349876537
+GO:0016667	oxidoreductase activity, acting on a sulfur group of donors	M	119	4	7	nan	nan	0.36514837167	nan
+GO:0043473	pigmentation	P	280	136	64	nan	nan	-2.39683931755	6.69292658836
+GO:0043476	pigment accumulation	P	280	136	64	nan	nan	-2.42039701752	6.71699463761
+GO:0043478	pigment accumulation in response to UV light	P	280	136	64	nan	nan	-2.58632047741	6.74750920356
+GO:0043479	pigment accumulation in tissues in response to UV light	P	280	136	64	nan	nan	-2.37847372376	6.65162026796
+GO:0033692	cellular polysaccharide biosynthetic process	P	836	781	213	nan	nan	-6.4930823589	7.02799733777
+GO:0072528	pyrimidine-containing compound biosynthetic process	P	223	19	24	nan	nan	-0.628753787504	4.06586399182
+GO:0072521	purine-containing compound metabolic process	P	314	26	33	nan	nan	-3.51194395068	6.57932775047
+GO:0072522	purine-containing compound biosynthetic process	P	179	10	11	nan	nan	-0.962311776943	4.41836082168
+GO:0072523	purine-containing compound catabolic process	P	124	10	14	nan	nan	-1.19583354518	4.0
+GO:0072524	pyridine-containing compound metabolic process	P	307	2090	133	nan	nan	1.64308399658	7.03665192216
+GO:0072527	pyrimidine-containing compound metabolic process	P	233	19	24	nan	nan	-0.802588638438	5.3235666095
+GO:0034754	cellular hormone metabolic process	P	266	20	32	nan	nan	-4.29174070428	7.07106781187
+GO:1900140	regulation of seedling development	P	114	10	13	nan	nan	-1.04109123891	4.0
+GO:0005773	vacuole	C	1638	471	363	nan	nan	-6.45359088697	7.03659827118
+GO:0005777	peroxisome	C	281	47	33	nan	nan	-4.01648182297	6.58878314551
+GO:0005774	vacuolar membrane	C	945	207	193	nan	nan	-4.74555920277	6.95903875539
+GO:0051817	modification of morphology or physiology of other organism involved in symbiotic interaction	P	213	8	12	nan	nan	0.695324934257	nan
+GO:0006606	protein import into nucleus	P	225	12	19	nan	nan	0.666769286026	nan
+GO:0006952	defense response	P	2316	2011	545	nan	nan	-6.89053231116	7.05806168557
+GO:0043900	regulation of multi-organism process	P	385	235	89	nan	nan	-6.0125027915	6.95558050872
+GO:0006955	immune response	P	1516	904	327	nan	nan	-6.20328999873	7.03961959397
+GO:0004601	peroxidase activity	M	91	10	10	nan	nan	-0.593063350689	3.82684126116
+GO:0006184	GTP catabolic process	P	56	7	11	nan	nan	0.37306200253	nan
+GO:0019787	small conjugating protein ligase activity	M	283	19	28	nan	nan	0.578690403558	-0.141421356237
+GO:0034968	histone lysine methylation	P	361	269	65	nan	nan	1.76849480385	6.66395454748
+GO:2000602	regulation of interphase of mitotic cell cycle	P	96	118	30	nan	nan	3.5261091424	6.3937707573
+GO:0051258	protein polymerization	P	77	12	15	nan	nan	-1.25361293078	4.69171558409
+GO:0051253	negative regulation of RNA metabolic process	P	588	187	96	nan	nan	-3.79895919891	6.88419308813
+GO:0051252	regulation of RNA metabolic process	P	2472	1180	563	nan	nan	-6.72340604476	7.05844868791
+GO:0051254	positive regulation of RNA metabolic process	P	606	313	139	nan	nan	-4.08210589229	6.81742584197
+GO:0034504	protein localization to nucleus	P	227	12	19	nan	nan	0.743349885699	-0.141421356237
+GO:0007389	pattern specification process	P	680	94	94	nan	nan	-4.71204295862	6.88512172782
+GO:0071310	cellular response to organic substance	P	2152	1350	476	nan	nan	-6.27965850872	7.0553534987
+GO:0015696	ammonium transport	P	137	7	10	nan	nan	-2.09425861955	4.94974746831
+GO:0015698	inorganic anion transport	P	594	99	91	nan	nan	-4.01669346033	6.8068642865
+GO:0051649	establishment of localization in cell	P	2508	1921	565	nan	nan	-6.69947374412	7.06048837572
+GO:0051644	plastid localization	P	148	447	78	nan	nan	1.08338001413	6.91711046111
+GO:0051640	organelle localization	P	202	449	81	nan	nan	0.795982632978	6.85818339159
+GO:0051641	cellular localization	P	2614	1994	599	nan	nan	-6.82495126733	7.06210657563
+GO:0043733	DNA-3-methylbase glycosylase activity	M	8	5	6	nan	nan	-0.432472448779	2.73861278753
+GO:0030422	production of siRNA involved in RNA interference	P	222	6	10	nan	nan	0.492057256668	nan
+GO:0043288	apocarotenoid metabolic process	P	68	5	9	nan	nan	0.291729982996	nan
+GO:0048573	photoperiodism, flowering	P	222	17	25	nan	nan	-0.809433594656	3.03315017762
+GO:0030154	cell differentiation	P	1828	650	308	nan	nan	-6.31854187328	7.03891287976
+GO:0048574	long-day photoperiodism, flowering	P	49	7	9	nan	nan	-0.771511971123	3.4278273002
+GO:0006163	purine nucleotide metabolic process	P	291	26	33	nan	nan	-4.24919995958	6.0764362025
+GO:0006164	purine nucleotide biosynthetic process	P	166	10	11	nan	nan	-1.09578760216	4.48203163699
+GO:0009658	chloroplast organization	P	315	668	143	nan	nan	-2.45631621208	6.97318712148
+GO:0044242	cellular lipid catabolic process	P	409	39	51	nan	nan	-2.57443691478	5.84237394672
+GO:0009653	anatomical structure morphogenesis	P	2696	1713	559	nan	nan	-6.84421955391	7.0590966068
+GO:0010167	response to nitrate	P	381	62	59	nan	nan	-3.207865573	6.63281750799
+GO:0010162	seed dormancy process	P	273	22	33	nan	nan	-3.71694735965	6.31200945933
+GO:0008380	RNA splicing	P	382	19	28	nan	nan	-4.10225439198	6.31200945933
+GO:0044106	cellular amine metabolic process	P	297	20	33	nan	nan	-2.85700006873	7.07106781187
+GO:0006508	proteolysis	P	1017	264	192	nan	nan	-5.48937379249	7.00698189069
+GO:0006721	terpenoid metabolic process	P	402	331	92	nan	nan	-1.88110077699	6.91253695753
+GO:0006720	isoprenoid metabolic process	P	656	1632	228	nan	nan	-1.88581241898	6.99636704851
+GO:0019374	galactolipid metabolic process	P	159	8	14	nan	nan	0.345705358827	nan
+GO:0019375	galactolipid biosynthetic process	P	157	8	14	nan	nan	0.341743063087	nan
+GO:0043455	regulation of secondary metabolic process	P	387	59	52	nan	nan	-3.49902818268	6.34699110681
+GO:0043450	alkene biosynthetic process	P	268	49	29	nan	nan	1.77250384661	4.82900865753

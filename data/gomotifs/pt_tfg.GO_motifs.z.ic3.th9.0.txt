@@ -1,0 +1,170 @@
+GO:0050832	defense response to fungus	P	896	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006970	response to osmotic stress	P	1495	18	24	nan	nan	0.344123600806	nan	-3.85497402615	nan	0.344123600806	-0.141421356237	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006979	response to oxidative stress	P	1179	5	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044711	single-organism biosynthetic process	P	2693	10	16	nan	nan	0.329690236698	nan	nan	nan	0.329690236698	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009814	defense response, incompatible interaction	P	1219	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0070887	cellular response to chemical stimulus	P	2418	34	39	nan	nan	1.17608569845	nan	-3.04377183737	nan	-1.72361233165	-0.543702132824	nan	5.38312630174	nan	nan	nan	nan	nan	nan
+GO:0048731	system development	P	3916	20	34	nan	nan	0.20203050891	nan	nan	nan	0.179968508266	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:1901362	organic cyclic compound biosynthetic process	P	2513	7	11	nan	nan	0.25	nan	nan	nan	0.25	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0043436	oxoacid metabolic process	P	2810	9	15	nan	nan	nan	nan	-3.11137080276	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0003676	nucleic acid binding	M	2641	36	46	nan	nan	-1.18934841555	nan	-5.58951355709	-0.291729982996	-3.69338295282	-0.20203050891	nan	5.35819749299	7.07106781187	nan	nan	-0.20203050891	nan	nan
+GO:0003677	DNA binding	M	1646	22	26	nan	nan	-0.677056530821	nan	-4.21807127933	-0.291729982996	-2.27149124294	-0.291729982996	nan	3.13070440056	7.07106781187	-0.20203050891	nan	nan	nan	nan
+GO:0043412	macromolecule modification	P	3450	7	11	nan	nan	nan	nan	-3.11137080276	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048869	cellular developmental process	P	2133	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051239	regulation of multicellular organismal process	P	1268	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051234	establishment of localization	P	4648	22	33	nan	nan	0.416474882116	nan	-4.69171558409	nan	0.410276362014	-0.20203050891	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0061458	reproductive system development	P	2318	11	17	nan	nan	0.36514837167	nan	nan	nan	0.335431589628	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048519	negative regulation of biological process	P	2139	16	22	nan	nan	0.431331092814	nan	-2.40484740867	nan	-2.02937067184	-0.25	nan	4.94974746831	nan	nan	nan	nan	nan	nan
+GO:0002376	immune system process	P	1762	16	22	nan	nan	-0.808557784191	nan	-2.5815025532	-0.25	-2.30968228237	-0.36514837167	nan	4.08404766754	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0048646	anatomical structure formation involved in morphogenesis	P	2377	7	10	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071495	cellular response to endogenous stimulus	P	1438	21	24	nan	nan	0.869808844269	nan	-2.85099436244	nan	-1.37553079445	-0.532500748337	nan	4.66250341052	nan	-0.141421356237	nan	nan	nan	nan
+GO:0002682	regulation of immune system process	P	1047	6	9	nan	nan	0.584897651866	nan	nan	nan	0.584897651866	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051707	response to other organism	P	2528	17	25	nan	nan	0.329690236698	nan	-3.07339927971	nan	-2.80480061231	-0.25	nan	7.07106781187	nan	nan	nan	nan	nan	nan
+GO:0051704	multi-organism process	P	2966	22	31	nan	nan	0.532500748337	nan	-3.23479950781	nan	-2.03222930476	-0.329690236698	nan	4.94974746831	nan	nan	nan	nan	nan	nan
+GO:0009536	plastid	C	4500	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0016053	organic acid biosynthetic process	P	1910	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006725	cellular aromatic compound metabolic process	P	4817	18	31	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0070727	cellular macromolecule localization	P	1922	11	15	nan	nan	0.569802882298	nan	-2.69468719759	nan	0.615124685229	-0.431331092814	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006886	intracellular protein transport	P	1834	9	13	nan	nan	0.436648003086	nan	-2.69468719759	nan	0.462910049886	-0.291729982996	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0045088	regulation of innate immune response	P	1041	6	9	nan	nan	0.615124685229	nan	nan	nan	0.615124685229	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0003700	sequence-specific DNA binding transcription factor activity	M	1374	19	21	nan	nan	-1.2449899598	nan	-4.40435763422	-0.36514837167	-2.52534324213	nan	nan	2.31840462387	7.07106781187	-0.472490457546	nan	nan	nan	nan
+GO:0010363	regulation of plant-type hypersensitive response	P	956	6	9	nan	nan	0.554700196225	nan	nan	nan	0.554700196225	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0001071	nucleic acid binding transcription factor activity	M	1374	19	21	nan	nan	-1.41421356237	nan	-4.45651557666	-0.398862017609	-2.49035797531	-0.20203050891	nan	1.71814711835	7.07106781187	-0.493864798325	nan	nan	nan	nan
+GO:0010033	response to organic substance	P	4125	70	76	nan	nan	0.927441472032	nan	-4.21312862346	-0.25	-1.62182166258	-0.788927524557	nan	4.33956520018	7.07106781187	nan	nan	nan	nan	nan
+GO:0006139	nucleobase-containing compound metabolic process	P	3485	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009725	response to hormone stimulus	P	2484	42	45	nan	nan	1.128796247	nan	-3.03690443082	nan	-0.882532359268	-0.522562057929	nan	5.5487824347	nan	nan	nan	nan	nan	nan
+GO:0009723	response to ethylene stimulus	P	770	6	9	nan	nan	0.329690236698	nan	nan	nan	0.329690236698	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0019752	carboxylic acid metabolic process	P	2797	9	15	nan	nan	nan	nan	-3.2596012026	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0007154	cell communication	P	3251	43	50	nan	nan	0.850149014044	nan	-4.10494573674	-0.25	-1.96687634101	-0.727170529118	nan	4.89420232257	7.07106781187	nan	nan	nan	nan	nan
+GO:0072330	monocarboxylic acid biosynthetic process	P	1356	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009266	response to temperature stimulus	P	1600	9	16	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048608	reproductive structure development	P	2318	11	17	nan	nan	0.431331092814	nan	nan	nan	0.390566732942	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0022414	reproductive process	P	3187	17	26	nan	nan	0.25	nan	nan	nan	0.234888087806	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0019222	regulation of metabolic process	P	3854	59	81	nan	nan	-0.58691053141	nan	-5.71552355254	-0.141421356237	-3.5627747395	-0.141421356237	nan	4.95402805957	7.07106781187	-0.20203050891	nan	nan	nan	nan
+GO:0080090	regulation of primary metabolic process	P	3164	50	67	nan	nan	-0.818058711652	nan	-5.78009813569	-0.20203050891	-4.51625416957	-0.36514837167	nan	5.95936947227	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0043565	sequence-specific DNA binding	M	368	6	7	nan	nan	nan	nan	-1.72014653724	nan	-1.01980390272	nan	nan	2.50713268211	nan	-0.329690236698	nan	nan	nan	nan
+GO:0006464	cellular protein modification process	P	2986	6	9	nan	nan	nan	nan	-2.33619181742	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048856	anatomical structure development	P	4529	30	47	nan	nan	0.25	nan	nan	nan	0.25	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006807	nitrogen compound metabolic process	P	4683	8	15	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010243	response to organic nitrogen	P	979	6	8	nan	nan	nan	nan	-1.19817020498	nan	-0.770551750371	nan	nan	4.0	nan	nan	nan	nan	nan	nan
+GO:0046907	intracellular transport	P	2345	13	19	nan	nan	0.601937510979	nan	-2.70695146002	nan	0.617648639589	-0.291729982996	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010468	regulation of gene expression	P	2751	35	46	nan	nan	-1.26625555926	nan	-5.74865942649	-0.25	-4.05553552827	-0.25	nan	4.71457038478	7.07106781187	-0.25	nan	nan	nan	nan
+GO:0044281	small molecule metabolic process	P	3994	17	27	nan	nan	0.349641800638	nan	-3.47182537415	nan	0.36514837167	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0097305	response to alcohol	P	1250	22	25	nan	nan	0.964618393037	nan	-1.901205904	nan	-0.649607992799	-0.472490457546	nan	2.60780585054	nan	nan	nan	nan	nan	nan
+GO:0097306	cellular response to alcohol	P	611	10	12	nan	nan	1.01489217343	nan	-1.34790966504	nan	-0.00860217042937	-0.398862017609	nan	4.94974746831	nan	nan	nan	nan	nan	nan
+GO:0009416	response to light stimulus	P	1919	11	17	nan	nan	nan	nan	-2.85885937448	nan	-2.85885937448	nan	nan	4.94974746831	nan	nan	nan	nan	nan	nan
+GO:0009414	response to water deprivation	P	749	7	11	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009415	response to water stimulus	P	754	7	11	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009889	regulation of biosynthetic process	P	2915	43	56	nan	nan	-0.686406472984	nan	-5.23386261724	-0.141421356237	-3.14721989464	-0.36514837167	nan	4.53304478064	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0009888	tissue development	P	1898	6	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009628	response to abiotic stimulus	P	4212	57	69	nan	nan	0.631219058648	nan	-5.55557892875	nan	-3.28953808492	-0.541736338886	nan	6.42735158526	7.07106781187	nan	nan	nan	nan	nan
+GO:0009620	response to fungus	P	1112	6	9	nan	nan	0.431331092814	nan	nan	nan	0.431331092814	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0033554	cellular response to stress	P	2056	14	23	nan	nan	nan	nan	-2.33238075794	nan	-2.22628174305	nan	nan	3.4278273002	nan	nan	nan	nan	nan	nan
+GO:0050776	regulation of immune response	P	1044	6	9	nan	nan	0.431331092814	nan	nan	nan	0.431331092814	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010200	response to chitin	P	947	6	8	nan	nan	nan	nan	-1.10451261281	nan	-0.738548945876	nan	nan	2.50713268211	nan	nan	nan	nan	nan	nan
+GO:0051179	localization	P	4860	23	34	nan	nan	0.410276362014	nan	-4.45102900382	nan	0.40544242704	-0.25	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048585	negative regulation of response to stimulus	P	796	8	9	nan	nan	0.524404424085	nan	-2.10819533669	nan	-0.598321122542	-0.36514837167	nan	7.07106781187	nan	nan	nan	nan	nan	nan
+GO:0048583	regulation of response to stimulus	P	1515	17	19	nan	nan	0.803219328902	nan	-2.92013715374	nan	-1.73578460852	-0.441941738242	nan	6.04419848527	nan	-0.291729982996	nan	nan	nan	nan
+GO:0060255	regulation of macromolecule metabolic process	P	2962	39	53	nan	nan	-2.02484567313	nan	-5.90639671528	-0.141421356237	-4.31455497304	-0.20203050891	nan	5.54059613638	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0006612	protein targeting to membrane	P	972	6	9	nan	nan	0.398862017609	nan	nan	nan	0.398862017609	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0023052	signaling	P	2837	40	47	nan	nan	0.618085220543	nan	-4.42428279605	-0.25	-2.63109047547	-0.631345340345	nan	4.69030385049	7.07106781187	nan	nan	nan	nan	nan
+GO:0034976	response to endoplasmic reticulum stress	P	770	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009863	salicylic acid mediated signaling pathway	P	892	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:2000112	regulation of cellular macromolecule biosynthetic process	P	2583	32	42	nan	nan	-2.02484567313	nan	-5.62638523303	-0.25	-4.28358388608	nan	nan	5.13630990005	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0050793	regulation of developmental process	P	1465	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0035556	intracellular signal transduction	P	940	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044700	single organism signaling	P	2833	40	47	nan	nan	0.660043056521	nan	-3.64342354664	-0.141421356237	-2.18444014216	-0.562253530232	nan	5.24336859702	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0006355	regulation of transcription, DNA-dependent	P	2455	31	40	nan	nan	-1.36031363009	nan	-5.48076923077	-0.25	-3.51682286844	-0.20203050891	nan	3.96013003197	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0043167	ion binding	M	4975	9	15	nan	nan	0.141421356237	nan	nan	nan	0.141421356237	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0019438	aromatic compound biosynthetic process	P	2142	7	11	nan	nan	0.329690236698	nan	nan	nan	0.329690236698	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044723	single-organism carbohydrate metabolic process	P	2389	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048513	organ development	P	3123	14	24	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0048518	positive regulation of biological process	P	1640	9	15	nan	nan	nan	nan	-2.85885937448	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009737	response to abscisic acid stimulus	P	1067	18	22	nan	nan	0.462910049886	nan	-2.12861225956	nan	-1.5909472206	-0.329690236698	nan	2.94604812745	nan	-0.141421356237	nan	nan	nan	nan
+GO:0048523	negative regulation of cellular process	P	1455	7	9	nan	nan	nan	nan	-1.48978277706	nan	-1.35980261457	nan	nan	2.73861278753	nan	nan	nan	nan	nan	nan
+GO:0048522	positive regulation of cellular process	P	1401	9	15	nan	nan	nan	nan	-3.11137080276	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009738	abscisic acid mediated signaling pathway	P	486	7	8	nan	nan	nan	nan	-0.779442993909	nan	-0.36514837167	nan	nan	2.50713268211	nan	nan	nan	nan	nan	nan
+GO:2001141	regulation of RNA biosynthetic process	P	2455	31	40	nan	nan	-1.90692517849	nan	-5.39782800193	-0.141421356237	-3.79562638586	-0.141421356237	nan	4.99987774912	7.07106781187	-0.25	nan	nan	nan	nan
+GO:0032870	cellular response to hormone stimulus	P	1434	21	24	nan	nan	0.890733738783	nan	-2.59630350631	nan	-1.42500549772	-0.645497224368	nan	5.02701651877	nan	nan	nan	-0.141421356237	nan	nan
+GO:0080134	regulation of response to stress	P	1269	8	10	nan	nan	0.723189063321	nan	-1.63353024234	nan	-0.541736338886	-0.329690236698	nan	4.94974746831	nan	nan	nan	nan	nan	nan
+GO:0036211	protein modification process	P	2986	6	9	nan	nan	nan	nan	-2.74539598687	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0015031	protein transport	P	1929	9	13	nan	nan	0.141421356237	nan	-2.91272898633	nan	0.141421356237	-0.141421356237	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051716	cellular response to stimulus	P	4131	53	62	nan	nan	0.737258239973	nan	-3.69674851919	nan	-2.40521284269	-0.571771874897	nan	5.45637822749	7.07106781187	nan	nan	-0.141421356237	nan	nan
+GO:0007275	multicellular organismal development	P	4917	39	61	nan	nan	0.25	nan	nan	nan	0.25	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044767	single-organism developmental process	P	3833	22	36	nan	nan	0.25	nan	nan	nan	0.245950184761	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:1901700	response to oxygen-containing compound	P	3820	56	63	nan	nan	1.36586398136	nan	-3.89013613004	-0.25	-1.20995000212	-0.788927524557	nan	4.84111973553	7.07106781187	-0.141421356237	nan	-0.141421356237	nan	nan
+GO:1901701	cellular response to oxygen-containing compound	P	1797	23	27	nan	nan	1.10169699271	nan	-2.90653989792	nan	-1.46792244157	-0.645497224368	nan	4.93966529789	nan	-0.20203050891	nan	nan	nan	nan
+GO:0009607	response to biotic stimulus	P	2541	17	25	nan	nan	0.36514837167	nan	-3.02440157551	nan	-2.69468719759	-0.141421356237	nan	7.07106781187	nan	nan	nan	nan	nan	nan
+GO:0009314	response to radiation	P	2016	11	17	nan	nan	nan	nan	-1.89524510895	nan	-1.89524510895	nan	nan	2.73861278753	nan	nan	nan	nan	nan	nan
+GO:0009059	macromolecule biosynthetic process	P	2764	4	6	nan	nan	nan	nan	-1.23113568191	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051171	regulation of nitrogen compound metabolic process	P	2670	34	46	nan	nan	-2.16024689947	nan	-5.48710947158	-0.25	-4.40731896187	-0.141421356237	nan	5.13630990005	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0009056	catabolic process	P	3032	5	7	nan	nan	nan	nan	-2.30796545586	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009507	chloroplast	C	4416	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0032787	monocarboxylic acid metabolic process	P	2137	8	13	nan	nan	nan	nan	-3.27502088129	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0016044	cellular membrane organization	P	958	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0016043	cellular component organization	P	4766	15	23	nan	nan	0.20203050891	nan	-4.06586399182	nan	0.20203050891	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044283	small molecule biosynthetic process	P	2348	6	11	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0034641	cellular nitrogen compound metabolic process	P	4107	6	11	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0000003	reproduction	P	3200	17	26	nan	nan	0.36514837167	nan	nan	nan	0.329690236698	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010556	regulation of macromolecule biosynthetic process	P	2583	32	42	nan	nan	-1.55654064899	nan	-5.21714977771	-0.291729982996	-3.69669450175	-0.20203050891	nan	3.96013003197	4.94974746831	-0.141421356237	nan	nan	nan	nan
+GO:0033993	response to lipid	P	1382	23	26	nan	nan	1.37360563949	nan	-2.55743665118	nan	-0.808736084303	-0.758170068475	nan	3.57263162598	nan	nan	nan	nan	nan	nan
+GO:0043067	regulation of programmed cell death	P	985	6	9	nan	nan	0.462910049886	nan	nan	nan	0.462910049886	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0045087	innate immune response	P	1509	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010035	response to inorganic substance	P	1955	15	20	nan	nan	0.934393337461	nan	nan	nan	1.0335359867	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0005975	carbohydrate metabolic process	P	2829	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009719	response to endogenous stimulus	P	2818	54	57	nan	nan	0.850544059323	nan	-4.24421058197	-0.20203050891	-1.21796589467	-0.944496796706	nan	6.91077093122	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0071407	cellular response to organic cyclic compound	P	1164	6	11	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0014070	response to organic cyclic compound	P	1682	12	18	nan	nan	0.44804407643	nan	nan	nan	0.441941738242	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0019219	regulation of nucleobase-containing compound metabolic process	P	2630	33	44	nan	nan	-1.15370053773	nan	-5.45069602648	-0.329690236698	-4.01050600496	-0.141421356237	nan	4.87630002018	7.07106781187	-0.291729982996	nan	nan	nan	nan
+GO:0019748	secondary metabolic process	P	1260	4	6	nan	nan	0.431331092814	nan	nan	nan	0.431331092814	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:2000026	regulation of multicellular organismal development	P	1254	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0007165	signal transduction	P	2734	40	47	nan	nan	0.551319872989	nan	-3.79316109789	-0.141421356237	-2.02429805333	-0.621966321647	nan	5.6672618735	7.07106781187	nan	nan	nan	nan	nan
+GO:0034613	cellular protein localization	P	1878	10	14	nan	nan	0.563833888522	nan	-3.18401178303	nan	0.584897651866	-0.25	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0046394	carboxylic acid biosynthetic process	P	1910	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071215	cellular response to abscisic acid stimulus	P	526	7	8	nan	nan	nan	nan	-0.810096010172	nan	-0.493864798325	nan	nan	2.73861278753	nan	nan	nan	nan	nan	nan
+GO:0009755	hormone-mediated signaling pathway	P	1381	21	24	nan	nan	1.128796247	nan	-2.94627825494	nan	-1.15760713742	-0.716039010395	nan	4.04806554049	nan	nan	nan	nan	nan	nan
+GO:0009751	response to salicylic acid stimulus	P	1050	7	13	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009753	response to jasmonic acid stimulus	P	1012	5	8	nan	nan	0.329690236698	nan	nan	nan	0.329690236698	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044267	cellular protein metabolic process	P	4430	7	11	nan	nan	nan	nan	-2.51412196374	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0019538	protein metabolic process	P	4797	7	11	nan	nan	nan	nan	-3.18957475171	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006605	protein targeting	P	1704	9	13	nan	nan	0.291729982996	nan	-3.36869968026	nan	0.291729982996	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0045184	establishment of protein localization	P	1929	9	13	nan	nan	0.275589127305	nan	-2.89185943156	nan	0.291729982996	-0.20203050891	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0031347	regulation of defense response	P	1243	6	9	nan	nan	0.584897651866	nan	nan	nan	0.584897651866	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044765	single-organism transport	P	4210	20	29	nan	nan	0.621966321647	nan	-2.85885937448	nan	0.631345340345	-0.36514837167	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071396	cellular response to lipid	P	723	10	12	nan	nan	0.898503739614	nan	-1.20635638843	nan	0.0419531594352	-0.291729982996	nan	5.62627545808	nan	nan	nan	nan	nan	nan
+GO:0006810	transport	P	4537	22	33	nan	nan	0.572821961869	nan	-4.45102900382	nan	0.593892922682	-0.291729982996	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0010154	fruit development	P	1146	4	7	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071702	organic substance transport	P	2918	11	16	nan	nan	0.321019368753	nan	-3.36869968026	nan	0.329690236698	-0.141421356237	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0080135	regulation of cellular response to stress	P	967	6	9	nan	nan	0.554700196225	nan	nan	nan	0.554700196225	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0061025	membrane fusion	P	616	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0061024	membrane organization	P	958	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009791	post-embryonic development	P	2943	12	19	nan	nan	0.431331092814	nan	nan	nan	0.403567156136	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0046483	heterocycle metabolic process	P	4253	7	13	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009893	positive regulation of metabolic process	P	959	4	6	nan	nan	nan	nan	-1.85499629001	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009891	positive regulation of biosynthetic process	P	920	4	6	nan	nan	nan	nan	-1.7284832429	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0033036	macromolecule localization	P	2303	12	17	nan	nan	0.291729982996	nan	-4.06586399182	nan	0.291729982996	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009409	response to cold	P	1056	9	16	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0005515	protein binding	M	3396	32	44	nan	nan	0.487713110004	nan	-2.31675880492	nan	-1.16737058141	-0.20203050891	nan	7.07106781187	nan	nan	nan	nan	nan	nan
+GO:0006996	organelle organization	P	3011	4	6	nan	nan	nan	nan	-2.19740106229	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0003006	developmental process involved in reproduction	P	2856	17	26	nan	nan	0.431331092814	nan	nan	nan	0.423586871044	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:1901698	response to nitrogen compound	P	1226	6	8	nan	nan	nan	nan	-1.13915479923	nan	-0.738548945876	nan	nan	3.03315017762	nan	nan	nan	nan	nan	nan
+GO:0006082	organic acid metabolic process	P	2811	9	15	nan	nan	nan	nan	-2.8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0031328	positive regulation of cellular biosynthetic process	P	920	4	6	nan	nan	nan	nan	-1.82998284399	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0031326	regulation of cellular biosynthetic process	P	2908	42	55	nan	nan	-0.654375839489	nan	-5.86696288287	-0.25	-4.03392842451	-0.25	nan	5.051040853	7.07106781187	nan	nan	nan	nan	nan
+GO:0031325	positive regulation of cellular metabolic process	P	948	4	6	nan	nan	nan	nan	-1.85499629001	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0031323	regulation of cellular metabolic process	P	3426	54	72	nan	nan	-0.511082737081	nan	-6.43279874588	-0.141421356237	-4.72554287915	-0.274410649974	nan	6.93273327755	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0010941	regulation of cell death	P	1002	7	11	nan	nan	0.431331092814	nan	nan	nan	0.431331092814	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0005576	extracellular region	C	2195	4	5	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0008104	protein localization	P	1973	10	14	nan	nan	0.349641800638	nan	-3.03959379437	nan	0.36514837167	-0.20203050891	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0044248	cellular catabolic process	P	2221	5	7	nan	nan	nan	nan	-1.89342605894	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006944	cellular membrane fusion	P	616	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009651	response to salt stress	P	1428	18	24	nan	nan	0.649309469711	nan	-3.64558204631	nan	0.651809398006	-0.36514837167	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071446	cellular response to salicylic acid stimulus	P	896	5	9	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0006952	defense response	P	2316	20	28	nan	nan	-1.19522860933	nan	-2.86754854286	-0.20203050891	-2.67223596833	-0.141421356237	nan	3.71630985039	7.07106781187	-0.141421356237	nan	nan	nan	nan
+GO:0006955	immune response	P	1516	4	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051252	regulation of RNA metabolic process	P	2472	31	40	nan	nan	-1.90692517849	nan	-5.61256916907	-0.20203050891	-3.9217028623	-0.20203050891	nan	4.47312041669	7.07106781187	-0.25	nan	nan	nan	nan
+GO:0007389	pattern specification process	P	680	4	6	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0071310	cellular response to organic substance	P	2152	28	35	nan	nan	0.672088699344	nan	-3.50931203172	nan	-2.66418732343	-0.462910049886	nan	5.62627545808	nan	-0.141421356237	nan	nan	nan	nan
+GO:0051649	establishment of localization in cell	P	2508	13	19	nan	nan	0.46736499027	nan	-3.64558204631	nan	0.486380700797	-0.141421356237	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0051641	cellular localization	P	2614	15	21	nan	nan	0.456804684993	nan	-3.90878469425	nan	0.448265451744	-0.25	nan	nan	nan	nan	nan	nan	nan	nan
+GO:0009653	anatomical structure morphogenesis	P	2696	7	10	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
