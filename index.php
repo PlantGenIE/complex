@@ -12,12 +12,8 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
    } else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
    $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
    }
- 
-	// 
 	if( $_SERVER["HTTP_REFERER"] !="http://www.biomedcentral.com/1471-2164/15/106/abstract"){
-		
 	 if( $_SERVER['SERVER_NAME']=="complex2.plantgenie.org" || isset($_GET['workflow']) || isset($_GET['direct']) || isset($_SERVER["HTTP_REFERER"]) ){ 
-		// header("Location: http://complex2.plantgenie.org?workflow=5 ");
 	 }else{
 		include_once("overlay.php");  
 		exit();
@@ -26,9 +22,6 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
 		include_once("overlay.php");  
 		exit(); 
 	 }
-	
-   //}
- 
    ?>
 <!DOCTYPE html>
 <html lang="en">
