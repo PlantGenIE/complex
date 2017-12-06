@@ -6,23 +6,13 @@
  *  Created:        Thu May 15 09:28:04 GMT+02:00 2014
  */
 if ( isset($_SERVER["REMOTE_ADDR"]) )    {
-   $ip = '' . $_SERVER["REMOTE_ADDR"] . '';
-   } else if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )    {
-   $ip = '' . $_SERVER["HTTP_X_FORWARDED_FOR"] . '';
-   } else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
-   $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
-   }
-	if( $_SERVER["HTTP_REFERER"] !="http://www.biomedcentral.com/1471-2164/15/106/abstract"){
-	 if( $_SERVER['SERVER_NAME']=="complex2.plantgenie.org" || isset($_GET['workflow']) || isset($_GET['direct']) || isset($_SERVER["HTTP_REFERER"]) ){ 
-	 }else{
-		include_once("overlay.php");  
-		exit();
-	 }
-	 }else{
-		include_once("overlay.php");  
-		exit(); 
-	 }
-   ?>
+    $ip = '' . $_SERVER["REMOTE_ADDR"] . '';
+} else if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )    {
+    $ip = '' . $_SERVER["HTTP_X_FORWARDED_FOR"] . '';
+} else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
+    $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
