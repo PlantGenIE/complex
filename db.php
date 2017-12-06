@@ -1,9 +1,14 @@
 
 
 <?php
+require_once("config.php");
 //$dbConn = mysql_connect($data[0],$data[1],$ps[$i])or die("Could not connect");
-$dbConn = mysql_connect("localhost","popuser","poppass")or die("Could not connect");
-$db = mysql_select_db("plazacomplex", $dbConn) or die("Could not select DB"); 
+$dbConn = mysql_connect(
+    $config["db"]["host"],
+    $config["db"]["user"],
+    $config["db"]["password"]
+)or die("Could not connect");
+$db = mysql_select_db("plaza_complex", $dbConn) or die("Could not select DB"); 
 
 
 $spNames = array("pt" => "P. Triocharpa", "at" => "A. Thaliana", "os" => "O. Sativa");
