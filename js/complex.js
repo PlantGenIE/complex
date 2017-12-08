@@ -724,20 +724,20 @@ window.onload = function() {
         display: "A. thaliana",
         value: "at"
     }, {
-        display: "P. trichocarpa",
+        display: "P. tremula",
         value: "pt"
     }, {
-        display: "P. abies",
+        display: "Z. mays",
         value: "os"
     }];
     var t = [{
-        display: "P. trichocarpa",
+        display: "P. tremula",
         value: "pt"
     }, {
         display: "A. thaliana",
         value: "at"
     }, {
-        display: "P. abies",
+        display: "Z. mays",
         value: "os"
     }];
     populate_select_options(t, "#sp_1");

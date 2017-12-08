@@ -36,23 +36,27 @@ $first_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp1.'_id FROM '.$tmp_sp1.'Gene WHERE 
 
 $first_query_results = mysql_query($first_query);
 $a1=0;
-while ($row=mysql_fetch_row($first_query_results)){
+while ($row=mysql_fetch_row($first_query_results)) {
 	$first_array[$a1]['id']=$row[0];
 	$first_array[$a1]['label']=$row[1];
-	$a1++;}
+	$a1++;
+}
+
 if($debug==true){print("<strong>----------------1.) QUERY >> FIRST NETWORK</strong></br>");}
 if($debug==true){print($first_query);}
+
 $first_sp_1_array=array_column2($first_array, 'id');
 $first_sp_1_array_string=implode(',',array_values(array_unique($first_sp_1_array)));
+
 $second_array=array();
 if($tmp_showN=='align'){
-if($debug==true){print("<br><strong>----------------2.) QUERY >> ALIGN BOTH NETWORKS</strong></br>");}	
-$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND type="c" AND corr = 2';
-if($debug==true){print($second_query);}
-}else{
-if($debug==true){print("<br><strong>----------------3.) QUERY >> COMPARE BOTH NETWORkS</strong></br>");}	
-$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND '.$tmp_sp2.'_i IN(SELECT '.$tmp_sp2.'_i FROM '.$tmp_sp2.'Gene WHERE '.$tmp_sp2.'_id in('.$gstr2.')) AND type="c" AND corr = 2';	
-if($debug==true){print($second_query);}
+	if($debug==true){print("<br><strong>----------------2.) QUERY >> ALIGN BOTH NETWORKS</strong></br>");}	
+	$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND type="c" AND corr = 0.1';
+	if($debug==true){print($second_query);}
+} else {
+	if($debug==true){print("<br><strong>----------------3.) QUERY >> COMPARE BOTH NETWORkS</strong></br>");}	
+	$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND '.$tmp_sp2.'_i IN(SELECT '.$tmp_sp2.'_i FROM '.$tmp_sp2.'Gene WHERE '.$tmp_sp2.'_id in('.$gstr2.')) AND type="c" AND corr = 0.1';	
+	if($debug==true){print($second_query);}
 }
 $second_query_results = mysql_query($second_query);
 $a2=0;

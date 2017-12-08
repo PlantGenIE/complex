@@ -93,13 +93,13 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
                </table>
                <table id="sub_table" width="100%" border="0">
                   <tr  >
-                     <td width="140px">co-expression:<span id="th1_span">(>=3)</span>
+                     <td width="140px">co-expression: <span id="th1_span">(>=0.990)</span>
                      </td>
                      <td>
                         <table border="0" cellpadding="0" cellspacing="0"   >
                            <tr>
                               <td width="100px"></td>
-                              <td width="700px"> <input data-slider="true" data-slider-range="3,10" id="th1" name="th1" data-slider-step="0.5" value="3" type="text" data-slider-snap="true" data-slider-highlight="true" />
+                              <td width="700px"> <input data-slider="true" data-slider-range="0.95,1" id="th1" name="th1" data-slider-step="0.001" value="0.99" type="text" data-slider-snap="true" data-slider-highlight="true" />
                               </td>
                               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                               <td >&nbsp; <button style="font-size:10px;text-transform:none" onClick="coexpressiontrclick();"  id="coexpressiontrclickbtn" class="btn btn-4 btn-4c">Show conservation slider</button></td>
@@ -108,11 +108,11 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
                      </td>
                   </tr>
                   <tr style="display:none" id="conservation_slider">
-                     <td width="140px">conservation:<span id="consth1_span">(>=3)</td>
+                     <td width="140px">conservation: <span id="consth1_span">(0.1)</td>
                      <td >
                         <table border="0" cellpadding="0" cellspacing="0"   >
                            <tr >
-                              <td  width="800px" ><input   data-slider="true"  data-slider-range="2,10" id = "consth1" name="consth1" data-slider-step="0.5" value="3"  type="text" data-slider-snap="true" data-slider-highlight="true"/></td>
+                              <td  width="800px" ><input   data-slider="true"  data-slider-range="0.001,0.1" id = "consth1" name="consth1" data-slider-step="0.005" value="0.1"  type="text" data-slider-snap="true" data-slider-highlight="true"/></td>
                            </tr>
                         </table>
                      </td>

@@ -11,7 +11,7 @@ $dbConn = mysql_connect(
 $db = mysql_select_db("plaza_complex", $dbConn) or die("Could not select DB"); 
 
 
-$spNames = array("pt" => "P. Triocharpa", "at" => "A. Thaliana", "os" => "O. Sativa");
+$spNames = array("pt" => "P. tremula", "at" => "A. thaliana", "os" => "Z. mays");
  
 if (isset($_POST['op'])) $tmp_op=trim($_POST['op']);
 if (isset($_GET['op'])) $tmp_op=trim($_GET['op']);

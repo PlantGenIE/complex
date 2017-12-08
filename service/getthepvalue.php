@@ -26,7 +26,7 @@ $query_string = 'SELECT pval,type,'.$sp2.'Gene.'.$sp2.'_i as K,'.$sp2.'Gene.'.$s
 						FROM '.$tabln.'Nod 
 						INNER JOIN '.$sp2.'Gene on ('.$tabln.'Nod.'.$sp2.'_i = '.$sp2.'Gene.'.$sp2.'_i)  
 						WHERE '.$tabln.'Nod.'.$sp1.'_i IN ('.$gstr2.')
-						AND corr = 2 AND type = "c"';  #D added correlation, should be set as a variable in the end
+						AND corr = 0.1 AND type = "c"';  #D added correlation, should be set as a variable in the end
 
 
 $result = mysql_query($query_string) or die(mysql_error());	
