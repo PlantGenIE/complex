@@ -4,13 +4,13 @@
  *  Description:    Main script for ComPlEX2
  *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
  */
-function populate_select_options(e, t, n) {
-    $(t).html("");
-    $(e).each(function(r) {
-        if (e[r].value == n) {
-            $(t).append('<option selected value="' + e[r].value + '">' + e[r].display + "</option>")
+function populate_select_options(data, element, selected_option) {
+    $(element).html("");
+    $(data).each(function(i, val) {
+        if (val.name == selected_option) {
+            $(element).append('<option selected value="' + val.id + '">' + val.name + "</option>")
         } else {
-            $(t).append('<option value="' + e[r].value + '">' + e[r].display + "</option>")
+            $(element).append('<option value="' + val.id + '">' + val.name + "</option>")
         }
     })
 }
@@ -255,6 +255,18 @@ function compare_selected() {
     $("#sink2").val(t.join(","));
     align_or_compare("compare");
     vis1.deselect("nodes")
+}
+
+function init(callback) {
+    $.ajax({
+        url: "service/metadata.php",
+        type: "POST",
+        data: {method: "get_networks"},
+        dataType: "JSON",
+        success: function(data) {
+            callback(data);
+        }
+    });
 }
 
 function fire_onchange_onclick(e) {
@@ -717,33 +729,13 @@ function coexpressiontrclick() {
         $("#consth1").simpleSlider("setValue", $("#th1").val());
     }
 }
-window.onload = function() {
-    visibilitychange();
+window.onload = init(function(network_data) {
+    visibilitychange()
     $("#loader").hide();
-    var e = [{
-        display: "A. thaliana",
-        value: "at"
-    }, {
-        display: "P. tremula",
-        value: "pt"
-    }, {
-        display: "Z. mays",
-        value: "os"
-    }];
-    var t = [{
-        display: "P. tremula",
-        value: "pt"
-    }, {
-        display: "A. thaliana",
-        value: "at"
-    }, {
-        display: "Z. mays",
-        value: "os"
-    }];
-    populate_select_options(t, "#sp_1");
-    populate_select_options(e, "#sp_2");
-    var n = "P. trichocarpa";
-    var r = "A. thaliana";
+    populate_select_options(network_data, "#sp_1");
+    populate_select_options(network_data, "#sp_2");
+    var n;
+    var r;
     var i = getCookie("sp_1_selection");
     var s = getCookie("sp_2_selection");
     if (i != null && i != undefined) {
@@ -859,7 +851,7 @@ window.onload = function() {
     $("#sp_1").change(function() {
         var e = [];
         var n = $(this).val();
-        e = t;
+        e = network_data;
         e = jQuery.grep(e, function(e) {
             return e.value != n
         });
@@ -880,9 +872,9 @@ window.onload = function() {
     $("#sp_2").change(function() {
         var t = [];
         var n = $(this).val();
-        t = e;
+        t = network_data;
         t = jQuery.grep(t, function(e) {
-            return e.value != n
+            return e.name != n
         });
         populate_select_options(t, "#sp_1", $("#sp_1").val());
         setCookie("sp_1_selection", $("#sp_1").val(), 1);
@@ -915,4 +907,4 @@ window.onload = function() {
         $("#" + this.id + "_span").html("(>=" + t.value + ")");
         align_or_compare()
     })
-}
+});

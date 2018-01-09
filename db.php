@@ -1,15 +1,13 @@
-
-
 <?php
 require_once("config.php");
-//$dbConn = mysql_connect($data[0],$data[1],$ps[$i])or die("Could not connect");
-$dbConn = mysql_connect(
-    $config["db"]["host"],
-    $config["db"]["user"],
-    $config["db"]["password"]
-)or die("Could not connect");
-$db = mysql_select_db("plaza_complex", $dbConn) or die("Could not select DB"); 
 
+try {
+    $db = new PDO('mysql:dbname='.$config['db']['database'].';host='.$config['db']['host'],
+        $config['db']['user'],
+        $config['db']['password']);
+} catch (PDOException $e) {
+    echo 'Connection failed: '.$e->getMessage();
+}
 
 $spNames = array("pt" => "P. tremula", "at" => "A. thaliana", "os" => "Z. mays");
  
