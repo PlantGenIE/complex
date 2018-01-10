@@ -8,9 +8,9 @@ function populate_select_options(data, element, selected_option) {
     $(element).html("");
     $(data).each(function(i, val) {
         if (val.name == selected_option) {
-            $(element).append('<option selected value="' + val.id + '">' + val.name + "</option>")
+            $(element).append('<option selected data-species="' + val.shortname + '" value="' + val.id + '">' + val.name + "</option>")
         } else {
-            $(element).append('<option value="' + val.id + '">' + val.name + "</option>")
+            $(element).append('<option data-species="' + val.shortname + '" value="' + val.id + '">' + val.name + "</option>")
         }
     })
 }
@@ -332,15 +332,19 @@ function visibilitychange() {
 
 function loadexample(e) {
     var t = e.toString();
-    if ($("#sp_" + t).val() == "pt") {
-        $("#sink" + t).val("Potra000167g00627,Potra000342g01183,Potra000393g01809,Potra000740g05836,Potra000779g06142,Potra001021g08534,Potra001047g08885,Potra001066g09183,Potra001242g10676,Potra001542g12785,Potra001630g13406,Potra002004g15732,Potra002246g17253,Potra002409g18324,Potra002484g18790,Potra002574g19365,Potra002846g20119,Potra002888g20235,Potra002914g20296,Potra003265g21167,Potra003469g21770,Potra003868g23243,Potra003935g23615,Potra003972g23875,Potra004051g24387");
+
+    switch ($("#sp_" + t).find(":selected").data("species")) {
+        case "potra":
+            $("#sink" + t).val("Potra000167g00627,Potra000342g01183,Potra000393g01809,Potra000740g05836,Potra000779g06142,Potra001021g08534,Potra001047g08885,Potra001066g09183,Potra001242g10676,Potra001542g12785,Potra001630g13406,Potra002004g15732,Potra002246g17253,Potra002409g18324,Potra002484g18790,Potra002574g19365,Potra002846g20119,Potra002888g20235,Potra002914g20296,Potra003265g21167,Potra003469g21770,Potra003868g23243,Potra003935g23615,Potra003972g23875,Potra004051g24387");
+            break;
+        case "artha":
+            $("#sink" + t).val("AT1G06590,AT1G15570,AT1G34065,AT1G48270,AT1G79820,AT2G23380,AT2G31650,AT3G14740,AT3G19080,AT3G25100,AT4G08690,AT4G11450,AT4G16970,AT4G33130,AT5G06940,AT5G37630,AT5G45560,AT5G62410,AT5G63920");
+            break;
+        case "zemay":
+            $("#sink" + t).val("GRMZM2G445905,GRMZM2G111642,GRMZM2G113137,GRMZM2G037413,GRMZM2G074546,GRMZM2G018241,GRMZM2G150404,GRMZM2G028353,GRMZM2G082580,GRMZM2G002523,GRMZM2G039454,GRMZM2G122431,GRMZM2G055795,GRMZM2G122277,GRMZM2G011651");
+            break;
     }
-    if ($("#sp_" + t).val() == "at") {
-        $("#sink" + t).val("AT1G06590,AT1G15570,AT1G34065,AT1G48270,AT1G79820,AT2G23380,AT2G31650,AT3G14740,AT3G19080,AT3G25100,AT4G08690,AT4G11450,AT4G16970,AT4G33130,AT5G06940,AT5G37630,AT5G45560,AT5G62410,AT5G63920");
-    }
-    if ($("#sp_" + t).val() == "os") {
-        $("#sink" + t).val("GRMZM2G445905,GRMZM2G111642,GRMZM2G113137,GRMZM2G037413,GRMZM2G074546,GRMZM2G018241,GRMZM2G150404,GRMZM2G028353,GRMZM2G082580,GRMZM2G002523,GRMZM2G039454,GRMZM2G122431,GRMZM2G055795,GRMZM2G122277,GRMZM2G011651");
-    }
+
     complexmessage.options = {
         closeButton: false,
         debug: false,
