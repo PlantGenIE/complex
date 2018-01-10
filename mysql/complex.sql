@@ -25,12 +25,14 @@ DROP TABLE IF EXISTS `conservation`;
 CREATE TABLE `conservation` (
   `gene_id1` int(11) unsigned NOT NULL,
   `gene_id2` int(11) unsigned NOT NULL,
+  `network_id1` int(11) unsigned NOT NULL,
+  `network_id2` int(11) unsigned NOT NULL,
   `type` enum('conserved','diverged') NOT NULL DEFAULT 'conserved',
   `pvalue` float DEFAULT NULL,
-  `th1` float NOT NULL,
-  `th2` float NOT NULL,
-  PRIMARY KEY (`gene_id1`,`gene_id2`),
-  UNIQUE KEY `gene_id1` (`gene_id1`,`gene_id2`,`type`,`th1`,`th2`)
+  `th1` decimal(10,10) NOT NULL,
+  `th2` decimal(10,10) NOT NULL,
+  PRIMARY KEY (`gene_id1`,`gene_id2`, `network_id1`, `network_id2`),
+  UNIQUE KEY `gene_id1` (`gene_id1`,`gene_id2`,`network_id1`,`network_id2`,`type`,`th1`,`th2`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
