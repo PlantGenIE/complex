@@ -11,30 +11,30 @@ try {
 
 $spNames = array("pt" => "P. tremula", "at" => "A. thaliana", "os" => "Z. mays");
  
-if (isset($_POST['op'])) $tmp_op=trim($_POST['op']);
-if (isset($_GET['op'])) $tmp_op=trim($_GET['op']);
+$tmp_op = isset($_POST['op']) ? $_POST['op'] : null;
+$tmp_op = isset($_GET['op']) ? $_GET['op'] : $tmp_op;
 
+$tmp_selG = isset($_POST['selG']) ? trim($_POST['selG']) : null;
+$tmp_allG = isset($_POST['allG']) ? trim($_POST['allG']) : null;
+$tmp_thexp = isset($_POST['thexp']) ? trim($_POST['thexp']) : null;
 
-if (isset($_POST['selG'])) $tmp_selG=trim($_POST['selG']);
-if (isset($_POST['allG']))$tmp_allG=trim($_POST['allG']);
-if (isset($_POST['thexp']))$tmp_thexp=trim($_POST['thexp']);
+$sink1 = isset($_POST['sink1']) ? $_POST['sink1'] : null;
+$sink2 = isset($_POST['sink2']) ? $_POST['sink2'] : null;
 
-if (isset($_POST['sp'])) $tmp_sp=trim($_POST['sp']);
+$tmp_sp = isset($_POST['sp']) ? trim($_POST['sp']) : null;
 
-if (isset($_POST['sp1'])) $tmp_sp1=trim($_POST['sp1']);
-if (isset($_POST['th1']))$tmp_th1=(float)($_POST['th1']);
-if (isset($_POST['consth1'])) $tmp_consth1=(float)($_POST['consth1']);
+$tmp_sp1 = isset($_POST['sp1']) ? trim($_POST['sp1']) : null;
+$tmp_th1 = isset($_POST['th1']) ? trim($_POST['th1']) : null;
+$tmp_consth1 = isset($_POST['consth1']) ? (float)($_POST['consth1']) : null;
 
-if (isset($_POST['sp2'])) $tmp_sp2=trim($_POST['sp2']);
-if (isset($_POST['th2'])) $tmp_th2=(float)($_POST['th2']);
-if (isset($_POST['consth2'])) $tmp_consth2=(float)($_POST['consth2']);
+$tmp_sp2 = isset($_POST['sp2']) ? trim($_POST['sp2']) : null;
+$tmp_th2 = isset($_POST['th2']) ? trim($_POST['th2']) : null;
+$tmp_consth2 = isset($_POST['consth2']) ? (float)($_POST['consth2']) : null;
 
-//if (!isset($_SESSION['showN'])) $_SESSION['showN']='align';
- 
-if($_POST['view_state']=="compare"){ $tmp_showN='compare';}else{ $tmp_showN='align';}
+$tmp_showN = isset($_POST['view_state']) ? $_POST['view_state'] : 'align';
+$tmp_showN = isset($_GET['view_state']) ? $_GET['view_state'] : 'align';
 
-if($_GET['view_state']=="compare"){ $tmp_showN='compare';}else{ $tmp_showN='align';}
-if($_GET['debug']=="true"){ $debug=true;}else{ $debug=false;}
+$debug = isset($_GET['debug']) && $_GET['debug'] === 'true';
 
 
  if($debug==true){
@@ -45,13 +45,12 @@ $_POST['selG']="Potri.001G266400,Potri.004G059600,Potri.005G027600,Potri.005G194
 	 }else{$_POST['selG']=$_GET['selG'] ;}
  }
 $vowelss = array(",", ";", "\t", "\n", "\r", "s+", " ",",,");
-$post_inputs=preg_replace("/\s+/", ",", trim(htmlentities($_POST['selG']))); 
+$post_inputs=preg_replace("/\s+/", ",", trim(htmlentities($tmp_selG))); 
 $onlyconsonantss = strtolower(str_replace($vowelss, ",", $post_inputs));
 $geneids_arrays = explode(",", $onlyconsonantss);
 //print_r($geneids_array);
 $geneids_array_strs=implode('","',$geneids_arrays);
 $gsel1='"'.$geneids_array_strs.'"';
-
 
 //$_POST['sink1']="Potri.001G308100,Potri.002G230400,Potri.T073100";
  if($debug==true){
@@ -62,7 +61,7 @@ $_POST['sink1']="Potri.001G266400,Potri.004G059600,Potri.005G027600,Potri.005G19
 	 }else{$_POST['sink1']=$_GET['n1'] ;}
  }
 $vowels = array(",", ";", "\t", "\n", "\r", "s+", " ",",,");
-$post_input=preg_replace("/\s+/", ",", trim(htmlentities($_POST['sink1']))); 
+$post_input=preg_replace("/\s+/", ",", trim(htmlentities($sink1))); 
 $onlyconsonants = strtolower(str_replace($vowels, ",", $post_input));
 $geneids_array = explode(",", $onlyconsonants);
 //print_r($geneids_array);
@@ -75,7 +74,7 @@ $_POST['sink2']="At5g64740,At2g33100,At4g39350,At5g05170,At4g32410,At4g38190";
 }else{$_POST['sink2']=$_GET['n2'] ;}
  }
 $vowels = array(",", ";", "\t", "\n", "\r", "s+", " ",",,");
-$post_input_2=preg_replace("/\s+/", ",", trim(htmlentities($_POST['sink2']))); 
+$post_input_2=preg_replace("/\s+/", ",", trim(htmlentities($sink2))); 
 $onlyconsonants_2 = strtolower(str_replace($vowels, ",", $post_input_2));
 $geneids_array_2 = explode(",", $onlyconsonants_2);
 ////print_r($geneids_array_2);
