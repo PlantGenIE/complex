@@ -76,12 +76,11 @@ DROP TABLE IF EXISTS `network_score`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `network_score` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `gene_id1` int(11) unsigned DEFAULT NULL,
-  `gene_id2` int(11) unsigned DEFAULT NULL,
-  `network_id` int(11) unsigned DEFAULT NULL,
+  `gene_id1` int(11) unsigned NOT NULL,
+  `gene_id2` int(11) unsigned NOT NULL,
+  `network_id` int(11) unsigned NOT NULL,
   `score` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`gene_id1`,`gene_id2`,`network_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
