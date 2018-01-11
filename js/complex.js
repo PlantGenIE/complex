@@ -306,39 +306,6 @@ function init(callback) {
     });
 }
 
-function fire_onchange_onclick(e) {
-    return;
-    $("#sp_1").val(e);
-    var t = [{
-        display: "P. trichocarpa",
-        value: "pt"
-    }, {
-        display: "A. thaliana",
-        value: "at"
-    }, {
-        display: "P. abies",
-        value: "os"
-    }];
-    var n = [];
-    var r = e;
-    n = t;
-    n = jQuery.grep(n, function(e) {
-        return e.value != r
-    });
-    populate_select_options(n, "#sp_2", $("#sp_2").val());
-    setCookie("sp_1_selection", r, 1);
-    setCookie("sp_2_selection", $("#sp_2").val(), 1);
-    $("#span_sp1").html($("#sp_1 option:selected").text());
-    $("#span_l_sp1").html($("#sp_1 option:selected").text());
-    $("#span_sp2").html($("#sp_2 option:selected").text());
-    $("#span_l_sp2").html($("#sp_2 option:selected").text());
-    $("#species_span_1").html($("#sp_1 option:selected").text());
-    $("#species_span_2").html($("#sp_2 option:selected").text());
-    $("#align_to_species_button").html("Align " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text());
-    $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
-    align_or_compare()
-}
-
 function visibilitychange() {
     var e = false;
 
@@ -356,7 +323,6 @@ function visibilitychange() {
         switch (document[n]) {
             case "visible":
                 if (e == true) {
-                    download_genes2()
                 }
                 e = false;
                 break;
@@ -446,201 +412,6 @@ function load_cookie(e) {
     }
 }
 
-function download_gene_completed(e) {
-    if (e == 1) {
-        complexmessage.options = {
-            closeButton: false,
-            debug: false,
-            positionClass: "toast-bottom-right",
-            onclick: null,
-            showDuration: "100",
-            hideDuration: "100",
-            timeOut: "8000",
-            extendedTimeOut: "1000",
-            showEasing: "linear",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-        complexmessage.success($("#sp_1 option:selected").text() + " genes loaded from genelist.", "Success!");
-        align_or_compare()
-    } else {
-        complexmessage.options = {
-            closeButton: false,
-            debug: false,
-            positionClass: "toast-bottom-right",
-            onclick: null,
-            showDuration: "100",
-            hideDuration: "100",
-            timeOut: "8000",
-            extendedTimeOut: "1000",
-            showEasing: "linear",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-        complexmessage.success($("#sp_2 option:selected").text() + " genes loaded from genelist.", "Success!")
-    }
-}
-
-function download_genes() {
-    $("#prebox").delay(500).fadeOut();
-    var e = "db=at&id=" + getCookie("atgenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: e,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "at") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_1_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n);
-                    download_gene_completed(1)
-                }
-            }
-            if ($("#sp_2").val() == "at") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_2_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n);
-                    download_gene_completed(2)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("at_num_span").innerHTML = r
-        }
-    });
-    var t = "db=os&id=" + getCookie("congenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: t,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "os") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_1_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n);
-                    download_gene_completed(1)
-                }
-            }
-            if ($("#sp_2").val() == "os") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_2_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n);
-                    download_gene_completed(2)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("os_num_span").innerHTML = r
-        }
-    });
-    var n = "db=pt&id=" + getCookie("popgenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: n,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "pt") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_1_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n);
-                    download_gene_completed(1)
-                }
-            }
-            if ($("#sp_2").val() == "pt") {
-                if (t.basket[0].harga == 0) {
-                    load_cookie("sp_2_text")
-                } else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n);
-                    download_gene_completed(2)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("pt_num_span").innerHTML = r
-        }
-    });
-    glowme("#os_num_span")
-}
-
-function sendtogenebaskets(e) {
-    var t = [];
-    for (var n in vis1.selected("nodes")) {
-        t.push(vis1.selected("nodes")[n].data.label)
-    }
-    var r = [];
-    for (var i in vis2.selected("nodes")) {
-        r.push(vis2.selected("nodes")[i].data.label)
-    }
-    var s = "sp1=" + $("#sp_1").val() + "&sp1_genes=" + t + "&sp2=" + $("#sp_2").val() + "&sp2_genes=" + r + "&replace=" + e;
-    if (vis1.selected("nodes").length != 0) {
-        $.ajax({
-            type: "POST",
-            url: "service/getgenelist.php",
-            data: s,
-            success: function(e) {
-                complexmessage.options = {
-                    closeButton: false,
-                    debug: false,
-                    positionClass: "toast-bottom-right",
-                    onclick: null,
-                    showDuration: "100",
-                    hideDuration: "100",
-                    timeOut: "1000",
-                    extendedTimeOut: "1000",
-                    showEasing: "linear",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut"
-                };
-                complexmessage.success(vis2.selected("nodes").length + " genes added to the " + $("#sp_2 option:selected").text() + " gene list.", "Success!");
-                complexmessage.success(vis1.selected("nodes").length + " genes added to the " + $("#sp_1 option:selected").text() + " gene list.", "Success!");
-                download_genes();
-                var t = $("#sp_1").val();
-                var n = $("#sp_2").val();
-                $("#firsttable").stop();
-                $("#firsttable").effect("transfer", {
-                    to: "#" + t + "_num_span",
-                    className: "ui-effects-transfer-2"
-                }, 600);
-                $("#secondtable").stop();
-                $("#secondtable").effect("transfer", {
-                    to: "#" + n + "_num_span", 
-                    className: "ui-effects-transfer-2"
-                }, 600)
-            }
-        })
-    } else {
-        complexmessage.options = {
-            closeButton: false,
-            debug: false,
-            positionClass: "toast-bottom-right",
-            onclick: null,
-            showDuration: "100",
-            hideDuration: "100",
-            timeOut: "8000",
-            extendedTimeOut: "1000",
-            showEasing: "linear",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-        complexmessage.error("Please select some genes.", "Empty selection")
-    }
-}
-
 function pad2(e) {
     return (e < 10 ? 0 : "") + e
 }
@@ -669,94 +440,6 @@ function basic_validation_function(e) {
     }
     console.log(n, i);
     return n.indexOf(i) === 0
-}
-
-function download_genes2() {
-    var e = "db=at&id=" + getCookie("atgenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: e,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "at") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n)
-                }
-            }
-            if ($("#sp_2").val() == "at") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("at_num_span").innerHTML = r
-        }
-    });
-    var t = "db=os&id=" + getCookie("congenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: t,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "os") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n)
-                }
-            }
-            if ($("#sp_2").val() == "os") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("os_num_span").innerHTML = r
-        }
-    });
-    var n = "db=pt&id=" + getCookie("popgenie_uuid");
-    $.ajax({
-        type: "GET",
-        url: "service/basket.php",
-        data: n,
-        success: function(e) {
-            var t = JSON.parse(e);
-            if ($("#sp_1").val() == "pt") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink1").val(n)
-                }
-            }
-            if ($("#sp_2").val() == "pt") {
-                if (t.basket[0].harga == 0) {} else {
-                    var n = t.basket[0].genelist.join(",");
-                    $("#sink2").val(n)
-                }
-            }
-            var r = pad2(t.basket[0].harga);
-            document.getElementById("pt_num_span").innerHTML = r
-        }
-    });
-    glowme("#os_num_span");
-    complexmessage.options = {
-        closeButton: false,
-        debug: false,
-        positionClass: "toast-bottom-right",
-        onclick: null,
-        showDuration: "100",
-        hideDuration: "100",
-        timeOut: "8000",
-        extendedTimeOut: "1000",
-        showEasing: "linear",
-        hideEasing: "linear",
-        showMethod: "fadeIn",
-        hideMethod: "fadeOut"
-    };
-    complexmessage.info("Please click align or compare button.", "Click to submit")
 }
 
 function coexpressiontrclick() {
@@ -805,7 +488,6 @@ window.onload = init(function(d) {
     $("#species_span_2").html(r);
     $("#align_to_species_button").html("Align " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text());
     $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
-    download_genes();
     $("#sink1").keyup(function() {
         if (basic_validation_function(1) == false) {
             complexmessage.options = {
@@ -870,7 +552,6 @@ window.onload = init(function(d) {
         $("#species_span_2").html($("#sp_2 option:selected").text());
         $("#align_to_species_button").html("Align " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text());
         $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
-        download_genes();
         align_or_compare()
     });
     $("#sp_2").change(function() {
@@ -889,7 +570,6 @@ window.onload = init(function(d) {
         $("#species_span_2").html($("#sp_2 option:selected").text());
         $("#align_to_species_button").html("Align " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text());
         $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
-        download_genes();
         align_or_compare()
     });
     $("#th1").bind("slider:changed", function(e, t) {
@@ -913,4 +593,5 @@ window.onload = init(function(d) {
     // from a particular species is paired with a network in the same
     // species.
     $("#sp_1").trigger("change");
+    $("#prebox").delay(500).fadeOut();
 });

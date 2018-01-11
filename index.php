@@ -5,13 +5,6 @@
  *  Description:    Main PHP for ComPlEX2
  *  Created:        Thu May 15 09:28:04 GMT+02:00 2014
  */
-if ( isset($_SERVER["REMOTE_ADDR"]) )    {
-    $ip = '' . $_SERVER["REMOTE_ADDR"] . '';
-} else if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )    {
-    $ip = '' . $_SERVER["HTTP_X_FORWARDED_FOR"] . '';
-} else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
-    $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,10 +27,6 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
 
       <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
       <script src="lib/jquery.dataTables.min.old.js"></script>
-      <script src="http://v22.popgenie.org/fingerprint/fingerprint.js"></script>
-      <script type="text/javascript"> 
-		var ip_address = "<?php echo  $ip?>";var fp4=new Fingerprint({screen_resolution:true});if(document.cookie.indexOf("atgenie_uuid")>=0){}else{setCookie("atgenie_uuid",fp4.get()+";;"+ip_address,7)}if(document.cookie.indexOf("popgenie_uuid")>=0){}else{setCookie("popgenie_uuid",fp4.get()+";;"+ip_address,7)}if(document.cookie.indexOf("congenie_uuid")>=0){}else{setCookie("congenie_uuid",fp4.get()+";;"+ip_address,7)}
-      </script>
       
       <script src="lib/AC_OETags.min.js"></script>
       <script src="lib/cytoscapeweb.min.js"></script>
@@ -56,16 +45,8 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
                </div>
             </a>
           
-            <a target="_blank" href="http://plantgenie.org/help/tool_id/complex/"><img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour"  style="top:10px;margin-top:10px;margin-left:20px; position:absolute;cursor:pointer" /></a>
-            <a title="Spruce" style="text-decoration:none" target="_blank" href="http://congenie.org?genelist=enable">
-            <img onClick="fire_onchange_onclick('os');" class="collage" id="os_image" style="padding:6px;margin-left:80px;  cursor:pointer;border:none;" src="images/cl.png" />
-            <span id="os_num_span" class="notificationcount" style="opacity: 1;">00</span>
-            </a>
-            <a title="Poplar" style="text-decoration:none" target="_blank" href="http://popgenie.org?genelist=enable">
-            <img onClick="fire_onchange_onclick('pt');" class="collage" id="pt_image" style="padding:6px;margin-left:6px;  cursor:pointer;border:none;" src="images/pl.png" />&nbsp;<span id="pt_num_span" class="notificationcount" style="opacity: 1;">00</span>
-            </a>
-            <a title="Arabidopsis" style="text-decoration:none" target="_blank" href="http://atgenie.org?genelist=enable">
-            <img onClick="fire_onchange_onclick('at');" class="collage" id="at_image" style="padding:6px;margin-left:6px;  cursor:pointer;border:none;" src="images/al.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="at_num_span" class="notificationcount" style="opacity: 1;">00</span>
+            <a target="_blank" href="http://plantgenie.org/help/tool_id/complex/">
+                <img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour" style="margin-top:10px;margin-left:20px;cursor:pointer" />
             </a>
          </div>
          <div>
@@ -161,8 +142,6 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
          <label for="ac-3">Tables <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"> </span></label>
          <article style="background:#FFFFFF;" class="ac-extra-medium">
             <div style="float:right;margin-top: 34px;">
-               <button id="replacebtn" class="btn btn-4 btn-4c " onClick="sendtogenebaskets(true)">Replace gene baskets</button>|
-               <button id="sendbtn" class="btn btn-4 btn-4c " onClick="sendtogenebaskets(false)">Send to gene baskets</button>|
                <button id="selectallbtn"  class="btn btn-4 btn-4c " onClick="{tmp_nodes_flag=true;tmp_edges_flag=true;vis1.select('nodes');}">Select All</button>|
                <button id="deselectallbtn" class="btn btn-4 btn-4c " onClick="{vis1.deselect('nodes');}">Deselect All</button>|
                <button id="alignselectedbtn" class="btn btn-4 btn-4c " class="btn btn-4 btn-4c " onClick="align_selected();">Align Selected</button>|
