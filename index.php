@@ -33,6 +33,7 @@
       <script src="js/variable_js.js"></script>
       <script src="js/comp_net.js"></script>
       <script src="js/simple-slider.js"></script>
+      <script src="js/complexmessage.min.js"></script>
       <script src="js/complex.js"></script>
    </head>
    <body>
@@ -242,7 +243,6 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
             </div>
          </article>
       </div>
-      <script type="text/javascript" src="js/complexmessage.min.js"></script>
       <script src="js/jquery.validate.min.js"></script>
       <script src="js/jquery.form.js"></script>
       <script src="js/validate.js"></script>

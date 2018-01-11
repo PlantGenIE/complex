@@ -6,6 +6,21 @@
  */
 var network_data;
 
+complexmessage.options = {
+    closeButton: false,
+    debug: false,
+    positionClass: "toast-bottom-right",
+    onclick: null,
+    showDuration: "100",
+    hideDuration: "100",
+    timeOut: "8000",
+    extendedTimeOut: "1000",
+    showEasing: "linear",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut"
+};
+
 function populate_select_options(data, element, selected_option) {
     $(element).html("");
     $(data).each(function(i, val) {
@@ -20,20 +35,6 @@ function populate_select_options(data, element, selected_option) {
 function align_or_compare(e) {
     if (typeof e === "undefined") {
         if ($("#sink1").val().trim().length === 0) {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.error($("#sp_1").find(":selected").text() + " text box is empty.", "Please enter some genes..")
             return;
         }
@@ -41,20 +42,6 @@ function align_or_compare(e) {
         $("#newtrok_mode").html(" <font color='#b94a48'>- Aligning " + $("#sp_1 option:selected").text() + '..</font><img src="images/btnloader.GIF" /> ')
     } else {
         if ($("#sink2").val().trim().length === 0) {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.error($("#sp_2").find(":selected").text() + " text box is empty.", "Please enter some genes..")
         }
         $("#newtrok_mode").html(" <font color='#b94a48'>- Comparing " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text() + '</font>..<img src="images/btnloader.GIF" /> ')
@@ -80,26 +67,21 @@ function align_or_compare(e) {
     $("#" + i + "_num_span").removeClass("notificationcount").addClass("notificationcount2");
     $("#" + a + "_num_span").removeClass("notificationcount").addClass("notificationcount2");
     $("#loader").show();
-    var c = "sink1=" + r + "&sp1=" + $("#sp_1").val() + "&th1=" + s + "&consth1=" + o + "&sink2=" + u + "&sp2=" + $("#sp_2").val() + "&th2=" + f + "&consth2=" + l + "&view_state=" + e;
     $.ajax({
         type: "POST",
         url: "service/final_post.php",
-        data: c,
+        data: {
+            "sink1": r,
+            "sp1": $("#sp_1").find(":selected").val(),
+            "th1": s,
+            "consth1": o,
+            "sink2": u,
+            "sp2": $("#sp_2").find(":selected").val(),
+            "th2": f,
+            "consth2": l,
+            "view_state": e
+        },
         error: function(t, n, r) {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.error("Please enter correct genes.", "Invalid input..");
             if (e === "align") {
                 $("#newtrok_mode").html(" - Aligned " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text())
@@ -164,20 +146,6 @@ function add_co_expressions(e, t, n, r, i) {
         success: function(e) {
             $("#loader").show();
             if (e.trim() == '"overflow"' || e.trim() == "overflow") {
-                complexmessage.options = {
-                    closeButton: false,
-                    debug: false,
-                    positionClass: "toast-bottom-right",
-                    onclick: null,
-                    showDuration: "100",
-                    hideDuration: "100",
-                    timeOut: "8000",
-                    extendedTimeOut: "1000",
-                    showEasing: "linear",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut"
-                };
                 complexmessage.warning("There will be  more than 200 nodes connections. Please select higher threshold.", "Too many neighbors to display..");
                 $("#newtrok_mode").html(" - too many edges for adding co-expressed genes");
                 $("#loader").hide();
@@ -201,40 +169,12 @@ function add_co_expressions(e, t, n, r, i) {
             i = JSON.stringify(i).replace(/\\"/g, "");
             i = JSON.parse(i);
             if (n.edges == null) {
-                complexmessage.options = {
-                    closeButton: false,
-                    debug: false,
-                    positionClass: "toast-bottom-right",
-                    onclick: null,
-                    showDuration: "100",
-                    hideDuration: "100",
-                    timeOut: "8000",
-                    extendedTimeOut: "1000",
-                    showEasing: "linear",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut"
-                };
                 complexmessage.warning("Thereare no connections. Please select lower threshold.", "Can not expand at this threshold..");
                 $("#newtrok_mode").html(" - No neighbors at this threshold");
                 $("#loader").hide();
                 return true
             }
             if (n.nodes.length + n.edges.length > 2e3) {
-                complexmessage.options = {
-                    closeButton: false,
-                    debug: false,
-                    positionClass: "toast-bottom-right",
-                    onclick: null,
-                    showDuration: "100",
-                    hideDuration: "100",
-                    timeOut: "8000",
-                    extendedTimeOut: "1000",
-                    showEasing: "linear",
-                    hideEasing: "linear",
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut"
-                };
                 complexmessage.warning("There will be " + n.nodes.length + " nodes and " + n.edges.length + " connections. Please select higher threshold.", "Too many neighbors to display..");
                 $("#newtrok_mode").html(" - too many edges for adding co-expressed genes");
                 $("#loader").hide()
@@ -348,20 +288,6 @@ function loadexample(e) {
             break;
     }
 
-    complexmessage.options = {
-        closeButton: false,
-        debug: false,
-        positionClass: "toast-bottom-right",
-        onclick: null,
-        showDuration: "100",
-        hideDuration: "100",
-        timeOut: "8000",
-        extendedTimeOut: "1000",
-        showEasing: "linear",
-        hideEasing: "linear",
-        showMethod: "fadeIn",
-        hideMethod: "fadeOut"
-    };
     complexmessage.success($("#sp_" + t + " option:selected").text() + " example genes loaded.", "Success!");
     align_or_compare()
 }
@@ -372,20 +298,6 @@ function load_cookie(e) {
     if (e == "sp_1_text") {
         if (t == undefined) { /*loadexample(1)*/ } else {
             $("#sink1").val(t);
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.success($("#sp_1 option:selected").text() + " genes loaded from previous search.", "Success!");
             align_or_compare()
         }
@@ -393,20 +305,6 @@ function load_cookie(e) {
     if (e == "sp_2_text") {
         if (n == undefined) { /*loadexample(2)*/ } else {
             $("#sink2").val(n);
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.success($("#sp_2 option:selected").text() + " genes loaded from previous search.", "Success!")
         }
     }
@@ -490,20 +388,6 @@ window.onload = init(function(d) {
     $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
     $("#sink1").keyup(function() {
         if (basic_validation_function(1) == false) {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.error("Please enter correct " + $("#sp_1 option:selected").text() + " gene ids.", "Invalid input..");
             return
         }
@@ -511,20 +395,6 @@ window.onload = init(function(d) {
     });
     $("#sink2").keyup(function() {
         if (basic_validation_function(2) == false) {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
             complexmessage.error("Please enter correct " + $("#sp_2 option:selected").text() + " gene ids.", "Invalid input..");
             return
         }
