@@ -34,7 +34,7 @@ function align_or_compare(e) {
                 showMethod: "fadeIn",
                 hideMethod: "fadeOut"
             };
-            complexmessage.error(n + " text box is empty.", "Please enter some genes..")
+            complexmessage.error($("#sp_1").find(":selected").text() + " text box is empty.", "Please enter some genes..")
             return;
         }
         e = "align";
@@ -55,7 +55,7 @@ function align_or_compare(e) {
                 showMethod: "fadeIn",
                 hideMethod: "fadeOut"
             };
-            complexmessage.error(r + " text box is empty.", "Please enter some genes..")
+            complexmessage.error($("#sp_2").find(":selected").text() + " text box is empty.", "Please enter some genes..")
         }
         $("#newtrok_mode").html(" <font color='#b94a48'>- Comparing " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text() + '</font>..<img src="images/btnloader.GIF" /> ')
     }
