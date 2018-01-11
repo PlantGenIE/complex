@@ -4,10 +4,12 @@
  *  Description:    Main script for ComPlEX2
  *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
  */
+var network_data;
+
 function populate_select_options(data, element, selected_option) {
     $(element).html("");
     $(data).each(function(i, val) {
-        if (val.name == selected_option) {
+        if (val.id == selected_option) {
             $(element).append('<option selected data-species="' + val.shortname + '" value="' + val.id + '">' + val.name + "</option>")
         } else {
             $(element).append('<option data-species="' + val.shortname + '" value="' + val.id + '">' + val.name + "</option>")
@@ -17,9 +19,44 @@ function populate_select_options(data, element, selected_option) {
 
 function align_or_compare(e) {
     if (typeof e === "undefined") {
+        if ($("#sink1").val().trim().length === 0) {
+            complexmessage.options = {
+                closeButton: false,
+                debug: false,
+                positionClass: "toast-bottom-right",
+                onclick: null,
+                showDuration: "100",
+                hideDuration: "100",
+                timeOut: "8000",
+                extendedTimeOut: "1000",
+                showEasing: "linear",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+            complexmessage.error(n + " text box is empty.", "Please enter some genes..")
+            return;
+        }
         e = "align";
         $("#newtrok_mode").html(" <font color='#b94a48'>- Aligning " + $("#sp_1 option:selected").text() + '..</font><img src="images/btnloader.GIF" /> ')
     } else {
+        if ($("#sink2").val().trim().length === 0) {
+            complexmessage.options = {
+                closeButton: false,
+                debug: false,
+                positionClass: "toast-bottom-right",
+                onclick: null,
+                showDuration: "100",
+                hideDuration: "100",
+                timeOut: "8000",
+                extendedTimeOut: "1000",
+                showEasing: "linear",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+            complexmessage.error(r + " text box is empty.", "Please enter some genes..")
+        }
         $("#newtrok_mode").html(" <font color='#b94a48'>- Comparing " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text() + '</font>..<img src="images/btnloader.GIF" /> ')
     }
     var t = "cytoscapeweb1";
@@ -733,10 +770,11 @@ function coexpressiontrclick() {
         $("#consth1").simpleSlider("setValue", $("#th1").val());
     }
 }
-window.onload = init(function(network_data) {
+window.onload = init(function(d) {
     visibilitychange()
     $("#loader").hide();
-    populate_select_options(network_data, "#sp_1");
+    network_data = d;
+    populate_select_options(network_data, "#sp_1", 1);
     populate_select_options(network_data, "#sp_2");
     var n;
     var r;
@@ -811,56 +849,18 @@ window.onload = init(function(network_data) {
         setCookie("sp_2_text", $("#sink2").val(), 1)
     });
     $("#align_to_species_button").click(function(e) {
-        if ($("#sink1").val() == "") {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
-            complexmessage.error(n + " text box is empty.", "Please eneter some genes..")
-        } else {
-            align_or_compare()
-        }
+        align_or_compare();
     });
     $("#compare_with_species_button").click(function(e) {
-        if ($("#sink2").val() == "") {
-            complexmessage.options = {
-                closeButton: false,
-                debug: false,
-                positionClass: "toast-bottom-right",
-                onclick: null,
-                showDuration: "100",
-                hideDuration: "100",
-                timeOut: "8000",
-                extendedTimeOut: "1000",
-                showEasing: "linear",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
-            complexmessage.error(r + " text box is empty.", "Please eneter some genes..")
-        } else {
-            align_or_compare("compare")
-        }
+        align_or_compare("compare");
     });
     $("#sp_1").change(function() {
-        var e = [];
-        var n = $(this).val();
-        e = network_data;
-        e = jQuery.grep(e, function(e) {
-            return e.value != n
+        var selected_species = $(this).find(":selected").data("species");
+        var e = jQuery.grep(network_data, function(e) {
+            return e.shortname != selected_species;
         });
-        populate_select_options(e, "#sp_2", $("#sp_2").val());
-        setCookie("sp_1_selection", n, 1);
+        populate_select_options(e, "#sp_2", $("#sp_2").find(":selected").val());
+        setCookie("sp_1_selection", $("#sp_1").val(), 1);
         setCookie("sp_2_selection", $("#sp_2").val(), 1);
         $("#span_sp1").html($("#sp_1 option:selected").text());
         $("#span_l_sp1").html($("#sp_1 option:selected").text());
@@ -874,15 +874,13 @@ window.onload = init(function(network_data) {
         align_or_compare()
     });
     $("#sp_2").change(function() {
-        var t = [];
-        var n = $(this).val();
-        t = network_data;
-        t = jQuery.grep(t, function(e) {
-            return e.name != n
+        var selected_species = $(this).find(":selected").data("species");
+        var t = jQuery.grep(network_data, function(e) {
+            return e.shortname != selected_species;
         });
-        populate_select_options(t, "#sp_1", $("#sp_1").val());
-        setCookie("sp_1_selection", $("#sp_1").val(), 1);
-        setCookie("sp_2_selection", n, 1);
+        populate_select_options(t, "#sp_1", $("#sp_1").find(":selected").val());
+        setCookie("sp_1_selection", $("#sp_1").find(":selected").val(), 1);
+        setCookie("sp_2_selection", $("#sp_2").find(":selected").val(), 1);
         $("#span_sp1").html($("#sp_1 option:selected").text());
         $("#span_l_sp1").html($("#sp_1 option:selected").text());
         $("#span_sp2").html($("#sp_2 option:selected").text());
@@ -911,4 +909,8 @@ window.onload = init(function(network_data) {
         $("#" + this.id + "_span").html("(>=" + t.value + ")");
         align_or_compare()
     })
+    // Force update of the selection boxes. Will make sure that a network
+    // from a particular species is paired with a network in the same
+    // species.
+    $("#sp_1").trigger("change");
 });
