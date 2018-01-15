@@ -45,10 +45,11 @@ DROP TABLE IF EXISTS `gene`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gene` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL DEFAULT '',
+  `name` varchar(50) NOT NULL,
   `species_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`,`species_id`)
+  UNIQUE KEY `name` (`name`),
+  KEY (`species_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,8 +80,12 @@ CREATE TABLE `network_score` (
   `gene_id1` int(11) unsigned NOT NULL,
   `gene_id2` int(11) unsigned NOT NULL,
   `network_id` int(11) unsigned NOT NULL,
-  `score` float DEFAULT NULL,
-  PRIMARY KEY (`gene_id1`,`gene_id2`,`network_id`)
+  `score` float NOT NULL,
+  PRIMARY KEY (`gene_id1`,`gene_id2`),
+  KEY (`gene_id1`),
+  KEY (`gene_id2`),
+  KEY (`network_id`),
+  KEY (`score`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

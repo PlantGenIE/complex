@@ -4,29 +4,60 @@ require_once("../db.php");
 require("array_column.php");
 $msc=microtime(true);
 
-if($tmp_op=='expand'){
-    $a0_query ='SELECT  '.$tmp_sp1.'_i1 FROM '.$tmp_sp1.'Corr WHERE ('.$tmp_sp1.'_i1 in(SELECT '.$tmp_sp1.'_i FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_id in('.$gsel1.')) OR '.$tmp_sp1.'_i2 in(SELECT '.$tmp_sp1.'_i FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_id in('.$gsel1.')) 
-    )AND corr > '.$tmp_th1.' limit 201';
+function build_in_array($key_prefix, $a) {
+    return array_combine(
+        array_map(
+            function ($v) use (&$key_prefix) {
+                return ":{$key_prefix}_{$v}";
+            },
+            array_keys($a)
+        ), $a);
+}
 
-    $a0_query_results = mysql_query($a0_query);
-    while ($a0_row = mysql_fetch_array($a0_query_results)){
-        $a0_array[] = $a0_row[0];
+if ($tmp_op == 'expand'){
+    try {
+        $in_params = build_in_array('name', $gsel1);
+        $gene_id_stmt = $db->prepare('SELECT id FROM gene WHERE name IN ('.implode(",", array_keys($in_params)).')');
+        $gene_id_stmt->execute($in_params);
+        $expand_from_id = $gene_id_stmt->fetchAll(PDO::FETCH_COLUMN);
+    } catch (PDOException $e) {
+        echo "Query failed: ".$e->getMessage();
     }
 
-    if (count($a0_array) > 200) {
-        echo json_encode("overflow");
-        exit();
+    try {
+        $a_params = build_in_array('gene_id', $expand_from_id);
+        $a_query = 'SELECT gene_id1, gene_id2 FROM network_score
+            WHERE network_id = :network_id
+                AND score > :th
+                AND (gene_id1 IN ('.implode(',', array_keys($a_params)).')
+                    OR gene_id2 IN ('.implode(',', array_keys($a_params)).'))';
+        $a_stmt = $db->prepare($a_query);
+        $a_stmt->execute(array_merge(
+            array(
+                ':network_id' => $tmp_sp1,
+                ':th' => $tmp_th1,
+                ':gene_id' => $expand_from_id
+            ), $a_params));
+    } catch (PDOException $e) {
+        echo 'Query failed: '.$e->getMessage();
     }
-    $a_query = 'SELECT  '.$tmp_sp1.'_i1,
-        '.$tmp_sp1.'_i2 FROM '.$tmp_sp1.'corr_view
-        WHERE '.$tmp_sp1.'_id in('.$gsel1.') AND corr > '.$tmp_th1.'';
-    $a_query_results = mysql_query($a_query);
-    while ($a_row = mysql_fetch_array($a_query_results)) {
+
+    $a_array = array();
+    $a_array1 = array();
+    while ($a_row = $a_stmt->fetch(PDO::FETCH_NUM)) {
         $a_array[] = $a_row[0];
         $a_array1[] = $a_row[1];
     }
-    $a_array2 = array_merge($a_array,$a_array1);
-    $a_array_string = implode(',',array_values(array_unique($a_array2)));
+
+    if (count($a_array) === 0) {
+        echo json_encode(array('msc' => $msc));
+        exit();
+    } else if (count($a_array) > 200) {
+        echo 'overflow';
+        exit();
+    }
+    $a_array2 = array_merge($a_array, $a_array1);
+    $a_array_string = implode(',', array_values(array_unique($a_array2)));
 }
 
 $first_array = array();
@@ -64,7 +95,7 @@ if ($tmp_showN == 'align') {
 
 $second_query_stmt = $db->query($second_query);
 if (!$second_query_stmt) {
-    echo 'Failed to execute query: '.$second_query;
+    echo 'Query failed: '.$second_query;
     exit;
 }
 $second_query_stmt->execute();

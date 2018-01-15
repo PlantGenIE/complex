@@ -5,6 +5,7 @@ try {
     $db = new PDO('mysql:dbname='.$config['db']['database'].';host='.$config['db']['host'],
         $config['db']['user'],
         $config['db']['password']);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo 'Connection failed: '.$e->getMessage();
 }
@@ -41,7 +42,7 @@ $post_inputs=preg_replace("/\s+/", ",", trim(htmlentities($tmp_selG)));
 $onlyconsonantss = strtolower(str_replace($vowelss, ",", $post_inputs));
 $geneids_arrays = explode(",", $onlyconsonantss);
 $geneids_array_strs = implode('","', $geneids_arrays);
-$gsel1 = '"'.$geneids_array_strs.'"';
+$gsel1 = $geneids_arrays;
 
 $vowels = array(",", ";", "\t", "\n", "\r", "s+", " ", ",,");
 $post_input = preg_replace("/\s+/", ",", trim(htmlentities($sink1)));
