@@ -31,7 +31,7 @@
                <div   style="overflow:hidden;position:absolute;right:250px;cursor:pointer">
                </div>
             </a>
-          
+
             <a target="_blank" href="http://plantgenie.org/help/tool_id/complex/">
                 <img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour" style="margin-top:10px;margin-left:20px;cursor:pointer" />
             </a>
@@ -41,7 +41,7 @@
             <input id="ac-1" name="accordion-1" style="display:none;visibility:hidden;height:0px;width:0px;color:#c6e1ec" checked type="checkbox" />
             <label for="ac-1">Input   <button onClick="loadexample(1);loadexample(2);" style="font-size:12px;padding:4px;margin-top:-22px;"   class="tourbtn tourbtn-primary" >Load Example</button> <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90"   class="tourbtn tourbtn-primary" >Take a Tour</button></label>
             <article style="background:#FFFFFF" class="ac-large-input">
-               <br> 
+               <br>
                <table width="100%" border="0">
                   <tr>
                      <td width="50%">
@@ -88,7 +88,7 @@
                   <tr>
                      <td></td>
                      <td><button id="align_to_species_button" class="btn btn-4 btn-4c " style="width:90%;border:none;text-transform:inherit;"></button><br>
-                        <button id="compare_with_species_button"  class="btn btn-4 btn-4c "  style="width:90%;border:none;text-transform:inherit;"></button> 
+                        <button id="compare_with_species_button"  class="btn btn-4 btn-4c "  style="width:90%;border:none;text-transform:inherit;"></button>
                      </td>
                   </tr>
                </table>
@@ -139,10 +139,14 @@
                   <td valign="baseline" width="50%">
                      <div id="consdiv">
                         <table style="margin-left:10px;" width="97%" id='firsttable' name='firsttable' class='dataTable'>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Gene</th>
+                                </tr>
+                            </thead>
                            <tbody>
                            </tbody>
-                           <tfoot>
-                           </tfoot>
                         </table>
                   </td>
                   <td>
@@ -152,10 +156,14 @@
                   <p>
                   <div id="consdiv2">
                   <table width="97%" style="margin-left:10px;" id='secondtable' name='secondtable' class='dataTable'>
+                    <thead>
+                                <tr>
+                                    <th>Selected</th>
+                                    <th>Gene</th>
+                                </tr>
+                    </thead>
                   <tbody>
                   </tbody>
-                  <tfoot>
-                  </tfoot>
                   </table>
                   </p>
                   </td>
@@ -168,7 +176,7 @@
          <label for="ac-4">Citation and Contact us | Site Views for Last six months <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"> </span></label>
          <article style="background:#FFFFFF;" class="ac-extra-medium"><table><tr><td>
          <div style="float:left;margin-top: 34px;">
-         <p>                  
+         <p>
          <strong>A manuscript describing Complex has been published. If you make use of the resource, please cite us:</strong><br>
          S. Netotea, D. Sundell, N. R. Street and T. R. Hvidsten. ComPlEx:
          conservation and divergence of co-expression networks in A. thaliana,
@@ -177,7 +185,7 @@
          <strong>Latest Publication: <br><a href="http://onlinelibrary.wiley.com/doi/10.1111/nph.13557/abstract">The Plant Genome Integrative Explorer Resource: PlantGenIE.org</a>. New Phytologist 2015</strong><br>
 David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng Lin, Andreas Sjödin, Yves Van de Peer, Stefan Jansson, Torgeir R. Hvidsten,</p>
 
-         <form id="contact" style="font-size:18px" name="contact" method="post">  
+         <form id="contact" style="font-size:18px" name="contact" method="post">
          <table width="600px" style="border-spacing:0 5px;border-collapse: separate;font-size:16px;margin-left:16px;" border="0">
          <tr>
          <td>Name<span class="required">*</span>:&nbsp;</td>
@@ -211,12 +219,12 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
          <p>Something went wrong, try refreshing and submitting the form again.</p>
          </span>
          </div>
-         <br>	
+         <br>
          </div>
          </article>
          </td><td>
          <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js">
-            {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Aj2bYzePbGwJdHhXMURKTURNWEtVOTczTnY0YlV2VGc&transpose=0&headers=0&range=A2%3AB25&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"titleTextStyle":{"fontSize":6},"booleanRole":"certainty","title":"Chart title","colors":["#DC3912","#EFE6DC","#109618"],"legend":"right","displayMode":"regions","datalessRegionColor":"#d0e0e3","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},"width":800,"height":341},"state":{},"view":{},"isDefaultVisualization":false,"chartType":"GeoChart","chartName":"Chart 3"} 
+            {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Aj2bYzePbGwJdHhXMURKTURNWEtVOTczTnY0YlV2VGc&transpose=0&headers=0&range=A2%3AB25&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"titleTextStyle":{"fontSize":6},"booleanRole":"certainty","title":"Chart title","colors":["#DC3912","#EFE6DC","#109618"],"legend":"right","displayMode":"regions","datalessRegionColor":"#d0e0e3","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},"width":800,"height":341},"state":{},"view":{},"isDefaultVisualization":false,"chartType":"GeoChart","chartName":"Chart 3"}
          </script>
          </td></tr></table>
          </div>
