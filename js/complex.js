@@ -69,6 +69,7 @@ function align_or_compare(e) {
     $("#loader").show();
     $.ajax({
         type: "POST",
+        dataType: "json",
         url: "service/final_post.php",
         data: {
             "sink1": r,
@@ -89,18 +90,15 @@ function align_or_compare(e) {
                 $("#newtrok_mode").html(" - Compared " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text())
             }
         },
-        success: function(t) {
-            k = JSON.parse(t);
-            k = k["msc"];
+        success: function(data) {
             if (e === "align") {
-                $("#newtrok_mode").html(" - Aligned " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text() + " (Exec time:" + k + " s)")
+                $("#newtrok_mode").html(" - Aligned " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text() + " (Exec time:" + data.execution_time + " s)")
             } else {
-                $("#newtrok_mode").html(" - Compared " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text() + " (Exec time:" + k + " s)")
+                $("#newtrok_mode").html(" - Compared " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text() + " (Exec time:" + data.execution_time + " s)")
             }
             $("#loader").hide();
-            var n = JSON.parse(t);
-            var r = n["tmp_array1"];
-            if (r == undefined) {
+
+            if (data.network1 == undefined) {
                 complexmessage.error("Please enter correct genes.", "Invalid input..");
                 if (e === "align") {
                     $("#newtrok_mode").html(" - Aligned " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text())
@@ -108,16 +106,12 @@ function align_or_compare(e) {
                     $("#newtrok_mode").html(" - Compared " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text())
                 }
                 $("#loader").hide();
-                return
+                return;
             }
-            r = JSON.stringify(r).replace(/\\"/g, "");
-            r = JSON.parse(r);
-            var i = n["tmp_array2"];
-            i = JSON.stringify(i).replace(/\\"/g, "");
-            i = JSON.parse(i);
-            listening_ARRAY_1 = [];
-            listening_ARRAY_2 = [];
-            initPanels(r, i)
+            firsttable.set_data(data.network1);
+            secondtable.set_data(data.network2);
+            vis1.set_data(data.network1);
+            vis2.set_data(data.network2);
         }
     })
 }
@@ -141,6 +135,7 @@ function add_co_expressions(e, t, n, r, i) {
     $.ajax({
         type: "POST",
         url: "service/final_post.php",
+        dataType: "json",
         data: v,
         error: function(e, t, n) {},
         success: function(e) {
@@ -179,9 +174,10 @@ function add_co_expressions(e, t, n, r, i) {
                 $("#newtrok_mode").html(" - too many edges for adding co-expressed genes");
                 $("#loader").hide()
             } else {
-                initPanels(n, r,"expand_only");
                 $("#newtrok_mode").html(" - Added co-expressed genes (Exec time:" + i + " s)")
             }
+            firsttable.set_data(e.tmp_array1.nodes);
+            vis1.set_data(e.tmp_array1);
             $("#newtrok_mode").html(" - Added co-expressed genes (Exec time:" + i + " s)")
         }
     })
@@ -357,6 +353,8 @@ window.onload = init(function(d) {
     network_data = d;
     populate_select_options(network_data, "#sp_1", 1);
     populate_select_options(network_data, "#sp_2");
+    init_tables();
+    init_networks();
     var n;
     var r;
     var i = getCookie("sp_1_selection");
