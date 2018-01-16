@@ -108,6 +108,17 @@
 .dataTables_scrollHead {
 height: 37px;
 }
+
+.network-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.network-container {
+    flex: 1;
+    border: 1px solid #CCCCCC;
+}
+
 .ac-container{
 	width: 100%;
 	/*margin: 4x 0px 6px 0px;*/

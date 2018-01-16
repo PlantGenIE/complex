@@ -99,29 +99,10 @@
             <label for="ac-2">Network<span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino" id="newtrok_mode"></span><span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
             </label>
             <article class="ac-large">
-               <table style="background-color:#c6e1ec" width="100%" border="0">
-                  <tr>
-                     <td width="50%">
-                        <p><span style="z-index:100000000" id="species_span_1"></span>
-                           </br>
-                        <div id="cytoscapeweb1" align="center" style="width:100%;height:600px;margin-top:-40px;text-align:center;vertical-align:middle">Please wait for content generation...</div>
-                        </br>
-                        <button id="selectal1" value="Select all" onClick="selectSel1()">Select all</button>
-                        </p>
-                     </td>
-                     <td>
-                        <hr>
-                     </td>
-                     <td width="50%">
-                        <p><span id="species_span_2"></span>
-                           </br>
-                        <div id="cytoscapeweb2" align="center" style="width:100%;height:600px;margin-top:-40px;text-align:center;vertical-align:middle">Please wait for content generation...</div>
-                        </br>
-                        <button value="Select all" onclick="selectSel2()">Select all</button>
-                        </p>
-                     </td>
-                  </tr>
-               </table>
+                <div class="network-wrapper">
+                    <div id="cytoscapeweb1" class="network-container">Please wait for content generation...</div>
+                    <div id="cytoscapeweb2" class="network-container">Please wait for content generation...</div>
+                </div>
             </article>
          </div>
          <div>
