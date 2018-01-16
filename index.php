@@ -244,7 +244,6 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
         <script src="lib/AC_OETags.min.js"></script>
-        <script src="lib/cytoscapeweb.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
         <script src="js/variable_js.js"></script>
         <script src="js/tables.js"></script>
