@@ -268,15 +268,7 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
  .ui-effects-transfer-2 { border: 2px groove #d35530; z-index:2000;border-radius:36px;}
 	  </style>
         <script>
-           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-               })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-               ga('create', 'UA-49780808-1', 'plantgenie.org');
-               ga('send', 'pageview');
-
-               //Very cool custom functions
+            //Very cool custom functions
             function $_GET(q, s) {
                 s = s ? s : window.location.search;
                 var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
