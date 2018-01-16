@@ -20,21 +20,7 @@
       <link rel="stylesheet" type="text/css" href="css/demo.css" />
       <link rel="stylesheet" type="text/css" href="css/style.css" />
       <link rel="stylesheet" type="text/css" href="css/demo_table.css" />
-      
-      
-      <script src="lib/jquery-1.10.2.min.js"></script>
-        <script src="js/jquery-ui.js"></script>
 
-      <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
-      <script src="lib/jquery.dataTables.min.old.js"></script>
-      
-      <script src="lib/AC_OETags.min.js"></script>
-      <script src="lib/cytoscapeweb.min.js"></script>
-      <script src="js/variable_js.js"></script>
-      <script src="js/comp_net.js"></script>
-      <script src="js/simple-slider.js"></script>
-      <script src="js/complexmessage.min.js"></script>
-      <script src="js/complex.js"></script>
    </head>
    <body>
       <div class="container">
@@ -243,11 +229,28 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
             </div>
          </article>
       </div>
-      <script src="js/jquery.validate.min.js"></script>
-      <script src="js/jquery.form.js"></script>
-      <script src="js/validate.js"></script>
-      <script src="tour/poptour.js"></script>
-      <script src="tour/complex.js"></script>
+    <div id="loader" class="loader_color small"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+        <script src="lib/AC_OETags.min.js"></script>
+        <script src="lib/cytoscapeweb.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
+        <script src="js/variable_js.js"></script>
+        <script src="js/tables.js"></script>
+        <script src="js/networks.js"></script>
+        <script src="js/simple-slider.js"></script>
+        <script src="js/complexmessage.min.js"></script>
+        <script src="js/complex.js"></script>
+        <script src="http://popgenie.org/tools/tour/poptour.js"></script>
+        <script src="http://popgenie.org/tools/tour/workflow.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/validate.js"></script>
+        <script src="tour/poptour.js"></script>
+        <script src="tour/complex.js"></script>
       <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
       <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
          <div  align="center" style="left:48%;top:48%"  class="loader_color2 medium"></div>
@@ -257,34 +260,27 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
  .ui-effects-transfer { border: 2px dotted #d35530; z-index:2000;border-radius:36px;}
  .ui-effects-transfer-2 { border: 2px groove #d35530; z-index:2000;border-radius:36px;}
 	  </style>
+        <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+               })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+               ga('create', 'UA-49780808-1', 'plantgenie.org');
+               ga('send', 'pageview');
+
+               //Very cool custom functions
+            function $_GET(q, s) {
+                s = s ? s : window.location.search;
+                var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
+                return (s = s.replace('?', '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
+            }
+
+            if (typeof $_GET('workflow') != 'undefined') {
+                var workflow="w"+$_GET('workflow');
+                mannapperuma.startTour(eval(workflow));
+            }
+        </script>
    </body>
 </html>
-<div id="loader" class="loader_color small"></div>
-<script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-   
-   ga('create', 'UA-49780808-1', 'plantgenie.org');
-   ga('send', 'pageview');
-   
-   //Very cool custom functions
-function $_GET(q, s) {
-    s = s ? s : window.location.search;
-    var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
-    return (s = s.replace('?', '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
-}
 
-   
-</script>
-
-
-<script src="http://popgenie.org/tools/tour/poptour.js"></script>
-<script src="http://popgenie.org/tools/tour/workflow.js"></script> 
-    <script>
-	if (typeof $_GET('workflow') != 'undefined') {
-		var workflow="w"+$_GET('workflow');
-		 mannapperuma.startTour(eval(workflow));
-	}
-	</script> 
