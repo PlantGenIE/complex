@@ -23,6 +23,9 @@
 
    </head>
    <body>
+      <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
+         <div  align="center" style="left:48%;top:48%"  class="loader_color2 medium"></div>
+      </div>
       <div class="container">
       <section class="ac-container">
          <img id="showLeftPush" style="padding:6px;margin-left:16px;  cursor:pointer;border:none;" src="images/complex80.png" />
@@ -240,9 +243,6 @@ David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng
         <script src="tour/poptour.js"></script>
         <script src="tour/complex.js"></script>
       <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
-      <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
-         <div  align="center" style="left:48%;top:48%"  class="loader_color2 medium"></div>
-      </div>
       <style>
 	   .ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}
  .ui-effects-transfer { border: 2px dotted #d35530; z-index:2000;border-radius:36px;}
