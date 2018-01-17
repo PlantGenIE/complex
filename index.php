@@ -26,8 +26,7 @@
       <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
          <div  align="center" style="left:48%;top:48%"  class="loader_color2 medium"></div>
       </div>
-      <div class="container">
-      <section class="ac-container">
+      <div>
          <img id="showLeftPush" style="padding:6px;margin-left:16px;  cursor:pointer;border:none;" src="images/complex80.png" />
          <div style="float:right;margin-right:24px;border-radius:6px;margin-top:10px;">
             <a title="Contact us" target="_blank" href="http://congenie.org/contact">
@@ -39,11 +38,12 @@
                 <img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour" style="margin-top:10px;margin-left:20px;cursor:pointer" />
             </a>
          </div>
-         <div>
-            <!--<button  class="btn btn-4 btn-4c " style="border:none;text-transform:inherit;margin-top:-14px;">Example</button> -->
-            <input id="ac-1" name="accordion-1" style="display:none;visibility:hidden;height:0px;width:0px;color:#c6e1ec" checked type="checkbox" />
-            <label for="ac-1">Input   <button onClick="loadexample(1);loadexample(2);" style="font-size:12px;padding:4px;margin-top:-22px;"   class="tourbtn tourbtn-primary" >Load Example</button> <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90"   class="tourbtn tourbtn-primary" >Take a Tour</button></label>
-            <article style="background:#FFFFFF" class="ac-large-input">
+         <div class="accordion">
+            <div class="accordion-head">
+                Input <button onClick="loadexample(1);loadexample(2);" style="font-size:12px;padding:4px;margin-top:-22px;" class="tourbtn tourbtn-primary" >Load Example</button>
+                <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button></label>
+            </div>
+            <div class="accordion-content ac-large-input">
                <br>
                <table width="100%" border="0">
                   <tr>
@@ -95,124 +95,126 @@
                      </td>
                   </tr>
                </table>
-            </article>
-         </div>
-         <div>
-            <input id="ac-2" name="accordion-1" checked style="display:none;visibility:hidden;height:0px;width:0px;color:#c6e1ec" type="checkbox" />
-            <label for="ac-2">Network<span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino" id="newtrok_mode"></span><span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
-            </label>
-            <article class="ac-large">
+            </div>
+
+            <div class="accordion-head">
+                Network
+                <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino" id="newtrok_mode"></span>
+                <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
+            </div>
+            <div class="accordion-content ac-large">
                 <div class="network-wrapper">
                     <div id="cytoscapeweb1" class="network-container">Please wait for content generation...</div>
                     <div id="cytoscapeweb2" class="network-container">Please wait for content generation...</div>
                 </div>
-            </article>
-         </div>
-         <div>
-         <input id="ac-3" name="accordion-1" type="checkbox" style="display:none;visibility:hidden;height:0px;width:0px;color:#c6e1ec" checked />
-         <label for="ac-3">Tables <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"> </span></label>
-         <article style="background:#FFFFFF;" class="ac-extra-medium">
-            <div style="float:right;margin-top: 34px;">
-               <button id="selectallbtn"  class="btn btn-4 btn-4c " onClick="{tmp_nodes_flag=true;tmp_edges_flag=true;vis1.select('nodes');}">Select All</button>|
-               <button id="deselectallbtn" class="btn btn-4 btn-4c " onClick="{vis1.deselect('nodes');}">Deselect All</button>|
-               <button id="alignselectedbtn" class="btn btn-4 btn-4c " class="btn btn-4 btn-4c " onClick="align_selected();">Align Selected</button>|
-               <button id="compareselectedbtn" class="btn btn-4 btn-4c " onClick="compare_selected();">Compare Selected</button>
             </div>
-            <table width="100%" border="0">
-               <tr>
-                  <td valign="baseline" width="50%">
-                     <div id="consdiv">
-                        <table style="margin-left:10px;" width="97%" id='firsttable' name='firsttable' class='dataTable'>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Gene</th>
-                                </tr>
-                            </thead>
-                           <tbody>
-                           </tbody>
-                        </table>
-                  </td>
-                  <td>
-                  <hr>
-                  </td>
-                  <td valign="baseline" width="50%">
-                  <p>
-                  <div id="consdiv2">
-                  <table width="97%" style="margin-left:10px;" id='secondtable' name='secondtable' class='dataTable'>
-                    <thead>
-                                <tr>
-                                    <th>Selected</th>
-                                    <th>Gene</th>
-                                </tr>
-                    </thead>
-                  <tbody>
-                  </tbody>
-                  </table>
-                  </p>
-                  </td>
-               </tr>
-            </table>
-         </article>
-         </div>
-         <div>
-         <input id="ac-4" name="accordion-1" type="checkbox" style="display:none;visibility:hidden;height:0px;width:0px;color:#c6e1ec" checked />
-         <label for="ac-4">Citation and Contact us | Site Views for Last six months <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"> </span></label>
-         <article style="background:#FFFFFF;" class="ac-extra-medium"><table><tr><td>
-         <div style="float:left;margin-top: 34px;">
-         <p>
-         <strong>A manuscript describing Complex has been published. If you make use of the resource, please cite us:</strong><br>
-         S. Netotea, D. Sundell, N. R. Street and T. R. Hvidsten. ComPlEx:
-         conservation and divergence of co-expression networks in A. thaliana,
-         Populus and O. sativa. BMC Genomics 15:106, 2014.<br>
-         <br>
-         <strong>Latest Publication: <br><a href="http://onlinelibrary.wiley.com/doi/10.1111/nph.13557/abstract">The Plant Genome Integrative Explorer Resource: PlantGenIE.org</a>. New Phytologist 2015</strong><br>
-David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng Lin, Andreas Sjödin, Yves Van de Peer, Stefan Jansson, Torgeir R. Hvidsten,</p>
 
-         <form id="contact" style="font-size:18px" name="contact" method="post">
-         <table width="600px" style="border-spacing:0 5px;border-collapse: separate;font-size:16px;margin-left:16px;" border="0">
-         <tr>
-         <td>Name<span class="required">*</span>:&nbsp;</td>
-         <td><input type="text" name="name" id="name" size="30" value="" required/></td><br>
-         </tr>
-         <tr>
-         <td>Email<span class="required">*</span>:&nbsp;</td>
-         <td> <input type="text" name="email" id="email" size="30" value="" required/></td>
-         </tr>
-         <tr>
-         <td valign="top">Message<span class="required">*</span>: &nbsp;</td>
-         <td><textarea name="message" cols="40" rows="6" id="message" required></textarea></td>
-         </tr>
-         <tr>
-         <td valign="top">What color is a "<i>Poplar</i>" leaf?<span class="required">*</span>:&nbsp;</td>
-         <td> <input type="text"  name="captcha" value="" required/></td>
-         </tr>
-         <tr>
-         <td>&nbsp; </td>
-         <td> <input id="submit" class="btn btn-4 btn-4c "  type="submit" name="submit" value="Send"  style="float:right;padding:6px;padding-left:12px;padding-right:12px;"/> </td>
-         </tr>
-         </table>
-         </form>
-         <div id="success">
-         <span>
-         <p><strong>Your message was sent succssfully! We will be in touch very soon.</strong></p>
-         </span>
-         </div>
-         <div id="error">
-         <span>
-         <p>Something went wrong, try refreshing and submitting the form again.</p>
-         </span>
-         </div>
-         <br>
-         </div>
-         </article>
+            <div class="accordion-head">
+                Tables
+                <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
+            </div>
+            <div class="accordion-content ac-extra-medium">
+                <div style="float:right;margin-top:1em;margin-bottom:1em;">
+                    <button id="selectallbtn"  class="btn btn-4 btn-4c " onClick="{tmp_nodes_flag=true;tmp_edges_flag=true;vis1.select('nodes');}">Select All</button>|
+                    <button id="deselectallbtn" class="btn btn-4 btn-4c " onClick="{vis1.deselect('nodes');}">Deselect All</button>|
+                    <button id="alignselectedbtn" class="btn btn-4 btn-4c " class="btn btn-4 btn-4c " onClick="align_selected();">Align Selected</button>|
+                    <button id="compareselectedbtn" class="btn btn-4 btn-4c " onClick="compare_selected();">Compare Selected</button>
+                </div>
+                <table width="100%" border="0">
+                   <tr>
+                      <td valign="baseline" width="50%">
+                         <div id="consdiv">
+                            <table style="margin-left:10px;" width="97%" id='firsttable' name='firsttable' class='dataTable'>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Gene</th>
+                                    </tr>
+                                </thead>
+                               <tbody>
+                               </tbody>
+                            </table>
+                      </td>
+                      <td>
+                      <hr>
+                      </td>
+                      <td valign="baseline" width="50%">
+                      <p>
+                      <div id="consdiv2">
+                      <table width="97%" style="margin-left:10px;" id='secondtable' name='secondtable' class='dataTable'>
+                        <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Gene</th>
+                                    </tr>
+                        </thead>
+                      <tbody>
+                      </tbody>
+                      </table>
+                      </p>
+                      </td>
+                   </tr>
+                </table>
+            </div>
+            <div class="accordion-head">
+                Citation and Contact us | Site Views for Last six months
+                <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
+            </div>
+            <div class="accordion-content ac-extra-medium">
+                <table><tr><td>
+                <div style="float:left;margin-top: 34px;">
+                    <p>
+                    <strong>A manuscript describing Complex has been published. If you make use of the resource, please cite us:</strong><br>
+                    S. Netotea, D. Sundell, N. R. Street and T. R. Hvidsten. ComPlEx:
+                    conservation and divergence of co-expression networks in A. thaliana,
+                    Populus and O. sativa. BMC Genomics 15:106, 2014.<br>
+                    <br>
+                    <strong>Latest Publication: <br><a href="http://onlinelibrary.wiley.com/doi/10.1111/nph.13557/abstract">The Plant Genome Integrative Explorer Resource: PlantGenIE.org</a>. New Phytologist 2015</strong><br>
+                    David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng Lin, Andreas Sjödin, Yves Van de Peer, Stefan Jansson, Torgeir R. Hvidsten,</p>
+
+                    <form id="contact" style="font-size:18px" name="contact" method="post">
+                        <table width="600px" style="border-spacing:0 5px;border-collapse: separate;font-size:16px;margin-left:16px;" border="0">
+                            <tr>
+                                <td>Name<span class="required">*</span>:&nbsp;</td>
+                                <td><input type="text" name="name" id="name" size="30" value="" required/></td><br>
+                            </tr>
+                            <tr>
+                                <td>Email<span class="required">*</span>:&nbsp;</td>
+                                <td> <input type="text" name="email" id="email" size="30" value="" required/></td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Message<span class="required">*</span>: &nbsp;</td>
+                                <td><textarea name="message" cols="40" rows="6" id="message" required></textarea></td>
+                            </tr>
+                            <tr>
+                                <td valign="top">What color is a "<i>Poplar</i>" leaf?<span class="required">*</span>:&nbsp;</td>
+                                <td> <input type="text"  name="captcha" value="" required/></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp; </td>
+                                <td> <input id="submit" class="btn btn-4 btn-4c "  type="submit" name="submit" value="Send"  style="float:right;padding:6px;padding-left:12px;padding-right:12px;"/> </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div id="success">
+                        <span>
+                            <p><strong>Your message was sent succssfully! We will be in touch very soon.</strong></p>
+                        </span>
+                    </div>
+                    <div id="error">
+                        <span>
+                            <p>Something went wrong, try refreshing and submitting the form again.</p>
+                        </span>
+                    </div>
+                    <br>
+                </div>
+            </div>
          </td><td>
          <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js">
             {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Aj2bYzePbGwJdHhXMURKTURNWEtVOTczTnY0YlV2VGc&transpose=0&headers=0&range=A2%3AB25&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"titleTextStyle":{"fontSize":6},"booleanRole":"certainty","title":"Chart title","colors":["#DC3912","#EFE6DC","#109618"],"legend":"right","displayMode":"regions","datalessRegionColor":"#d0e0e3","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},"width":800,"height":341},"state":{},"view":{},"isDefaultVisualization":false,"chartType":"GeoChart","chartName":"Chart 3"}
          </script>
          </td></tr></table>
          </div>
-      </section>
       </div>
       <div style="background:#FFF;">
          <article class="lifted_content_box">

@@ -351,6 +351,14 @@ window.onload = init(function(d) {
     visibilitychange()
     $("#loader").hide();
     network_data = d;
+
+    $('.accordion .accordion-head').addClass('opened').click(function() {
+        $(this).next().toggle();
+        $(this).toggleClass('opened');
+        $(this).toggleClass('collapsed');
+        return false;
+    });
+
     populate_select_options(network_data, "#sp_1", 1);
     populate_select_options(network_data, "#sp_2");
     init_tables();
