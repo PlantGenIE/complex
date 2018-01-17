@@ -399,6 +399,11 @@ window.onload = init(function(d) {
         }
         setCookie("sp_1_text", $("#sink1").val(), 1)
     });
+    $("#load-example-button").click(function(event) {
+        event.stopPropagation();
+        loadexample(1);
+        loadexample(2);
+    });
     $("#sink2").keyup(function() {
         if (basic_validation_function(2) == false) {
             complexmessage.error("Please enter correct " + $("#sp_2 option:selected").text() + " gene ids.", "Invalid input..");

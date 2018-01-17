@@ -211,7 +211,8 @@ addClickListener = function(el, fn) {
 startBtnEl = document.getElementById("startTourBtn");
 
 if (startBtnEl) {
-  addClickListener(startBtnEl, function() {
+  addClickListener(startBtnEl, function(event) {
+      event.stopPropagation();
 	if (!hopscotch.isActive) {
       hopscotch.startTour(tour);
     }

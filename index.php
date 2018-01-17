@@ -29,19 +29,15 @@
       <div>
          <img id="showLeftPush" style="padding:6px;margin-left:16px;  cursor:pointer;border:none;" src="images/complex80.png" />
          <div style="float:right;margin-right:24px;border-radius:6px;margin-top:10px;">
-            <a title="Contact us" target="_blank" href="http://congenie.org/contact">
-               <div   style="overflow:hidden;position:absolute;right:250px;cursor:pointer">
-               </div>
-            </a>
-
             <a target="_blank" href="http://plantgenie.org/help/tool_id/complex/">
                 <img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour" style="margin-top:10px;margin-left:20px;cursor:pointer" />
             </a>
          </div>
          <div class="accordion">
             <div class="accordion-head">
-                Input <button onClick="loadexample(1);loadexample(2);" style="font-size:12px;padding:4px;margin-top:-22px;" class="tourbtn tourbtn-primary" >Load Example</button>
-                <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button></label>
+                Input
+                <button id="load-example-button" style="font-size:12px;padding:4px;margin-top:-22px;" class="tourbtn tourbtn-primary" >Load Example</button>
+                <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button>
             </div>
             <div class="accordion-content ac-large-input">
                <br>
