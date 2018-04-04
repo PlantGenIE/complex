@@ -5,6 +5,8 @@
  *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
  */
 var network_data;
+var view1;
+var view2;
 
 complexmessage.options = {
     closeButton: false,
@@ -108,10 +110,8 @@ function align_or_compare(e) {
                 $("#loader").hide();
                 return;
             }
-            firsttable.set_data(data.network1);
-            secondtable.set_data(data.network2);
-            vis1.set_data(data.network1);
-            vis2.set_data(data.network2);
+            view1.set_data(data.network1);
+            view2.set_data(data.network2);
         }
     })
 }
@@ -361,8 +361,10 @@ window.onload = init(function(d) {
 
     populate_select_options(network_data, "#sp_1", 1);
     populate_select_options(network_data, "#sp_2");
-    init_tables();
-    init_networks();
+
+    view1 = new TableNetwork('#firsttable', '#cytoscapeweb1');
+    view2 = new TableNetwork('#secondtable', '#cytoscapeweb2');
+
     var n;
     var r;
     var i = getCookie("sp_1_selection");

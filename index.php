@@ -100,8 +100,8 @@
             </div>
             <div class="accordion-content ac-large">
                 <div class="network-wrapper">
-                    <div id="cytoscapeweb1" class="network-container">Please wait for content generation...</div>
-                    <div id="cytoscapeweb2" class="network-container">Please wait for content generation...</div>
+                    <div id="cytoscapeweb1" class="network-container"></div>
+                    <div id="cytoscapeweb2" class="network-container"></div>
                 </div>
             </div>
 
@@ -230,6 +230,7 @@
         <script src="js/variable_js.js"></script>
         <script src="js/tables.js"></script>
         <script src="js/networks.js"></script>
+        <script src="js/table_network.js"></script>
         <script src="js/simple-slider.js"></script>
         <script src="js/complexmessage.min.js"></script>
         <script src="js/complex.js"></script>
