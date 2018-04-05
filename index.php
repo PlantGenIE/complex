@@ -40,7 +40,7 @@
                 <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button>
             </div>
 
-            <div class="accordion-content ac-large-input">
+            <div class="accordion-content">
                 <div class="network-input">
                     <div>
                         <textarea name="sp1genes" rows="6" id="sink1"></textarea>
@@ -67,7 +67,7 @@
                 <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino" id="newtrok_mode"></span>
                 <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
             </div>
-            <div class="accordion-content ac-large">
+            <div class="accordion-content">
                 <div class="network-wrapper">
                     <div id="cytoscapeweb1" class="network-container"></div>
                     <div id="cytoscapeweb2" class="network-container"></div>
@@ -78,13 +78,7 @@
                 Tables
                 <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
             </div>
-            <div class="accordion-content ac-extra-medium">
-                <div style="float:right;margin-top:1em;margin-bottom:1em;">
-                    <button id="selectallbtn"  class="btn btn-4 btn-4c " onClick="{tmp_nodes_flag=true;tmp_edges_flag=true;vis1.select('nodes');}">Select All</button>|
-                    <button id="deselectallbtn" class="btn btn-4 btn-4c " onClick="{vis1.deselect('nodes');}">Deselect All</button>|
-                    <button id="alignselectedbtn" class="btn btn-4 btn-4c " class="btn btn-4 btn-4c " onClick="align_selected();">Align Selected</button>|
-                    <button id="compareselectedbtn" class="btn btn-4 btn-4c " onClick="compare_selected();">Compare Selected</button>
-                </div>
+            <div class="accordion-content">
                 <table width="100%" border="0">
                    <tr>
                       <td valign="baseline" width="50%">
