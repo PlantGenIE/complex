@@ -455,23 +455,12 @@ window.onload = init(function(d) {
         $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
         align_or_compare()
     });
-    $("#th1").bind("slider:changed", function(e, t) {
-        $("#" + this.id + "_span").html("(>=" + t.value + ")");
-        if (!$("#conservation_slider").is(":visible")) $("#consth1").simpleSlider("setValue", t.value);
+
+    $("#th1").on("change", function() {
+        $("#" + this.id + "_span").html("(>=" + this.value + ")");
         align_or_compare()
     });
-    $("#consth1").bind("slider:changed", function(e, t) {
-        $("#" + this.id + "_span").html("(>=" + t.value + ")");
-        align_or_compare()
-    });
-    $("#th2").bind("slider:changed", function(e, t) {
-        $("#" + this.id + "_span").html("(>=" + t.value + ")");
-        align_or_compare()
-    });
-    $("#consth2").bind("slider:changed", function(e, t) {
-        $("#" + this.id + "_span").html("(>=" + t.value + ")");
-        align_or_compare()
-    })
+
     // Force update of the selection boxes. Will make sure that a network
     // from a particular species is paired with a network in the same
     // species.

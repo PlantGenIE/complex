@@ -55,7 +55,7 @@
 
                 <div class="network-control">
                     <label for="th1">co-expression: <span id="th1_span">(>=0.990)</label>
-                    <input data-slider="true" data-slider-range="0.95,1" id="th1" name="th1" data-slider-step="0.001" value="0.99" type="text" data-slider-snap="true" data-slider-highlight="true" />
+                    <input type="range" min="0.95" max="1" step="0.001" value="0.99" id="th1" name="th1">
 
                     <button id="align_to_species_button" class="btn btn-4 btn-4c"></button>
                     <button id="compare_with_species_button"  class="btn btn-4 btn-4c"></button>
@@ -154,7 +154,6 @@
         <script src="js/tables.js"></script>
         <script src="js/networks.js"></script>
         <script src="js/table_network.js"></script>
-        <script src="js/simple-slider.js"></script>
         <script src="js/complexmessage.min.js"></script>
         <script src="js/complex.js"></script>
         <script src="http://popgenie.org/tools/tour/poptour.js"></script>
