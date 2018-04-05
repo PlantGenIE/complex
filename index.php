@@ -153,69 +153,23 @@
                 </table>
             </div>
             <div class="accordion-head">
-                Citation and Contact us | Site Views for Last six months
+                Citation and Contact us
                 <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
             </div>
             <div class="accordion-content ac-extra-medium">
-                <table><tr><td>
-                <div style="float:left;margin-top: 34px;">
-                    <p>
+                <p>
                     <strong>A manuscript describing Complex has been published. If you make use of the resource, please cite us:</strong><br>
                     S. Netotea, D. Sundell, N. R. Street and T. R. Hvidsten. ComPlEx:
                     conservation and divergence of co-expression networks in A. thaliana,
-                    Populus and O. sativa. BMC Genomics 15:106, 2014.<br>
-                    <br>
-                    <strong>Latest Publication: <br><a href="http://onlinelibrary.wiley.com/doi/10.1111/nph.13557/abstract">The Plant Genome Integrative Explorer Resource: PlantGenIE.org</a>. New Phytologist 2015</strong><br>
-                    David Sundell, Chanaka Mannapperuma, Sergiu Netotea, Nicolas Delhomme, Yao-Cheng Lin, Andreas Sjödin, Yves Van de Peer, Stefan Jansson, Torgeir R. Hvidsten,</p>
-
-                    <form id="contact" style="font-size:18px" name="contact" method="post">
-                        <table width="600px" style="border-spacing:0 5px;border-collapse: separate;font-size:16px;margin-left:16px;" border="0">
-                            <tr>
-                                <td>Name<span class="required">*</span>:&nbsp;</td>
-                                <td><input type="text" name="name" id="name" size="30" value="" required/></td><br>
-                            </tr>
-                            <tr>
-                                <td>Email<span class="required">*</span>:&nbsp;</td>
-                                <td> <input type="text" name="email" id="email" size="30" value="" required/></td>
-                            </tr>
-                            <tr>
-                                <td valign="top">Message<span class="required">*</span>: &nbsp;</td>
-                                <td><textarea name="message" cols="40" rows="6" id="message" required></textarea></td>
-                            </tr>
-                            <tr>
-                                <td valign="top">What color is a "<i>Poplar</i>" leaf?<span class="required">*</span>:&nbsp;</td>
-                                <td> <input type="text"  name="captcha" value="" required/></td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp; </td>
-                                <td> <input id="submit" class="btn btn-4 btn-4c "  type="submit" name="submit" value="Send"  style="float:right;padding:6px;padding-left:12px;padding-right:12px;"/> </td>
-                            </tr>
-                        </table>
-                    </form>
-                    <div id="success">
-                        <span>
-                            <p><strong>Your message was sent succssfully! We will be in touch very soon.</strong></p>
-                        </span>
-                    </div>
-                    <div id="error">
-                        <span>
-                            <p>Something went wrong, try refreshing and submitting the form again.</p>
-                        </span>
-                    </div>
-                    <br>
-                </div>
+                    Populus and O. sativa. BMC Genomics 15:106, 2014.
+                </p>
             </div>
-         </td><td>
-         <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js">
-            {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Aj2bYzePbGwJdHhXMURKTURNWEtVOTczTnY0YlV2VGc&transpose=0&headers=0&range=A2%3AB25&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"titleTextStyle":{"fontSize":6},"booleanRole":"certainty","title":"Chart title","colors":["#DC3912","#EFE6DC","#109618"],"legend":"right","displayMode":"regions","datalessRegionColor":"#d0e0e3","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},"width":800,"height":341},"state":{},"view":{},"isDefaultVisualization":false,"chartType":"GeoChart","chartName":"Chart 3"}
-         </script>
-         </td></tr></table>
          </div>
       </div>
       <div style="background:#FFF;">
          <article class="lifted_content_box">
             <div>
-               © 2014 UPSC Bioinformatics
+            &copy; <?php echo date("Y"); ?> UPSC Bioinformatics
             </div>
          </article>
       </div>
