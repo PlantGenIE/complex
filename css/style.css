@@ -109,6 +109,33 @@
 height: 37px;
 }
 
+.network-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.network-input div {
+    flex-basis: 48%;
+}
+
+.network-input div textarea {
+    width: 100%;
+    font-size: 1em;
+}
+
+.network-input div select {
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.network-control {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .network-wrapper {
     display: flex;
     height: 100%;

@@ -39,58 +39,27 @@
                 <button id="load-example-button" style="font-size:12px;padding:4px;margin-top:-22px;" class="tourbtn tourbtn-primary" >Load Example</button>
                 <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button>
             </div>
+
             <div class="accordion-content ac-large-input">
-               <br>
-               <table width="100%" border="0">
-                  <tr>
-                     <td width="50%">
-                        <p>
-                           <textarea name="sp1genes" rows="6" id="sink1" style="width:100%"></textarea>
-                           <select class="sel" name="sp1" id="sp_1" style="width:100%">
-                           </select>
-                        </p>
-                     </td>
-                     <td  width="50%">
-                        <p><textarea rows="6" style="width:100%" id="sink2"></textarea>
-                           <select class="sel" name="sp2" id="sp_2" style="width:100%">
-                           </select>
-                        </p>
-                     </td>
-                  </tr>
-               </table>
-               <table id="sub_table" width="100%" border="0">
-                  <tr  >
-                     <td width="140px">co-expression: <span id="th1_span">(>=0.990)</span>
-                     </td>
-                     <td>
-                        <table border="0" cellpadding="0" cellspacing="0"   >
-                           <tr>
-                              <td width="100px"></td>
-                              <td width="700px"> <input data-slider="true" data-slider-range="0.95,1" id="th1" name="th1" data-slider-step="0.001" value="0.99" type="text" data-slider-snap="true" data-slider-highlight="true" />
-                              </td>
-                              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                              <td >&nbsp; <button style="font-size:10px;text-transform:none" onClick="coexpressiontrclick();"  id="coexpressiontrclickbtn" class="btn btn-4 btn-4c">Show conservation slider</button></td>
-                           </tr>
-                        </table>
-                     </td>
-                  </tr>
-                  <tr style="display:none" id="conservation_slider">
-                     <td width="140px">conservation: <span id="consth1_span">(0.1)</td>
-                     <td >
-                        <table border="0" cellpadding="0" cellspacing="0"   >
-                           <tr >
-                              <td  width="800px" ><input   data-slider="true"  data-slider-range="0.001,0.1" id = "consth1" name="consth1" data-slider-step="0.005" value="0.1"  type="text" data-slider-snap="true" data-slider-highlight="true"/></td>
-                           </tr>
-                        </table>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td></td>
-                     <td><button id="align_to_species_button" class="btn btn-4 btn-4c " style="width:90%;border:none;text-transform:inherit;"></button><br>
-                        <button id="compare_with_species_button"  class="btn btn-4 btn-4c "  style="width:90%;border:none;text-transform:inherit;"></button>
-                     </td>
-                  </tr>
-               </table>
+                <div class="network-input">
+                    <div>
+                        <textarea name="sp1genes" rows="6" id="sink1"></textarea>
+                        <select class="sel" name="sp1" id="sp_1"></select>
+                    </div>
+
+                    <div>
+                        <textarea rows="6" id="sink2"></textarea>
+                        <select class="sel" name="sp2" id="sp_2"></select>
+                    </div>
+                </div>
+
+                <div class="network-control">
+                    <label for="th1">co-expression: <span id="th1_span">(>=0.990)</label>
+                    <input data-slider="true" data-slider-range="0.95,1" id="th1" name="th1" data-slider-step="0.001" value="0.99" type="text" data-slider-snap="true" data-slider-highlight="true" />
+
+                    <button id="align_to_species_button" class="btn btn-4 btn-4c"></button>
+                    <button id="compare_with_species_button"  class="btn btn-4 btn-4c"></button>
+                </div>
             </div>
 
             <div class="accordion-head">
