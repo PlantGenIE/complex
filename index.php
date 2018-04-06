@@ -78,43 +78,33 @@
                 Tables
                 <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
             </div>
-            <div class="accordion-content">
-                <table width="100%" border="0">
-                   <tr>
-                      <td valign="baseline" width="50%">
-                         <div id="consdiv">
-                            <table style="margin-left:10px;" width="97%" id='firsttable' name='firsttable' class='dataTable'>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Gene</th>
-                                    </tr>
-                                </thead>
-                               <tbody>
-                               </tbody>
-                            </table>
-                      </td>
-                      <td>
-                      <hr>
-                      </td>
-                      <td valign="baseline" width="50%">
-                      <p>
-                      <div id="consdiv2">
-                      <table width="97%" style="margin-left:10px;" id='secondtable' name='secondtable' class='dataTable'>
+            <div class="accordion-content network-table-wrapper">
+                <div>
+                    <table id="firsttable" name="firsttable" class="dataTable">
                         <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Gene</th>
-                                    </tr>
+                            <tr>
+                                <th></th>
+                                <th>Gene</th>
+                            </tr>
                         </thead>
-                      <tbody>
-                      </tbody>
-                      </table>
-                      </p>
-                      </td>
-                   </tr>
-                </table>
+                       <tbody>
+                       </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table id="secondtable" name="secondtable" class="dataTable">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Gene</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
             <div class="accordion-head">
                 Citation and Contact us
                 <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
