@@ -112,11 +112,11 @@ height: 37px;
 .network-input {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .network-input div {
-    flex-basis: 48%;
+    flex-basis: 49%;
 }
 
 .network-input div textarea {
@@ -138,11 +138,12 @@ height: 37px;
 
 .network-wrapper {
     display: flex;
+    justify-content: space-between;
     height: 100%;
 }
 
 .network-container {
-    flex: 1;
+    flex-basis: 49%;
     border: 1px solid #CCCCCC;
     height: 500px;
 }

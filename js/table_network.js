@@ -3,17 +3,20 @@ var secondtable;
 
 var table_options = {
     searching: false,
-    columns: [
-        {
-            data: "selected",
-            render: function(data, type, row, meta) {
-                var checkbox = '<input type="checkbox" value="' +
-                    data.id + '" ' + (data.is_selected ? ' checked' : '') + '/>';
-                return type === 'display' ? checkbox : data;
-            }
-        },
-        {data: "gene"}
-    ]
+    columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0,
+        data: null,
+        defaultContent: ""
+    }, {
+        data: "gene",
+        targets: 1
+    }],
+    select: {
+        style: "os",
+    },
+    rowId: "id"
 };
 
 function TableNetwork(table_element, network_element) {
@@ -47,12 +50,52 @@ function TableNetwork(table_element, network_element) {
                 }
             }
         ],
+        userZoomingEnabled: false,
         boxSelectionEnabled: true
     });
 
-    this.cy.nodes().one('select', function(x) {
-        console.log(this);
+    var self = this;
+    var networkSelect = false;
+    var tableSelect = false;
+
+    this.cy.on('select', 'node', function(e) {
+        if (tableSelect) {
+            tableSelect = true;
+            return;
+        }
+        networkSelect = true;
+        var nodeId = e.target.data('id');
+        self.datatable.row('#' + nodeId).select();
     });
+
+    this.cy.on('unselect', 'node', function(e) {
+        if (tableSelect) {
+            tableSelect = false;
+            return;
+        }
+        networkSelect = true;
+        var nodeId = e.target.data('id');
+        self.datatable.row('#' + nodeId).deselect();
+    });
+
+    var networkSelectionFromTable = function(e, dt, type) {
+        if (networkSelect) {
+            networkSelect = false;
+            return;
+        }
+        tableSelect = true;
+        if (type === "row") {
+            var nodeIds = self.datatable.rows({selected: true}).ids().toArray();
+            self.cy.nodes().deselect();
+            self.cy.nodes().filter(function(x) {
+                return $.inArray(x.data('id'), nodeIds) !== -1;
+            }).select();
+        }
+        tableSelect = false;
+    }
+
+    this.datatable.on('select', networkSelectionFromTable);
+    this.datatable.on('deselect', networkSelectionFromTable);
 
     this.set_data = function(data) {
         this.cy.elements().remove();
@@ -68,7 +111,8 @@ function TableNetwork(table_element, network_element) {
                     is_selected: typeof(x.selected) == "undefined" ? false : x.selected,
                     id: x.data.id
                 },
-                gene: x.data.label
+                gene: x.data.label,
+                id: x.data.id
             };
         });
         this.datatable.rows.add(table_data).draw();
