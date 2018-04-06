@@ -16,7 +16,8 @@ var table_options = {
     select: {
         style: "os",
     },
-    rowId: "id"
+    rowId: "id",
+    order: [[1, 'asc']]
 };
 
 function TableNetwork(table_element, network_element) {
