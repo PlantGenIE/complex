@@ -100,11 +100,12 @@ function TableNetwork(table_element, network_element) {
 
     this.set_data = function(data) {
         this.cy.elements().remove();
-        this.cy.add(data);
+        this.data = data;
+        this.cy.add(this.data.network);
         this.cy.layout({name: 'cose'}).run();
 
         this.datatable.clear();
-        var table_data = $.grep(data, function(x) {
+        var table_data = $.grep(this.data.network, function(x) {
             return x.group === 'nodes';
         }).map(function(x) {
             return {

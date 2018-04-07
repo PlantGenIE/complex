@@ -225,7 +225,7 @@ foreach ($network2 as $edge) {
 }
 
 echo json_encode(array(
-    'network1' => $network1_out,
-    'network2' => $network2_out,
+    'network1' => array('id' => $tmp_sp1, 'network' => $network1_out),
+    'network2' => array('id' => $tmp_sp2, 'network' => $network2_out),
     'execution_time' => $execution_time
 ));
