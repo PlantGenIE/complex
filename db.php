@@ -10,6 +10,26 @@ try {
     echo 'Connection failed: '.$e->getMessage();
 }
 
+function build_in_array($key_prefix, $a) {
+    return array_combine(
+        array_map(
+            function ($v) use (&$key_prefix) {
+                return ":{$key_prefix}_{$v}";
+            },
+            array_keys($a)
+        ), $a);
+}
+
+function prepare_in($key_prefix, $a) {
+    return implode(',', array_keys(build_in_array($key_prefix, $a)));
+}
+
+function bind_in_params($stmt, $type, $values) {
+    $args = build_in_array($type, $values);
+    call_user_func_array(array($stmt, "bind_param"), ref_array($args));
+}
+
+
 $spNames = array("pt" => "P. tremula", "at" => "A. thaliana", "os" => "Z. mays");
 
 $tmp_op = isset($_POST['op']) ? $_POST['op'] : null;

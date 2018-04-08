@@ -4,16 +4,6 @@ require_once("../db.php");
 require("array_column.php");
 $execution_time = microtime(true);
 
-function build_in_array($key_prefix, $a) {
-    return array_combine(
-        array_map(
-            function ($v) use (&$key_prefix) {
-                return ":{$key_prefix}_{$v}";
-            },
-            array_keys($a)
-        ), $a);
-}
-
 if ($tmp_op == 'expand'){
     try {
         $in_params = build_in_array('name', $gsel1);

@@ -20,6 +20,8 @@
       <link rel="stylesheet" type="text/css" href="css/demo.css" />
       <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape.js-panzoom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
    </head>
    <body>
@@ -40,25 +42,21 @@
                 <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button>
             </div>
 
-            <div class="accordion-content">
+            <div class="accordion-content input-container">
                 <div class="network-input">
-                    <div>
-                        <textarea name="sp1genes" rows="6" id="sink1"></textarea>
-                        <select class="sel" name="sp1" id="sp_1"></select>
-                    </div>
-
-                    <div>
-                        <textarea rows="6" id="sink2"></textarea>
-                        <select class="sel" name="sp2" id="sp_2"></select>
-                    </div>
+                    <label for="sink1">Genes</label>
+                    <textarea name="sp1genes" rows="6" id="sink1"></textarea>
+                    <label for="sp_1">Network 1</label>
+                    <select class="sel" name="sp1" id="sp_1"></select>
+                    <label for="sp_2">Network 2</label>
+                    <select class="sel" name="sp2" id="sp_2"></select>
                 </div>
 
                 <div class="network-control">
-                    <label for="th1">co-expression: <span id="th1_span">(>=0.990)</label>
+                    <label for="th1">Co-expression threshold: <span id="th1_span">(>=0.990)</label>
                     <input type="range" min="0.95" max="1" step="0.001" value="0.99" id="th1" name="th1">
 
                     <button id="align_to_species_button" class="btn btn-4 btn-4c"></button>
-                    <button id="compare_with_species_button"  class="btn btn-4 btn-4c"></button>
                 </div>
             </div>
 
@@ -70,7 +68,6 @@
             <div class="accordion-content">
                 <div class="network-wrapper">
                     <div id="cytoscapeweb1" class="network-container"></div>
-                    <div id="cytoscapeweb2" class="network-container"></div>
                 </div>
             </div>
 
@@ -89,18 +86,6 @@
                         </thead>
                        <tbody>
                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <table id="secondtable" name="secondtable" class="dataTable">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Gene</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -134,6 +119,8 @@
 
         <script src="lib/AC_OETags.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
+        <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
+        <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
         <script src="js/variable_js.js"></script>
         <script src="js/tables.js"></script>
         <script src="js/networks.js"></script>
