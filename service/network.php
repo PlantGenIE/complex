@@ -90,7 +90,8 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
           'id' => intval($x['id']),
           'label' => $x['name'],
           'parent' => 'network'.$active_id
-        )
+        ),
+        'classes' => 'gene'
       );
     }, $genes)
   );
@@ -188,7 +189,8 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
             'id' => intval($x['gene_id']),
             'label' => $x['gene_name'],
             'parent' => 'network'.$id
-          )
+          ),
+          'classes' => 'gene'
         );
       }, $ortho_genes)
     );
@@ -209,7 +211,7 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
     );
   }
 
-  echo json_encode(array_merge($nodes, $edges));
+  echo json_encode(array('nodes' => $nodes, 'edges' => $edges));
 }
 
 function expand() {

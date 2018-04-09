@@ -77,11 +77,26 @@
             </div>
             <div class="accordion-content network-table-wrapper">
                 <div>
-                    <table id="firsttable" name="firsttable" class="dataTable">
+                  <h3>Active network</h3>
+                    <table id="active-network-table">
                         <thead>
                             <tr>
                                 <th></th>
                                 <th>Gene</th>
+                            </tr>
+                        </thead>
+                       <tbody>
+                       </tbody>
+                    </table>
+                </div>
+                <div>
+                  <h3>Aligned networks</h3>
+                    <table id="other-network-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Gene</th>
+                                <th>Network</th>
                             </tr>
                         </thead>
                        <tbody>

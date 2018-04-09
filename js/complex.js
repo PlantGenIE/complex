@@ -77,7 +77,7 @@ function align() {
     },
     dataType: 'json',
     success: function(data, textStatus) {
-      view1.set_data(data);
+      view1.set_data(data, getActiveNetwork());
     },
     error: function(jqXHR) {
       console.error(jqXHR.responseJSON.error);
@@ -330,7 +330,7 @@ window.onload = init(function(d) {
   populate_select_options(network_data, "#sp_1", 1);
   populate_select_options(network_data, "#sp_2");
 
-  view1 = new TableNetwork('#firsttable', '#cytoscapeweb1');
+  view1 = new TableNetwork('#active-network-table', '#other-network-table', '#cytoscapeweb1');
 
   var n;
   var r;
