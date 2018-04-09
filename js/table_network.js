@@ -108,6 +108,9 @@ function TableNetwork(active_table_element, other_table_element, network_element
     } else {
       self.otherTable.row(`#${nodeId}`).select();
     }
+
+    // Display orthology edges
+    e.target.connectedEdges('.orthology').style('display', 'element');
   });
 
   this.cy.on('unselect', 'node', function(e) {
@@ -122,6 +125,9 @@ function TableNetwork(active_table_element, other_table_element, network_element
     } else {
       self.otherTable.row(`#${nodeId}`).deselect();
     }
+
+    // Hide ortholog edges
+    e.target.connectedEdges('.orthology').style('display', 'none');
   });
 
   var networkSelectionFromTable = function(e, dt, type, fromActiveTable) {
