@@ -125,6 +125,27 @@ height: 37px;
     font-size: 1.5em;
 }
 
+.network-button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.network-button-container .network-select {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    margin: 0em 1em 1em 0;
+    padding: 10px;
+}
+
+.network-button-container .network-select.selected {
+    background-color: #2d9b2e;
+    color: white;
+}
+
+.network-button-container .network-select.active {
+    border: 1px solid red;
+}
+
 .network-control {
     flex-basis: 49%;
     display: flex;

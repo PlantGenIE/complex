@@ -46,17 +46,15 @@
                 <div class="network-input">
                     <label for="sink1">Genes</label>
                     <textarea name="sp1genes" rows="6" id="sink1"></textarea>
-                    <label for="sp_1">Network 1</label>
-                    <select class="sel" name="sp1" id="sp_1"></select>
-                    <label for="sp_2">Network 2</label>
-                    <select class="sel" name="sp2" id="sp_2"></select>
+                    <label for="network-buttons">Networks</label>
+                    <div id="network-buttons" class="network-button-container"></div>
                 </div>
 
                 <div class="network-control">
                     <label for="th1">Co-expression threshold: <span id="th1_span">(>=0.990)</label>
                     <input type="range" min="0.95" max="1" step="0.001" value="0.99" id="th1" name="th1">
 
-                    <button id="align_to_species_button" class="btn btn-4 btn-4c"></button>
+                    <button id="align_to_species_button" class="btn btn-4 btn-4c">Align</button>
                 </div>
             </div>
 

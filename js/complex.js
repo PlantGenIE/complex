@@ -34,13 +34,57 @@ function populate_select_options(data, element, selected_option) {
   })
 }
 
+function populateNetworkSelect(data, element) {
+  $(data).each(function(i, val) {
+    var $div = $(`<div/>`, {
+      class: 'network-select',
+      'data-species': val.shortname,
+      'data-network': val.id,
+      id: `network${val.id}-select`,
+      on: {
+        click: function(event) {
+          $(this).toggleClass('selected');
+          
+          // Currently we don't support same species network comparison
+          $(`.network-select[data-species = ${this.dataset.species}].selected`)
+            .not(`#${this.id}`)
+            .removeClass('selected');
+          
+          // If this is the first to be selected, then also set it to active
+          if ($('.network-select.selected').length === 1 & $(this).hasClass('selected')) {
+            $(this).children('.network-radio').prop('checked', true).change();
+          }
+          
+          // If it is active, don't allow it to be deselected
+          if ($(this).hasClass('active') & !$(this).hasClass('selected')) {
+            $(this).addClass('selected');
+          }
+        }
+      }
+    });
+    $div.append(`<input class="network-radio" type="radio" name="network-radio">`);
+    $div.append(`<label>${val.name}</label>`);
+    $(element).append($div);
+  });
+
+  $('.network-radio').on('change', function() {
+    if (!$(this).parent('.network-select').hasClass('selected')) {
+      $(this).parent('.network-select').addClass('selected');
+    }
+    $('.network-select.active').removeClass('active');
+    $(this).parent('.network-select').addClass('active');
+  });
+}
+
 /*
  * Return the selected networks
  *
  * Returns: an array of network IDs
  */
 function getSelectedNetworks() {
-  return [$('#sp_1').val(), $('#sp_2').val()];
+  return $('.network-select.selected').map(function() {
+    return parseInt(this.dataset.network);
+  }).toArray();
 }
 
 /*
@@ -49,7 +93,7 @@ function getSelectedNetworks() {
  * Returns: the ID of the currently active network
  */
 function getActiveNetwork() {
-  return $('#sp_1').val();
+  return $('.network-select.active').data('network');
 }
 
 /*
@@ -240,7 +284,7 @@ function visibilitychange() {
 function loadexample(e) {
   var t = e.toString();
 
-  switch ($("#sp_" + t).find(":selected").data("species")) {
+  switch ($('.network-select.active').data("species")) {
     case "potra":
       $("#sink" + t).val("Potra000167g00627, Potra000342g01183, Potra000393g01809, Potra000740g05836, Potra000779g06142, Potra001021g08534, Potra001047g08885, Potra001066g09183, Potra001242g10676, Potra001542g12785, Potra001630g13406, Potra002004g15732, Potra002246g17253, Potra002409g18324, Potra002484g18790, Potra002574g19365, Potra002846g20119, Potra002888g20235, Potra002914g20296, Potra003265g21167, Potra003469g21770, Potra003868g23243, Potra003935g23615, Potra003972g23875, Potra004051g24387");
       break;
@@ -329,6 +373,7 @@ window.onload = init(function(d) {
 
   populate_select_options(network_data, "#sp_1", 1);
   populate_select_options(network_data, "#sp_2");
+  populateNetworkSelect(network_data, '#network-buttons');
 
   view1 = new TableNetwork('#active-network-table', '#other-network-table', '#cytoscapeweb1');
 
@@ -359,7 +404,6 @@ window.onload = init(function(d) {
   $("#span_l_sp2").html(r);
   $("#species_span_1").html(n);
   $("#species_span_2").html(r);
-  $("#align_to_species_button").html("Align " + $("#sp_1 option:selected").text() + " with " + $("#sp_2 option:selected").text());
   $("#compare_with_species_button").html("Compare " + $("#sp_1 option:selected").text() + " and " + $("#sp_2 option:selected").text());
   $("#sink1").keyup(function() {
     if (basic_validation_function(1) == false) {
