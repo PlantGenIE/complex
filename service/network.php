@@ -51,6 +51,54 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
   $genes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $gene_ids = array_map(function($x) { return $x['id']; }, $genes);
 
+  // Get the orthologs in the other networks
+  $network_orthologs = array();
+  $ortholog_edges = array();
+  foreach ($network_ids as $id) {
+    if ($id === $active_id) {
+      continue;
+    }
+
+    $ortho_query = 'SELECT
+        c.gene_id1 AS g1,
+        c.gene_id2 AS g2,
+        g2.name AS g2_name,
+        c.pvalue AS pvalue,
+        CONCAT(COALESCE(o1.type, ""), COALESCE(o2.type, "")) AS support
+      FROM conservation AS c
+      LEFT OUTER JOIN gene AS g2
+        ON g2.id = c.gene_id2
+      LEFT OUTER JOIN orthology AS o1
+        ON o1.gene_id1 = c.gene_id1 AND o1.gene_id2 = c.gene_id2
+      LEFT OUTER JOIN orthology AS o2
+        ON o2.gene_id1 = c.gene_id2 AND o2.gene_id2 = c.gene_id1
+      WHERE c.network_id2 = :network_id
+        AND c.gene_id1 IN ('.prepare_in('gene', $gene_ids).')';
+
+    $params = array_merge(array(':network_id' => $id), build_in_array('gene', $gene_ids));
+
+    $stmt = $db->prepare($ortho_query);
+    $stmt->execute($params);
+    $ortho_res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($ortho_res as $or) {
+      $network_orthologs[$id][$or['g2']] = array(
+        'gene_id' => $or['g2'],
+        'gene_name' => $or['g2_name']
+      );
+      $ortholog_edges[] = array(
+        'group' => 'edges',
+        'data' => array(
+          'source' => $or['g1'],
+          'target' => $or['g2'],
+          'conservation_pvalue' => $or['pvalue'],
+          'support' => $or['support']
+        ),
+        'classes' => 'orthology'
+      );
+    }
+  }
+
   $params = array_merge(
     array(':network_id' => $active_id, ':threshold' => $threshold),
     build_in_array('gene', $gene_ids)
@@ -79,7 +127,7 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
           'id' => 'network'.$active_id,
           'label' => $networks[$active_id]
         ),
-        'classes' => 'network-node active',
+        'classes' => 'network active',
         'selectable' => false
       )
     ),
@@ -103,58 +151,23 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
         'source' => intval($x['gene_id1']),
         'target' => intval($x['gene_id2']),
         'weight' => floatval($x['score'])
-      )
+      ),
+      'classes' => 'co-expression'
     );
   }, $active_edges);
 
-  // Get orthologs in the other selected networks
-  foreach ($network_ids as $id) {
+  // Get the edges among the orthologs in the other selected networks
+  foreach ($network_orthologs as $id => $ortho_genes) {
     if ($id == $active_id) {
       continue;
     }
-    $species_query = 'SELECT species_id FROM network WHERE id = :network_id';
-    $stmt = $db->prepare($species_query);
-    $stmt->execute(array(':network_id' => $id));
-    $species_id = $stmt->fetch(PDO::FETCH_COLUMN);
-    
-    $gene_query = 'SELECT gene_id2 AS gene_id, g2.name AS gene_name
-      FROM orthology
-      LEFT OUTER JOIN gene AS g2
-        ON g2.id = gene_id2
-      WHERE gene_id1 IN ('.prepare_in('gene', $gene_ids).')
-        AND g2.species_id = :species_id';
 
-    $params = array_merge(
-      array(':species_id' => $species_id),
-      build_in_array('gene', $gene_ids)
-    );
-    
-    $stmt = $db->prepare($gene_query);
-    $stmt->execute($params);
-    $ortho_genes1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $gene_query2 = 'SELECT gene_id1 AS gene_id, g1.name AS gene_name
-      FROM orthology
-      LEFT OUTER JOIN gene AS g1
-        ON g1.id = gene_id1
-      WHERE gene_id2 IN ('.prepare_in('gene', $gene_ids).')
-        AND g1.species_id = :species_id';
-
-    $stmt = $db->prepare($gene_query);
-    $stmt->execute($params);
-    $ortho_genes2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $ortho_genes = array();
-    foreach ($ortho_genes1 as $g) {
-      $ortho_genes[$g['gene_id']] = array('gene_name' => $g['gene_name'], 'gene_id' => $g['gene_id']);
-    }
-    foreach ($ortho_genes2 as $g) {
-      $ortho_genes[$g['gene_id']] = array('gene_name' => $g['gene_name'], 'gene_id' => $g['gene_id']);
-    }
     $ortho_gene_ids = array_keys($ortho_genes);
 
-    // Get the edges among these genes
-    $edge_query = 'SELECT gene_id1, gene_id2, score
+    $edge_query = 'SELECT
+        gene_id1,
+        gene_id2,
+        score
       FROM network_score
       WHERE network_id = :network_id
         AND gene_id1 IN ('.prepare_in('gene', $ortho_gene_ids).')
@@ -179,7 +192,7 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
             'id' => 'network'.$id,
             'label' => $networks[$id]
           ),
-          'classes' => 'network-node',
+          'classes' => 'network',
           'selectable' => false
         )
       ), array_map(function($x) use (&$id) {
@@ -204,14 +217,14 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
             'source' => intval($x['gene_id1']),
             'target' => intval($x['gene_id2']),
             'weight' => floatval($x['score'])
-
-          )
+          ),
+          'classes' => 'co-expression'
         );
       }, $ortho_edges)
     );
   }
 
-  echo json_encode(array('nodes' => $nodes, 'edges' => $edges));
+  echo json_encode(array('nodes' => $nodes, 'edges' => array_merge($edges, $ortholog_edges)));
 }
 
 function expand() {

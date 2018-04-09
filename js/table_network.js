@@ -1,3 +1,10 @@
+var layoutOptions = {
+  name: 'cose-bilkent',
+  tile: true,
+  animate: 'during',
+  refresh: 60
+};
+
 function TableNetwork(active_table_element, other_table_element, network_element) {
   this.activeTable = $(active_table_element).DataTable({
     searching: false,
@@ -50,10 +57,6 @@ function TableNetwork(active_table_element, other_table_element, network_element
 
   this.cy = cytoscape({
     container: $(network_element),
-    layout: {
-      name: 'cose-bilkent',
-      animate: false
-    },
     style: [
       {
         selector: 'node.active',
@@ -66,9 +69,16 @@ function TableNetwork(active_table_element, other_table_element, network_element
           content: 'data(label)'
         }
       }, {
-        selector: 'node.network-node',
+        selector: 'node.network',
         style: {
           'font-size': '3em'
+        }
+      }, {
+        selector: 'edge.orthology',
+        style: {
+          'line-style': 'dashed',
+          'label': 'data(conservation_pvalue)',
+          'display': 'none'
         }
       }
     ],
@@ -79,6 +89,8 @@ function TableNetwork(active_table_element, other_table_element, network_element
   this.cy.panzoom({
 
   });
+
+  this.networkLayout = this.cy.layout(layoutOptions);
 
   var self = this;
   var networkSelect = false;
@@ -154,7 +166,8 @@ function TableNetwork(active_table_element, other_table_element, network_element
     this.data = data;
     this.activeNetworkID = activeNetwork;
     this.cy.add(this.data);
-    this.cy.layout({name: 'cose-bilkent'}).run();
+    self.networkLayout = self.cy.elements('node, edge.co-expression').layout(layoutOptions);
+    self.networkLayout.run();
 
     this.activeTable.clear();
     var activeTableData = $.grep(this.data.nodes, function(x) {
