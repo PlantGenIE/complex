@@ -86,16 +86,19 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
         'gene_id' => $or['g2'],
         'gene_name' => $or['g2_name']
       );
-      $ortholog_edges[] = array(
-        'group' => 'edges',
-        'data' => array(
-          'source' => $or['g1'],
-          'target' => $or['g2'],
-          'conservation_pvalue' => $or['pvalue'],
-          'support' => $or['support']
-        ),
-        'classes' => 'orthology'
-      );
+      $ortho_methods = explode(',', $or['support']);
+      foreach ($ortho_methods as $om) {
+        $ortholog_edges[] = array(
+          'group' => 'edges',
+          'data' => array(
+            'source' => $or['g1'],
+            'target' => $or['g2'],
+            'conservation_pvalue' => $or['pvalue'],
+            'support' => $om
+          ),
+          'classes' => 'orthology'
+        );
+      }
     }
   }
 
