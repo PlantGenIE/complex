@@ -116,12 +116,34 @@ function TableNetwork(active_table_element, other_table_element, network_element
   var self = this;
   var networkSelect = false;
   var tableSelect = false;
+  var propagateSelection = true;
+
+  this.cy.on('click', 'node', function(e) {
+    if (e.target.selected()) {
+      e.target.deselect();
+    }
+  });
 
   this.cy.on('select', 'node', function(e) {
+    if (!propagateSelection) {
+      propagateSelection = true;
+      return;
+    }
+    // Display orthology edges
+    e.target.connectedEdges('.orthology').style('display', 'element');
+    // Select the orthologs in the connected networks
+    propagateSelection = false;
+    if (e.target.data('parent') === `network${self.activeNetworkID}`) {
+      e.target.connectedEdges('.orthology').targets().select();
+    } else {
+      e.target.connectedEdges('.orthology').sources().select();
+    }
+    
     if (tableSelect) {
       tableSelect = true;
       return;
     }
+    
     networkSelect = true;
     var nodeId = e.target.data('id');
     if (e.target.data('parent') === `network${self.activeNetworkID}`) {
@@ -129,16 +151,18 @@ function TableNetwork(active_table_element, other_table_element, network_element
     } else {
       self.otherTable.row(`#${nodeId}`).select();
     }
-
-    // Display orthology edges
-    e.target.connectedEdges('.orthology').style('display', 'element');
   });
 
   this.cy.on('unselect', 'node', function(e) {
+    // Hide ortholog edges
+    propagateSelection = true;
+    e.target.connectedEdges('.orthology').style('display', 'none');
+
     if (tableSelect) {
       tableSelect = false;
       return;
     }
+
     networkSelect = true;
     var nodeId = e.target.data('id');
     if (e.target.data('parent') === `network${self.activeNetworkID}`) {
@@ -146,9 +170,6 @@ function TableNetwork(active_table_element, other_table_element, network_element
     } else {
       self.otherTable.row(`#${nodeId}`).deselect();
     }
-
-    // Hide ortholog edges
-    e.target.connectedEdges('.orthology').style('display', 'none');
   });
 
   var networkSelectionFromTable = function(e, dt, type, fromActiveTable) {
@@ -159,11 +180,7 @@ function TableNetwork(active_table_element, other_table_element, network_element
     tableSelect = true;
     if (type === "row") {
       var nodeIds = dt.rows({selected: true}).ids().toArray();
-      if (fromActiveTable) {
-        self.cy.nodes(`[id = "network${self.activeNetworkID}"]`).children().deselect();
-      } else {
-        self.cy.nodes(`[id != "network${self.activeNetworkID}"]`).children().deselect();
-      }
+      self.cy.nodes().deselect();
       self.cy.nodes().filter(function(x) {
         return $.inArray(x.data('id'), nodeIds) !== -1;
       }).select();
