@@ -107,6 +107,8 @@ function TableNetwork(active_table_element, other_table_element, network_element
     boxSelectionEnabled: true
   });
 
+  this.cy.nodes().unselectify();
+
   this.cy.panzoom({
 
   });
@@ -118,15 +120,74 @@ function TableNetwork(active_table_element, other_table_element, network_element
   var tableSelect = false;
   var propagateSelection = true;
 
-  this.cy.on('click', 'node', function(e) {
-    if (e.target.selected()) {
-      e.target.deselect();
-    }
-  });
+  this.deselectAll = function() {
+    this.cy.nodes().selectify().deselect().unselectify();
+    this.cy.edges('.orthology').style('display', 'none');
+  }
 
-  this.cy.on('select', 'node', function(e) {
+  var selectNode = function(node) {
+    // Display orthology edges
+    node.selectify().select().unselectify();
+    node.connectedEdges('.orthology').style('display', 'element');
+
+    // Select the orthologs in the connected networks
+    if (node.data('parent') === `network${self.activeNetworkID}`) {
+      node.connectedEdges('.orthology')
+        .targets()
+        .selectify()
+        .select()
+        .unselectify();
+    } else {
+      node.connectedEdges('.orthology')
+        .sources()
+        .selectify()
+        .select()
+        .unselectify();
+    }
+  }
+
+  var deselectNode = function(node) {
+    // TODO: don't deselect orthologous nodes that still have 
+    // orthology edges connected to them. This could be done by
+    // simply deselct all of them and then reselect those that
+    // are still connected.
+    node.selectify().deselect().unselectify();
+    console.log('deselect edges');
+    node.connectedEdges('.orthology').style('display', 'none');
+    node.connectedEdges('.orthology')
+      .targets()
+      .selectify()
+      .deselect()
+      .unselectify();
+  }
+
+  this.getActiveSelected = function() {
+    return self.cy
+      .nodes(`#network${self.activeNetworkID}`)
+      .children(':selected');
+  }
+
+  this.cy.on('tap', 'node', function(e) {
+    var nSelected = self.getActiveSelected().length;
+
+    if (e.target.selected() & nSelected === 1) {
+      deselectNode(e.target);
+    } else if (e.target.selected() & nSelected > 1 & !e.originalEvent.shiftKey) {
+      self.deselectAll();
+      selectNode(e.target);
+    } else if (e.target.selected() & nSelected > 1 & e.originalEvent.shiftKey) {
+      deselectNode(e.target);
+    } else if (!e.target.selected() & e.originalEvent.shiftKey) {
+      selectNode(e.target);
+    } else if (!e.target.selected() & !e.originalEvent.shiftKey) {
+      self.deselectAll();
+      selectNode(e.target);
+    }
+
+    return;
+
     if (!propagateSelection) {
-      propagateSelection = true;
+      //propagateSelection = true;
       return;
     }
     // Display orthology edges
@@ -134,11 +195,21 @@ function TableNetwork(active_table_element, other_table_element, network_element
     // Select the orthologs in the connected networks
     propagateSelection = false;
     if (e.target.data('parent') === `network${self.activeNetworkID}`) {
-      e.target.connectedEdges('.orthology').targets().select();
+      e.target.connectedEdges('.orthology')
+        .targets()
+        .selectify()
+        .select()
+        .unselectify();
     } else {
-      e.target.connectedEdges('.orthology').sources().select();
+      e.target.connectedEdges('.orthology')
+        .sources()
+        .selectify()
+        .select()
+        .unselectify();
     }
     
+    return;
+
     if (tableSelect) {
       tableSelect = true;
       return;
@@ -150,25 +221,6 @@ function TableNetwork(active_table_element, other_table_element, network_element
       self.activeTable.row(`#${nodeId}`).select();
     } else {
       self.otherTable.row(`#${nodeId}`).select();
-    }
-  });
-
-  this.cy.on('unselect', 'node', function(e) {
-    // Hide ortholog edges
-    propagateSelection = true;
-    e.target.connectedEdges('.orthology').style('display', 'none');
-
-    if (tableSelect) {
-      tableSelect = false;
-      return;
-    }
-
-    networkSelect = true;
-    var nodeId = e.target.data('id');
-    if (e.target.data('parent') === `network${self.activeNetworkID}`) {
-      self.activeTable.row(`#${nodeId}`).deselect();
-    } else {
-      self.otherTable.row(`#${nodeId}`).deselect();
     }
   });
 

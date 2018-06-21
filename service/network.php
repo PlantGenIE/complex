@@ -73,9 +73,13 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
       LEFT OUTER JOIN orthology AS o2
         ON o2.gene_id1 = c.gene_id2 AND o2.gene_id2 = c.gene_id1
       WHERE c.network_id2 = :network_id
+        AND c.network_id1 = :active_network_id
         AND c.gene_id1 IN ('.prepare_in('gene', $gene_ids).')';
 
-    $params = array_merge(array(':network_id' => $id), build_in_array('gene', $gene_ids));
+    $params = array_merge(
+      array(':network_id' => $id, ':active_network_id' => $active_id),
+      build_in_array('gene', $gene_ids)
+    );
 
     $stmt = $db->prepare($ortho_query);
     $stmt->execute($params);
