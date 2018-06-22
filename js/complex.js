@@ -121,7 +121,7 @@ function align() {
     },
     dataType: 'json',
     success: function(data, textStatus) {
-      view1.set_data(data, getActiveNetwork());
+      view1.set_data(data, getActiveNetwork(), getSelectedNetworks());
     },
     error: function(jqXHR) {
       console.error(jqXHR.responseJSON.error);

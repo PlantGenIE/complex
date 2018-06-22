@@ -121,10 +121,17 @@ function TableNetwork(active_table_element, other_table_element, network_element
   var propagateSelection = true;
 
   this.deselectAll = function() {
-    this.cy.nodes().selectify().deselect().unselectify();
-    this.cy.edges('.orthology').style('display', 'none');
+    self.cy.nodes().selectify().deselect().unselectify();
+    self.cy.edges('.orthology').style('display', 'none');
   }
 
+  /**
+   * Select a node
+   *
+   * Select a node in the network and show any orthology
+   * edges connected to it. Also select any orthologs that
+   * it is connected to.
+   */
   var selectNode = function(node) {
     // Display orthology edges
     node.selectify().select().unselectify();
@@ -157,17 +164,31 @@ function TableNetwork(active_table_element, other_table_element, network_element
   var deselectNode = function(node) {
     node.selectify().deselect().unselectify();
     node.connectedEdges('.orthology').style('display', 'none');
-    node.connectedEdges('.orthology')
-      .targets()
-      .selectify()
-      .deselect()
-      .unselectify();
-    self.getActiveSelected()
-      .connectedEdges('.orthology')
-      .targets()
-      .selectify()
-      .select()
-      .unselectify();
+    if (node.data('parent') === `network${self.activeNetworkID}`) {
+      node.connectedEdges('.orthology')
+        .targets()
+        .selectify()
+        .deselect()
+        .unselectify();
+      self.getActiveSelected()
+        .connectedEdges('.orthology:visible')
+        .targets()
+        .selectify()
+        .select()
+        .unselectify();
+    } else {
+      node.connectedEdges('.orthology')
+        .sources()
+        .selectify()
+        .deselect()
+        .unselectify();
+      self.getInactiveSelected()
+        .connectedEdges('.orthology:visible')
+        .sources()
+        .selectify()
+        .select()
+        .unselectify();
+    }
   }
 
   this.getActiveSelected = function() {
@@ -176,21 +197,61 @@ function TableNetwork(active_table_element, other_table_element, network_element
       .children(':selected');
   }
 
-  this.cy.on('tap', 'node', function(e) {
-    var nSelected = self.getActiveSelected().length;
+  this.getInactiveSelected = function() {
+    var inactiveNetworks = $.grep(self.networks, function(x) {
+      return x != self.activeNetworkID;
+    }).map(x => `#network${x}`)
+      .join(',');
+    
+    return self.cy
+      .nodes(inactiveNetworks)
+      .children(':selected');
+  }
 
-    if (e.target.selected() & nSelected === 1) {
+  var tapNode = function(e) {
+    if (e.target.hasClass('network')) {
+      return;
+    }
+
+    var activeTap = e.target.data('parent') === `network${self.activeNetworkID}`;
+
+    var nActiveSelected = self.getActiveSelected().length;
+    var nInactiveSelected = self.getInactiveSelected().length;
+
+    if (e.target.selected() & activeTap & nActiveSelected === 1) {
       deselectNode(e.target);
-    } else if (e.target.selected() & nSelected > 1 & !e.originalEvent.shiftKey) {
+    } else if (e.target.selected() & !activeTap & nInactiveSelected === 1) {
+      deselectNode(e.target);
+    } else if (e.target.selected() & activeTap &
+        nActiveSelected > 1 & !e.originalEvent.shiftKey) {
       self.deselectAll();
       selectNode(e.target);
-    } else if (e.target.selected() & nSelected > 1 & e.originalEvent.shiftKey) {
+    } else if (e.target.selected() & !activeTap &
+        nInactiveSelected > 1 & !e.originalEvent.shiftKey) {
+      self.deselectAll();
+      selectNode(e.target);
+    } else if (e.target.selected() & activeTap &
+        nActiveSelected > 1 & e.originalEvent.shiftKey) {
+      deselectNode(e.target);
+    } else if (e.target.selected() & !activeTap &
+        nInactiveSelected > 1 & e.originalEvent.shiftKey) {
       deselectNode(e.target);
     } else if (!e.target.selected() & e.originalEvent.shiftKey) {
       selectNode(e.target);
     } else if (!e.target.selected() & !e.originalEvent.shiftKey) {
       self.deselectAll();
       selectNode(e.target);
+    }
+  }
+
+  this.cy.on('tap', function(e) {
+    var type = e.target.group === undefined ? 'background' : e.target.group();
+
+    switch (type) {
+      case 'nodes': tapNode(e); break;
+      case 'edges': break;
+      case 'background': self.deselectAll(); break;
+      default: console.error(`unknown element type: ${type}`);
     }
 
     return;
@@ -266,10 +327,12 @@ function TableNetwork(active_table_element, other_table_element, network_element
 
   }
 
-  this.set_data = function(data, activeNetwork) {
+  this.set_data = function(data, activeNetwork, networks) {
     this.cy.elements().remove();
     this.data = data;
     this.activeNetworkID = activeNetwork;
+    this.networks = networks;
+
     this.cy.add(this.data);
     self.networkLayout = self.cy.elements('node, edge.co-expression').layout(layoutOptions);
     self.networkLayout.run();
