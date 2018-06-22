@@ -146,18 +146,27 @@ function TableNetwork(active_table_element, other_table_element, network_element
     }
   }
 
+  /**
+   * Deselect a node
+   *
+   * Deselect a node in the network and hide any orthology
+   * edges connected to it. Also deselect the orthologous
+   * nodes in any other networks that don't have other
+   * orthology edges connected to them.
+   */
   var deselectNode = function(node) {
-    // TODO: don't deselect orthologous nodes that still have 
-    // orthology edges connected to them. This could be done by
-    // simply deselct all of them and then reselect those that
-    // are still connected.
     node.selectify().deselect().unselectify();
-    console.log('deselect edges');
     node.connectedEdges('.orthology').style('display', 'none');
     node.connectedEdges('.orthology')
       .targets()
       .selectify()
       .deselect()
+      .unselectify();
+    self.getActiveSelected()
+      .connectedEdges('.orthology')
+      .targets()
+      .selectify()
+      .select()
       .unselectify();
   }
 
