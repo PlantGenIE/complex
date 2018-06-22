@@ -298,24 +298,5 @@ function TableNetwork(active_table_element, other_table_element, network_element
     });
     this.otherTable.rows.add(otherTableData).draw();
   };
-
-  this.highlightOrthologs = function(id, secondNetworkID) {
-    $.ajax({
-      url: 'service/orthologs.php',
-      method: 'POST',
-      data: {
-        gene_id: Array.isArray(id) ? id : [id],
-        network_id1: this.data.id,
-        network_id2: secondNetworkID
-      },
-      dataType: 'json',
-      success: function(data, textStatus, jqXHR) {
-        console.log(data);
-      },
-      error: function(jqXHR, textStatus) {
-        console.error(jqXHR.responseJSON.error);
-      }
-    });
-  }
 }
 
