@@ -19,7 +19,7 @@ function TableNetwork(active_table_element, other_table_element, network_element
       targets: 1
     }],
     select: {
-      style: "os",
+      style: "multi",
     },
     rowId: "id",
     order: [[1, 'asc']]
@@ -41,7 +41,7 @@ function TableNetwork(active_table_element, other_table_element, network_element
       targets: 2
     }],
     select: {
-      style: "os",
+      style: "multi",
     },
     rowId: "id",
     order: [[1, 'asc']]
@@ -123,6 +123,8 @@ function TableNetwork(active_table_element, other_table_element, network_element
   this.deselectAll = function() {
     self.cy.nodes().selectify().deselect().unselectify();
     self.cy.edges('.orthology').style('display', 'none');
+    self.activeTable.rows().deselect();
+    self.otherTable.rows().deselect();
   }
 
   /**
@@ -132,24 +134,33 @@ function TableNetwork(active_table_element, other_table_element, network_element
    * edges connected to it. Also select any orthologs that
    * it is connected to.
    */
-  var selectNode = function(node) {
+  var selectNode = function(node, fromTable) {
     // Display orthology edges
     node.selectify().select().unselectify();
     node.connectedEdges('.orthology').style('display', 'element');
 
     // Select the orthologs in the connected networks
     if (node.data('parent') === `network${self.activeNetworkID}`) {
-      node.connectedEdges('.orthology')
-        .targets()
-        .selectify()
-        .select()
-        .unselectify();
+      var orthologs = node.connectedEdges('.orthology').targets();
+      orthologs.selectify().select().unselectify();
+      var orthologIDs = orthologs.map(function(x) {
+        return `#${x.id()}`;
+      });
+      if (!fromTable) {
+        // Only select in the table if the selection was done in the network
+        self.activeTable.row(`#${node.id()}`, {selected: false}).select();
+      }
+      self.otherTable.rows(orthologIDs, {selected: false}).select();
     } else {
-      node.connectedEdges('.orthology')
-        .sources()
-        .selectify()
-        .select()
-        .unselectify();
+      var orthologs = node.connectedEdges('.orthology').sources();
+      orthologs.selectify().select().unselectify();
+      var orthologIDs = orthologs.map(function(x) {
+        return `#${x.id()}`;
+      });
+      if (!fromTable) {
+        self.otherTable.row(`#${node.id()}`, {selected: false}).select();
+      }
+      self.activeTable.rows(orthologIDs, {selected: false}).select();
     }
   }
 
@@ -161,7 +172,7 @@ function TableNetwork(active_table_element, other_table_element, network_element
    * nodes in any other networks that don't have other
    * orthology edges connected to them.
    */
-  var deselectNode = function(node) {
+  var deselectNode = function(node, fromTable) {
     node.selectify().deselect().unselectify();
     node.connectedEdges('.orthology').style('display', 'none');
     if (node.data('parent') === `network${self.activeNetworkID}`) {
@@ -170,24 +181,36 @@ function TableNetwork(active_table_element, other_table_element, network_element
         .selectify()
         .deselect()
         .unselectify();
-      self.getActiveSelected()
+      var selectedOrthologs = self.getActiveSelected()
         .connectedEdges('.orthology:visible')
-        .targets()
-        .selectify()
-        .select()
-        .unselectify();
+        .targets();
+      selectedOrthologs.selectify().select().unselectify();
+      if (!fromTable) {
+        self.activeTable.row(`#${node.id()}`, {selected: true}).deselect();
+      }
+      var selectedOrthologIDs = selectedOrthologs.map(function(x) {
+        return `#${x.id()}`;
+      });
+      self.otherTable.rows().deselect();
+      self.otherTable.rows(selectedOrthologIDs).select();
     } else {
       node.connectedEdges('.orthology')
         .sources()
         .selectify()
         .deselect()
         .unselectify();
-      self.getInactiveSelected()
+      var selectedOrthologs = self.getInactiveSelected()
         .connectedEdges('.orthology:visible')
-        .sources()
-        .selectify()
-        .select()
-        .unselectify();
+        .sources();
+      selectedOrthologs.selectify().select().unselectify();
+      if (!fromTable) {
+        self.otherTable.row(`#${node.id()}`, {selected: true}).deselect();
+      }
+      var selectedOrthologIDs = selectedOrthologs.map(function(x) {
+        return `#${x.id()}`;
+      })
+      self.activeTable.rows().deselect();
+      self.activeTable.rows(selectedOrthologIDs).select();
     }
   }
 
@@ -208,39 +231,28 @@ function TableNetwork(active_table_element, other_table_element, network_element
       .children(':selected');
   }
 
-  var tapNode = function(e) {
-    if (e.target.hasClass('network')) {
+  var tapNode = function(node, shiftDown, fromTable) {
+    if (node.hasClass('network')) {
       return;
     }
 
-    var activeTap = e.target.data('parent') === `network${self.activeNetworkID}`;
+    var activeTap = node.data('parent') === `network${self.activeNetworkID}`;
+    var nSelected = activeTap ? self.getActiveSelected().length :
+      self.getInactiveSelected().length;
+    var isSelected = node.selected();
 
-    var nActiveSelected = self.getActiveSelected().length;
-    var nInactiveSelected = self.getInactiveSelected().length;
-
-    if (e.target.selected() & activeTap & nActiveSelected === 1) {
-      deselectNode(e.target);
-    } else if (e.target.selected() & !activeTap & nInactiveSelected === 1) {
-      deselectNode(e.target);
-    } else if (e.target.selected() & activeTap &
-        nActiveSelected > 1 & !e.originalEvent.shiftKey) {
+    if (isSelected & nSelected === 1) {
+      deselectNode(node, fromTable);
+    } else if (isSelected & nSelected > 1 & !shiftDown) {
       self.deselectAll();
-      selectNode(e.target);
-    } else if (e.target.selected() & !activeTap &
-        nInactiveSelected > 1 & !e.originalEvent.shiftKey) {
+      selectNode(node, fromTablej);
+    } else if (isSelected & nSelected > 1 & shiftDown) {
+      deselectNode(node, fromTable);
+    } else if (!isSelected & shiftDown) {
+      selectNode(node, fromTable);
+    } else if (!isSelected & !shiftDown) {
       self.deselectAll();
-      selectNode(e.target);
-    } else if (e.target.selected() & activeTap &
-        nActiveSelected > 1 & e.originalEvent.shiftKey) {
-      deselectNode(e.target);
-    } else if (e.target.selected() & !activeTap &
-        nInactiveSelected > 1 & e.originalEvent.shiftKey) {
-      deselectNode(e.target);
-    } else if (!e.target.selected() & e.originalEvent.shiftKey) {
-      selectNode(e.target);
-    } else if (!e.target.selected() & !e.originalEvent.shiftKey) {
-      self.deselectAll();
-      selectNode(e.target);
+      selectNode(node, fromTable);
     }
   }
 
@@ -248,80 +260,28 @@ function TableNetwork(active_table_element, other_table_element, network_element
     var type = e.target.group === undefined ? 'background' : e.target.group();
 
     switch (type) {
-      case 'nodes': tapNode(e); break;
-      case 'edges': break;
-      case 'background': self.deselectAll(); break;
-      default: console.error(`unknown element type: ${type}`);
-    }
-
-    return;
-
-    if (!propagateSelection) {
-      //propagateSelection = true;
-      return;
-    }
-    // Display orthology edges
-    e.target.connectedEdges('.orthology').style('display', 'element');
-    // Select the orthologs in the connected networks
-    propagateSelection = false;
-    if (e.target.data('parent') === `network${self.activeNetworkID}`) {
-      e.target.connectedEdges('.orthology')
-        .targets()
-        .selectify()
-        .select()
-        .unselectify();
-    } else {
-      e.target.connectedEdges('.orthology')
-        .sources()
-        .selectify()
-        .select()
-        .unselectify();
-    }
-    
-    return;
-
-    if (tableSelect) {
-      tableSelect = true;
-      return;
-    }
-    
-    networkSelect = true;
-    var nodeId = e.target.data('id');
-    if (e.target.data('parent') === `network${self.activeNetworkID}`) {
-      self.activeTable.row(`#${nodeId}`).select();
-    } else {
-      self.otherTable.row(`#${nodeId}`).select();
+      case 'nodes': 
+        tapNode(e.target, e.originalEvent.shiftKey, false);
+        break;
+      case 'edges': 
+        break;
+      case 'background':
+        self.deselectAll();
+        break;
+      default:
+        console.error(`unknown element type: ${type}`);
     }
   });
 
-  var networkSelectionFromTable = function(e, dt, type, fromActiveTable) {
-    if (networkSelect) {
-      networkSelect = false;
-      return;
+  var networkSelectionFromTable = function(e, dt, type, cell, originalEvent) {
+    var selectedID = dt.row(cell.index().row).data().id;
+    if (type === 'row') {
+      tapNode(self.cy.nodes(`#${selectedID}`), true, true);
     }
-    tableSelect = true;
-    if (type === "row") {
-      var nodeIds = dt.rows({selected: true}).ids().toArray();
-      self.cy.nodes().deselect();
-      self.cy.nodes().filter(function(x) {
-        return $.inArray(x.data('id'), nodeIds) !== -1;
-      }).select();
-    }
-    tableSelect = false;
   }
 
-  this.activeTable.on('select', function(e, dt, type) {
-    networkSelectionFromTable(e, dt, type, true);
-  });
-  this.activeTable.on('deselect', function(e, dt, type) {
-    networkSelectionFromTable(e, dt, type, true);
-  });
-  this.otherTable.on('select', function(e, dt, type) {
-    networkSelectionFromTable(e, dt, type, false);
-  });
-  this.otherTable.on('deselect', function(e, dt, type) {
-    networkSelectionFromTable(e, dt, type, false);
-  });
+  this.activeTable.on('user-select', networkSelectionFromTable);
+  this.otherTable.on('user-select', networkSelectionFromTable);
 
   this.add_network = function(networkID) {
 
