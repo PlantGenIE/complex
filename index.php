@@ -15,7 +15,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="keywords" content="ComPlEx 2.0" />
       <link rel="ComPlEx" href="images/favicon.png">
-      <link href="tour/css/poptour.css" rel="stylesheet">
       </link>
       <link rel="stylesheet" type="text/css" href="css/demo.css" />
       <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -30,16 +29,9 @@
       </div>
       <div>
          <img id="showLeftPush" style="padding:6px;margin-left:16px;  cursor:pointer;border:none;" src="images/complex80.png" />
-         <div style="float:right;margin-right:24px;border-radius:6px;margin-top:10px;">
-            <a target="_blank" href="http://plantgenie.org/help/tool_id/complex/">
-                <img src="images/gnome_dialog_question2.png" alt="Help Tour" title="Help Tour" style="margin-top:10px;margin-left:20px;cursor:pointer" />
-            </a>
-         </div>
          <div class="accordion">
             <div class="accordion-head">
                 Input
-                <button id="load-example-button" style="font-size:12px;padding:4px;margin-top:-22px;" class="tourbtn tourbtn-primary" >Load Example</button>
-                <button id="startTourBtn" style="font-size:12px;padding:4px;margin-top:-22px;background:#F90" class="tourbtn tourbtn-primary" >Take a Tour</button>
             </div>
 
             <div class="accordion-content input-container">
@@ -48,6 +40,7 @@
                     <textarea name="sp1genes" rows="6" id="sink1"></textarea>
                     <label for="network-buttons">Networks</label>
                     <div id="network-buttons" class="network-button-container"></div>
+                    <button id="load-example-button" class="btn btn-4">Load Example</button>
                 </div>
 
                 <div class="network-control">
@@ -130,23 +123,12 @@
         <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
         <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/r-2.2.1/sl-1.2.5/datatables.min.js"></script>
 
-        <script src="lib/AC_OETags.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
         <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
         <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
-        <script src="js/variable_js.js"></script>
-        <script src="js/tables.js"></script>
-        <script src="js/networks.js"></script>
         <script src="js/table_network.js"></script>
         <script src="js/complexmessage.min.js"></script>
         <script src="js/complex.js"></script>
-        <script src="http://popgenie.org/tools/tour/poptour.js"></script>
-        <script src="http://popgenie.org/tools/tour/workflow.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/jquery.form.js"></script>
-        <script src="js/validate.js"></script>
-        <script src="tour/poptour.js"></script>
-        <script src="tour/complex.js"></script>
       <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
       <style>
 	   .ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}

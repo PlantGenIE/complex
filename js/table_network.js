@@ -245,7 +245,7 @@ function TableNetwork(active_table_element, other_table_element, network_element
       deselectNode(node, fromTable);
     } else if (isSelected & nSelected > 1 & !shiftDown) {
       self.deselectAll();
-      selectNode(node, fromTablej);
+      selectNode(node, fromTable);
     } else if (isSelected & nSelected > 1 & shiftDown) {
       deselectNode(node, fromTable);
     } else if (!isSelected & shiftDown) {
