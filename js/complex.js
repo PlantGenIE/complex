@@ -4,9 +4,7 @@
  *  Description:    Main script for ComPlEX2
  *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
  */
-var network_data;
 var view1;
-var view2;
 
 complexmessage.options = {
   closeButton: false,
@@ -152,7 +150,6 @@ function loadexample() {
 
 window.onload = init(function(d) {
   $("#loader").hide();
-  network_data = d;
 
   $('.accordion .accordion-head').addClass('opened').click(function() {
     $(this).next().toggle();
@@ -161,7 +158,7 @@ window.onload = init(function(d) {
     return false;
   });
 
-  populateNetworkSelect(network_data, '#network-buttons');
+  populateNetworkSelect(d, '#network-buttons');
 
   view1 = new TableNetwork('#active-network-table', '#other-network-table', '#cytoscapeweb1');
 
