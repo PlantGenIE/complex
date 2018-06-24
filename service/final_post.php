@@ -2,302 +2,220 @@
 ini_set('max_execution_time', 500);
 require_once("../db.php");
 require("array_column.php");
-$msc=microtime(true);
-if($tmp_op=='expand'){
-$a0_query ='SELECT  '.$tmp_sp1.'_i1 FROM '.$tmp_sp1.'Corr WHERE ('.$tmp_sp1.'_i1 in(SELECT '.$tmp_sp1.'_i FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_id in('.$gsel1.')) OR '.$tmp_sp1.'_i2 in(SELECT '.$tmp_sp1.'_i FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_id in('.$gsel1.')) 
-)AND corr > '.$tmp_th1.' limit 201';
+$execution_time = microtime(true);
 
-$a0_query_results = mysql_query($a0_query);
-while ($a0_row = mysql_fetch_array($a0_query_results)){
-      $a0_array[] = $a0_row[0];
-   }
+if ($tmp_op == 'expand'){
+    try {
+        $in_params = build_in_array('name', $gsel1);
+        $gene_id_stmt = $db->prepare('SELECT id FROM gene WHERE name IN ('.implode(",", array_keys($in_params)).')');
+        $gene_id_stmt->execute($in_params);
+        $expand_from_id = $gene_id_stmt->fetchAll(PDO::FETCH_COLUMN);
+    } catch (PDOException $e) {
+        echo "Query failed: ".$e->getMessage();
+    }
 
-if(count($a0_array) > 200) {
-echo json_encode("overflow");  
-exit();	
-	} 
-$a_query ='SELECT  '.$tmp_sp1.'_i1,'.$tmp_sp1.'_i2 FROM '.$tmp_sp1.'corr_view  WHERE '.$tmp_sp1.'_id in('.$gsel1.') AND corr > '.$tmp_th1.'';
-$a_query_results = mysql_query($a_query);
-if($debug==true){print($a_query);} 
-while ($a_row = mysql_fetch_array($a_query_results)){
-      $a_array[] = $a_row[0];
-	  $a_array1[] = $a_row[1];
-   }
-$a_array2=array_merge($a_array,$a_array1);
-$a_array_string=implode(',',array_values(array_unique($a_array2)));
+    try {
+        $a_params = build_in_array('gene_id', $expand_from_id);
+        $a_query = 'SELECT gene_id1, gene_id2 FROM network_score
+            WHERE network_id = :network_id
+                AND score > :th
+                AND (gene_id1 IN ('.implode(',', array_keys($a_params)).')
+                    OR gene_id2 IN ('.implode(',', array_keys($a_params)).'))';
+        $a_stmt = $db->prepare($a_query);
+        $a_stmt->execute(array_merge(
+            array(
+                ':network_id' => $tmp_sp1,
+                ':th' => $tmp_th1,
+                ':gene_id' => $expand_from_id
+            ), $a_params));
+    } catch (PDOException $e) {
+        echo 'Query failed: '.$e->getMessage();
+    }
+
+    $a_array = array();
+    $a_array1 = array();
+    while ($a_row = $a_stmt->fetch(PDO::FETCH_NUM)) {
+        $a_array[] = $a_row[0];
+        $a_array1[] = $a_row[1];
+    }
+
+    if (count($a_array) === 0) {
+        echo json_encode(array('msc' => $execution_time));
+        exit();
+    } else if (count($a_array) > 200) {
+        echo 'overflow';
+        exit();
+    }
+    $a_array2 = array_merge($a_array, $a_array1);
+    $a_array_string = implode(',', array_values(array_unique($a_array2)));
 }
 
-$first_array=array();
-if($tmp_op=='expand'){
-$first_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp1.'_id FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_i in('.$a_array_string.') or '.$tmp_sp1.'_id in('.$gstr1.')';// or '.$tmp_sp1.'_id in('.$gstr1.')
-}else{
-$first_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp1.'_id FROM '.$tmp_sp1.'Gene WHERE '.$tmp_sp1.'_id in('.$gstr1.')';	
-}
-
-$first_query_results = mysql_query($first_query);
-$a1=0;
-while ($row=mysql_fetch_row($first_query_results)) {
-	$first_array[$a1]['id']=$row[0];
-	$first_array[$a1]['label']=$row[1];
-	$a1++;
-}
-
-if($debug==true){print("<strong>----------------1.) QUERY >> FIRST NETWORK</strong></br>");}
-if($debug==true){print($first_query);}
-
-$first_sp_1_array=array_column2($first_array, 'id');
-$first_sp_1_array_string=implode(',',array_values(array_unique($first_sp_1_array)));
-
-$second_array=array();
-if($tmp_showN=='align'){
-	if($debug==true){print("<br><strong>----------------2.) QUERY >> ALIGN BOTH NETWORKS</strong></br>");}	
-	$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND type="c" AND corr = 0.1';
-	if($debug==true){print($second_query);}
+if ($tmp_op == 'expand') {
+    $first_query = 'SELECT id, name FROM gene WHERE id in('.$a_array_string.') OR name IN ('.$gstr1.')';
 } else {
-	if($debug==true){print("<br><strong>----------------3.) QUERY >> COMPARE BOTH NETWORkS</strong></br>");}	
-	$second_query='SELECT '.$tmp_sp1.'_i,'.$tmp_sp2.'_i FROM '.$tabln.'Nod WHERE '.$tmp_sp1.'_i IN ('.$first_sp_1_array_string.') AND '.$tmp_sp2.'_i IN(SELECT '.$tmp_sp2.'_i FROM '.$tmp_sp2.'Gene WHERE '.$tmp_sp2.'_id in('.$gstr2.')) AND type="c" AND corr = 0.1';	
-	if($debug==true){print($second_query);}
-}
-$second_query_results = mysql_query($second_query);
-$a2=0;
-while(list($sp1_id, $sp2_id) = mysql_fetch_row($second_query_results)){
-	if($sp1_id>$sp2_id){$trgt=$sp1_id;$src=$sp2_id;}else{$trgt=$sp2_id;$src=$sp1_id;}
-	$second_array[$a2]['links']=$src.'-'.$trgt;
-	$second_array[$a2]['sp2']=$sp2_id;
-	$second_array[$a2][$sp1_id]=$sp2_id;
-	$second_array[$a2][$sp2_id.'second']=$sp1_id;
-	$a2++;}
-if($debug==true){print("<br><strong>----------------4.) RESULTS >> FIRST NETWORK NODE(S) 2 SECOND NETWORK NODE(S)</strong></br>");}
-$second_sp1_sp2_array=array_column2($second_array, 'links');
-$second_sp1_sp2_array_string=implode(',',array_values(array_unique($second_sp1_sp2_array)));
-if($debug==true){print($second_sp1_sp2_array_string);}
-if($debug==true){print("<br><strong>----------------5.) RESULTS >> SECOND NETWORK IDS</strong></br>");}
-$second_sp_2_array = array_column2($second_array, 'sp2');
-$second_sp_2_array=array_values(array_unique($second_sp_2_array));
-$second_sp_2_array_string=implode(',',$second_sp_2_array); 
-if($debug==true){print($second_sp_2_array_string);}
-if($debug==true){print("<br><strong>----------------6.) QUERY >> CONSERVED EDGES</strong></br>");}
-$third_array=array();
-/*if($tmp_consth2<$tmp_th2){
-$t2=$tmp_th2;
-}else{
-$t2=$tmp_consth2;	
+    $first_query = 'SELECT id, name FROM gene WHERE name in('.$gstr1.')';
 }
 
-if($tmp_consth1<$tmp_th1){
-$t1=$tmp_th1;
-}else{
-$t1=$tmp_consth1;	
+$first_query_stmt = $db->query($first_query);
+$first_query_stmt->execute();
+
+$network1_genes = array();
+while ($row = $first_query_stmt->fetch(PDO::FETCH_ASSOC)) {
+    $network1_genes[] = array(
+        'id' => $row['id'],
+        'label' => $row['name']
+    );
 }
-*/
-if (($tmp_sp1=='at' and $tmp_sp2=='pt') or  ($tmp_sp1=='os' and $tmp_sp2=='pt') or ($tmp_sp1=='os' and $tmp_sp2=='at')){
-$third_query = 'SELECT '.$tmp_sp1.'_i1,'.$tmp_sp1.'_i2,corr2,'.$tmp_sp2.'_i1,'.$tmp_sp2.'_i2,corr1 FROM '.$tabln.' WHERE ('.$tmp_sp1.'_i1 IN ('.$first_sp_1_array_string.') AND '.$tmp_sp1.'_i2 IN ('.$first_sp_1_array_string.')) AND ('.$tmp_sp2.'_i1 IN ('.$second_sp_2_array_string.') AND '.$tmp_sp2.'_i2 IN ('.$second_sp_2_array_string.')) AND corr2>'.$tmp_consth1.' AND corr1>'.$tmp_consth2.'';
-if($debug==true){print($third_query);}
-$third_query_results = mysql_query($third_query);
-$a3=0;
-while(list($i11, $i12,$corr1,$i21,$i22,$corr2) = mysql_fetch_row($third_query_results)){
-	if($i11>$i12){$trgt1=$i11;$src1=$i12;}else{$trgt1=$i12;$src1=$i11;}
-	if($i21>$i22){$trgt2=$i21;$src2=$i22;}else{$trgt2=$i22;$src2=$i21;}
-	$third_array[$a3][$src1.'-'.$trgt1]=$src2.'-'.$trgt2;
-	$third_array[$a3][$src2.'-'.$trgt2.'second']=$src1.'-'.$trgt1;	
-	
-	$first_n_con_array[$a3]['id']=$src2.'-'.$trgt2;
-	$first_n_con_array[$a3]['src']=$src2;
-	$first_n_con_array[$a3]['trgt']=$trgt2;
-	$first_n_con_array[$a3]['corr']=$corr2;
-	
-	$second_n_con_array[$a3]['id']=$src1.'-'.$trgt1;
-	$second_n_con_array[$a3]['src']=$src1;
-	$second_n_con_array[$a3]['trgt']=$trgt1;
-	$second_n_con_array[$a3]['corr']=$corr1;
-	
-	$a3++;}
-	}else{
-$third_query = 'SELECT '.$tmp_sp1.'_i1,'.$tmp_sp1.'_i2,corr1,'.$tmp_sp2.'_i1,'.$tmp_sp2.'_i2,corr2 FROM '.$tabln.' WHERE ('.$tmp_sp1.'_i1 IN ('.$first_sp_1_array_string.') AND '.$tmp_sp1.'_i2 IN ('.$first_sp_1_array_string.')) AND ('.$tmp_sp2.'_i1 IN ('.$second_sp_2_array_string.') AND '.$tmp_sp2.'_i2 IN ('.$second_sp_2_array_string.')) AND corr1>'.$tmp_consth1.' AND corr2>'.$tmp_consth2.'';		
-if($debug==true){print($third_query);}
-$third_query_results = mysql_query($third_query);
-$a3=0;
-while(list($i11, $i12,$corr1,$i21,$i22,$corr2) = mysql_fetch_row($third_query_results)){
-	if($i11>$i12){$trgt1=$i11;$src1=$i12;}else{$trgt1=$i12;$src1=$i11;}
-	if($i21>$i22){$trgt2=$i21;$src2=$i22;}else{$trgt2=$i22;$src2=$i21;}
-	$third_array[$a3][$src1.'-'.$trgt1]=$src2.'-'.$trgt2;
-	$third_array[$a3][$src2.'-'.$trgt2.'second']=$src1.'-'.$trgt1;
 
-	$first_n_con_array[$a3]['id']=$src2.'-'.$trgt2;
-	$first_n_con_array[$a3]['src']=$src2;
-	$first_n_con_array[$a3]['trgt']=$trgt2;
-	$first_n_con_array[$a3]['corr']=$corr2;
-	
-	$second_n_con_array[$a3]['id']=$src1.'-'.$trgt1;
-	$second_n_con_array[$a3]['src']=$src1;
-	$second_n_con_array[$a3]['trgt']=$trgt1;
-	$second_n_con_array[$a3]['corr']=$corr1;
-	
-	$a3++;}
-		}
+$network1_gene_ids = array_column2($network1_genes, 'id');
+$network1_gene_ids_string = implode(',', array_values(array_unique($network1_gene_ids)));
 
-//if($debug==true){print_r($third_array);}	
-if($debug==true){print("<br><strong>----------------7.) QUERY >> NODES WITHIN FIRST NETWORK</strong></br>");}
-$forth_array=array();
-$forth_query ='SELECT '.$tmp_sp1.'_i1,'.$tmp_sp1.'_i2,corr FROM '.$tmp_sp1.'Corr WHERE '.$tmp_sp1.'_i1 in('.$first_sp_1_array_string.') AND '.$tmp_sp1.'_i2 in('.$first_sp_1_array_string.') AND corr>'.$tmp_th1.'';
-$forth_query_results = mysql_query($forth_query);
-if($debug==true){print($forth_query);}
-$a4=0;
-while(list($i11, $i12,$corr) = mysql_fetch_row($forth_query_results)){
-	if($i11>$i12){$trgt=$i11;$src=$i12;}else{$trgt=$i12;$src=$i11;}
-	$forth_array[$a4]['id']=$src.'-'.$trgt;
-	$forth_array[$a4]['corr']=$corr;	
-	$forth_array[$a4]['src']=$src;
-	$forth_array[$a4]['trgt']=$trgt;
-	$a4++;}
-	
-	//$hh=count($forth_array);
-	//$ll=count($second_n_con_array);
-	//if($hh>$ll){
-		if($second_n_con_array!=null) foreach ($second_n_con_array as $row) { $forth_array[$row['id']] = $row;}
-/*}else{
-		}
-	$testa = array();
-	$testa=$second_n_con_array+$forth_array;
-	$forth_array = array();
-foreach ($testa as $row) {
-    $forth_array[$row['id']] = $row;
-}*/
-
-$testa = array();
-foreach ($forth_array as $row) {
-    $testa[$row['id']] = $row;
+if ($tmp_showN == 'align') {
+        $second_query = 'SELECT gene_id1, gene_id2 FROM conservation
+            WHERE gene_id1 IN ('.$network1_gene_ids_string.')
+            AND type = "conserved"
+            AND network_id1 = '.$tmp_sp1.' AND network_id2 = '.$tmp_sp2;
+} else {
+        $second_query = 'SELECT gene_id1, gene_id2 FROM conservation
+            WHERE gene_id1 IN ('.$network1_gene_ids_string.')
+            AND gene_id2 IN (SELECT id FROM gene WHERE name IN ('.$gstr2.'))
+            AND type = "conserved"
+            AND network_id1 = '.$tmp_sp1.' AND network_id2 = '.$tmp_sp2;
 }
-$forth_array=$testa ;
-//$forth_array=
-	//$forth_array=array_values(array_unique($forth_array));
-	//$forth_array=array_merge($second_n_con_array,$forth_array);
-	//$forth_array=array_values(array_unique($forth_array));
-	
-//if($debug==true){print_r($forth_array);}	
-if($debug==true){print("<br><strong>----------------8.) QUERY >> NODES WITHIN SECOND NETWORK</strong></br>");}
-$fifth_array=array();
-$fifth_query ='SELECT '.$tmp_sp2.'_i1,'.$tmp_sp2.'_i2,corr FROM '.$tmp_sp2.'Corr WHERE '.$tmp_sp2.'_i1 in('.$second_sp_2_array_string.') AND '.$tmp_sp2.'_i2 in('.$second_sp_2_array_string.') AND corr>'.$tmp_th2.'';
-if($debug==true){print($fifth_query);}
-$fifth_query_results = mysql_query($fifth_query);
-$a5=0;
-while(list($i21, $i22,$corr) = mysql_fetch_row($fifth_query_results)){
-	if($i21>$i22){$trgt2=$i21;$src2=$i22;}else{$trgt2=$i22;$src2=$i21;}
-	$fifth_array[$a5]['id']=$src2.'-'.$trgt2;
-	$fifth_array[$a5]['src']=$src2;
-	$fifth_array[$a5]['trgt']=$trgt2;
-	$fifth_array[$a5]['corr']=$corr;
-	$a5++;}
-	
-	if($first_n_con_array!=null)foreach ($first_n_con_array as $row) { $fifth_array[$row['id']] = $row;}
-	
-	//$fifth_array=array_merge($first_n_con_array,$fifth_array);
-	//$fifth_array=array_values(array_unique($fifth_array));
-	/*$testb = array();
-	$testb=$first_n_con_array+$fifth_array;
-	
-	$fifth_array = array();
-foreach ($testb as $row) {
-    $fifth_array[$row['id']] = $row;
-}*/
-$testb=array();
-foreach ($fifth_array as $row) {
-    $testb[$row['id']] = $row;
-}
-$fifth_array=$testb;
-	//$fifth_array=array_values(array_unique($fifth_array));
-	//if($debug==true){print_r($fifth_array);}	
-if($debug==true){print("<br><strong>----------------9.) QUERY >> SECOND NETWORK LABELS</strong></br>");}
-$sixth_array=array();
-$sixth_query='SELECT '.$tmp_sp2.'_i,'.$tmp_sp2.'_id FROM '.$tmp_sp2.'Gene WHERE '.$tmp_sp2.'_i in('.$second_sp_2_array_string.')';
-if($debug==true){print($sixth_query);}
-$sixth_query_results = mysql_query($sixth_query);
-$a6=0;
-while (list($sp2_i, $sp2_id)=mysql_fetch_row($sixth_query_results)){
-	$sixth_array[$a6][$sp2_i]=$sp2_id;
-	$a6++;}
-if($debug==true){print("<br><strong>----------------10.) ARRAY PROCESSING >> FIRST NETWORK NODE(S) 2 NODE(S) ARRAY</strong></br>");}
-for($m=0;$m<count($first_array);$m++){
-	$first_array_node_id_array=array_column2($first_array, 'id');
-	$children[$m]->id=$first_array_node_id_array[$m];
-	$first_array_node_label_array=array_column2($first_array, 'label');
-	$children[$m]->label=$first_array_node_label_array[$m];
-	$first_array_node_connection_array=array_column2($second_array, $first_array_node_id_array[$m]);
-	$first_array_node_connection_string=implode(",",array_values(array_unique($first_array_node_connection_array)));
-	$children[$m]->conN=array($first_array_node_connection_string);
-	if($first_array_node_connection_string==""){$col=0;}else{$col=1;}
-	$children[$m]->col=$col;
-	$children[$m]->tf="";
-	$first_array_nodes_array[]=$children[$m];
-}
-if($debug==true){print_r($first_array_nodes_array);}
-if($debug==true){print("<br><strong>----------------11.) ARRAY PROCESSING >> FIRST NETWORK EDGES ARRAY</strong></br>");}
-//print_r($third_array);
-//count($forth_array)==
-//$forth_array=$third_array;
-for($m=0;$m<count($forth_array);$m++){
-	
-	//$forth_array=array_merge($third_array,$forth_array);
-		$first_array_edges_id_array=array_column2($forth_array, 'id');
-		$edges_children[$m]->id=$first_array_edges_id_array[$m];
-		$first_array_edges_src_array=array_column2($forth_array, 'src');
-		$edges_children[$m]->source=$first_array_edges_src_array[$m];
-		$first_array_edges_trgt_array=array_column2($forth_array, 'trgt');
-		$edges_children[$m]->target=$first_array_edges_trgt_array[$m];
-		$first_array_edges_corr_array=array_column2($forth_array, 'corr');
-		$edges_children[$m]->corr=round($first_array_edges_corr_array[$m]);
-		$first_array_edges_connection_array=array_column2($third_array, $first_array_edges_id_array[$m]);
-		$first_array_edges_connection_string=implode(",",array_values(array_unique($first_array_edges_connection_array)));
-		$edges_children[$m]->conE=array($first_array_edges_connection_string);
-		if($first_array_edges_connection_string==""){$col=0;}else{$col=1;}
-		$edges_children[$m]->col=$col;
-		$first_array_edges_array[]=$edges_children[$m];	
-	}
-if($debug==true){print_r($first_array_edges_array);}	
-if($debug==true){print("<br><strong>----------------12.) ARRAY PROCESSING >> MERGE FIRST NETWORK NODES AND EDGES ARRAYS</strong></br>");	}
-$first_array_nodex_and_edges_array=array('nodes'=>$first_array_nodes_array,'edges'=>$first_array_edges_array);
-if($debug==true){print_r($first_array_nodex_and_edges_array);}
-if($debug==true){print("<br><strong>----------------13.) ARRAY PROCESSING >> SECOND NETWORK NODE(S) 2 NODE(S) ARRAYS</strong></br>");}
-for($n=0;$n<count($second_sp_2_array);$n++){
-	$second_children[$n]->id=$second_sp_2_array[$n];
-	$second_array_node_label_array=array_column2($sixth_array, $second_sp_2_array[$n]);
-	$second_array_node_label_array_string=implode(',',array_values(array_unique($second_array_node_label_array)));
-	$second_children[$n]->label=$second_array_node_label_array_string;
-	$second_array_node_connection_array=array_column2($second_array, $second_sp_2_array[$n].'second');
-	$second_array_node_connection_string=implode(",",array_values(array_unique($second_array_node_connection_array)));
-	//$second_children[$r]->conN=array($second_array_node_connection_string);
-	if($second_array_node_connection_string==""){$col=0;}else{$col=1;}
-		$second_children[$n]->cons=$col;
-		$second_children[$n]->tf="";
-		$second_array_nodes_array[]=$second_children[$n];
-	}
-if($debug==true){print_r($second_array_nodes_array);}	
-if($debug==true){print("<br><strong>----------------14.) ARRAY PROCESSING >> SECOND NETWORK EDGES ARRAY</strong></br>");}
-for($m=0;$m<count($fifth_array);$m++){
-		$second_array_edges_id_array=array_column2($fifth_array, 'id');
-		$second_edges_children[$m]->id=$second_array_edges_id_array[$m];
-		$second_array_edges_src_array=array_column2($fifth_array, 'src');
-		$second_edges_children[$m]->source=$second_array_edges_src_array[$m];
-		$second_array_edges_trgt_array=array_column2($fifth_array, 'trgt');
-		$second_edges_children[$m]->target=$second_array_edges_trgt_array[$m];
-		$second_array_edges_corr_array=array_column2($fifth_array, 'corr');
-		$second_edges_children[$m]->corr=(string)round($second_array_edges_corr_array[$m]);
-		$second_array_edges_connection_array=array_column2($third_array, $second_array_edges_id_array[$m].'second');
-		$second_array_edges_connection_string=implode(",",array_values(array_unique($second_array_edges_connection_array)));
-		//$second_edges_children[$m]->conE=array($second_array_edges_connection_string);
-		if($second_array_edges_connection_string==""){$col=0;}else{$col=1;}
-		$second_edges_children[$m]->cons=$col;
-		$second_array_edges_array[]=$second_edges_children[$m];	
-	}
 
-$msc=microtime(true)-$msc;
-$msc=sprintf('%0.2f', $msc);
+try {
+    $second_query_stmt = $db->query($second_query);
+    $second_query_stmt->execute();
+} catch (PDOException $e) {
+    echo 'Query failed: '.$e->getMessage();
+    exit;
+}
 
-if($debug==true){print_r($second_array_edges_array);}	
-if($debug==true){print("<br><strong>----------------15.) ARRAY PROCESSING >> MERGE SECOND NETWORK NODES AND EDGES ARRAYS</strong></br>");}
-$second_array_nodex_and_edges_array=array('nodes'=>$second_array_nodes_array,'edges'=>$second_array_edges_array);
-if($debug==true){print_r($second_array_nodex_and_edges_array);}
-if($debug==true){print("<br><strong>----------------16.) ARRAY PROCESSING >> MERGE FIRST AND SECOND NETWORK ARRAYS THEN ENCODE WITH JSON </strong></br>");}	
-$final_first_and_second_array=array('tmp_array1'=>$first_array_nodex_and_edges_array,'tmp_array2'=>$second_array_nodex_and_edges_array,'msc'=>$msc);
-echo json_encode($final_first_and_second_array);
-exit();
+$conservation = array();
+while (list($gene_id1, $gene_id2) = $second_query_stmt->fetch(PDO::FETCH_NUM)) {
+    $conservation[] = array(
+        'links' => $gene_id1.'-'.$gene_id2,
+        'sp2' => $gene_id2,
+        $gene_id1 => $gene_id2,
+        $gene_id2.'second' => $gene_id1
+    );
+}
+$conservation_links = array_column2($conservation, 'links');
+$conservation_links_string = implode(',', array_values(array_unique($conservation_links)));
+
+$network2_gene_ids = array_column2($conservation, 'sp2');
+$network2_gene_ids = array_values(array_unique($network2_gene_ids));
+$network2_gene_ids_string = implode(',', $network2_gene_ids);
+
+$forth_query = 'SELECT gene_id1, gene_id2, score
+                FROM network_score
+                WHERE network_id = '.$tmp_sp1.'
+                    AND gene_id1 IN ('.$network1_gene_ids_string.')
+                    AND gene_id2 IN ('.$network1_gene_ids_string.')
+                    AND score > '.$tmp_th1;
+$forth_query_stmt = $db->query($forth_query);
+if (!$forth_query_stmt) {
+    echo 'Network 1 edge query failed: '.$forth_query;
+    exit;
+}
+$forth_query_stmt->execute();
+
+$network1 = array();
+while (list($i11, $i12, $corr) = $forth_query_stmt->fetch(PDO::FETCH_NUM)){
+    $network1[] = array(
+        'id' => $i11.'-'.$i12,
+        'corr' => $corr,
+        'src' => $i11,
+        'trgt' => $i12
+    );
+}
+
+$fifth_query = 'SELECT gene_id1, gene_id2, score
+    FROM network_score
+    WHERE network_id = '.$tmp_sp2.'
+        AND gene_id1 IN ('.$network2_gene_ids_string.')
+        AND gene_id2 IN ('.$network2_gene_ids_string.')
+        AND score > '.$tmp_th2;
+$fifth_query_stmt = $db->query($fifth_query);
+if (!$fifth_query_stmt) {
+    echo 'Network 2 edge query failed: '.$fifth_query;
+    exit;
+}
+$fifth_query_stmt->execute();
+
+$network2 = array();
+while (list($i21, $i22, $corr) = $fifth_query_stmt->fetch(PDO::FETCH_NUM)) {
+    $network2[] = array(
+        'id' => $i21.'-'.$i22,
+        'src' => $i21,
+        'trgt' => $i22,
+        'corr' => $corr
+    );
+}
+
+$sixth_query = 'SELECT id, name FROM gene WHERE id IN ('.$network2_gene_ids_string.')';
+$sixth_query_stmt = $db->query($sixth_query);
+if (!$sixth_query_stmt) {
+    echo 'Query failed: '.$sixth_query;
+    exit;
+}
+
+$network2_genes = array();
+while (list($sp2_i, $sp2_id) = $sixth_query_stmt->fetch(PDO::FETCH_NUM)) {
+    $network2_genes[] = array(
+        'id' => $sp2_i,
+        'label' => $sp2_id
+    );
+}
+
+$execution_time = microtime(true) - $execution_time;
+
+$network1_out = array();
+foreach ($network1_genes as $gene) {
+    $network1_out[] = array(
+        'group' => 'nodes',
+        'data' => array(
+            'id' => (int)$gene['id'],
+            'label' => $gene['label']
+        )
+    );
+}
+
+foreach ($network1 as $edge) {
+    $network1_out[] = array(
+        'group' => 'edges',
+        'data' => array(
+            'source' => (int)$edge['src'],
+            'target' => (int)$edge['trgt'],
+            'weight' => (double)$edge['corr']
+        )
+    );
+}
+
+$network2_out = array();
+foreach ($network2_genes as $gene) {
+    $network2_out[] = array(
+        'group' => 'nodes',
+        'data' => array(
+            'id' => (int)$gene['id'],
+            'label' => $gene['label']
+        )
+    );
+}
+
+foreach ($network2 as $edge) {
+    $network2_out[] = array(
+        'group' => 'edges',
+        'data' => array(
+            'source' => (int)$edge['src'],
+            'target' => (int)$edge['trgt'],
+            'weight' => (double)$edge['corr']
+        )
+    );
+}
+
+echo json_encode(array(
+    'network1' => array('id' => $tmp_sp1, 'network' => $network1_out),
+    'network2' => array('id' => $tmp_sp2, 'network' => $network2_out),
+    'execution_time' => $execution_time
+));

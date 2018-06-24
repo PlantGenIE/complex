@@ -6,11 +6,7 @@ $config["db"]["host"] = null;
 $config["db"]["user"] = null;
 $config["db"]["password"] = null;
 $config["db"]["database"] = null;
-
-$config["basket_db"]["host"] = null;
-$config["basket_db"]["user"] = null;
-$config["basket_db"]["password"] = null;
-$config["basket_db"]["database"] = null;
+$config["db"]["port"] = 3306;
 
 require_once("local_config.php");
 
