@@ -5,7 +5,11 @@ var layoutOptions = {
   refresh: 60
 };
 
-function TableNetwork(active_table_element, other_table_element, network_element) {
+function TableNetwork(active_table_element,
+                      other_table_element,
+                      network_element,
+                      pvalueThreshold) {
+  this.pvalueThreshold = pvalueThreshold;
   this.activeTable = $(active_table_element).DataTable({
     searching: false,
     columnDefs: [{
@@ -127,6 +131,10 @@ function TableNetwork(active_table_element, other_table_element, network_element
     self.otherTable.rows().deselect();
   }
 
+  this.setPvalueThreshold = function(p) {
+    self.pvalueThreshold = p;
+  }
+
   /**
    * Select a node
    *
@@ -137,7 +145,9 @@ function TableNetwork(active_table_element, other_table_element, network_element
   var selectNode = function(node, fromTable) {
     // Display orthology edges
     node.selectify().select().unselectify();
-    node.connectedEdges('.orthology').style('display', 'element');
+    node
+      .connectedEdges(`.orthology[conservation_pvalue < ${self.pvalueThreshold}]`)
+      .show();
 
     // Select the orthologs in the connected networks
     if (node.data('parent') === `network${self.activeNetworkID}`) {

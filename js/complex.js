@@ -160,7 +160,9 @@ window.onload = init(function(d) {
 
   populateNetworkSelect(d, '#network-buttons');
 
-  view1 = new TableNetwork('#active-network-table', '#other-network-table', '#cytoscapeweb1');
+  view1 = new TableNetwork('#active-network-table',
+    '#other-network-table', '#cytoscapeweb1',
+    $('#complex-pval-threshold').val());
 
   $("#load-example-button").click(function(event) {
     event.stopPropagation();
@@ -175,6 +177,11 @@ window.onload = init(function(d) {
     $("#" + this.id + "_span").html("(>=" + this.value + ")");
     align();
   });
+
+  $('#complex-pval-threshold').on('change', function() {
+    view1.setPvalueThreshold(this.value);
+    $('#complex-pval-threshold-value').html(this.value);
+  })
 
   $("#prebox").delay(500).fadeOut();
 });
