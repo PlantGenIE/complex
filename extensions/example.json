@@ -1,0 +1,5 @@
+{
+    "name": "Example extension",
+    "description": "An example extension for Complex",
+    "class_name": "Example_Extension"
+}

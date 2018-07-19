@@ -2,3 +2,5 @@ junk
 junk/*
 local_config.php
 .htaccess
+extensions/*
+!extensions/example*
