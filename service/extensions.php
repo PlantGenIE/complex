@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: text/html');
 
+require_once(dirname(__FILE__).'/../db.php');
+
 /**
  * Extension for Complex
  *
@@ -10,6 +12,8 @@ header('Content-Type: text/html');
 abstract class Extension {
 
   public $name;
+  private $gene_table_names;
+  private $edge_table_names;
 
   /**
    * Extension constructor
@@ -19,6 +23,8 @@ abstract class Extension {
    */
   public function __construct($extension_config) {
     $this->name = $extension_config->name;
+    $this->gene_table_names = $extension_config->gene_table_names;
+    $this->edge_table_names = $extension_config->edge_table_names;
   }
 
   /**
@@ -38,6 +44,24 @@ abstract class Extension {
     require_once($php);
     return new $json_content->{'class_name'}($json_content);
   }
+
+  public function get_genes() {
+    global $db;
+    $genes = array();
+    foreach ($this->gene_table_names as $gene_ext) {
+      $query = "SELECT
+          gene_id
+        FROM gene_extension
+        WHERE extension_name = :ext";
+
+      $stmt = $db->prepare($query);
+      $stmt->bindParam(':ext', $gene_ext);
+      $stmt->execute();
+      $str_genes = $stmt->fetchAll(PDO::FETCH_COLUMN);
+      $genes[$gene_ext] = array_map("intval", $str_genes);
+    }
+    return $genes;
+  }
 }
 
 /**
@@ -45,8 +69,9 @@ abstract class Extension {
  *
  * A collection of extensions for Complex.
  */
-class Extension_Collection {
+class Extension_Collection implements Iterator {
 
+  private $position = 0;
   private $extensions = array();
 
   /**
@@ -54,11 +79,32 @@ class Extension_Collection {
    *
    * @param   string  $dir  directory where the extensions are located
    */
-  function __construct($dir) {
+  public function __construct($dir) {
+    $this->position = 0;
     $extension_files = $this->get_extensions($dir);
     foreach ($extension_files as $ext) {
       $this->extensions[] = Extension::from_json($ext['json'], $ext['php']);
     }
+  }
+
+  public function rewind() {
+    $this->position = 0;
+  }
+
+  public function current() {
+    return $this->extensions[$this->position];
+  }
+
+  public function key() {
+    return $this->extensions[$this->position]->name;
+  }
+
+  public function next() {
+    ++$this->position;
+  }
+
+  public function valid() {
+    return isset($this->extensions[$this->position]);
   }
 
   /*
