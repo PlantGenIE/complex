@@ -23,8 +23,10 @@ abstract class Extension {
    */
   public function __construct($extension_config) {
     $this->name = $extension_config->name;
-    $this->gene_table_names = $extension_config->gene_table_names;
-    $this->edge_table_names = $extension_config->edge_table_names;
+    $this->gene_table_names = is_null($extension_config->gene_style) ?
+      null : array_keys(get_object_vars($extension_config->gene_style));
+    $this->edge_table_names = is_null($extension_config->edge_style) ?
+      null : array_keys(get_object_vars($extension_config->edge_style));
   }
 
   /**
@@ -118,20 +120,21 @@ class Extension_Collection implements Iterator {
    *                    each extension
    */
   private function get_extensions($dir) {
+    global $config;
     // Only consider json files in the extension directory as
     // being proper extensions
     $json_files = array_filter(scandir($dir), function($x) {
       return preg_match('/\.json$/', $x);
     });
 
-    $extension_names = array_filter(
+    $extension_names = array_diff(array_filter(
       array_unique(
         array_map(function($x) {
           return preg_replace('/\.[^.\s]+$/', '', $x);
         }, $json_files)
       ), function($x) {
         return preg_match('/^[^\.]/', $x);
-      });
+      }), $config["ignore_extensions"]);
 
     $extension_array = array();
     foreach ($extension_names as $x) {

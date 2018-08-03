@@ -2,6 +2,10 @@
     "name": "Example extension",
     "description": "An example extension for Complex with random genes",
     "class_name": "Example_Extension",
-    "edge_table_names": null,
-    "gene_table_names": ["Example"]
+    "edge_style": null,
+    "gene_style": {
+        "Example": {
+            "color": "red"
+        }
+    }
 }
