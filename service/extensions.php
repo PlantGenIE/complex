@@ -72,14 +72,21 @@ class Extension_Collection {
    *                    each extension
    */
   private function get_extensions($dir) {
+    // Only consider json files in the extension directory as
+    // being proper extensions
+    $json_files = array_filter(scandir($dir), function($x) {
+      return preg_match('/\.json$/', $x);
+    });
+
     $extension_names = array_filter(
       array_unique(
         array_map(function($x) {
           return preg_replace('/\.[^.\s]+$/', '', $x);
-        }, scandir($dir))
+        }, $json_files)
       ), function($x) {
         return preg_match('/^[^\.]/', $x);
       });
+
     $extension_array = array();
     foreach ($extension_names as $x) {
       $extension_array[$x] = array(
@@ -89,11 +96,8 @@ class Extension_Collection {
     }
 
     foreach ($extension_array as $ext=>$ext_files) {
-      if (!file_exists($dir.'/'.$ext_files['json'])) {
-        trigger_error("invalid extension '${ext}': json file missing", E_USER_ERROR);
-      }
-      if (!file_exists($dir.'/'.$ext_files['php'])) {
-        trigger_error("invalid extension '${ext}': php file missing", E_USER_ERROR);
+      if (!file_exists($ext_files['php'])) {
+        trigger_error("invalid extension '${dir}/${ext}': php file missing", E_USER_ERROR);
       }
     }
 

@@ -1,5 +1,7 @@
 {
     "name": "Example extension",
-    "description": "An example extension for Complex",
-    "class_name": "Example_Extension"
+    "description": "An example extension for Complex with random genes",
+    "class_name": "Example_Extension",
+    "edge_table_names": null,
+    "gene_table_names": ["Example"]
 }
