@@ -148,6 +148,46 @@ function loadexample() {
   align();
 }
 
+function getExtensionGenes(extension, callback) {
+  $.ajax({
+    url: 'service/extension_controller.php',
+    dataType: 'json',
+    data: {
+      method: 'getGenes',
+      extension: extension
+    },
+    error: function(jqXHR, textStatus) {
+      if (jqXHR.responseJSON) {
+        console.error(jqXHR.responseJSON.error);
+      } else {
+        console.error(textStatus);
+      }
+    },
+    success: function(data) {
+      callback(data, extension);
+    }
+  });
+}
+
+function highlightGenes(data, extension) {
+  for (var subext in data) {
+    var eles = view1.cy.nodes().filter(function(x) {
+      return $.inArray(x.id(), data[subext].genes.map(function(x) {
+        return x.toString()
+      })) !== -1;
+    });
+
+    eles.addClass(`${extension}-highlight`);
+    eles.style(data[subext].style);
+  }
+}
+
+function toggleExtension(e) {
+  if (e.target.checked) {
+    getExtensionGenes(e.target.dataset.extensionId, highlightGenes);
+  }
+}
+
 window.onload = init(function(d) {
   $("#loader").hide();
 
@@ -159,6 +199,8 @@ window.onload = init(function(d) {
   });
 
   populateNetworkSelect(d, '#network-buttons');
+
+  $('.extension-checkbox').change(toggleExtension);
 
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
