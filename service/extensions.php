@@ -14,6 +14,8 @@ abstract class Extension {
   public $name;
   private $gene_table_names;
   private $edge_table_names;
+  private $gene_style;
+  private $edge_style;
 
   /**
    * Extension constructor
@@ -28,6 +30,8 @@ abstract class Extension {
       null : array_keys(get_object_vars($extension_config->gene_style));
     $this->edge_table_names = is_null($extension_config->edge_style) ?
       null : array_keys(get_object_vars($extension_config->edge_style));
+    $this->gene_style = (array)$extension_config->gene_style;
+    $this->edge_style = (array)$extension_config->edge_style;
   }
 
   /**
@@ -70,6 +74,14 @@ abstract class Extension {
       $genes[$gene_ext] = array_map("intval", $str_genes);
     }
     return $genes;
+  }
+
+  public function get_gene_style() {
+    return $this->gene_style;
+  }
+
+  public function get_edge_style() {
+    return $this->edge_style;
   }
 }
 
