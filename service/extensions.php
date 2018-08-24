@@ -22,6 +22,7 @@ abstract class Extension {
    *                                      as parsed by from_json()
    */
   public function __construct($extension_config) {
+    $this->id = $extension_config->id;
     $this->name = $extension_config->name;
     $this->gene_table_names = is_null($extension_config->gene_style) ?
       null : array_keys(get_object_vars($extension_config->gene_style));
@@ -45,6 +46,12 @@ abstract class Extension {
     }
     require_once($php);
     return new $json_content->{'class_name'}($json_content);
+  }
+
+  public static function from_id($extension_id) {
+    global $config;
+    return Extension::from_json($config['extension_dir'].'/'.$extension_id.'.json',
+                                $config['extension_dir'].'/'.$extension_id.'.php');
   }
 
   public function get_genes() {
@@ -103,6 +110,10 @@ class Extension_Collection implements Iterator {
 
   public function next() {
     ++$this->position;
+  }
+
+  public function empty() {
+    return empty($this->extensions);
   }
 
   public function valid() {

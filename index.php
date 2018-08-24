@@ -5,6 +5,11 @@
  *  Description:    Main PHP for ComPlEX2
  *  Created:        Thu May 15 09:28:04 GMT+02:00 2014
  */
+
+// Extensions
+require_once("service/extensions.php");
+$ext = new Extension_Collection();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +57,28 @@
             <button id="align_to_species_button" class="btn btn-4 btn-4c">Align</button>
           </div>
         </div>
+
+        <?php if (!$ext->empty()): ?>
+        <div class="accordion-head">
+          Extensions
+        </div>
+        <div class="accordion-content">
+          <div class="extension-control">
+            <div id="extension-list">
+              <ul>
+                <?php foreach ($ext as $n=>$e): ?>
+                <li>
+                  <input class="extension-checkbox" type="checkbox" id="<?php echo $e->id; ?>-extension-checkbox"
+                    data-extension-name="<?php echo $n; ?>"
+                    data-extension-id="<?php echo $e->id; ?>">
+                  <label for="<?php echo $e->id; ?>-extension-checkbox"><?php echo $n ?></label>
+                </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <?php endif; ?>
 
         <div class="accordion-head">
           Network

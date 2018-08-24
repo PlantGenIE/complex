@@ -1,11 +1,12 @@
 {
+    "id": "example",
     "name": "Example extension",
     "description": "An example extension for Complex with random genes",
     "class_name": "Example_Extension",
     "edge_style": null,
     "gene_style": {
-        "Example": {
-            "color": "red"
+        "example": {
+            "background-color": "red"
         }
     }
 }
