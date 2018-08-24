@@ -79,11 +79,11 @@ class Extension_Collection implements Iterator {
   /**
    * Extension_Collection constructor
    *
-   * @param   string  $dir  directory where the extensions are located
    */
-  public function __construct($dir) {
+  public function __construct() {
+    global $config;
     $this->position = 0;
-    $extension_files = $this->get_extensions($dir);
+    $extension_files = $this->get_extensions($config['extension_dir']);
     foreach ($extension_files as $ext) {
       $this->extensions[] = Extension::from_json($ext['json'], $ext['php']);
     }

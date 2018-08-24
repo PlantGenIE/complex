@@ -19,6 +19,8 @@ $config["ignore_extensions"] = array(
   "example"
 );
 
+$config["extension_dir"] = dirname(__FILE__).'/extensions';
+
 require_once("local_config.php");
 
 ?>
