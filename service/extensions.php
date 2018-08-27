@@ -30,8 +30,13 @@ abstract class Extension {
       null : array_keys(get_object_vars($extension_config->gene_style));
     $this->edge_table_names = is_null($extension_config->edge_style) ?
       null : array_keys(get_object_vars($extension_config->edge_style));
-    $this->gene_style = (array)$extension_config->gene_style;
-    $this->edge_style = (array)$extension_config->edge_style;
+
+    foreach ((array)$extension_config->gene_style as $subext => $style) {
+      $this->gene_style[$subext] = (array)$style;
+    }
+    foreach ((array)$extension_config->edge_style as $subext => $style) {
+      $this->edge_style[$subext] = (array)$style;
+    }
   }
 
   /**
