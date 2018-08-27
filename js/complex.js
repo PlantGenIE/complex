@@ -178,19 +178,16 @@ function highlightGenes(data, extension) {
       })) !== -1;
     });
 
-    eles.addClass(`${extension}-highlight`);
+    eles.addClass(`${subext}-highlight`);
     eles.style(data[subext].style);
   }
 }
 
 function removeExtension(data, extension) {
-  var styleAttributes = [];
   for (var subext in data) {
-    styleAttributes = [...styleAttributes, ...Object.keys(data[subext].style)];
+    view1.cy.nodes(`.${subext}-highlight`).removeStyle(Object.keys(data[subext].style).join(','));
+    view1.cy.nodes(`.${subext}-highlight`).removeClass(`${subext}-highlight`);
   }
-  var uniqueStyleAttributes = [...new Set(styleAttributes)];
-  view1.cy.nodes(`.${extension}-highlight`).removeStyle(uniqueStyleAttributes.join(','));
-  view1.cy.nodes(`.${extension}-highlight`).removeClass(`${extension}-highlight`);
 }
 
 function toggleExtension(e) {
