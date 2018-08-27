@@ -109,6 +109,7 @@ function align() {
     dataType: 'json',
     success: function(data, textStatus) {
       view1.set_data(data, getActiveNetwork(), getSelectedNetworks());
+      updateExtensions();
     },
     error: function(jqXHR) {
       console.error(jqXHR.responseJSON.error);
@@ -182,10 +183,30 @@ function highlightGenes(data, extension) {
   }
 }
 
+function removeExtension(data, extension) {
+  var styleAttributes = [];
+  for (var subext in data) {
+    styleAttributes = [...styleAttributes, ...Object.keys(data[subext].style)];
+  }
+  var uniqueStyleAttributes = [...new Set(styleAttributes)];
+  view1.cy.nodes(`.${extension}-highlight`).removeStyle(uniqueStyleAttributes.join(','));
+  view1.cy.nodes(`.${extension}-highlight`).removeClass(`${extension}-highlight`);
+}
+
 function toggleExtension(e) {
   if (e.target.checked) {
     getExtensionGenes(e.target.dataset.extensionId, highlightGenes);
+  } else {
+    getExtensionGenes(e.target.dataset.extensionId, removeExtension);
   }
+}
+
+function updateExtensions() {
+  $('.extension-checkbox').each(function(i, x) {
+    if (x.checked) {
+      getExtensionGenes(x.dataset.extensionId, highlightGenes);
+    }
+  });
 }
 
 window.onload = init(function(d) {
