@@ -155,14 +155,14 @@ class Extension_Collection implements Iterator {
       return preg_match('/\.json$/', $x);
     });
 
-    $extension_names = array_diff(array_filter(
+    $extension_names = array_intersect(array_filter(
       array_unique(
         array_map(function($x) {
           return preg_replace('/\.[^.\s]+$/', '', $x);
         }, $json_files)
       ), function($x) {
         return preg_match('/^[^\.]/', $x);
-      }), $config["ignore_extensions"]);
+      }), $config["active_extensions"]);
 
     $extension_array = array();
     foreach ($extension_names as $x) {

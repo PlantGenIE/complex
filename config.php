@@ -15,9 +15,7 @@ $config["db"]["port"] = 3306;
  * matches with any of the strings in this array
  * the extension will be ignored.
  */
-$config["ignore_extensions"] = array(
-  "example"
-);
+$config["active_extensions"] = array();
 
 $config["extension_dir"] = dirname(__FILE__).'/extensions';
 
