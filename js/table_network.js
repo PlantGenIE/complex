@@ -70,12 +70,25 @@ function TableNetwork(active_table_element,
       }, {
         selector: 'node',
         style: {
-          content: 'data(label)'
+          content: 'data(label)',
+          'border-width': '2px',
+          'border-color': '#333333',
+          'background-color': '#C5F9FF'
+        }
+      }, {
+        selector: 'node:selected',
+        style: {
+          'border-width': '6px',
+          'border-color': 'red',
+          'border-opacity': 0.5,
+          'background-color': '#C5F9FF'
         }
       }, {
         selector: 'node.network',
         style: {
-          'font-size': '3em'
+          'border-width': 0,
+          'font-size': '3em',
+          'background-color': '#EEEEEE'
         }
       }, {
         selector: 'edge.orthology',
