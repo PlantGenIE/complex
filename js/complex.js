@@ -171,22 +171,71 @@ function getExtensionGenes(extension, callback) {
 }
 
 function highlightGenes(data, extension) {
-  for (var subext in data) {
-    var eles = view1.cy.nodes().filter(function(x) {
+  for (let subext in data) {
+    let eles = view1.cy.nodes().filter(function(x) {
       return $.inArray(x.id(), data[subext].genes.map(function(x) {
         return x.toString()
       })) !== -1;
     });
 
     eles.addClass(`${subext}-highlight`);
-    eles.style(data[subext].style);
+
+    eles.each(function(x) {
+      for (let attr in data[subext].style) {
+        if (attr === 'background-color') {
+          x.addClass('pie-node');
+          if (!x.data(attr)) {
+            x.data(attr, [data[subext].style[attr]]);
+          } else {
+            x.data(attr).push(data[subext].style[attr]);
+          }
+        } else {
+          x.data(attr, data[subext].style[attr]);
+          x.style(attr, data[subext].style[attr]);
+        }
+      }
+    });
   }
+
+  var pieNodes = view1.cy.nodes('.pie-node');
+  pieNodes.each(function(x) {
+    let n = x.data('background-color').length;
+    for (let i = 1; i < n + 1; ++i) {
+      x.style('pie-size', '100%');
+      x.style(`pie-${i}-background-color`, x.data('background-color')[i - 1]);
+      x.style(`pie-${i}-background-size`, 100.0 / n);
+    }
+  });
 }
 
 function removeExtension(data, extension) {
   for (var subext in data) {
-    view1.cy.nodes(`.${subext}-highlight`).removeStyle(Object.keys(data[subext].style).join(','));
-    view1.cy.nodes(`.${subext}-highlight`).removeClass(`${subext}-highlight`);
+    var eles = view1.cy.nodes(`.${subext}-highlight`);
+    eles.removeStyle(Object.keys(data[subext].style).join(','));
+    eles.removeClass(`${subext}-highlight`);
+
+    eles.each(function(x) {
+      for (let attr in data[subext].style) {
+        if (attr === 'background-color') {
+          let styling = x.data(attr);
+          styling.splice(styling.indexOf(data[subext].style[attr]), 1);
+          x.data(attr, styling);
+          let n = styling.length;
+
+          if (n === 0) {
+            x.style('pie-size', 0);
+            x.removeClass('pie-node');
+          } else {
+            for (let i = 0; i < n; ++i) {
+              x.style(`pie-${i + 1}-background-color`, styling[i]);
+              x.style(`pie-${i + 1}-background-size`, 100.0 / n);
+            }
+          }
+        } else {
+          x.removeData(attr);
+        }
+      }
+    });
   }
 }
 

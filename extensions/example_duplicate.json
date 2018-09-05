@@ -1,0 +1,15 @@
+{
+    "id": "example_duplicate",
+    "name": "Example: duplicates",
+    "description": "Example extension where nodes have more than one style for an attribute",
+    "class_name": "Example_Duplicate_Extension",
+    "edge_style": {},
+    "gene_style": {
+        "example-up": {
+            "background-color": "yellow"
+        },
+        "example-down": {
+            "background-color": "blue"
+        }
+    }
+}
