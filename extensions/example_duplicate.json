@@ -17,10 +17,10 @@
     "edge_style": {},
     "gene_style": {
         "example-up": {
-            "background-color": "yellow"
+            "background-color": "#FEBF25"
         },
         "example-down": {
-            "background-color": "blue"
+            "background-color": "#619CFF"
         }
     }
 }

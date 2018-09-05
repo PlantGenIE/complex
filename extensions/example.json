@@ -13,7 +13,7 @@
     "edge_style": null,
     "gene_style": {
         "example": {
-            "background-color": "red"
+            "background-color": "#FC7FFC"
         }
     }
 }
