@@ -177,6 +177,39 @@ height: 37px;
     width: 100%;
 }
 
+.extension-control {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.extension-control .extension {
+    background-color: #EEF7FF;
+    margin: 5px;
+    padding: 5px;
+    max-width: 300px;
+}
+
+.extension-legend {
+    display: flex;
+    flex-direction: column;
+}
+
+.extension-legend-item {
+    margin-left: 1em;
+}
+
+.node-background-legend {
+    position: relative;
+    top: 0.1em;
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+
 .accordion{
 	width: 100%;
 	/*margin: 4x 0px 6px 0px;*/

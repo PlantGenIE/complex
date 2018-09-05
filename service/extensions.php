@@ -12,6 +12,8 @@ require_once(dirname(__FILE__).'/../db.php');
 abstract class Extension {
 
   public $name;
+  public $id;
+  public $subextensions;
   private $gene_table_names;
   private $edge_table_names;
   private $gene_style;
@@ -26,10 +28,13 @@ abstract class Extension {
   public function __construct($extension_config) {
     $this->id = $extension_config->id;
     $this->name = $extension_config->name;
+    $this->description = $extension_config->description;
     $this->gene_table_names = is_null($extension_config->gene_style) ?
       null : array_keys(get_object_vars($extension_config->gene_style));
     $this->edge_table_names = is_null($extension_config->edge_style) ?
       null : array_keys(get_object_vars($extension_config->edge_style));
+
+    $this->subextensions = (array)$extension_config->subextensions;
 
     foreach ((array)$extension_config->gene_style as $subext => $style) {
       $this->gene_style[$subext] = (array)$style;

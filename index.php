@@ -64,18 +64,27 @@ $ext = new Extension_Collection();
         </div>
         <div class="accordion-content">
           <div class="extension-control">
-            <div id="extension-list">
-              <ul>
-                <?php foreach ($ext as $n=>$e): ?>
-                <li>
-                  <input class="extension-checkbox" type="checkbox" id="<?php echo $e->id; ?>-extension-checkbox"
-                    data-extension-name="<?php echo $n; ?>"
-                    data-extension-id="<?php echo $e->id; ?>">
-                  <label for="<?php echo $e->id; ?>-extension-checkbox"><?php echo $n ?></label>
-                </li>
-                <?php endforeach; ?>
-              </ul>
+          <?php foreach ($ext as $n=>$e): ?>
+            <div class="extension">
+              <input class="extension-checkbox" type="checkbox" id="<?php echo $e->id; ?>-extension-checkbox"
+                data-extension-name="<?php echo $n; ?>"
+                data-extension-id="<?php echo $e->id; ?>">
+              <label for="<?php echo $e->id; ?>-extension-checkbox"><?php echo $n ?></label>
+              <p><?php echo $e->description; ?>
+              <div class="extension-legend">
+              <strong>Legend:</strong>
+              <?php $gene_style = $e->get_gene_style(); ?>
+              <?php foreach ($e->subextensions as $x): ?>
+                <div class="extension-legend-item">
+                  <div class="node-background-legend"
+                       style="background-color: <?php echo $gene_style[$x->id]['background-color']; ?>;">
+                  </div>
+                  <abbr title="<?php echo $x->description; ?>"><?php echo $x->name; ?></abbr>
+                </div>
+              <?php endforeach; ?>
+              </div>
             </div>
+          <?php endforeach; ?>
           </div>
         </div>
         <?php endif; ?>
