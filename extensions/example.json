@@ -2,7 +2,6 @@
     "id": "example",
     "name": "Example extension",
     "description": "An example extension for Complex with random genes",
-    "class_name": "Example_Extension",
     "subextensions": [
         {
             "id": "example",

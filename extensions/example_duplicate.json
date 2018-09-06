@@ -2,7 +2,6 @@
     "id": "example_duplicate",
     "name": "Example: duplicates",
     "description": "Example extension where nodes have more than one style for an attribute",
-    "class_name": "Example_Duplicate_Extension",
     "subextensions": [
         {
             "id": "example-up",

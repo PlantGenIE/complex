@@ -6,10 +6,8 @@ require_once(dirname(__FILE__).'/../db.php');
 /**
  * Extension for Complex
  *
- * Superclass for an extension for Complex. Any extension
- * should inherit from this class.
  */
-abstract class Extension {
+class Extension {
 
   public $name;
   public $id;
@@ -49,23 +47,19 @@ abstract class Extension {
    *
    * @param     string  $json   filename of the JSON file defining
    *                            the extension
-   * @param     string  $php    filename of the PHP file with the
-   *                            implementation of the extension
    * @return    object  instance of the extension
    */
-  public static function from_json($json, $php) {
+  public static function from_json($json) {
     $json_content = json_decode(file_get_contents($json));
     if (!$json_content) {
       trigger_error("failed to parse json file: ${json}", E_USER_ERROR);
     }
-    require_once($php);
-    return new $json_content->{'class_name'}($json_content);
+    return new Extension($json_content);
   }
 
   public static function from_id($extension_id) {
     global $config;
-    return Extension::from_json($config['extension_dir'].'/'.$extension_id.'.json',
-                                $config['extension_dir'].'/'.$extension_id.'.php');
+    return Extension::from_json($config['extension_dir'].'/'.$extension_id.'.json');
   }
 
   public function get_genes() {
@@ -113,8 +107,8 @@ class Extension_Collection implements Iterator {
     global $config;
     $this->position = 0;
     $extension_files = $this->get_extensions($config['extension_dir']);
-    foreach ($extension_files as $ext) {
-      $this->extensions[] = Extension::from_json($ext['json'], $ext['php']);
+    foreach ($extension_files as $extjson) {
+      $this->extensions[] = Extension::from_json($extjson);
     }
   }
 
@@ -149,8 +143,7 @@ class Extension_Collection implements Iterator {
    * and check that both the yaml and the php files exist.
    *
    * @param     string  $dir  directory where the extensions are located
-   * @return    array   array of JSON and PHP file names for
-   *                    each extension
+   * @return    array   array of JSON file names for the extensions
    */
   private function get_extensions($dir) {
     global $config;
@@ -169,19 +162,9 @@ class Extension_Collection implements Iterator {
         return preg_match('/^[^\.]/', $x);
       }), $config["active_extensions"]);
 
-    $extension_array = array();
-    foreach ($extension_names as $x) {
-      $extension_array[$x] = array(
-        'json' => $dir.'/'.$x.'.json',
-        'php' => $dir.'/'.$x.'.php'
-      );
-    }
-
-    foreach ($extension_array as $ext=>$ext_files) {
-      if (!file_exists($ext_files['php'])) {
-        trigger_error("invalid extension '${dir}/${ext}': php file missing", E_USER_ERROR);
-      }
-    }
+    $extension_array = array_map(function($x) use (&$dir) {
+      return $dir.'/'.$x.'.json';
+    }, $extension_names);
 
     return $extension_array;
   }
