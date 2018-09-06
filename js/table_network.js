@@ -63,11 +63,6 @@ function TableNetwork(active_table_element,
     container: $(network_element),
     style: [
       {
-        selector: 'node.active',
-        style: {
-          'background-color': '#eafff5'
-        }
-      }, {
         selector: 'node',
         style: {
           content: 'data(label)',
@@ -86,9 +81,15 @@ function TableNetwork(active_table_element,
       }, {
         selector: 'node.network',
         style: {
-          'border-width': 0,
+          'border-width': '2px',
+          'border-color': '#777777',
           'font-size': '3em',
           'background-color': '#EEEEEE'
+        }
+      }, {
+        selector: 'node.network.active',
+        style: {
+          'background-color': '#EAFFF5'
         }
       }, {
         selector: 'edge.orthology',
