@@ -9,11 +9,11 @@ $config["db"]["database"] = null;
 $config["db"]["port"] = 3306;
 
 /**
- * Ignore extensions
+ * Active extensions
  *
  * If the base name of an extension JSON file
  * matches with any of the strings in this array
- * the extension will be ignored.
+ * the extension will be active.
  */
 $config["active_extensions"] = array();
 
