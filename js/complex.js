@@ -190,8 +190,7 @@ function highlightGenes(data, extension) {
             x.data(attr).push(data[subext].style[attr]);
           }
         } else {
-          x.data(attr, data[subext].style[attr]);
-          x.style(attr, data[subext].style[attr]);
+          console.error(`warning: ${attr} not supported yet`);
         }
       }
     });
@@ -211,7 +210,6 @@ function highlightGenes(data, extension) {
 function removeExtension(data, extension) {
   for (var subext in data) {
     var eles = view1.cy.nodes(`.${subext}-highlight`);
-    eles.removeStyle(Object.keys(data[subext].style).join(','));
     eles.removeClass(`${subext}-highlight`);
 
     eles.each(function(x) {
@@ -232,7 +230,7 @@ function removeExtension(data, extension) {
             }
           }
         } else {
-          x.removeData(attr);
+          console.error(`warning: ${attr} not supported yet`);
         }
       }
     });
