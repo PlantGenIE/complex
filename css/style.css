@@ -177,6 +177,37 @@ height: 37px;
     width: 100%;
 }
 
+.extension-control {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.extension-control .extension {
+    background-color: #EEF7FF;
+    margin: 5px;
+    padding: 5px;
+    max-width: 300px;
+}
+
+.extension-legend {
+    display: flex;
+    flex-direction: column;
+}
+
+.extension-legend .edge {
+    line-type: solid;
+    width: 2px;
+    stroke: #878787;
+    stroke-width: 2px;
+}
+
+.extension-legend .node {
+    fill: #BAF8FF;
+    stroke: #262626;
+}
+
 .accordion{
 	width: 100%;
 	/*margin: 4x 0px 6px 0px;*/

@@ -1,0 +1,18 @@
+{
+    "id": "example",
+    "name": "Example extension",
+    "description": "An example extension for Complex with random genes",
+    "subextensions": [
+        {
+            "id": "example",
+            "name": "Example",
+            "description": "Example gene"
+        }
+    ],
+    "edge_style": null,
+    "gene_style": {
+        "example": {
+            "background-color": "#FC7FFC"
+        }
+    }
+}

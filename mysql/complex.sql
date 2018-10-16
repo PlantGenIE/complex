@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
--- Host: localhost    Database: complex
+-- Host: localhost    Database: complex_beta
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.23-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,8 +31,41 @@ CREATE TABLE `conservation` (
   `pvalue` float DEFAULT NULL,
   `th1` decimal(10,10) NOT NULL,
   `th2` decimal(10,10) NOT NULL,
-  PRIMARY KEY (`gene_id1`,`gene_id2`, `network_id1`, `network_id2`),
+  PRIMARY KEY (`gene_id1`,`gene_id2`,`network_id1`,`network_id2`),
   UNIQUE KEY `gene_id1` (`gene_id1`,`gene_id2`,`network_id1`,`network_id2`,`type`,`th1`,`th2`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `edge_extension`
+--
+
+DROP TABLE IF EXISTS `edge_extension`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `edge_extension` (
+  `gene_id1` int(11) unsigned NOT NULL,
+  `gene_id2` int(11) unsigned NOT NULL,
+  `network_id1` int(11) unsigned NOT NULL,
+  `network_id2` int(11) unsigned NOT NULL,
+  `extension_name` varchar(100) NOT NULL DEFAULT '',
+  `score` double DEFAULT NULL,
+  PRIMARY KEY (`gene_id1`,`gene_id2`,`network_id1`,`network_id2`,`extension_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `extension`
+--
+
+DROP TABLE IF EXISTS `extension`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `extension` (
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `description` text,
+  `score_definition` text,
+  PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,7 +82,22 @@ CREATE TABLE `gene` (
   `species_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
-  KEY (`species_id`)
+  KEY `species_id` (`species_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `gene_extension`
+--
+
+DROP TABLE IF EXISTS `gene_extension`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gene_extension` (
+  `gene_id` int(11) unsigned NOT NULL,
+  `extension_name` varchar(100) NOT NULL DEFAULT '',
+  `score` double DEFAULT NULL,
+  PRIMARY KEY (`gene_id`,`extension_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,10 +130,10 @@ CREATE TABLE `network_score` (
   `network_id` int(11) unsigned NOT NULL,
   `score` float NOT NULL,
   PRIMARY KEY (`gene_id1`,`gene_id2`),
-  KEY (`gene_id1`),
-  KEY (`gene_id2`),
-  KEY (`network_id`),
-  KEY (`score`)
+  KEY `gene_id1` (`gene_id1`),
+  KEY `gene_id2` (`gene_id2`),
+  KEY `network_id` (`network_id`),
+  KEY `score` (`score`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,4 +180,4 @@ CREATE TABLE `species` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-15 14:10:46
+-- Dump completed on 2018-09-07 15:42:59

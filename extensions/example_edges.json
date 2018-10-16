@@ -1,0 +1,24 @@
+{
+    "id": "example_edges",
+    "name": "Example: edges",
+    "description": "Example extension that deals with both nodes and edges",
+    "subextensions": [
+        {
+            "id": "example-edges",
+            "name": "Example edge",
+            "description": "Just and example"
+        }
+    ],
+    "edge_style": {
+        "example-edges": {
+            "line-color": "#FF0000",
+            "line-style": "dashed",
+            "width": "10px"
+        }
+    },
+    "gene_style": {
+        "example-edges": {
+            "background-color": "#00FF00"
+        }
+    }
+}
