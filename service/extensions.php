@@ -80,6 +80,29 @@ class Extension {
     return $genes;
   }
 
+  public function get_edges() {
+    global $db;
+    $edges = array();
+    foreach ($this->edge_table_names as $edge_ext) {
+      $query = "SELECT
+          gene_id1,
+          gene_id2,
+          network_id1,
+          network_id2
+        FROM edge_extension
+        WHERE extension_name = :ext";
+
+      $stmt = $db->prepare($query);
+      $stmt->bindParam(':ext', $edge_ext);
+      $stmt->execute();
+      $edges[$edge_ext] = array();
+      while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $edges[$edge_ext][] = array_map('intval', $row);
+      }
+    }
+    return $edges;
+  }
+
   public function get_gene_style() {
     return $this->gene_style;
   }

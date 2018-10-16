@@ -1,0 +1,18 @@
+{
+    "id": "example_only_edges",
+    "name": "Example: only edges",
+    "description": "Example extension that deals only with edges",
+    "subextensions": [
+        {
+            "id": "example-only-edges",
+            "name": "Example edge",
+            "description": "Just and example"
+        }
+    ],
+    "edge_style": {
+        "example-only-edges": {
+            "line-color": "#FB0DDA"
+        }
+    },
+    "gene_style": null
+}

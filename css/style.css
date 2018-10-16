@@ -196,18 +196,16 @@ height: 37px;
     flex-direction: column;
 }
 
-.extension-legend-item {
-    margin-left: 1em;
+.extension-legend .edge {
+    line-type: solid;
+    width: 2px;
+    stroke: #878787;
+    stroke-width: 2px;
 }
 
-.node-background-legend {
-    position: relative;
-    top: 0.1em;
-    display: inline-block;
-    width: 0.8em;
-    height: 0.8em;
-    border: 1px solid black;
-    border-radius: 0.5em;
+.extension-legend .node {
+    fill: #BAF8FF;
+    stroke: #262626;
 }
 
 .accordion{

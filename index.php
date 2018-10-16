@@ -73,12 +73,16 @@ $ext = new Extension_Collection();
               <p><?php echo $e->description; ?>
               <div class="extension-legend">
               <strong>Legend:</strong>
-              <?php $gene_style = $e->get_gene_style(); ?>
+              <?php
+              $gene_style = $e->get_gene_style();
+              $edge_style = $e->get_edge_style();
+              ?>
               <?php foreach ($e->subextensions as $x): ?>
                 <div class="extension-legend-item">
-                  <div class="node-background-legend"
-                       style="background-color: <?php echo $gene_style[$x->id]['background-color']; ?>;">
-                  </div>
+                  <svg width="40px" height="20px" xmlns="http://www.w3.org/2000/svg">
+                  <line class="edge" x1="0" y1="10" x2="30" y2="10" style="<?php echo !is_null($edge_style[$x->id]['line-color']) ? 'stroke: '.$edge_style[$x->id]['line-color'].';' : ''; ?><?php echo !is_null($edge_style[$x->id]['width']) ? 'stroke-width: '.$edge_style[$x->id]['width'].';' : '' ?><?php echo $edge_style[$x->id]['line-style'] === 'dashed' ? 'stroke-dasharray: 5,3;' : ''; ?>" />
+                  <circle class="node" cx="30" cy="10" r="9" style="<?php echo !is_null($gene_style[$x->id]['background-color']) ? 'fill: '.$gene_style[$x->id]['background-color'].';' : ''; ?>" />
+                  </svg>
                   <abbr title="<?php echo $x->description; ?>"><?php echo $x->name; ?></abbr>
                 </div>
               <?php endforeach; ?>

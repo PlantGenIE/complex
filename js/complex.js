@@ -170,6 +170,27 @@ function getExtensionGenes(extension, callback) {
   });
 }
 
+function getExtensionEdges(extension, callback) {
+  $.ajax({
+    url: 'service/extension_controller.php',
+    dataType: 'json',
+    data: {
+      method: 'getEdges',
+      extension: extension
+    },
+    error: function(jqXHR, textStatus) {
+      if (jqXHR.responseJSON) {
+        console.error(jqXHR.responseJSON.error);
+      } else {
+        console.error(textStatus);
+      }
+    },
+    success: function(data) {
+      callback(data, extension);
+    }
+  })
+}
+
 function highlightGenes(data, extension) {
   for (let subext in data) {
     let eles = view1.cy.nodes().filter(function(x) {
@@ -237,11 +258,53 @@ function removeExtension(data, extension) {
   }
 }
 
+function addExtensionEdges(data, extension) {
+  var edge_data = [];
+  for (let subext in data) {
+    for (let i in data[subext]['edges']) {
+      let e = data[subext]['edges'][i];
+      if (view1.cy.nodes(`[id='${e[0]}']`).length === 0 ||
+          view1.cy.nodes(`[id='${e[1]}']`).length === 0) {
+        continue;
+      }
+      edge_data.push({
+        group: 'edges',
+        classes: subext,
+        data: {
+          id: `${subext}-${e[0]}-${e[1]}`,
+          source: `${e[0]}`,
+          target: `${e[1]}`
+        }
+      });
+    }
+  }
+
+  view1.cy.add(edge_data);
+
+  for (let subext in data) {
+    for (let attr in data[subext]['style']) {
+      if (attr === 'line-color' ||
+          attr === 'line-style' ||
+          attr === 'width') {
+        view1.cy.elements(`.${subext}`).style(attr, data[subext].style[attr]);
+      }
+    }
+  }
+}
+
+function removeExtensionEdges(data, extension) {
+  for (let subext in data) {
+    view1.cy.elements(`.${subext}`).remove();
+  }
+}
+
 function toggleExtension(e) {
   if (e.target.checked) {
     getExtensionGenes(e.target.dataset.extensionId, highlightGenes);
+    getExtensionEdges(e.target.dataset.extensionId, addExtensionEdges);
   } else {
     getExtensionGenes(e.target.dataset.extensionId, removeExtension);
+    getExtensionEdges(e.target.dataset.extensionId, removeExtensionEdges);
   }
 }
 
@@ -249,6 +312,7 @@ function updateExtensions() {
   $('.extension-checkbox').each(function(i, x) {
     if (x.checked) {
       getExtensionGenes(x.dataset.extensionId, highlightGenes);
+      getExtensionEdges(x.dataset.extensionId, addExtensionEdges);
     }
   });
 }
