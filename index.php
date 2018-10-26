@@ -43,8 +43,10 @@ $ext = new Extension_Collection();
           <div class="network-input">
             <label for="sink1">Genes</label>
             <textarea name="sp1genes" rows="6" id="sink1"></textarea>
-            <label for="network-buttons">Networks</label>
+            <label for="network-buttons">Available networks</label>
             <div id="network-buttons" class="network-button-container"></div>
+            <label for="selected-network-buttons">Selected networks</label>
+            <div id="selected-network-buttons" class="network-button-container"></div>
             <button id="load-example-button" class="btn btn-4">Load Example</button>
           </div>
 

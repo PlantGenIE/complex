@@ -21,46 +21,99 @@ complexmessage.options = {
   hideMethod: "fadeOut"
 };
 
-function populateNetworkSelect(data, element) {
-  $(data).each(function(i, val) {
-    var $div = $(`<div/>`, {
-      class: 'network-select',
-      'data-species': val.shortname,
-      'data-network': val.id,
-      id: `network${val.id}-select`,
-      on: {
-        click: function(event) {
-          $(this).toggleClass('selected');
-          
-          // Currently we don't support same species network comparison
-          $(`.network-select[data-species = ${this.dataset.species}].selected`)
-            .not(`#${this.id}`)
-            .removeClass('selected');
-          
-          // If this is the first to be selected, then also set it to active
-          if ($('.network-select.selected').length === 1 & $(this).hasClass('selected')) {
-            $(this).children('.network-radio').prop('checked', true).change();
-          }
-          
-          // If it is active, don't allow it to be deselected
-          if ($(this).hasClass('active') & !$(this).hasClass('selected')) {
-            $(this).addClass('selected');
-          }
-        }
+function populateNetworkSelect(data, element, targetElement) {
+  var container = document.querySelector(element);
+  var targetContainer = document.querySelector(targetElement);
+
+  [].forEach.call(data, function(val) {
+    var token = document.createElement('div');
+    token.setAttribute('data-species', val.shortname);
+    token.setAttribute('data-network', val.id);
+    token.setAttribute('draggable', true);
+    token.classList.add('network-token');
+    token.id = `network${val.id}-token`;
+    token.appendChild(document.createTextNode(val.name));
+
+    token.addEventListener('dragstart', function(e) {
+      this.style.opacity = '0.4';
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', this.id);
+    }, false);
+
+    token.addEventListener('dragend', function() {
+      targetContainer.classList.remove('token-over');
+      this.style.opacity = '1.0';
+    }, false);
+
+    token.addEventListener('dragover', function(e) {
+      if (e.preventDefault) {
+        e.preventDefault();
       }
-    });
-    $div.append(`<input class="network-radio" type="radio" name="network-radio">`);
-    $div.append(`<label>${val.name}</label>`);
-    $(element).append($div);
+      e.dataTransfer.dropEffect = 'move';
+    }, false);
+
+    token.addEventListener('drop', function(e) {
+      if (e.stopPropagation) {
+        e.stopPropagation();
+      }
+      var token = document.getElementById(e.dataTransfer.getData('text'));
+      if (token.parentNode == this.parentNode && this != token) {
+        // Got this from https://stackoverflow.com/a/11974430/885443
+        var insertionPoint, elem = this;
+
+        do {
+          elem = elem.nextSibling;
+        } while (elem && elem !== token);
+
+        insertionPoint = elem ? this : this.nextSibling;
+        this.parentNode.insertBefore(token, insertionPoint);
+      } else {
+        token.classList.add('selected');
+        this.parentNode.appendChild(token);
+      }
+      return false;
+    }, false);
+
+    container.append(token);
   });
 
-  $('.network-radio').on('change', function() {
-    if (!$(this).parent('.network-select').hasClass('selected')) {
-      $(this).parent('.network-select').addClass('selected');
+  targetContainer.addEventListener('dragover', function(e) {
+    if (e.preventDefault) {
+      e.preventDefault();
     }
-    $('.network-select.active').removeClass('active');
-    $(this).parent('.network-select').addClass('active');
-  });
+    e.dataTransfer.dropEffect = 'move';
+  }, false);
+
+  container.addEventListener('dragover', function(e) {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    e.dataTransfer.dropEffect = 'move';
+  }, false);
+
+  targetContainer.addEventListener('drop', function(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    }
+    var token = document.getElementById(e.dataTransfer.getData('text'));
+    if (token.parentNode != this) {
+      token.classList.add('selected');
+    }
+    this.appendChild(token);
+    return false;
+  }, false);
+
+  container.addEventListener('drop', function(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    }
+    var token = document.getElementById(e.dataTransfer.getData('text'));
+    if (token.parentNode != this) {
+      token.classList.remove('selected');
+    }
+    this.appendChild(token);
+    return false;
+  }, false);
 }
 
 /*
@@ -327,7 +380,7 @@ window.onload = init(function(d) {
     return false;
   });
 
-  populateNetworkSelect(d, '#network-buttons');
+  populateNetworkSelect(d, '#network-buttons', '#selected-network-buttons');
 
   $('.extension-checkbox').change(toggleExtension);
 
