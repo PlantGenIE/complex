@@ -121,10 +121,6 @@ height: 37px;
     justify-content: space-between;
 }
 
-.network-input select {
-    font-size: 1.5em;
-}
-
 .network-button-container {
     display: flex;
     flex-wrap: wrap;
