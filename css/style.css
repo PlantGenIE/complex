@@ -138,7 +138,8 @@ height: 37px;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     margin: 1em 1ex 0 1ex;
-    padding: 10px;
+	padding: 10px;
+	user-select: none;
 }
 
 .network-button-container .network-token.inactive {
@@ -146,7 +147,7 @@ height: 37px;
 }
 
 .network-button-container .network-token.selected:first-child {
-    border: 1px solid green;
+	background-color: #EAFFF5;
 }
 
 .network-control {
