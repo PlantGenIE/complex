@@ -35,14 +35,14 @@ function populateNetworkSelect(data, element, targetElement) {
     token.appendChild(document.createTextNode(val.name));
 
     token.addEventListener('dragstart', function(e) {
-      this.style.opacity = '0.4';
+      this.classList.add('inactive');
       e.dataTransfer.effectAllowed = 'move';
       e.dataTransfer.setData('text/plain', this.id);
     }, false);
 
     token.addEventListener('dragend', function() {
       targetContainer.classList.remove('token-over');
-      this.style.opacity = '1.0';
+      this.classList.remove('inactive');
     }, false);
 
     token.addEventListener('dragover', function(e) {
@@ -77,6 +77,18 @@ function populateNetworkSelect(data, element, targetElement) {
     container.append(token);
   });
 
+  getSelectedSpecies = function() {
+    var tokens = document.querySelectorAll('.network-token.selected');
+    var selectedSpecies = []
+    for (let i = 0; i < tokens.length; ++i) {
+      let s = tokens[i].getAttribute('data-species');
+      if (selectedSpecies.indexOf(s) === -1) {
+        selectedSpecies.push(s);
+      }
+    }
+    return selectedSpecies;
+  }
+
   targetContainer.addEventListener('dragover', function(e) {
     if (e.preventDefault) {
       e.preventDefault();
@@ -96,10 +108,20 @@ function populateNetworkSelect(data, element, targetElement) {
       e.stopPropagation();
     }
     var token = document.getElementById(e.dataTransfer.getData('text'));
-    if (token.parentNode != this) {
+    var tokenSpecies = token.getAttribute('data-species');
+    if (token.parentNode != this && getSelectedSpecies().indexOf(tokenSpecies) === -1) {
       token.classList.add('selected');
+      var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
+      [].forEach.call(unselectedTokens, function(st) {
+        if (st.getAttribute('data-species') === tokenSpecies) {
+          st.draggable = false;
+          st.classList.add('inactive');
+        }
+      });
+      this.appendChild(token);
+    } else if (token.parentNode == this) {
+      this.appendChild(token);
     }
-    this.appendChild(token);
     return false;
   }, false);
 
@@ -108,8 +130,16 @@ function populateNetworkSelect(data, element, targetElement) {
       e.stopPropagation();
     }
     var token = document.getElementById(e.dataTransfer.getData('text'));
+    var tokenSpecies = token.getAttribute('data-species');
     if (token.parentNode != this) {
       token.classList.remove('selected');
+      var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
+      [].forEach.call(unselectedTokens, function(st) {
+        if (st.getAttribute('data-species') === tokenSpecies) {
+          st.draggable = true;
+          st.classList.remove('inactive');
+        }
+      });
     }
     this.appendChild(token);
     return false;

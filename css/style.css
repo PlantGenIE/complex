@@ -145,6 +145,10 @@ height: 37px;
     padding: 10px;
 }
 
+.network-button-container .network-token.inactive {
+	opacity: 0.4;
+}
+
 .network-button-container .network-token.selected:first-child {
     border: 1px solid green;
 }
