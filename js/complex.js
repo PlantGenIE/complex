@@ -21,9 +21,91 @@ complexmessage.options = {
   hideMethod: "fadeOut"
 };
 
+/**
+ * Populate the network selection tool.
+ * 
+ * @param {array} data - Network data.
+ * @param {string} element - ID of element where the buttons should go.
+ * @param {string} targetElement - ID of element where selected buttons should go.
+ */
 function populateNetworkSelect(data, element, targetElement) {
   var container = document.querySelector(element);
   var targetContainer = document.querySelector(targetElement);
+
+  getSelectedSpecies = function() {
+    var tokens = document.querySelectorAll('.network-token.selected');
+    var selectedSpecies = []
+    for (let i = 0; i < tokens.length; ++i) {
+      let s = tokens[i].getAttribute('data-species');
+      if (selectedSpecies.indexOf(s) === -1) {
+        selectedSpecies.push(s);
+      }
+    }
+    return selectedSpecies;
+  };
+
+  moveToken = function(token, target) {
+    var selecting = target == targetContainer;
+    if (selecting) {
+      token.classList.add('selected');
+    } else {
+      token.classList.remove('selected');
+    }
+    var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
+    var tokenSpecies = token.getAttribute('data-species');
+    [].forEach.call(unselectedTokens, function(t) {
+      if (t.getAttribute('data-species') === tokenSpecies) {
+        if (selecting) {
+          t.draggable = false;
+          t.classList.add('inactive');
+        } else {
+          t.draggable = true;
+          t.classList.remove('inactive');
+        }
+      }
+    });
+    target.appendChild(token);
+  };
+
+  handleDragOver = function(e) {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  handleDrop = function(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    }
+    var token = document.getElementById(e.dataTransfer.getData('text'));
+    var tokenSpecies = token.getAttribute('data-species');
+    if (token.parentNode != this) {
+      moveToken(token, this);
+    }
+    return false;
+  };
+
+  handleTokenDrop = function(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    }
+    var token = document.getElementById(e.dataTransfer.getData('text'));
+    if (token.parentNode == this.parentNode && this != token) {
+      // Got this from https://stackoverflow.com/a/11974430/885443
+      var insertionPoint, elem = this;
+
+      do {
+        elem = elem.nextSibling;
+      } while (elem && elem !== token);
+
+      insertionPoint = elem ? this : this.nextSibling;
+      this.parentNode.insertBefore(token, insertionPoint);
+    } else if (token.parentNode != this.parentNode) {
+      moveToken(token, this.parentNode);
+    }
+    return false;
+  };
 
   [].forEach.call(data, function(val) {
     var token = document.createElement('div');
@@ -45,124 +127,15 @@ function populateNetworkSelect(data, element, targetElement) {
       this.classList.remove('inactive');
     }, false);
 
-    token.addEventListener('dragover', function(e) {
-      if (e.preventDefault) {
-        e.preventDefault();
-      }
-      e.dataTransfer.dropEffect = 'move';
-    }, false);
-
-    token.addEventListener('drop', function(e) {
-      if (e.stopPropagation) {
-        e.stopPropagation();
-      }
-      var token = document.getElementById(e.dataTransfer.getData('text'));
-      if (token.parentNode == this.parentNode && this != token) {
-        // Got this from https://stackoverflow.com/a/11974430/885443
-        var insertionPoint, elem = this;
-
-        do {
-          elem = elem.nextSibling;
-        } while (elem && elem !== token);
-
-        insertionPoint = elem ? this : this.nextSibling;
-        this.parentNode.insertBefore(token, insertionPoint);
-      } else if (this.parentNode == container) {
-        token.classList.remove('selected');
-        var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
-        var tokenSpecies = token.getAttribute('data-species');
-        [].forEach.call(unselectedTokens, function(st) {
-          if (st.getAttribute('data-species') === tokenSpecies) {
-            st.draggable = true;
-            st.classList.remove('inactive');
-          }
-        });
-        this.parentNode.appendChild(token);
-      } else if (this.parentNode == targetContainer) {
-        token.classList.add('selected');
-        var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
-        var tokenSpecies = token.getAttribute('data-species');
-        [].forEach.call(unselectedTokens, function(st) {
-          if (st.getAttribute('data-species') === tokenSpecies) {
-            st.draggable = false;
-            st.classList.add('inactive');
-          }
-        });
-        this.parentNode.appendChild(token);
-      }
-      return false;
-    }, false);
-
+    token.addEventListener('dragover', handleDragOver, false);
+    token.addEventListener('drop', handleTokenDrop, false);
     container.append(token);
   });
 
-  getSelectedSpecies = function() {
-    var tokens = document.querySelectorAll('.network-token.selected');
-    var selectedSpecies = []
-    for (let i = 0; i < tokens.length; ++i) {
-      let s = tokens[i].getAttribute('data-species');
-      if (selectedSpecies.indexOf(s) === -1) {
-        selectedSpecies.push(s);
-      }
-    }
-    return selectedSpecies;
-  }
-
-  targetContainer.addEventListener('dragover', function(e) {
-    if (e.preventDefault) {
-      e.preventDefault();
-    }
-    e.dataTransfer.dropEffect = 'move';
-  }, false);
-
-  container.addEventListener('dragover', function(e) {
-    if (e.preventDefault) {
-      e.preventDefault();
-    }
-    e.dataTransfer.dropEffect = 'move';
-  }, false);
-
-  targetContainer.addEventListener('drop', function(e) {
-    if (e.stopPropagation) {
-      e.stopPropagation();
-    }
-    var token = document.getElementById(e.dataTransfer.getData('text'));
-    var tokenSpecies = token.getAttribute('data-species');
-    if (token.parentNode != this && getSelectedSpecies().indexOf(tokenSpecies) === -1) {
-      token.classList.add('selected');
-      var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
-      [].forEach.call(unselectedTokens, function(st) {
-        if (st.getAttribute('data-species') === tokenSpecies) {
-          st.draggable = false;
-          st.classList.add('inactive');
-        }
-      });
-      this.appendChild(token);
-    } else if (token.parentNode == this) {
-      this.appendChild(token);
-    }
-    return false;
-  }, false);
-
-  container.addEventListener('drop', function(e) {
-    if (e.stopPropagation) {
-      e.stopPropagation();
-    }
-    var token = document.getElementById(e.dataTransfer.getData('text'));
-    var tokenSpecies = token.getAttribute('data-species');
-    if (token.parentNode != this) {
-      token.classList.remove('selected');
-      var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
-      [].forEach.call(unselectedTokens, function(st) {
-        if (st.getAttribute('data-species') === tokenSpecies) {
-          st.draggable = true;
-          st.classList.remove('inactive');
-        }
-      });
-    }
-    this.appendChild(token);
-    return false;
-  }, false);
+  targetContainer.addEventListener('dragover', handleDragOver, false);
+  container.addEventListener('dragover', handleDragOver, false);
+  targetContainer.addEventListener('drop', handleDrop, false);
+  container.addEventListener('drop', handleDrop, false);
 }
 
 /*
