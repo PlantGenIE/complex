@@ -67,8 +67,27 @@ function populateNetworkSelect(data, element, targetElement) {
 
         insertionPoint = elem ? this : this.nextSibling;
         this.parentNode.insertBefore(token, insertionPoint);
-      } else {
+      } else if (this.parentNode == container) {
+        token.classList.remove('selected');
+        var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
+        var tokenSpecies = token.getAttribute('data-species');
+        [].forEach.call(unselectedTokens, function(st) {
+          if (st.getAttribute('data-species') === tokenSpecies) {
+            st.draggable = true;
+            st.classList.remove('inactive');
+          }
+        });
+        this.parentNode.appendChild(token);
+      } else if (this.parentNode == targetContainer) {
         token.classList.add('selected');
+        var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
+        var tokenSpecies = token.getAttribute('data-species');
+        [].forEach.call(unselectedTokens, function(st) {
+          if (st.getAttribute('data-species') === tokenSpecies) {
+            st.draggable = false;
+            st.classList.add('inactive');
+          }
+        });
         this.parentNode.appendChild(token);
       }
       return false;
