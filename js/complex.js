@@ -300,15 +300,29 @@ window.onload = init(function(d) {
     align();
   });
 
-  $("#th1").on("change", function() {
-    $("#" + this.id + "_span").html("(>=" + this.value + ")");
+  document.querySelector('#th1').addEventListener('change', function() {
+    window.localStorage.setItem('coexpressionThreshold', this.value);
+    document.querySelector('#th1-value').innerHTML = this.value;
     align();
-  });
+  }, false);
 
-  $('#complex-pval-threshold').on('change', function() {
+  var coexpressionThreshold = window.localStorage.getItem('coexpressionThreshold');
+  if (coexpressionThreshold) {
+    document.querySelector('#th1').value = coexpressionThreshold;
+    document.querySelector('#th1-value').innerHTML = coexpressionThreshold;
+  }
+
+  document.querySelector('#complex-pval-threshold').addEventListener('change', function() {
+    window.localStorage.setItem('pvalueThreshold', this.value);
     view1.setPvalueThreshold(this.value);
-    $('#complex-pval-threshold-value').html(this.value);
-  })
+    document.querySelector('#complex-pval-threshold-value').innerHTML = this.value;
+  }, false);
+
+  var pvalueThreshold = window.localStorage.getItem('pvalueThreshold');
+  if (pvalueThreshold) {
+    document.querySelector('#complex-pval-threshold').value = pvalueThreshold;
+    document.querySelector('#complex-pval-threshold-value').innerHTML = pvalueThreshold;
+  }
 
   $("#prebox").delay(500).fadeOut();
 });
