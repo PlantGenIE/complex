@@ -244,6 +244,7 @@ function toggleExtension(e) {
     getExtensionGenes(e.target.dataset.extensionId, removeExtension);
     getExtensionEdges(e.target.dataset.extensionId, removeExtensionEdges);
   }
+  window.localStorage.setItem('activeExtensions', JSON.stringify(getActiveExtensions()));
 }
 
 function updateExtensions() {
@@ -253,6 +254,16 @@ function updateExtensions() {
       getExtensionEdges(x.dataset.extensionId, addExtensionEdges);
     }
   });
+}
+
+function getActiveExtensions() {
+  var extensions = [];
+  [].forEach.call(document.querySelectorAll('.extension-checkbox'), function(x) {
+    if (x.checked) {
+      extensions.push(x.getAttribute('data-extension-id'));
+    }
+  });
+  return extensions;
 }
 
 window.onload = init(function(d) {
@@ -268,6 +279,13 @@ window.onload = init(function(d) {
   populateNetworkSelect(d, '#network-buttons', '#selected-network-buttons');
 
   $('.extension-checkbox').change(toggleExtension);
+  var activeExtensions = JSON.parse(window.localStorage.getItem('activeExtensions'));
+  if (activeExtensions) {
+    [].forEach.call(activeExtensions, function(x) {
+      let extensionCheckbox = document.querySelector(`input[data-extension-id=${x}]`);
+      extensionCheckbox.click();
+    });
+  }
 
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
