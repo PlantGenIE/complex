@@ -172,7 +172,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
     <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>
-    <script src="js/complex.js"></script>
+    <script src="js/complex.js" type="module"></script>
     <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
     <style>
 .ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}
