@@ -4,11 +4,6 @@
  *  Description:    Main script for ComPlEX2
  *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
  */
-import {populateNetworkSelect} from './networkselect.js';
-import {getSelectedNetworks} from './networkselect.js';
-import {getActiveNetwork} from './networkselect.js'
-import {getActiveSpecies} from './networkselect.js'
-
 var view1;
 
 complexmessage.options = {

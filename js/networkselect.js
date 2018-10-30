@@ -5,7 +5,7 @@
  * @param {string} element - ID of element where the buttons should go.
  * @param {string} targetElement - ID of element where selected buttons should go.
  */
-export function populateNetworkSelect(data, element, targetElement) {
+function populateNetworkSelect(data, element, targetElement) {
   var container = document.querySelector(element);
   var targetContainer = document.querySelector(targetElement);
 
@@ -68,6 +68,8 @@ export function populateNetworkSelect(data, element, targetElement) {
 
       insertionPoint = elem ? this : this.nextSibling;
       this.parentNode.insertBefore(token, insertionPoint);
+      window.localStorage
+        .setItem('selectedNetworks', JSON.stringify(getSelectedNetworks()));
     } else if (token.parentNode != this.parentNode) {
       moveToken(token, this.parentNode);
     }
@@ -75,7 +77,7 @@ export function populateNetworkSelect(data, element, targetElement) {
   };
 
   [].forEach.call(data, function(val) {
-    var token = document.createElement('div');
+    let token = document.createElement('div');
     token.setAttribute('data-species', val.shortname);
     token.setAttribute('data-network', val.id);
     token.setAttribute('draggable', true);
@@ -103,6 +105,14 @@ export function populateNetworkSelect(data, element, targetElement) {
   container.addEventListener('dragover', handleDragOver, false);
   targetContainer.addEventListener('drop', handleDrop, false);
   container.addEventListener('drop', handleDrop, false);
+
+  var selectedNetworks = JSON.parse(window.localStorage.getItem('selectedNetworks'));
+  if (selectedNetworks) {
+    [].forEach.call(selectedNetworks, function(networkId) {
+      let token = document.querySelector(`#network${networkId}-token`);
+      moveToken(token, targetContainer);
+    });
+  }
 }
 
 /**
@@ -126,9 +136,10 @@ function getSelectedSpecies() {
 /**
  * Return the selected networks
  *
- * @returns {array} An array of network IDs.
+ * @returns {array} An array of network IDs. The active network will
+ * be the first network in the array.
  */
-export function getSelectedNetworks() {
+function getSelectedNetworks() {
   var selectedTokens = document.querySelectorAll('.network-token.selected');
   var networkIds = [];
   [].forEach.call(selectedTokens, function(x) {
@@ -142,7 +153,7 @@ export function getSelectedNetworks() {
  *
  * @returns {string} ID of the active network if there is an active network, otherwise null.
  */
-export function getActiveNetwork() {
+function getActiveNetwork() {
   var activeToken = document.querySelector('.network-token.selected:first-child');
   if (activeToken) {
     return activeToken.getAttribute('data-network');
@@ -155,7 +166,7 @@ export function getActiveNetwork() {
  *
  * @returns {string} The species of the currently active network if there is an active network, otherwise null.
  */
-export function getActiveSpecies() {
+function getActiveSpecies() {
   var activeToken = document.querySelector('.network-token.selected:first-child');
   if (activeToken) {
     return activeToken.getAttribute('data-species');
