@@ -21,163 +21,6 @@ complexmessage.options = {
   hideMethod: "fadeOut"
 };
 
-/**
- * Populate the network selection tool.
- *
- * @param {array} data - Network data.
- * @param {string} element - ID of element where the buttons should go.
- * @param {string} targetElement - ID of element where selected buttons should go.
- */
-function populateNetworkSelect(data, element, targetElement) {
-  var container = document.querySelector(element);
-  var targetContainer = document.querySelector(targetElement);
-
-  getSelectedSpecies = function() {
-    var tokens = document.querySelectorAll('.network-token.selected');
-    var selectedSpecies = []
-    for (let i = 0; i < tokens.length; ++i) {
-      let s = tokens[i].getAttribute('data-species');
-      if (selectedSpecies.indexOf(s) === -1) {
-        selectedSpecies.push(s);
-      }
-    }
-    return selectedSpecies;
-  };
-
-  moveToken = function(token, target) {
-    var selecting = target == targetContainer;
-    if (selecting) {
-      token.classList.add('selected');
-    } else {
-      token.classList.remove('selected');
-    }
-    var unselectedTokens = document.querySelectorAll('.network-token:not(.selected)');
-    var tokenSpecies = token.getAttribute('data-species');
-    [].forEach.call(unselectedTokens, function(t) {
-      if (t.getAttribute('data-species') === tokenSpecies) {
-        if (selecting) {
-          t.draggable = false;
-          t.classList.add('inactive');
-        } else {
-          t.draggable = true;
-          t.classList.remove('inactive');
-        }
-      }
-    });
-    target.appendChild(token);
-  };
-
-  handleDragOver = function(e) {
-    if (e.preventDefault) {
-      e.preventDefault();
-    }
-    e.dataTransfer.dropEffect = 'move';
-  };
-
-  handleDrop = function(e) {
-    if (e.stopPropagation) {
-      e.stopPropagation();
-    }
-    var token = document.getElementById(e.dataTransfer.getData('text'));
-    var tokenSpecies = token.getAttribute('data-species');
-    if (token.parentNode != this) {
-      moveToken(token, this);
-    }
-    return false;
-  };
-
-  handleTokenDrop = function(e) {
-    if (e.stopPropagation) {
-      e.stopPropagation();
-    }
-    var token = document.getElementById(e.dataTransfer.getData('text'));
-    if (token.parentNode == this.parentNode && this != token) {
-      // Got this from https://stackoverflow.com/a/11974430/885443
-      var insertionPoint, elem = this;
-
-      do {
-        elem = elem.nextSibling;
-      } while (elem && elem !== token);
-
-      insertionPoint = elem ? this : this.nextSibling;
-      this.parentNode.insertBefore(token, insertionPoint);
-    } else if (token.parentNode != this.parentNode) {
-      moveToken(token, this.parentNode);
-    }
-    return false;
-  };
-
-  [].forEach.call(data, function(val) {
-    var token = document.createElement('div');
-    token.setAttribute('data-species', val.shortname);
-    token.setAttribute('data-network', val.id);
-    token.setAttribute('draggable', true);
-    token.classList.add('network-token');
-    token.id = `network${val.id}-token`;
-    token.appendChild(document.createTextNode(val.name));
-
-    token.addEventListener('dragstart', function(e) {
-      this.classList.add('inactive');
-      e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/plain', this.id);
-    }, false);
-
-    token.addEventListener('dragend', function() {
-      targetContainer.classList.remove('token-over');
-      this.classList.remove('inactive');
-    }, false);
-
-    token.addEventListener('dragover', handleDragOver, false);
-    token.addEventListener('drop', handleTokenDrop, false);
-    container.append(token);
-  });
-
-  targetContainer.addEventListener('dragover', handleDragOver, false);
-  container.addEventListener('dragover', handleDragOver, false);
-  targetContainer.addEventListener('drop', handleDrop, false);
-  container.addEventListener('drop', handleDrop, false);
-}
-
-/**
- * Return the selected networks
- *
- * @returns {array} An array of network IDs.
- */
-function getSelectedNetworks() {
-  var selectedTokens = document.querySelectorAll('.network-token.selected');
-  var networkIds = [];
-  [].forEach.call(selectedTokens, function(x) {
-    networkIds.push(x.getAttribute('data-network'));
-  });
-  return networkIds;
-}
-
-/**
- * Return the currently active network
- *
- * @returns {string} ID of the active network if there is an active network, otherwise null.
- */
-function getActiveNetwork() {
-  var activeToken = document.querySelector('.network-token.selected:first-child');
-  if (activeToken) {
-    return activeToken.getAttribute('data-network');
-  }
-  return null;
-}
-
-/**
- * Get the currently active species
- *
- * @returns {string} The species of the currently active network if there is an active network, otherwise null.
- */
-function getActiveSpecies() {
-  var activeToken = document.querySelector('.network-token.selected:first-child');
-  if (activeToken) {
-    return activeToken.getAttribute('data-species');
-  }
-  return null;
-}
-
 /*
  * Get input gene names
  *
@@ -191,16 +34,21 @@ function getInputGenes() {
   }
 }
 
-function align() {
+function align(geneIds) {
+  var postData = {
+    network_ids: getSelectedNetworks(),
+    active_network: getActiveNetwork(),
+    threshold: $('#th1').val()
+  };
+  if (geneIds === undefined) {
+    postData.gene_names = getInputGenes();
+  } else {
+    postData.gene_ids = geneIds;
+  }
   $.ajax({
     url: 'service/network.php',
     method: 'POST',
-    data: {
-      network_ids: getSelectedNetworks(),
-      active_network: getActiveNetwork(),
-      gene_names: getInputGenes(),
-      threshold: $('#th1').val()
-    },
+    data: postData,
     dataType: 'json',
     success: function(data, textStatus) {
       view1.set_data(data, getActiveNetwork(), getSelectedNetworks());
@@ -401,6 +249,7 @@ function toggleExtension(e) {
     getExtensionGenes(e.target.dataset.extensionId, removeExtension);
     getExtensionEdges(e.target.dataset.extensionId, removeExtensionEdges);
   }
+  window.localStorage.setItem('activeExtensions', JSON.stringify(getActiveExtensions()));
 }
 
 function updateExtensions() {
@@ -410,6 +259,16 @@ function updateExtensions() {
       getExtensionEdges(x.dataset.extensionId, addExtensionEdges);
     }
   });
+}
+
+function getActiveExtensions() {
+  var extensions = [];
+  [].forEach.call(document.querySelectorAll('.extension-checkbox'), function(x) {
+    if (x.checked) {
+      extensions.push(x.getAttribute('data-extension-id'));
+    }
+  });
+  return extensions;
 }
 
 window.onload = init(function(d) {
@@ -425,10 +284,22 @@ window.onload = init(function(d) {
   populateNetworkSelect(d, '#network-buttons', '#selected-network-buttons');
 
   $('.extension-checkbox').change(toggleExtension);
+  var activeExtensions = JSON.parse(window.localStorage.getItem('activeExtensions'));
+  if (activeExtensions) {
+    [].forEach.call(activeExtensions, function(x) {
+      let extensionCheckbox = document.querySelector(`input[data-extension-id=${x}]`);
+      extensionCheckbox.click();
+    });
+  }
 
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
     $('#complex-pval-threshold').val());
+  console.log('loading cached genes');
+  var activeNodes = JSON.parse(window.localStorage.getItem('activeNodes'));
+  if (activeNodes && activeNodes.length > 0) {
+    align(activeNodes);
+  }
 
   $("#load-example-button").click(function(event) {
     event.stopPropagation();
@@ -439,15 +310,29 @@ window.onload = init(function(d) {
     align();
   });
 
-  $("#th1").on("change", function() {
-    $("#" + this.id + "_span").html("(>=" + this.value + ")");
+  document.querySelector('#th1').addEventListener('change', function() {
+    window.localStorage.setItem('coexpressionThreshold', this.value);
+    document.querySelector('#th1-value').innerHTML = this.value;
     align();
-  });
+  }, false);
 
-  $('#complex-pval-threshold').on('change', function() {
+  var coexpressionThreshold = window.localStorage.getItem('coexpressionThreshold');
+  if (coexpressionThreshold) {
+    document.querySelector('#th1').value = coexpressionThreshold;
+    document.querySelector('#th1-value').innerHTML = coexpressionThreshold;
+  }
+
+  document.querySelector('#complex-pval-threshold').addEventListener('change', function() {
+    window.localStorage.setItem('pvalueThreshold', this.value);
     view1.setPvalueThreshold(this.value);
-    $('#complex-pval-threshold-value').html(this.value);
-  })
+    document.querySelector('#complex-pval-threshold-value').innerHTML = this.value;
+  }, false);
+
+  var pvalueThreshold = window.localStorage.getItem('pvalueThreshold');
+  if (pvalueThreshold) {
+    document.querySelector('#complex-pval-threshold').value = pvalueThreshold;
+    document.querySelector('#complex-pval-threshold-value').innerHTML = pvalueThreshold;
+  }
 
   $("#prebox").delay(500).fadeOut();
 });

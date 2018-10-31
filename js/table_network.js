@@ -150,6 +150,21 @@ function TableNetwork(active_table_element,
   }
 
   /**
+   * Get active nodes
+   *
+   * Return all node IDs in the active network.
+   *
+   * @returns {array} IDs of nodes in the active network.
+   */
+  this.getActiveNodeIds = function() {
+    var ids = [];
+    this.cy.nodes('.active').children().forEach(function(node) {
+      ids.push(node.id());
+    });
+    return ids;
+  };
+
+  /**
    * Select a node
    *
    * Select a node in the network and show any orthology
@@ -295,6 +310,11 @@ function TableNetwork(active_table_element,
       default:
         console.error(`unknown element type: ${type}`);
     }
+  });
+
+  this.cy.on('layoutstop', function(e) {
+    var activeNodeIds = self.getActiveNodeIds();
+    window.localStorage.setItem('activeNodes', JSON.stringify(activeNodeIds));
   });
 
   var networkSelectionFromTable = function(e, dt, type, cell, originalEvent) {

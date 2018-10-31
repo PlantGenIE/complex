@@ -51,7 +51,7 @@ $ext = new Extension_Collection();
           </div>
 
           <div class="network-control">
-            <label for="th1">Co-expression threshold: <span id="th1_span">(>=0.990)</label>
+            <label for="th1">Co-expression threshold: (&gt;=<span id="th1-value">0.990</span>)</label>
             <input type="range" min="0.95" max="1" step="0.001" value="0.99" id="th1" name="th1">
 
             <label for="complex-pval-threshold">P-value threshold: <span id="complex-pval-threshold-value">0.05</span></label>
@@ -172,6 +172,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
     <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>
+    <script src="js/networkselect.js"></script>
     <script src="js/complex.js"></script>
     <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
     <style>
