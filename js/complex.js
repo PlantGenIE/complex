@@ -34,16 +34,21 @@ function getInputGenes() {
   }
 }
 
-function align() {
+function align(geneIds) {
+  var postData = {
+    network_ids: getSelectedNetworks(),
+    active_network: getActiveNetwork(),
+    threshold: $('#th1').val()
+  };
+  if (geneIds === undefined) {
+    postData.gene_names = getInputGenes();
+  } else {
+    postData.gene_ids = geneIds;
+  }
   $.ajax({
     url: 'service/network.php',
     method: 'POST',
-    data: {
-      network_ids: getSelectedNetworks(),
-      active_network: getActiveNetwork(),
-      gene_names: getInputGenes(),
-      threshold: $('#th1').val()
-    },
+    data: postData,
     dataType: 'json',
     success: function(data, textStatus) {
       view1.set_data(data, getActiveNetwork(), getSelectedNetworks());
@@ -290,6 +295,11 @@ window.onload = init(function(d) {
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
     $('#complex-pval-threshold').val());
+  console.log('loading cached genes');
+  var activeNodes = JSON.parse(window.localStorage.getItem('activeNodes'));
+  if (activeNodes && activeNodes.length > 0) {
+    align(activeNodes);
+  }
 
   $("#load-example-button").click(function(event) {
     event.stopPropagation();

@@ -33,7 +33,7 @@ if (is_null($threshold)) {
   exit(1);
 }
 
-function get_network($network_ids, $active_id, $gene_names, $threshold) {
+function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshold) {
   global $db;
 
   $network_name_query = 'SELECT id, name FROM network WHERE id IN ('.prepare_in('network', $network_ids).')';
@@ -45,9 +45,15 @@ function get_network($network_ids, $active_id, $gene_names, $threshold) {
     $networks[$n['id']] = $n['name'];
   }
 
-  $gene_query = 'SELECT id, name FROM gene WHERE name IN ('.prepare_in('gene', $gene_names).')';
-  $stmt = $db->prepare($gene_query);
-  $stmt->execute(build_in_array('gene', $gene_names));
+  if (is_null($gene_ids)) {
+    $gene_query = 'SELECT id, name FROM gene WHERE name IN ('.prepare_in('gene', $gene_names).')';
+    $stmt = $db->prepare($gene_query);
+    $stmt->execute(build_in_array('gene', $gene_names));
+  } else {
+    $gene_query = 'SELECT id, name FROM gene WHERE id IN ('.prepare_in('gene_id', $gene_ids).')';
+    $stmt = $db->prepare($gene_query);
+    $stmt->execute(build_in_array('gene_id', $gene_ids));
+  }
   $genes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $gene_ids = array_map(function($x) { return $x['id']; }, $genes);
 
@@ -240,7 +246,7 @@ function expand() {
 
 switch ($method) {
   case 'get_network':
-    get_network($network_ids, $active_network, $gene_names, $threshold);
+    get_network($network_ids, $active_network, $gene_names, $gene_ids, $threshold);
     break;
   case 'expand':
     expand();
