@@ -285,19 +285,9 @@ window.onload = init(function(d) {
 
   populateNetworkSelect(d, '#network-buttons', '#selected-network-buttons');
 
-  $('.extension-checkbox').change(toggleExtension);
-  var activeExtensions = JSON.parse(window.localStorage.getItem('activeExtensions'));
-  if (activeExtensions) {
-    [].forEach.call(activeExtensions, function(x) {
-      let extensionCheckbox = document.querySelector(`input[data-extension-id=${x}]`);
-      extensionCheckbox.click();
-    });
-  }
-
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
     $('#complex-pval-threshold').val());
-  console.log('loading cached genes');
   var activeNodes = JSON.parse(window.localStorage.getItem('activeNodes'));
   if (activeNodes && activeNodes.length > 0) {
     align(activeNodes);
@@ -311,6 +301,15 @@ window.onload = init(function(d) {
   $("#align_to_species_button").click(function(e) {
     align();
   });
+
+  $('.extension-checkbox').change(toggleExtension);
+  var activeExtensions = JSON.parse(window.localStorage.getItem('activeExtensions'));
+  if (activeExtensions) {
+    [].forEach.call(activeExtensions, function(x) {
+      let extensionCheckbox = document.querySelector(`input[data-extension-id=${x}]`);
+      extensionCheckbox.checked = true;
+    });
+  }
 
   document.querySelector('#th1').addEventListener('change', function() {
     window.localStorage.setItem('coexpressionThreshold', this.value);
