@@ -333,6 +333,7 @@ window.onload = init(function(d) {
   if (pvalueThreshold) {
     document.querySelector('#complex-pval-threshold').value = pvalueThreshold;
     document.querySelector('#complex-pval-threshold-value').innerHTML = pvalueThreshold;
+    view1.pvalueThreshold = pvalueThreshold;
   }
 
   $("#prebox").delay(500).fadeOut();
