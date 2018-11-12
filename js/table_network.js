@@ -119,6 +119,11 @@ function TableNetwork(active_table_element,
           'line-color': '#1AC620',
           'target-arrow-color': '#1AC620'
         }
+      }, {
+        selector: 'edge.extension',
+        style: {
+          'curve-style': 'bezier'
+        }
       }
     ],
     userZoomingEnabled: false,

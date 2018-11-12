@@ -214,7 +214,7 @@ function addExtensionEdges(data, extension) {
       }
       edge_data.push({
         group: 'edges',
-        classes: subext,
+        classes: `${subext} extension`,
         data: {
           id: `${subext}-${e[0]}-${e[1]}`,
           source: `${e[0]}`,
