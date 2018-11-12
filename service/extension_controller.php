@@ -3,9 +3,17 @@
 require_once(dirname(__FILE__).'/../config.php');
 require_once(dirname(__FILE__).'/extensions.php');
 
+/**
+ * Get extension nodes
+ *
+ * Get nodes associated with an extension. The GET variable `extension` must
+ * be set, and the `genes` GET variable can be optionally set. If it is,
+ * the resulting nodes will be the intersection of this subset of genes.
+ */
 function getGenes() {
   global $config;
   $extension_id = isset($_GET['extension']) ? $_GET['extension'] : null;
+  $gene_subset = isset($_GET['genes']) ? $_GET['genes'] : null;
   if (is_null($extension_id)) {
     http_response_code(400);
     echo json_encode(array('error' => 'no extension given'));
@@ -19,16 +27,29 @@ function getGenes() {
 
   $ext = array();
   foreach ($extension_genes as $subext => $genes) {
-    $ext[$subext]["genes"] = $genes;
-    $ext[$subext]["style"] = $extension_gene_style[$subext];
+    if (!is_null($gene_subset)) {
+      $ext[$subext]['genes'] = array_values(array_intersect($genes, $gene_subset));
+    } else {
+      $ext[$subext]['genes'] = $genes;
+    }
+    $ext[$subext]['style'] = $extension_gene_style[$subext];
   }
 
   echo json_encode($ext);
 }
 
+/**
+ * Get extension edges
+ *
+ * Get edges associated with an extension. The GET variable `extension` must
+ * be set, and the `genes` GET variable can be optionally set. If it is,
+ * the resulting edges will be a subset of edges that can be found among
+ * that set of genes.
+ */
 function getEdges() {
   global $config;
   $extension_id = isset($_GET['extension']) ? $_GET['extension'] : null;
+  $gene_subset = isset($_GET['genes']) ? $_GET['genes'] : null;
   if (is_null($extension_id)) {
     http_response_code(400);
     echo json_encode(array('error' => 'no extension given'));
@@ -42,8 +63,16 @@ function getEdges() {
 
   $ext = array();
   foreach ($extension_edges as $subext => $edges) {
-    $ext[$subext]["edges"] = $edges;
-    $ext[$subext]["style"] = $extension_edge_style[$subext];
+    if (!is_null($gene_subset)) {
+      foreach ($edges as $e) {
+        if (in_array($e[0], $gene_subset) && in_array($e[1], $gene_subset)) {
+          $ext[$subext]['edges'][] = $e;
+        }
+      }
+    } else {
+      $ext[$subext]['edges'] = $edges;
+    }
+    $ext[$subext]['style'] = $extension_edge_style[$subext];
   }
 
   echo json_encode($ext);

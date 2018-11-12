@@ -98,7 +98,8 @@ function getExtensionGenes(extension, callback) {
     dataType: 'json',
     data: {
       method: 'getGenes',
-      extension: extension
+      extension: extension,
+      genes: view1.getNodeIds()
     },
     error: function(jqXHR, textStatus) {
       if (jqXHR.responseJSON) {
@@ -119,7 +120,8 @@ function getExtensionEdges(extension, callback) {
     dataType: 'json',
     data: {
       method: 'getEdges',
-      extension: extension
+      extension: extension,
+      genes: view1.getNodeIds()
     },
     error: function(jqXHR, textStatus) {
       if (jqXHR.responseJSON) {

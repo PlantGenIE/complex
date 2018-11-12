@@ -165,6 +165,19 @@ function TableNetwork(active_table_element,
   };
 
   /**
+   * Get the IDs of all nodes in the current view.
+   *
+   * @returns {array} IDs of all nodes in the current view.
+   */
+  this.getNodeIds = function() {
+    var ids = [];
+    this.cy.nodes('.gene').forEach(function(node) {
+      ids.push(node.id());
+    });
+    return ids;
+  };
+
+  /**
    * Select a node
    *
    * Select a node in the network and show any orthology
