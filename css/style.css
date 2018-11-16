@@ -121,19 +121,26 @@ height: 37px;
     justify-content: space-between;
 }
 
-.network-button-container {
+.network-input div {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.network-input .network-button-container {
+    display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     border: 1px solid #666;
     min-height: 50px;
     padding: 0 0 1em 1ex;
 }
 
-.network-button-container.token-over {
+.network-input .network-button-container.token-over {
     border-style: dashed;
 }
 
-.network-button-container .network-token {
+.network-input .network-button-container .network-token {
     background-color: white;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
@@ -142,11 +149,11 @@ height: 37px;
 	user-select: none;
 }
 
-.network-button-container .network-token.inactive {
+.network-input .network-button-container .network-token.inactive {
 	opacity: 0.4;
 }
 
-.network-button-container .network-token.selected:first-child {
+.network-input .network-button-container .network-token.selected:first-child {
 	background-color: #EAFFF5;
 }
 

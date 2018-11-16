@@ -41,13 +41,15 @@ $ext = new Extension_Collection();
 
         <div class="accordion-content input-container">
           <div class="network-input">
-            <label for="sink1">Genes</label>
+            <div>
+              <label for="sink1">Genes</label>
+              <button id="load-example-button">Load example genes</button>
+            </div>
             <textarea name="sp1genes" rows="6" id="sink1"></textarea>
             <label for="network-buttons">Available networks</label>
             <div id="network-buttons" class="network-button-container"></div>
             <label for="selected-network-buttons">Selected networks</label>
             <div id="selected-network-buttons" class="network-button-container"></div>
-            <button id="load-example-button" class="btn btn-4">Load Example</button>
           </div>
 
           <div class="network-control">
