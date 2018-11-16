@@ -1,9 +1,3 @@
-/*
- *  File:           complex.js
- *  Author          Chanaka Mannapperuma
- *  Description:    Main script for ComPlEX2
- *  Created:        Thu May 15 10:04:04 GMT+02:00 2014
- */
 var view1;
 
 complexmessage.options = {
@@ -40,11 +34,26 @@ function align(geneIds) {
     active_network: getActiveNetwork(),
     threshold: $('#th1').val()
   };
-  if (geneIds === undefined) {
-    postData.gene_names = getInputGenes();
+
+  var inputGenes = getInputGenes();
+  var activeGenes = view1.getActiveNodeIds();
+
+  if (postData.network_ids.length === 0) {
+    complexmessage.error("No networks selected");
+    return;
+  }
+
+  if (geneIds === undefined && inputGenes.length === 0 && activeGenes.length === 0) {
+    complexmessage.error("No genes specified");
+    return;
+  } else if (geneIds === undefined && activeGenes.length === 0) {
+    postData.gene_names = inputGenes;
+  } else if (geneIds === undefined && activeGenes.length > 0) {
+    postData.gene_ids = activeGenes;
   } else {
     postData.gene_ids = geneIds;
   }
+
   $.ajax({
     url: 'service/network.php',
     method: 'POST',
@@ -87,9 +96,6 @@ function loadexample() {
       complexmessage.error('No networks selected');
       return;
   }
-
-  complexmessage.success("Example genes loaded.", "Success!");
-  align();
 }
 
 function getExtensionGenes(extension, callback) {
@@ -295,8 +301,15 @@ window.onload = init(function(d) {
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
     $('#complex-pval-threshold').val());
+
+  var coexpressionThreshold = window.localStorage.getItem('coexpressionThreshold');
+  if (coexpressionThreshold) {
+    document.querySelector('#th1').value = coexpressionThreshold;
+    document.querySelector('#th1-value').innerHTML = coexpressionThreshold;
+  }
+
   var activeNodes = JSON.parse(window.localStorage.getItem('activeNodes'));
-  if (activeNodes && activeNodes.length > 0) {
+  if (activeNodes && activeNodes.length > 0 && getSelectedNetworks().length > 0) {
     align(activeNodes);
   }
 
@@ -321,14 +334,10 @@ window.onload = init(function(d) {
   document.querySelector('#th1').addEventListener('change', function() {
     window.localStorage.setItem('coexpressionThreshold', this.value);
     document.querySelector('#th1-value').innerHTML = this.value;
-    align();
+    if (view1.getActiveNodeIds().length > 0) {
+      align(view1.getActiveNodeIds());
+    }
   }, false);
-
-  var coexpressionThreshold = window.localStorage.getItem('coexpressionThreshold');
-  if (coexpressionThreshold) {
-    document.querySelector('#th1').value = coexpressionThreshold;
-    document.querySelector('#th1-value').innerHTML = coexpressionThreshold;
-  }
 
   document.querySelector('#complex-pval-threshold').addEventListener('change', function() {
     window.localStorage.setItem('pvalueThreshold', this.value);
