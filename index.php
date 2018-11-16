@@ -101,6 +101,10 @@ $ext = new Extension_Collection();
           <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
         </div>
         <div class="accordion-content">
+          <div class="network-overlay">
+            <p class="overlay-message"></p>
+            <div class="loader_color2 spinner"></div>
+          </div>
           <div class="network-wrapper">
             <div id="cytoscapeweb1" class="network-container"></div>
           </div>
@@ -168,7 +172,9 @@ $ext = new Extension_Collection();
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/r-2.2.1/sl-1.2.5/datatables.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
+    <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/v2.2.4/cytoscape-cola.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
     <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>

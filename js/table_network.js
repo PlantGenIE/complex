@@ -1,10 +1,3 @@
-var layoutOptions = {
-  name: 'cose-bilkent',
-  tile: true,
-  animate: 'during',
-  refresh: 60
-};
-
 function TableNetwork(active_table_element,
                       other_table_element,
                       network_element,
@@ -130,13 +123,28 @@ function TableNetwork(active_table_element,
     boxSelectionEnabled: true
   });
 
+  // Show network overlay while layout is running
+  this.cy.on('layoutstart', function() {
+    var overlay = document.querySelector('.network-overlay');
+    var message = document.querySelector('.overlay-message');
+    if (message.firstChild) {
+      message.firstChild.remove();
+    }
+    message.appendChild(document.createTextNode('Calculating layout...'));
+    overlay.style.display = 'block';
+  });
+
+  // Remove message when layout is done
+  this.cy.on('layoutstop', function() {
+    var overlay = document.querySelector('.network-overlay');
+    overlay.style.display = 'none';
+  });
+
   this.cy.nodes().unselectify();
 
   this.cy.panzoom({
 
   });
-
-  this.networkLayout = this.cy.layout(layoutOptions);
 
   var self = this;
   var networkSelect = false;
@@ -330,11 +338,6 @@ function TableNetwork(active_table_element,
     }
   });
 
-  this.cy.on('layoutstop', function(e) {
-    var activeNodeIds = self.getActiveNodeIds();
-    window.localStorage.setItem('activeNodes', JSON.stringify(activeNodeIds));
-  });
-
   var networkSelectionFromTable = function(e, dt, type, cell, originalEvent) {
     var selectedID = dt.row(cell.index().row).data().id;
     if (type === 'row') {
@@ -356,8 +359,23 @@ function TableNetwork(active_table_element,
     this.networks = networks;
 
     this.cy.add(this.data);
-    self.networkLayout = self.cy.elements('node, edge.co-expression').layout(layoutOptions);
-    self.networkLayout.run();
+    // Add active nodes to localstorage
+    window.localStorage.setItem('activeNodes', JSON.stringify(self.getActiveNodeIds()));
+    self.networkLayout = self.cy.elements('node, edge.co-expression').layout({
+      name: 'cola',
+      animate: true,
+      refresh: 1,
+      randomize: true,
+      handleDisconnected: true,
+      nodeSpacing: function(node) {
+        // Make more space beteween compound nodes
+        if (node.data('parent')) {
+          return 10;
+        } else {
+          return 100;
+        }
+      }
+    }).run();
 
     this.activeTable.clear();
     var activeTableData = $.grep(this.data.nodes, function(x) {

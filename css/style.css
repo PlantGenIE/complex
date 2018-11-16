@@ -162,6 +162,35 @@ height: 37px;
     height: 100%;
 }
 
+.network-overlay {
+    display: none;
+    z-index: 100000;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.network-overlay .overlay-message {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    color: #FFFFFF;
+}
+
+.network-overlay .spinner {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 23px;
+}
+
 .network-container {
     flex-basis: 100%;
     border: 1px solid #CCCCCC;
