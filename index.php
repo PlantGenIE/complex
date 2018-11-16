@@ -176,6 +176,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/v2.2.4/cytoscape-cola.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
+    <script src="js/network_overlay.js"></script>
     <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>
     <script src="js/networkselect.js"></script>

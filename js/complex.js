@@ -133,7 +133,7 @@ function getExtensionEdges(extension, callback) {
     success: function(data) {
       callback(data, extension);
     }
-  })
+  });
 }
 
 function highlightGenes(data, extension) {
@@ -235,19 +235,26 @@ function addExtensionEdges(data, extension) {
       }
     }
   }
+  // If there are edges in the extension, they will most likely take
+  // longer to load compared to the nodes. Therefore we only hide the
+  // overlay here, and not after loading the nodes.
+  hideOverlay();
 }
 
 function removeExtensionEdges(data, extension) {
   for (let subext in data) {
     view1.cy.elements(`.${subext}`).remove();
   }
+  hideOverlay();
 }
 
 function toggleExtension(e) {
   if (e.target.checked) {
+    showOverlay(`Loading extension: ${e.target.dataset.extensionName}`);
     getExtensionGenes(e.target.dataset.extensionId, highlightGenes);
     getExtensionEdges(e.target.dataset.extensionId, addExtensionEdges);
   } else {
+    showOverlay(`Unloading extension: ${e.target.dataset.extensionName}`);
     getExtensionGenes(e.target.dataset.extensionId, removeExtension);
     getExtensionEdges(e.target.dataset.extensionId, removeExtensionEdges);
   }

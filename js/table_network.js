@@ -125,19 +125,12 @@ function TableNetwork(active_table_element,
 
   // Show network overlay while layout is running
   this.cy.on('layoutstart', function() {
-    var overlay = document.querySelector('.network-overlay');
-    var message = document.querySelector('.overlay-message');
-    if (message.firstChild) {
-      message.firstChild.remove();
-    }
-    message.appendChild(document.createTextNode('Calculating layout...'));
-    overlay.style.display = 'block';
+    showOverlay('Calculating network layout...');
   });
 
   // Remove message when layout is done
   this.cy.on('layoutstop', function() {
-    var overlay = document.querySelector('.network-overlay');
-    overlay.style.display = 'none';
+    hideOverlay();
   });
 
   this.cy.nodes().unselectify();
