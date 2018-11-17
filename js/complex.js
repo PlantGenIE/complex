@@ -28,7 +28,7 @@ function getInputGenes() {
   }
 }
 
-function align(geneIds) {
+function align(geneIds = null, alignClicked = false) {
   var postData = {
     network_ids: getSelectedNetworks(),
     active_network: getActiveNetwork(),
@@ -43,13 +43,15 @@ function align(geneIds) {
     return;
   }
 
-  if (geneIds === undefined && inputGenes.length === 0 && activeGenes.length === 0) {
+  if (geneIds === null && inputGenes.length === 0 && activeGenes.length === 0) {
     complexmessage.error("No genes specified");
     return;
-  } else if (geneIds === undefined && activeGenes.length === 0) {
+  } else if (geneIds === null && activeGenes.length === 0) {
     postData.gene_names = inputGenes;
-  } else if (geneIds === undefined && activeGenes.length > 0) {
+  } else if (geneIds === null && activeGenes.length > 0 && !alignClicked) {
     postData.gene_ids = activeGenes;
+  } else if (geneIds === null && inputGenes.length > 0 && alignClicked){
+    postData.gene_names = inputGenes;
   } else {
     postData.gene_ids = geneIds;
   }
@@ -319,7 +321,7 @@ window.onload = init(function(d) {
   });
 
   $("#align_to_species_button").click(function(e) {
-    align();
+    align(null, true);
   });
 
   $('.extension-checkbox').change(toggleExtension);
