@@ -50,6 +50,8 @@ function align(geneIds = null, alignClicked = false) {
     postData.gene_names = inputGenes;
   } else if (geneIds === null && activeGenes.length > 0 && !alignClicked) {
     postData.gene_ids = activeGenes;
+  } else if (geneIds === null && inputGenes.length === 0 && alignClicked){
+    postData.gene_ids = activeGenes;
   } else if (geneIds === null && inputGenes.length > 0 && alignClicked){
     postData.gene_names = inputGenes;
   } else {
