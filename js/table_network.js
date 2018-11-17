@@ -153,7 +153,14 @@ function TableNetwork(active_table_element,
 
   this.setPvalueThreshold = function(p) {
     self.pvalueThreshold = p;
-  }
+    self.cy
+      .edges(`.orthology[conservation_pvalue >= ${self.pvalueThreshold}]`)
+      .hide();
+    self.cy
+      .nodes(':selected')
+      .connectedEdges(`.orthology[conservation_pvalue < ${self.pvalueThreshold}]`)
+      .show();
+  };
 
   /**
    * Get active nodes
