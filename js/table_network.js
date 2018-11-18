@@ -396,7 +396,7 @@ function TableNetwork(active_table_element,
       return {
         gene: x.data.label,
         id: x.data.id,
-        network: x.data.parent
+        network: self.cy.nodes(`#${x.data.parent}`).data('label')
       };
     });
     this.otherTable.rows.add(otherTableData).draw();
