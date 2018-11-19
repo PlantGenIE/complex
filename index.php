@@ -14,26 +14,31 @@ $ext = new Extension_Collection();
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Complex 2.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Complex 2.0" />
-    <link rel="icon" type="image/png" href="favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
+    <meta name="keywords" content="Complex 2.0">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape.js-panzoom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
+    <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
+    <style>
+.ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}
+.ui-effects-transfer { border: 2px dotted #d35530; z-index:2000;border-radius:36px;}
+.ui-effects-transfer-2 { border: 2px groove #d35530; z-index:2000;border-radius:36px;}
+    </style>
   </head>
   <body>
     <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
-      <div  align="center" style="left:48%;top:48%"  class="loader_color2 medium"></div>
+      <div style="left:48%;top:48%"  class="loader_color2 medium"></div>
     </div>
 
     <header>
-      <img src="images/complex_logo.png" alt="Complex logo" />
+      <img src="images/complex_logo.png" alt="Complex logo">
     </header>
     <div class="accordion">
       <div class="accordion-head">
@@ -47,9 +52,9 @@ $ext = new Extension_Collection();
             <button id="load-example-button">Load example genes</button>
           </div>
           <textarea name="sp1genes" rows="6" id="sink1"></textarea>
-          <label for="network-buttons">Available networks</label>
+          <label>Available networks</label>
           <div id="network-buttons" class="network-button-container"></div>
-          <label for="selected-network-buttons">Selected networks</label>
+          <label>Selected networks</label>
           <div id="selected-network-buttons" class="network-button-container"></div>
         </div>
 
@@ -149,7 +154,6 @@ $ext = new Extension_Collection();
 
       <div class="accordion-head">
         Citation and Contact us
-        <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
       </div>
       <div class="accordion-content ac-extra-medium">
         <p>
@@ -161,13 +165,10 @@ $ext = new Extension_Collection();
       </div>
     </div>
 
-    <div style="background:#FFF;">
-      <article class="lifted_content_box">
-        <div>
-          &copy; <?php echo date("Y"); ?> UPSC Bioinformatics
-        </div>
-      </article>
+    <div class="lifted_content_box">
+      &copy; <?php echo date("Y"); ?> UPSC Bioinformatics
     </div>
+
     <div id="loader" class="loader_color small"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -184,12 +185,6 @@ $ext = new Extension_Collection();
     <script src="js/complexmessage.min.js"></script>
     <script src="js/networkselect.js"></script>
     <script src="js/complex.js"></script>
-    <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
-    <style>
-.ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}
-.ui-effects-transfer { border: 2px dotted #d35530; z-index:2000;border-radius:36px;}
-.ui-effects-transfer-2 { border: 2px groove #d35530; z-index:2000;border-radius:36px;}
-    </style>
     <script>
       //Very cool custom functions
       function $_GET(q, s) {
