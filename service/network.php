@@ -138,7 +138,8 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
         'group' => 'nodes',
         'data' => array(
           'id' => 'network'.$active_id,
-          'label' => $networks[$active_id]
+          'label' => $networks[$active_id],
+          'active' => true
         ),
         'classes' => 'network active',
         'selectable' => false
@@ -203,7 +204,8 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
           'group' => 'nodes',
           'data' => array(
             'id' => 'network'.$id,
-            'label' => $networks[$id]
+            'label' => $networks[$id],
+            'active' => false
           ),
           'classes' => 'network',
           'selectable' => false

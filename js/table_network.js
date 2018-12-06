@@ -135,8 +135,54 @@ function TableNetwork(active_table_element,
 
   this.cy.nodes().unselectify();
 
-  this.cy.panzoom({
+  this.cy.panzoom();
 
+  // Context menu items
+  var ctxmenuItems = {
+    setActive: {
+      content: 'Set as active',
+      select: function(element) {
+        console.log(`Setting ${element.id()} as active`);
+      }
+    },
+    remove: {
+      content: 'Remove',
+      select: function(element) {
+        console.log(`Removing ${element.id()}`);
+      }
+    },
+    expand: {
+      content: 'Expand',
+      select: function(element) {
+        console.log(`Expanding from ${element.id()}`);
+      }
+    }
+  };
+
+  // Gene context menu
+  this.cy.cxtmenu({
+    selector: 'node.gene',
+    commands: [
+      $.extend({}, ctxmenuItems.expand, {enabled: false})
+    ]
+  });
+
+  // Active network context menu
+  this.cy.cxtmenu({
+    selector: 'node.network[?active]',
+    commands: [
+      $.extend({}, ctxmenuItems.setActive, {enabled: false}),
+      ctxmenuItems.remove
+    ]
+  });
+
+  // Other network context menu
+  this.cy.cxtmenu({
+    selector: 'node.network[!active]',
+    commands: [
+      ctxmenuItems.setActive,
+      ctxmenuItems.remove
+    ]
   });
 
   var self = this;
