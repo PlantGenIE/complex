@@ -331,7 +331,9 @@ window.onload = init(function(d) {
   if (activeExtensions) {
     [].forEach.call(activeExtensions, function(x) {
       let extensionCheckbox = document.querySelector(`input[data-extension-id=${x}]`);
-      extensionCheckbox.checked = true;
+      if (extensionCheckbox) {
+        extensionCheckbox.checked = true;
+      }
     });
   }
 
