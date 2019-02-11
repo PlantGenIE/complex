@@ -32,7 +32,7 @@ function align(geneIds = null, alignClicked = false) {
   var postData = {
     network_ids: getSelectedNetworks(),
     active_network: getActiveNetwork(),
-    threshold: $('#th1').val()
+    threshold: $('#coexpressionThreshold').val()
   };
 
   var inputGenes = getInputGenes();
@@ -71,6 +71,8 @@ function align(geneIds = null, alignClicked = false) {
       console.error(jqXHR.responseJSON.error);
     }
   });
+
+  window.localStorage.setItem('coexpressionThreshold', document.getElementById('coexpressionThreshold').value);
 }
 
 function init(callback) {
@@ -304,12 +306,20 @@ window.onload = init(function(d) {
 
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
-    $('#complex-pval-threshold').val());
+    $('#pvalueThreshold').val());
 
   var coexpressionThreshold = window.localStorage.getItem('coexpressionThreshold');
   if (coexpressionThreshold) {
-    document.querySelector('#th1').value = coexpressionThreshold;
-    document.querySelector('#th1-value').innerHTML = coexpressionThreshold;
+    document.getElementById('coexpressionThreshold').value = coexpressionThreshold;
+    document.getElementById('coexpressionThresholdDisplay').innerHTML = coexpressionThreshold;
+    view1.coexpressionThreshold = coexpressionThreshold
+  }
+
+  var pvalueThreshold = window.localStorage.getItem('pvalueThreshold');
+  if (pvalueThreshold) {
+    document.getElementById('pvalueThreshold').value = pvalueThreshold;
+    document.getElementById('pvalueThresholdDisplay').innerHTML = pvalueThreshold;
+    view1.pvalueThreshold = pvalueThreshold
   }
 
   var activeNodes = JSON.parse(window.localStorage.getItem('activeNodes'));
@@ -337,26 +347,14 @@ window.onload = init(function(d) {
     });
   }
 
-  document.querySelector('#th1').addEventListener('change', function() {
-    window.localStorage.setItem('coexpressionThreshold', this.value);
-    document.querySelector('#th1-value').innerHTML = this.value;
-    if (view1.getActiveNodeIds().length > 0) {
-      align(view1.getActiveNodeIds());
-    }
+  document.getElementById('coexpressionThreshold').addEventListener('input', function() {
+    document.getElementById('coexpressionThresholdDisplay').innerHTML = this.value;
   }, false);
 
-  document.querySelector('#complex-pval-threshold').addEventListener('change', function() {
-    window.localStorage.setItem('pvalueThreshold', this.value);
-    view1.setPvalueThreshold(this.value);
-    document.querySelector('#complex-pval-threshold-value').innerHTML = this.value;
+  document.getElementById('pvalueThreshold').addEventListener('input', function() {
+    document.getElementById('pvalueThresholdDisplay').innerHTML = this.value;
+    window.localStorage.setItem('pvalueThreshold', document.getElementById('pvalueThreshold').value);
   }, false);
-
-  var pvalueThreshold = window.localStorage.getItem('pvalueThreshold');
-  if (pvalueThreshold) {
-    document.querySelector('#complex-pval-threshold').value = pvalueThreshold;
-    document.querySelector('#complex-pval-threshold-value').innerHTML = pvalueThreshold;
-    view1.pvalueThreshold = pvalueThreshold;
-  }
 
   $("#prebox").delay(500).fadeOut();
 });

@@ -59,11 +59,11 @@ $ext = new Extension_Collection();
         </div>
 
         <div class="network-control">
-          <label for="th1">Co-expression threshold: (&gt;=<span id="th1-value">0.990</span>)</label>
-          <input type="range" min="0.95" max="1" step="0.001" value="0.99" id="th1" name="th1">
+          <label for="coexpressionThreshold">Co-expression threshold: &ge;<span id="coexpressionThresholdDisplay">0.990</span></label>
+          <input id="coexpressionThreshold" type="range" min="0.95" max="1" step="0.001" value="0.99" name="coexpressionThreshold">
 
-          <label for="complex-pval-threshold">P-value threshold: <span id="complex-pval-threshold-value">0.05</span></label>
-          <input id="complex-pval-threshold" type="range" min="0" max="0.2" step="0.01" value="0.05">
+          <label for="pvalueThreshold">P-value threshold: &le;<span id="pvalueThresholdDisplay">0.05</span></label>
+          <input id="pvalueThreshold" type="range" min="0" max="0.2" step="0.01" value="0.05">
           <button id="align_to_species_button" class="btn btn-4 btn-4c">Align</button>
         </div>
       </div>
