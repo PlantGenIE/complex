@@ -44,6 +44,8 @@ function populateNetworkSelect(data, element, targetElement) {
   var handleDrop = function(e) {
     if (e.stopPropagation) {
       e.stopPropagation();
+    } if (e.preventDefault) {
+      e.preventDefault();
     }
     var token = document.getElementById(e.dataTransfer.getData('text'));
     var tokenSpecies = token.getAttribute('data-species');
@@ -56,6 +58,8 @@ function populateNetworkSelect(data, element, targetElement) {
   var handleTokenDrop = function(e) {
     if (e.stopPropagation) {
       e.stopPropagation();
+    } if (e.preventDefault) {
+      e.preventDefault();
     }
     var token = document.getElementById(e.dataTransfer.getData('text'));
     if (token.parentNode == this.parentNode && this != token) {
