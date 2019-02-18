@@ -26,11 +26,6 @@ $ext = new Extension_Collection();
     <link rel="stylesheet" href="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape.js-panzoom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
-    <style>
-.ui-effects-transfer-remove { border: 2px dotted #d35530; z-index:2000;}
-.ui-effects-transfer { border: 2px dotted #d35530; z-index:2000;border-radius:36px;}
-.ui-effects-transfer-2 { border: 2px groove #d35530; z-index:2000;border-radius:36px;}
-    </style>
   </head>
   <body>
     <div id="prebox" style="width:100%;height:400%;background-color:#FFF;z-index:5000000;position:absolute;top:0px;left:0px;vertical-align:middle" >
@@ -174,7 +169,6 @@ $ext = new Extension_Collection();
 
     <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/r-2.2.1/sl-1.2.5/datatables.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
     <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
