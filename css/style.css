@@ -114,22 +114,39 @@ header img {
 height: 37px;
 }
 
+/* INPUT ACCORDEON STYLING */
+
 .input-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container > div {
+  width: 80%;
+  max-width: 1000px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
 }
 
 .network-input {
-    flex-basis: 49%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    margin: 10px 0px;
 }
 
-.network-input div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.input-group > :first-child {
+  width: 300px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.input-group > :nth-child(2) {
+  width: 600px;
+  flex-grow: 2;
 }
 
 .network-input .network-button-container {
@@ -162,11 +179,7 @@ height: 37px;
 	background-color: #EAFFF5;
 }
 
-.network-control {
-    flex-basis: 49%;
-    display: flex;
-    flex-direction: column;
-}
+/* EXTENSIONS ACCORDEON STYLING */
 
 .network-wrapper {
     display: flex;
