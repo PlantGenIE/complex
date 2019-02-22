@@ -53,8 +53,8 @@ $ext = new Extension_Collection();
 
         <div class="input-group">
           <div class="network-input">
-            <label for="genes-list">Genes list</label>
-            <select id="genes-list"  size="7">
+            <label for="genes-lists">Genes list</label>
+            <select id="genes-lists"  size="7">
               <option>Load example</option>
               <option>Saved_list_1</option>
               <option>Saved_list_2</option>
@@ -198,6 +198,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/v2.2.4/cytoscape-cola.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
+    <script src="js/fingerprint.js"></script>
     <script src="js/network_overlay.js"></script>
     <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>

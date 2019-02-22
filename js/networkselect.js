@@ -30,6 +30,9 @@ function populateNetworkSelect(data, element, targetElement) {
       }
     });
     target.appendChild(token);
+    if (token.getAttribute('data-network') === getActiveNetwork()) {
+      genesLists.updateDisplay(tokenSpecies)
+    };
     window.localStorage
       .setItem('selectedNetworks', JSON.stringify(getSelectedNetworks()));
   };
