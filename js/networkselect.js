@@ -30,8 +30,8 @@ function populateNetworkSelect(data, element, targetElement) {
       }
     });
     target.appendChild(token);
-    if (token.getAttribute('data-network') === getActiveNetwork()) {
-      genesLists.updateDisplay(tokenSpecies)
+    if (tokenSpecies === getActiveSpecies()) {
+      genesLists.updateDisplay(tokenSpecies);
     };
     window.localStorage
       .setItem('selectedNetworks', JSON.stringify(getSelectedNetworks()));
@@ -65,6 +65,7 @@ function populateNetworkSelect(data, element, targetElement) {
       e.preventDefault();
     }
     var token = document.getElementById(e.dataTransfer.getData('text'));
+    var tokenSpecies = token.getAttribute('data-species');
     if (token.parentNode == this.parentNode && this != token) {
       // Got this from https://stackoverflow.com/a/11974430/885443
       var insertionPoint, elem = this;
@@ -77,6 +78,9 @@ function populateNetworkSelect(data, element, targetElement) {
       this.parentNode.insertBefore(token, insertionPoint);
       window.localStorage
         .setItem('selectedNetworks', JSON.stringify(getSelectedNetworks()));
+      if (tokenSpecies == getActiveSpecies()) {
+        genesLists.updateDisplay(tokenSpecies);
+      };
     } else if (token.parentNode != this.parentNode) {
       moveToken(token, this.parentNode);
     }
