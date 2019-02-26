@@ -28,6 +28,84 @@ function getInputGenes() {
   }
 }
 
+var genesLists = (function () {
+  var fingerprint = window.localStorage.getItem("fingerprint");
+  var listsDisplayContainer = document.getElementById("genes-lists");
+  var genesDisplayContainer = document.getElementById("sink1");
+  var databases = [];
+  var lists = [];
+
+  function loadExamples() {
+    databases.forEach(function (database) {
+      // slice() allow to pass the value instead of reference
+      lists[database.species] = database["list-example"].slice();
+    });
+  };
+
+  return {
+    init: function () {
+      listsDisplayContainer.addEventListener("change", function handleChange () {
+        genesDisplayContainer.value = listsDisplayContainer.value;
+      });
+      this.fetchDatabases();
+    },
+
+    fetchDatabases: function () {
+      var self = this;
+      $.ajax( {
+        url: "databases.json",
+        datatype: "json",
+        error: function (jqXHR, textStatus) {
+          console.log(textStatus);
+        },
+        success: function (data) {
+          console.log(this);
+          databases = data;
+        },
+        complete: function () {
+          self.fetchDatabasesLists();
+        }
+     });
+    },
+
+    fetchDatabasesLists: function () {
+      lists = [];
+      loadExamples();
+      if (fingerprint) {
+        databases.forEach(function (database) {
+          $.ajax( {
+            url: "http://api.plantgenie.org/genelist/get_all?table="
+                 + database.name + "&fingerprint="
+                 + fingerprint + "&name=plantgenie_genelist",
+            method: "GET",
+            datatype: "json",
+            timeout: 0,
+            error: function (jqXHR, textStatus) {
+              console.log(textStatus);
+            },
+            success: function (data) {
+             lists[database.species].push.apply(lists[database.species], data);
+            }
+          });
+        });
+      };
+    },
+
+    updateDisplay: function (species) {
+      if (lists[species]) {
+        listsDisplayContainer.options.length = 0;
+        lists[species].forEach(function (list) {
+          listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));
+        });
+        genesDisplayContainer.placeholder = "Example : " + lists[species][0]["gene_list"];
+      };
+    },
+  };
+})();
+
+
+
+
 function align(geneIds = null, alignClicked = false) {
   var postData = {
     network_ids: getSelectedNetworks(),
@@ -303,6 +381,8 @@ window.onload = init(function(d) {
   });
 
   populateNetworkSelect(d, '#network-buttons', '#selected-network-buttons');
+
+  genesLists.init();
 
   view1 = new TableNetwork('#active-network-table',
     '#other-network-table', '#cytoscapeweb1',
