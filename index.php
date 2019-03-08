@@ -55,20 +55,13 @@ $ext = new Extension_Collection();
           <div class="network-input">
             <label for="genes-lists">Genes list</label>
             <select id="genes-lists"  size="7">
-              <option>Load example</option>
-              <option>Saved_list_1</option>
-              <option>Saved_list_2</option>
-              <option>Saved_list_3</option>
-              <option>Saved_list_4</option>
-              <option>Saved_list_5</option>
-              <option>Saved_list_6</option>
-              <option>Saved_list_7</option>
+              <option value="No network selected...">Load example</option>
             </select>
           </div>
 
           <div class="network-input">
             <label for="sink1">Genes</label>
-            <textarea name="sp1gene" id="sink1" rows="6"></textarea>
+            <textarea name="sp1gene" id="sink1" rows="6" placeholder="No network selected..."></textarea>
           </div>
         </div>
 
@@ -124,9 +117,9 @@ $ext = new Extension_Collection();
         <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino" id="newtrok_mode"></span>
         <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
       </div>
+      <div class="accordion-content">
         <label for="pvalueThreshold">P-value threshold: &le;<span id="pvalueThresholdDisplay">0.05</span></label>
         <input id="pvalueThreshold" type="range" min="0" max="0.2" step="0.01" value="0.05">
-      <div class="accordion-content">
         <div class="network-overlay">
           <p class="overlay-message"></p>
           <div class="loader_color2 spinner"></div>
@@ -199,10 +192,12 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
     <script src="js/fingerprint.js"></script>
-    <script src="js/network_overlay.js"></script>
-    <script src="js/table_network.js"></script>
     <script src="js/complexmessage.min.js"></script>
-    <script src="js/networkselect.js"></script>
+    <script src="js/inputManager.js"></script>
+    <script src="js/alignmentData.js"></script>
+    <script src="js/alignmentView.js"></script>
+    <script src="js/alignmentTable.js"></script>
+    <script src="js/eventLinker.js"></script>
     <script src="js/complex.js"></script>
     <script>
       //Very cool custom functions
