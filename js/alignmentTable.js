@@ -116,8 +116,12 @@ var alignmentTable = (function () {
     },
 
     deselectAll: function () {
-      referenceTable.rows().deselect().data().checkbox.order = 0;
-      alignedTable.rows().deselect().data().checkbox.order = 0;
+      referenceTable.rows().every(function () {
+        this.deselect().data().checkbox.order = 0;
+      });
+      alignedTable.rows().every(function () {
+        this.deselect().data().checkbox.order = 0;
+      });
       referenceTable.rows().invalidate().draw();
       alignedTable.rows().invalidate().draw();
     },
