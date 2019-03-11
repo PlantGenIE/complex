@@ -35,7 +35,11 @@ var alignmentData = (function () {
       return {
         gene: x.data.label,
         id: x.data.id,
-        network: x.data.parent
+        network: x.data.parent,
+        checkbox: {
+          value: null,
+          order: 0
+        }
       };
     });
     return referenceTableData;
@@ -54,7 +58,11 @@ var alignmentData = (function () {
       return {
         gene: x.data.label,
         id: x.data.id,
-        network: networksNames[x.data.parent]
+        network: networksNames[x.data.parent],
+        checkbox: {
+          value: null,
+          order: 0
+        }
       };
     });
     return alignedTableData;
