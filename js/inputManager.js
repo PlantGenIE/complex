@@ -294,12 +294,12 @@ var alignTrigger = (function () {
     threshold: '0.99'
   };
 
-  function updateLocalStorage() {
+  function updateLocalStorage(parameters) {
     // JSON.stringify to store an array properly
-    window.localStorage.setItem('referenceNetwork', inputParameters.active_network);
-    window.localStorage.setItem('selectedNetworks', JSON.stringify(inputParameters.network_ids));
-    window.localStorage.setItem('referenceGenes', JSON.stringify(inputParameters.gene_names));
-    window.localStorage.setItem('coexpressionThreshold', inputParameters.threshold);
+    window.localStorage.setItem('referenceNetwork', parameters.active_network);
+    window.localStorage.setItem('selectedNetworks', JSON.stringify(parameters.network_ids));
+    window.localStorage.setItem('referenceGenes', JSON.stringify(parameters.gene_names));
+    window.localStorage.setItem('coexpressionThreshold', parameters.threshold);
   };
 
   function fetchLocalStorage() {
@@ -373,7 +373,7 @@ var alignTrigger = (function () {
         complexmessage.error('No reference genes specified');
       } else {
         alignmentData.fetchDatabase(parameters);
-        updateLocalStorage();
+        updateLocalStorage(parameters);
       };
     }
   };
