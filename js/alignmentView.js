@@ -15,6 +15,7 @@
  * @function hideOverlay        - Hide the overlay.
  * @function referenceSelected  - Return all reference genes selected.
  * @function tapHandler         - Determine the state and type of the taped element and call the appropriate action.
+ * @function boxHandler         - Call a shifted selection for all unselected element in the box.
  * @function setPvalueThreshold - Change the pvalue threshold and hide or show the orthology edges accordingly.
  *
  * @method init         - Set cytoscape style, context menu and event listeners.
@@ -104,6 +105,15 @@ var alignmentView = (function () {
       };
     };
     return false;
+  };
+
+  function boxHandler(event) {
+    event.originalEvent = {shiftKey: true};
+    event.target.forEach(function(element) {
+      if (!event.target.selected()) {
+        tapHandler(event);
+      };
+    });
   };
 
   function setPvalueThreshold(newPvalue) {
@@ -217,6 +227,7 @@ var alignmentView = (function () {
       cy.on('layoutstart', showOverlay('Calculating network layout...'));
       cy.on('layoutstop', hideOverlay());
       cy.on('tap', tapHandler);
+      cy.on('box', boxHandler);
       pvalueThresholdContainer.addEventListener('input', function handleInput() {
         pvalueThresholdDisplay.innerHTML = this.value;
         setPvalueThreshold(this.value);
