@@ -1,13 +1,14 @@
 <?php
 
 require_once('../db.php');
+require_once('utils.php');
 
-$method = isset($_POST['method']) ? $_POST['method'] : 'get_network';
-$network_ids = isset($_POST['network_ids']) ? $_POST['network_ids'] : null;
-$active_network = isset($_POST['active_network']) ? $_POST['active_network'] : null;
-$gene_ids = isset($_POST['gene_ids']) ? $_POST['gene_ids'] : null;
-$gene_names = isset($_POST['gene_names']) ? $_POST['gene_names'] : null;
-$threshold = isset($_POST['threshold']) ? floatval($_POST['threshold']) : null;
+$method = get_post('method', 'get_network');
+$network_ids = get_post('network_ids', null);
+$active_network = get_post('active_network', null);
+$gene_ids = get_post('genes_ids', null);
+$gene_names = get_post('gene_names', null);
+$threshold = get_post('threshold', null);
 
 if (is_null($network_ids)) {
   http_response_code(400);
