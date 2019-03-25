@@ -151,7 +151,7 @@ class Extension_Collection implements Iterator {
     ++$this->position;
   }
 
-  public function empty() {
+  public function is_empty() {
     return empty($this->extensions);
   }
 

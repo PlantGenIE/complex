@@ -77,7 +77,7 @@ $ext = new Extension_Collection();
         </div>
       </div>
 
-      <?php if (!$ext->empty()): ?>
+      <?php if (!$ext->is_empty()): ?>
       <div class="accordion-head">
         Extensions
       </div>
