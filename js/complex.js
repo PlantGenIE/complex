@@ -36,6 +36,7 @@ window.onload = function () {
     $(this).next().toggle();
     $(this).toggleClass('opened');
     $(this).toggleClass('collapsed');
+    alignmentView.getPrivates().cy.resize();
     return false;
   });
 
