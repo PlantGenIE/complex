@@ -132,6 +132,29 @@ height: 37px;
     min-width: 0;
 }
 
+/* ENRICHMENT STYLING */
+
+#enrichment-wrapper {
+    display: flex;
+    margin-left: 20px;
+    
+}
+
+#enrichment-toggler {
+    width: 25px;
+    height: 100%;
+    background-color: #C6E1EC;
+}
+
+#enrichment-toggler:hover {
+    background-color: #A4C1CA;
+}
+
+#enrichment-content {
+    width: 275px;
+    height: 100%;
+}
+
 .network-table-wrapper {
     display: flex;
     justify-content: space-between;

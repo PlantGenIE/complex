@@ -126,6 +126,12 @@ $ext = new Extension_Collection();
         </div>
         <div class="network-wrapper">
           <div id="cytoscapeweb1" class="network-container"></div>
+          
+          <div id="enrichment-wrapper">
+            <div id="enrichment-toggler"></div>
+            <div id="enrichment-content">
+            </div>
+          </div>
         </div>
       </div>
 
