@@ -1,15 +1,17 @@
 /**
  * @module alignmentData - Get and store the data used in the alignment
  *
- * @property {object} networksData - Current networks dataset used for the alignment.
- * @property {object} parameters   - Parameters used in the PHP query for the current dataset.
+ * @property {object} networksData     - Current networks dataset used for the alignment.
+ * @property {object} referenceNetwork - Pointer to the reference network data.
+ * @property {object} parameters       - Parameters used in the PHP query for the current dataset.
  *
- * @function networkNode      - Constructor for network nodes in alignmentView.
- * @function geneNode         - Constructor for gene nodes in alignmentView.
- * @function orthologsEdge    - Constructor for orthology edges in alignmentView.
- * @function coexpressionEdge - Constructor for coexpression edges in alignmentView.
- * @function tableRow         - Constructor for rows in alignmentTable.
- * @function prepareData      - Use `networksData` to construct data structure usable by each served module.
+ * @function getReferenceNetwork - Get which network is the reference in the `networksData`.
+ * @function networkNode         - Constructor for network nodes in alignmentView.
+ * @function geneNode            - Constructor for gene nodes in alignmentView.
+ * @function orthologsEdge       - Constructor for orthology edges in alignmentView.
+ * @function coexpressionEdge    - Constructor for coexpression edges in alignmentView.
+ * @function tableRow            - Constructor for rows in alignmentTable.
+ * @function prepareData         - Use `networksData` to construct data structure usable by each served module.
  *
  * @method init            - Do nothing.
  * @method getPrivate      - Return `networksData` and `parameters`.
@@ -20,13 +22,25 @@
  */
 var alignmentData = (function () {
   var networksData;
+  var referenceNetwork;
   var parameters = {
     active_network: '',
     network_ids: [],
     gene_names: [],
     threshold: ''
   };
-  
+
+  function getReferenceNetwork() {
+    networksData.forEach(function (species) {
+      for (var network in species.networks) {
+        if (species.networks[network].isReference) {
+          referenceNetwork = species.networks[network];
+        };
+      };
+    });
+  };
+
+
   function networkNode(id, name, isReference) {
     this.group = 'nodes';
     this.classes = 'network';
@@ -145,6 +159,7 @@ var alignmentData = (function () {
     getPrivates: function () {
       return {
         networksData: networksData,
+        referenceNetwork: referenceNetwork,
         parameters: parameters
       };
     },
@@ -159,6 +174,7 @@ var alignmentData = (function () {
         dataType: 'json',
         success: function (data) {
           networksData = data;
+          getReferenceNetwork();
           self.serveData();
         },
         error: function (jqXHR) {
@@ -176,18 +192,8 @@ var alignmentData = (function () {
     },
 
     getIfReference: function (geneId) {
-      let geneParent = "";
-      let geneFound =  networksData.nodes.some(function (gene) {
-        geneParent = gene.data.parent
-        return gene.data.id === geneId;
-      });
-      if (geneFound === false) {
-        return undefined;
-      } else if (geneParent === ('network' + parameters.active_network)) {
-        return true;
-      } else {
-        return false;
-      };
+      let isReference = referenceNetwork.nodes[geneId] ? true : false;
+      return isReference;
     },
 
     getOrthologsIds: function (geneId, isReference, concurrentGenes) {
