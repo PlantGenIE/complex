@@ -4,9 +4,12 @@
  * @property {object} networksData - Current networks dataset used for the alignment.
  * @property {object} parameters   - Parameters used in the PHP query for the current dataset.
  *
- * @function prepareViewData           - Construct each node and edge data to be displayed in the view.
- * @function prepareReferenceTableData - Construct each row data to be displayed in the reference table.
- * @function prepareAlignedTableData   - Construct each row data to be displayed in the aligned table.
+ * @function parentNode       - Constructor for parent nodes in alignmentView.
+ * @function geneNode         - Constructor for gene nodes in alignmentView.
+ * @function orthologsEdge    - Constructor for orthology edges in alignmentView.
+ * @function coexpressionEdge - Constructor for coexpression edges in alignmentView.
+ * @function tableRow         - Constructor for rows in alignmentTable.
+ * @function prepareData      - Use `networksData` to construct data structure usable by each served module.
  *
  * @method init            - Do nothing.
  * @method getPrivate      - Return `networksData` and `parameters`.
@@ -24,53 +27,65 @@ var alignmentData = (function () {
     threshold: ''
   };
   
-  function prepareViewData() {
+  function parentNode(id, name, isReference) {
+    this.group = 'nodes';
+    this.classes = 'network';
+    if (isReference) {this.classes += ' active'};
+    this.data = {
+      id: `network${id}`,
+      label: name,
+      active: isReference
+    }
+  };
+
+  function geneNode(id, name, parentName) {
+    this.group = 'nodes';
+    this.classes = 'gene';
+    this.data = {
+      id: id,
+      label: name,
+      parent: parentName
+    }
+  };
+
+  function orthologEdge(source, target, support, pvalue) {
+    this.group = 'edges';
+    this.classes = 'orthology';
+    this.data = {
+      source: source,
+      target: target,
+      support: support,
+      conservation_pvalue: pvalue
+    }
+  };
+
+  function coexpressionEdge(source, target, weight) {
+    this.group = 'edges';
+    this.classes = 'co-expression';
+    this.data = {
+      source: source,
+      target: target,
+      weight: weight
+    }
+  };
+
+  function tableRow(id, gene, network) {
+    this.id = id;
+    this.gene = gene;
+    this.network = network;
+    this.checkbox = {
+      value: null,
+      order: 0,
+    }
+  };
+
+  function prepareData() {
     let viewData = {
       nodes: [],
       edges: []
     };
-
-    function parentNode(id, name, isReference) {
-      this.group = 'nodes';
-      this.classes = 'network';
-      if (isReference) {this.classes += ' active'};
-      this.data = {
-        id: `network${id}`,
-        label: name,
-        active: isReference
-      }
-    };
-
-    function geneNode(id, name, parentName) {
-      this.group = 'nodes';
-      this.classes = 'gene';
-      this.data = {
-        id: id,
-        label: name,
-        parent: parentName
-      }
-    };
-
-    function orthologEdge(source, target, support, pvalue) {
-      this.group = 'edges';
-      this.classes = 'orthology';
-      this.data = {
-        source: source,
-        target: target,
-        support: support,
-        conservation_pvalue: pvalue
-      }
-    };
-
-    function coexpressionEdge(source, target, weight) {
-      this.group = 'edges';
-      this.classes = 'co-expression';
-      this.data = {
-        source: source,
-        target: target,
-        weight: weight
-      }
-    };
+    let referenceTableData = [];
+    let alignedTableData = [];
 
     networksData.forEach(function (species) {
       for(var networkId in species.networks) {
@@ -85,6 +100,8 @@ var alignmentData = (function () {
               let gene = network.nodes[nodeId];
               let node = new geneNode(nodeId, gene.name, parent.data.id);
               viewData.nodes.push(node);
+              
+              let row = new tableRow(nodeId, gene.name, network.name);
 
               if (isReference) {
                 for (var orthologId in gene.orthologs) {
@@ -96,6 +113,10 @@ var alignmentData = (function () {
                     viewData.edges.push(edge);
                   };
                 };
+
+                referenceTableData.push(row);
+              } else {
+                alignedTableData.push(row);
               };
             };
           };
@@ -110,47 +131,11 @@ var alignmentData = (function () {
       };
     });
 
-    return viewData;
-  };
-
-  function prepareReferenceTableData() {
-    let referenceTableData = $.grep(networksData.nodes, function(x) {
-      return x.classes.match(/gene/) !== null && x.data.parent === `network${parameters.active_network}`;
-    }).map(function(x) {
-      return {
-        gene: x.data.label,
-        id: x.data.id,
-        network: x.data.parent,
-        checkbox: {
-          value: null,
-          order: 0
-        }
-      };
-    });
-    return referenceTableData;
-  };
-
-  function prepareAlignedTableData() {
-    let networksNames = {};
-    networksData.nodes.forEach(function (node) {
-      if (node.classes === 'network') {
-        networksNames[node.data.id] = node.data.label;
-      };
-    });
-    let alignedTableData = $.grep(networksData.nodes, function(x) {
-      return x.classes.match(/gene/) !== null && x.data.parent !== `network${parameters.active_network}`;
-    }).map(function(x) {
-      return {
-        gene: x.data.label,
-        id: x.data.id,
-        network: networksNames[x.data.parent],
-        checkbox: {
-          value: null,
-          order: 0
-        }
-      };
-    });
-    return alignedTableData;
+    return {
+      view: viewData,
+      referenceTable: referenceTableData,
+      alignedTable: alignedTableData
+    };
   };
 
   return {
@@ -183,12 +168,11 @@ var alignmentData = (function () {
     },
 
     serveData: function () {
-      let viewData = prepareViewData();
-      alignmentView.setData(viewData);
+      let preparedData = prepareData();
 
-      let referenceTableData = prepareReferenceTableData();
-      let alignedTableData = prepareAlignedTableData();
-      alignmentTable.setData(referenceTableData, alignedTableData);
+      alignmentView.setData(preparedData.view);
+      alignmentTable.setData(preparedData.referenceTable,
+        preparedData.alignedTable);
     },
 
     getIfReference: function (geneId) {
