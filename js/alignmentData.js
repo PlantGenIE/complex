@@ -4,7 +4,7 @@
  * @property {object} networksData - Current networks dataset used for the alignment.
  * @property {object} parameters   - Parameters used in the PHP query for the current dataset.
  *
- * @function parentNode       - Constructor for parent nodes in alignmentView.
+ * @function networkNode      - Constructor for network nodes in alignmentView.
  * @function geneNode         - Constructor for gene nodes in alignmentView.
  * @function orthologsEdge    - Constructor for orthology edges in alignmentView.
  * @function coexpressionEdge - Constructor for coexpression edges in alignmentView.
@@ -27,7 +27,7 @@ var alignmentData = (function () {
     threshold: ''
   };
   
-  function parentNode(id, name, isReference) {
+  function networkNode(id, name, isReference) {
     this.group = 'nodes';
     this.classes = 'network';
     if (isReference) {this.classes += ' active'};
@@ -92,7 +92,7 @@ var alignmentData = (function () {
         if (species.networks.hasOwnProperty(networkId)) {
           let network = species.networks[networkId];
           let isReference = network.isReference;
-          let parent = new parentNode(networkId, network.name, isReference);
+          let parent = new networkNode(networkId, network.name, isReference);
           viewData.nodes.push(parent);
 
           for (var nodeId in network.nodes) {
