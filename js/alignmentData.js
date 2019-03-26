@@ -25,7 +25,92 @@ var alignmentData = (function () {
   };
   
   function prepareViewData() {
-    return networksData;
+    let viewData = {
+      nodes: [],
+      edges: []
+    };
+
+    function parentNode(id, name, isReference) {
+      this.group = 'nodes';
+      this.classes = 'network';
+      if (isReference) {this.classes += ' active'};
+      this.data = {
+        id: `network${id}`,
+        label: name,
+        active: isReference
+      }
+    };
+
+    function geneNode(id, name, parentName) {
+      this.group = 'nodes';
+      this.classes = 'gene';
+      this.data = {
+        id: id,
+        label: name,
+        parent: parentName
+      }
+    };
+
+    function orthologEdge(source, target, support, pvalue) {
+      this.group = 'edges';
+      this.classes = 'orthology';
+      this.data = {
+        source: source,
+        target: target,
+        support: support,
+        conservation_pvalue: pvalue
+      }
+    };
+
+    function coexpressionEdge(source, target, weight) {
+      this.group = 'edges';
+      this.classes = 'co-expression';
+      this.data = {
+        source: source,
+        target: target,
+        weight: weight
+      }
+    };
+
+    networksData.forEach(function (species) {
+      for(var networkId in species.networks) {
+        if (species.networks.hasOwnProperty(networkId)) {
+          let network = species.networks[networkId];
+          let isReference = network.isReference;
+          let parent = new parentNode(networkId, network.name, isReference);
+          viewData.nodes.push(parent);
+
+          for (var nodeId in network.nodes) {
+            if (network.nodes.hasOwnProperty(nodeId)) {
+              let gene = network.nodes[nodeId];
+              let node = new geneNode(nodeId, gene.name, parent.data.id);
+              viewData.nodes.push(node);
+
+              if (isReference) {
+                for (var orthologId in gene.orthologs) {
+                  if (gene.orthologs.hasOwnProperty(orthologId)) {
+                    let ortholog = gene.orthologs[orthologId];
+                    let edge = new orthologEdge(nodeId, orthologId,
+                      ortholog.methods.join(' '),
+                      ortholog.conservation[0].pvalue);
+                    viewData.edges.push(edge);
+                  };
+                };
+              };
+            };
+          };
+
+          if(network.edges) {
+            network.edges.forEach(function (coexpression) {
+              let edge = new coexpressionEdge(coexpression.source, coexpression.target, coexpression.score);
+              viewData.edges.push(edge);
+            });
+          };
+        };
+      };
+    });
+
+    return viewData;
   };
 
   function prepareReferenceTableData() {
