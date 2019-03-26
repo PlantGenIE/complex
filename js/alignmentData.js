@@ -14,11 +14,11 @@
  * @function prepareData         - Use `networksData` to construct data structure usable by each served module.
  *
  * @method init            - Do nothing.
- * @method getPrivate      - Return `networksData` and `parameters`.
+ * @method getPrivate      - Return `networksData`, `referenceNetwork` and `parameters`.
  * @method fetchDatabase   - Get a dataset for a new alignment.
  * @method serveData       - Dispatch the data to be displayed to the display modules.
  * @method getIfReference  - Return wether a gene belong to the reference network.
- * @method getOrthologsIds - Return all the orthologs of a given gene. If concurrent genes are given, the orthologs in which are in common between the reference gene and the concurrents are removed from the return.
+ * @method getOrthologsIds - Return all the orthologs of a given gene. If concurrent genes are given, the orthologs which are in common between the reference gene and the concurrents are removed from the returned list.
  */
 var alignmentData = (function () {
   var networksData;
@@ -197,44 +197,42 @@ var alignmentData = (function () {
     },
 
     getOrthologsIds: function (geneId, isReference, concurrentGenes) {
-      // Need optimization
       let orthologsIds = [];
-      if (isReference) {
-        concurrentGenes.splice(concurrentGenes.indexOf(geneId), 1);
-        networksData.edges.forEach(function (edge) {
-          if (edge.classes === 'orthology') {
-            if (edge.data.source === geneId) {
-              orthologsIds.push(edge.data.target);
-            };
-          };
-        });
-        // Get only unique
-        function onlyUnique(value, index, self) {
-          return self.indexOf(value) === index;
-        };
-        orthologsIds = orthologsIds.filter(onlyUnique);
 
-        concurrentGenes.forEach(function (concurrent) {
-          networksData.edges.forEach(function (edge) {
-            if (edge.classes === 'orthology') {
-              if (edge.data.source === concurrent) {
-                let inOrthologs = orthologsIds.indexOf(edge.data.target)
-                if (inOrthologs > -1) {
-                  orthologsIds.splice(inOrthologs, 1);
-                };
+      if (isReference) {
+        // Remove geneId from it's own concurrent
+        concurrentGenes.splice(concurrentGenes.indexOf(geneId), 1);
+
+        let geneOrthologs = referenceNetwork.nodes[geneId].orthologs;
+        for (var orthologId in geneOrthologs) {
+          if (geneOrthologs.hasOwnProperty(orthologId)) {
+            orthologsIds.push(orthologId);
+          };
+        };
+
+        concurrentGenes.forEach(function (concurrentId) {
+          let concurrentOrthologs = referenceNetwork.nodes[concurrentId].orthologs;
+          for (var orthologId in concurrentOrthologs) {
+            if (concurrentOrthologs.hasOwnProperty(orthologId)) {
+              let inOrthologs = orthologsIds.indexOf(orthologId);
+              if (inOrthologs > -1) {
+                orthologsIds.splice(inOrthologs, 1);
               };
             };
-          });
-        });
-      } else {
-        networksData.edges.forEach(function (edge) {
-          if (edge.classes === 'orthology') {
-            if (edge.data.target === geneId) {
-              orthologsIds.push(edge.data.source);
-            };
           };
         });
+
+      } else {
+        let referenceGenes = referenceNetwork.nodes;
+        for (orthologId in referenceGenes) {
+          if (referenceGenes.hasOwnProperty(orthologId)) {
+            if (referenceGenes[orthologId].orthologs[geneId]) {
+              orthologsIds.push(orthologId);
+            };
+          };
+        };
       };
+
       return orthologsIds;
     }
   };
