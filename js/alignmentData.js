@@ -100,18 +100,25 @@ var alignmentData = (function () {
     };
     let referenceTableData = [];
     let alignedTableData = [];
+    let enrichmentData = [];
 
     networksData.forEach(function (species) {
       for(var networkId in species.networks) {
         if (species.networks.hasOwnProperty(networkId)) {
           let network = species.networks[networkId];
           let isReference = network.isReference;
+          let enrichmentNetwork = {
+            species: species.speciesName,
+            name: network.name,
+            genesNames: []
+          };
           let parent = new networkNode(networkId, network.name, isReference);
           viewData.nodes.push(parent);
 
           for (var nodeId in network.nodes) {
             if (network.nodes.hasOwnProperty(nodeId)) {
               let gene = network.nodes[nodeId];
+              enrichmentNetwork.genesNames.push(gene.name);
               let node = new geneNode(nodeId, gene.name, parent.data.id);
               viewData.nodes.push(node);
               
@@ -141,6 +148,7 @@ var alignmentData = (function () {
               viewData.edges.push(edge);
             });
           };
+          enrichmentData.push(enrichmentNetwork);
         };
       };
     });
@@ -148,7 +156,8 @@ var alignmentData = (function () {
     return {
       view: viewData,
       referenceTable: referenceTableData,
-      alignedTable: alignedTableData
+      alignedTable: alignedTableData,
+      enrichment: enrichmentData
     };
   };
 
@@ -189,6 +198,7 @@ var alignmentData = (function () {
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.referenceTable,
         preparedData.alignedTable);
+      enrichment.fetchDatabase(preparedData.enrichment);
     },
 
     getIfReference: function (geneId) {

@@ -203,6 +203,7 @@ $ext = new Extension_Collection();
     <script src="js/alignmentData.js"></script>
     <script src="js/alignmentView.js"></script>
     <script src="js/alignmentTable.js"></script>
+    <script src="js/enrichment.js"></script>
     <script src="js/eventLinker.js"></script>
     <script src="js/complex.js"></script>
     <script>
