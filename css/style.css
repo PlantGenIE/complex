@@ -88,6 +88,15 @@ height: 37px;
 	background-color: #EAFFF5;
 }
 
+#genes-lists {
+  height: 100px;
+}
+
+#sink1 {
+  height: 98px;
+  resize: none;
+}
+
 /* EXTENSIONS ACCORDEON STYLING */
 
 .network-wrapper {
