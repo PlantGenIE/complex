@@ -24,6 +24,10 @@ var enrichment = (function () {
 
   function displayEnrichment() {
     let tempData = enrichmentData;
+    while (enrichmentContainer.firstChild) {
+      enrichmentContainer.removeChild(enrichmentContainer.firstChild);
+    };
+
     tempData.forEach(function (network, index) {
       network.go.forEach(function (term) {
         let item = document.importNode(enrichmentTemplate.content, true);
@@ -33,27 +37,27 @@ var enrichment = (function () {
         let proportion = document.importNode(proportionTemplate.content, true);
         let progress = proportion.querySelector('.proportion-progress');
         progress.classList.add(`network${index + 1}`);
-        progress.setAttribute('style', `width:${term.nt / term.mt}%`);
+        progress.setAttribute('style', `width:${(term.nt / term.mt) * 100}%`);
         proportion.querySelector('.proportion-value').textContent = `${term.nt}/${term.mt}`;
 
         item.querySelector('.proportion-wrapper').appendChild(proportion);
 
         tempData.slice(index + 1).forEach(function (otherNetwork, otherIndex) {
-          let proportion = document.importNode(proportionTemplate.content, true);
-          let progress = proportion.querySelector('.proportion-progress');
-          progress.classList.add(`network${index + otherIndex + 2}`);
-
           let termIndex = otherNetwork.go.findIndex(function (otherTerm) {
             return otherTerm.id === term.id;
           });
 
           if (termIndex !== -1) {
+            let proportion = document.importNode(proportionTemplate.content, true);
+            let progress = proportion.querySelector('.proportion-progress');
+            progress.classList.add(`network${index + otherIndex + 2}`);
+            
             let otherTerm = otherNetwork.go[termIndex];
-            progress.setAttribute('style', `width:${otherTerm.nt / otherTerm.mt}%`);
+            progress.setAttribute('style', `width:${(otherTerm.nt / otherTerm.mt) * 100}%`);
             proportion.querySelector('.proportion-value').textContent = `${otherTerm.nt}/${otherTerm.mt}`;
             tempData[index + otherIndex + 1].go.splice([termIndex], 1);
+            item.querySelector('.proportion-wrapper').appendChild(proportion);
           };
-          item.querySelector('.proportion-wrapper').appendChild(proportion);
         });
         enrichmentContainer.appendChild(item);
       });

@@ -132,17 +132,17 @@ $ext = new Extension_Collection();
             <div id="enrichment-content">
               <template id="enrichment-template">
                 <div class="enrichment-item">
-                  <span class="name"></span>
-                  <span class="id"></span>
-                  <div class="proportion-wrapper">
+                  <span class="name">
+                  </span><span class="id">
+                  </span><div class="proportion-wrapper">
                   </div>
                 </div>
               </template>
               <template id="proportion-template">
                 <div class="proportion-bar">
                   <div class="proportion-progress"></div>
-                </div>
-                <span class="proportion-value"></span>
+                </div><span class="proportion-value">
+                </span>
               </template>
             </div>
           </div>
