@@ -130,6 +130,20 @@ $ext = new Extension_Collection();
           <div id="enrichment-wrapper">
             <div id="enrichment-toggler"></div>
             <div id="enrichment-content">
+              <template id="enrichment-template">
+                <div class="enrichment-item">
+                  <span class="name"></span>
+                  <span class="id"></span>
+                  <div class="proportion-wrapper">
+                  </div>
+                </div>
+              </template>
+              <template id="proportion-template">
+                <div class="proportion-bar">
+                  <div class="proportion-progress"></div>
+                </div>
+                <span class="proportion-value"></span>
+              </template>
             </div>
           </div>
         </div>
@@ -192,7 +206,7 @@ $ext = new Extension_Collection();
     <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/r-2.2.1/sl-1.2.5/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
-    <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
+    <script src="https://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/v2.2.4/cytoscape-cola.js"></script>
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
