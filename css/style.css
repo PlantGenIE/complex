@@ -132,6 +132,74 @@ height: 37px;
     min-width: 0;
 }
 
+/* ENRICHMENT STYLING */
+
+#enrichment-wrapper {
+    display: flex;
+    margin-left: 20px;
+    height: 700px;
+}
+
+#enrichment-toggler {
+    width: 25px;
+    height: 100%;
+    background-color: #C6E1EC;
+}
+
+#enrichment-toggler:hover {
+    background-color: #A4C1CA;
+}
+
+#enrichment-content {
+    width: 275px;
+    height: 100%;
+    overflow: auto;
+}
+
+.enrichment-item {
+  margin: 5px 0;
+  padding: 0 5px;
+  line-height: 1em;
+}
+
+.enrichment-item .name {
+  display: block;
+  font-color: black;
+  line-height: 1em;
+}
+
+.enrichment-item .id {
+  font-size: 10px;
+}
+
+.proportion-bar {
+  display: inline-block;
+  width: 200px;
+  height: 10px;
+  background-color: lightgrey;
+}
+
+.proportion-progress {
+  height: 10px;
+}
+
+.proportion-progress.network1 {
+  background-color: green;
+}
+
+.proportion-progress.network2 {
+  background-color: orange;
+}
+
+.proportion-progress.network3 {
+  background-color: blue;
+}
+
+.proportion-value {
+  padding: 0 0 0 5px;
+  font-size: 10px;
+}
+
 .network-table-wrapper {
     display: flex;
     justify-content: space-between;

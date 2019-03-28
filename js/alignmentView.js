@@ -248,7 +248,7 @@ var alignmentView = (function () {
         name: 'cola',
         animate: true,
         refresh: 1,
-        randomiza: true,
+        randomize: true,
         nodeSpacing: function (node) {
           if (node.data('parent')) {
             return 10;
