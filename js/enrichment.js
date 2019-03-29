@@ -51,6 +51,7 @@ var enrichment = (function () {
         let item = document.importNode(enrichmentTemplate.content, true);
         item.querySelector('.name').textContent = term.name;
         item.querySelector('.id').textContent = term.id;
+        item.querySelector('.id').setAttribute('href', `http://amigo.geneontology.org/amigo/term/${term.id}`);
 
         let proportion = document.importNode(proportionTemplate.content, true);
         let progress = proportion.querySelector('.proportion-progress');
