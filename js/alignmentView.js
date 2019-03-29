@@ -224,8 +224,8 @@ var alignmentView = (function () {
         ]
       });
       cy.panzoom();
-      cy.on('layoutstart', showOverlay('Calculating network layout...'));
-      cy.on('layoutstop', hideOverlay());
+      cy.on('layoutstart', () => showOverlay('Calculating network layout...'));
+      cy.on('layoutstop', hideOverlay);
       cy.on('tap', tapHandler);
       cy.on('box', boxHandler);
       pvalueThresholdContainer.addEventListener('input', function handleInput() {
