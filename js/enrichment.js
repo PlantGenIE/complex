@@ -1,10 +1,16 @@
 /**
  * @module enrichment - Get and display the enrichment information for the selected genes
  *
- * @const enrichmentContainer - Pointer to the enrichment panel HTML node.
+ * @const enrichmentContainer - Pointer to the enrichment panel content HTML node.
+ * @const enrichmentToggler   - Pointer to the enrichment panel toggler HTML node.
+ * @const legendTemplate      - Pointer to the enrichment legend template HTML node.
+ * @const enrichmentTemplate  - Pointer to the enrichment item template HTML node.
+ * @const proportionTemplate  - Pointer to the enrichment proportion template HTML node.
  *
  * @property {object} enrichmentData  - Enrichment dataset used for the current alignment.
  * @property {object} databaseEntries - Correspondance between species names and shortname used in the dabatase URL.
+ *
+ * @function displayEnrichment - For each network create a legend and create an item for each unique term between networks.
  *
  * @method init          - Set enrichment panel event listeners.
  * @method getPrivates   - Return `enrichmentData` and `databaseEntries`.
