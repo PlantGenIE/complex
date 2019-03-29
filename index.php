@@ -130,6 +130,11 @@ $ext = new Extension_Collection();
           <div id="enrichment-wrapper">
             <div id="enrichment-toggler"></div>
             <div id="enrichment-content">
+              <template id="legend-template">
+                <div class="enrichment-legend">
+                  <span class="dot"></span><span class="name"></span>
+                </div>
+              </template>
               <template id="enrichment-template">
                 <div class="enrichment-item">
                   <span class="name">

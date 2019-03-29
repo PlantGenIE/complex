@@ -165,6 +165,21 @@ height: 37px;
     overflow: auto;
 }
 
+.enrichment-legend {
+  padding: 0 5px;
+}
+
+.enrichment-legend .dot {
+  height: 10px;
+  width: 25px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.enrichment-legend .name {
+  margin: 0 0 0 5px;
+}
+
 .enrichment-item {
   margin: 5px 0;
   padding: 0 5px;
@@ -190,17 +205,18 @@ height: 37px;
 
 .proportion-progress {
   height: 10px;
+  min-width: 5px;
 }
 
-.proportion-progress.network1 {
+.proportion-progress.network1, .dot.network1 {
   background-color: green;
 }
 
-.proportion-progress.network2 {
+.proportion-progress.network2, .dot.network2 {
   background-color: orange;
 }
 
-.proportion-progress.network3 {
+.proportion-progress.network3, .dot.network3 {
   background-color: blue;
 }
 

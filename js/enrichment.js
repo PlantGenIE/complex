@@ -13,6 +13,7 @@
 var enrichment = (function () {
   const enrichmentContainer = document.getElementById('enrichment-content');
   const enrichmentToggler = document.getElementById('enrichment-toggler');
+  const legendTemplate = document.getElementById('legend-template');
   const enrichmentTemplate = document.getElementById('enrichment-template');
   const proportionTemplate = document.getElementById('proportion-template');
   var enrichmentData = [];
@@ -29,6 +30,17 @@ var enrichment = (function () {
     };
 
     tempData.forEach(function (network, index) {
+      let legend = document.importNode(legendTemplate.content, true);
+      legend.querySelector('.dot').classList.add(`network${index + 1}`);
+      legend.querySelector('.name').textContent = network.network;
+      let legendNodes = enrichmentContainer.querySelectorAll('.enrichment-legend');
+
+      if (legendNodes.length === 0) {
+        enrichmentContainer.insertBefore(legend, enrichmentContainer.firstChild);
+      } else {
+        enrichmentContainer.insertBefore(legend, legendNodes[legendNodes.length - 1].nextSibling);
+      };
+
       network.go.forEach(function (term) {
         let item = document.importNode(enrichmentTemplate.content, true);
         item.querySelector('.name').textContent = term.name;
