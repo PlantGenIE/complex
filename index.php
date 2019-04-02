@@ -138,7 +138,7 @@ $ext = new Extension_Collection();
               <template id="enrichment-template">
                 <div class="enrichment-item">
                   <span class="name">
-                  </span><a class="id" target="_blank">
+                  </span><div><a class="id" target="_blank"></div>
                   </a><div class="proportion-wrapper">
                   </div>
                 </div>

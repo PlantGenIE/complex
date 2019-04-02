@@ -50,6 +50,7 @@ var enrichment = (function () {
       network.go.forEach(function (term) {
         let item = document.importNode(enrichmentTemplate.content, true);
         item.querySelector('.name').textContent = term.name;
+        item.querySelector('.name').title = term.def;
         item.querySelector('.id').textContent = term.id;
         item.querySelector('.id').setAttribute('href', `http://amigo.geneontology.org/amigo/term/${term.id}`);
 
@@ -114,7 +115,7 @@ var enrichment = (function () {
             'target': ['go'],
             'genes': network.genesNames,
             'include_names': true,
-            'include_defs': false,
+            'include_defs': true,
             'alpha': 0.05
           }),
           headers: {
@@ -122,7 +123,7 @@ var enrichment = (function () {
           },
           dataType: 'json',
           success: function (data) {
-            data.network = network.name
+            data.network = network.name;
             enrichmentData.push(data);
           },
           error: function (jqXHR) {

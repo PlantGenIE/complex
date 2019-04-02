@@ -187,9 +187,9 @@ height: 37px;
 }
 
 .enrichment-item .name {
-  display: block;
   font-color: black;
   line-height: 1em;
+  cursor: help;
 }
 
 .enrichment-item .id {
