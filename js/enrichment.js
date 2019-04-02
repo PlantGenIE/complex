@@ -57,8 +57,8 @@ var enrichment = (function () {
         let proportion = document.importNode(proportionTemplate.content, true);
         let progress = proportion.querySelector('.proportion-progress');
         progress.classList.add(`network${index + 1}`);
-        progress.setAttribute('style', `width:${(term.nt / term.mt) * 100}%`);
-        proportion.querySelector('.proportion-value').textContent = `${term.nt}/${term.mt}`;
+        progress.setAttribute('style', `width:${(term.nt / network.ngenes) * 100}%`);
+        proportion.querySelector('.proportion-value').textContent = `${term.nt}/${network.ngenes}`;
 
         item.querySelector('.proportion-wrapper').appendChild(proportion);
 
@@ -73,8 +73,8 @@ var enrichment = (function () {
             progress.classList.add(`network${index + otherIndex + 2}`);
             
             let otherTerm = otherNetwork.go[termIndex];
-            progress.setAttribute('style', `width:${(otherTerm.nt / otherTerm.mt) * 100}%`);
-            proportion.querySelector('.proportion-value').textContent = `${otherTerm.nt}/${otherTerm.mt}`;
+            progress.setAttribute('style', `width:${(otherTerm.nt / otherNetwork.ngenes) * 100}%`);
+            proportion.querySelector('.proportion-value').textContent = `${otherTerm.nt}/${otherNetwork.ngenes}`;
             tempData[index + otherIndex + 1].go.splice([termIndex], 1);
             item.querySelector('.proportion-wrapper').appendChild(proportion);
           };
@@ -124,6 +124,7 @@ var enrichment = (function () {
           dataType: 'json',
           success: function (data) {
             data.network = network.name;
+            data.ngenes = network.genesNames.length;
             enrichmentData.push(data);
           },
           error: function (jqXHR) {
