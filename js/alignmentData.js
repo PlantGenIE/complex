@@ -129,7 +129,7 @@ var alignmentData = (function () {
                   if (gene.orthologs.hasOwnProperty(orthologId)) {
                     let ortholog = gene.orthologs[orthologId];
                     let edge = new orthologEdge(nodeId, orthologId,
-                      ortholog.methods.join(' '),
+                      ortholog.methods,
                       ortholog.conservation[0].pvalue);
                     viewData.edges.push(edge);
                   };

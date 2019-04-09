@@ -168,30 +168,14 @@ var alignmentView = (function () {
           }, {
             selector: 'edge.orthology',
             style: {
-              'line-style': 'dashed',
               'label': 'data(conservation_pvalue)',
               'display': 'none',
-              'curve-style': 'bezier',
               'target-arrow-shape': 'triangle',
-              'arrow-scale': 2
-            }
-          }, {
-            selector: 'edge.orthology[support = "ORTHO"]',
-            style: {
-              'line-color': '#45ADFF',
-              'target-arrow-color': '#45ADFF'
-            }
-          }, {
-            selector: 'edge.orthology[support = "BHIF"]',
-            style: {
+              'arrow-scale': 2,
+              'width': node => { return `${node.data('support').length * 2}px` },
               'line-color': '#FC784C',
-              'target-arrow-color': '#FC784C'
-            }
-          }, {
-            selector: 'edge.orthology[support = "TROG"]',
-            style: {
-              'line-color': '#1AC620',
-              'target-arrow-color': '#1AC620'
+              'target-arrow-color': '#FC784C',
+              'opacity': 0.7
             }
           }, {
             selector: 'edge.extension',
