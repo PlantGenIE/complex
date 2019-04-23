@@ -105,18 +105,18 @@ height: 37px;
     height: 100%;
 }
 
-.network-overlay {
+.overlay {
     display: none;
     z-index: 100000;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    bottom: 20px;
-    right: 20px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.network-overlay .overlay-message {
+.overlay .overlay-message {
     position: absolute;
     top: 200px;
     width: 100%;
@@ -125,7 +125,7 @@ height: 37px;
     color: #FFFFFF;
 }
 
-.network-overlay .spinner {
+.overlay .spinner {
     position: absolute;
     top: 250px;
     left: 50%;
@@ -143,86 +143,58 @@ height: 37px;
 
 /* ENRICHMENT STYLING */
 
-#enrichment-wrapper {
+#annotation-wrapper {
     display: flex;
     margin-left: 20px;
     height: 700px;
 }
 
-#enrichment-toggler {
+#annotation-toggler {
     width: 25px;
     height: 100%;
     background-color: #C6E1EC;
 }
 
-#enrichment-toggler:hover {
+#annotation-toggler:hover {
     background-color: #A4C1CA;
 }
 
-#enrichment-content {
-    width: 275px;
+#annotation-content {
+    position: relative;
+	width: 275px;
     height: 100%;
     overflow: auto;
 }
 
-.enrichment-legend {
-  padding: 0 5px;
+.annotation-item {
+	display: flex;
+	align-items: flex-start;
+	margin: 0 5px;
+	padding: 5px 0;
+	line-height: 1em;
+	position: relative;
 }
 
-.enrichment-legend .dot {
-  height: 10px;
-  width: 25px;
-  border-radius: 5px;
-  display: inline-block;
+/*
+.annotation-item + .annotation-item {
+	border-style: solid;
+	border-width: 1px 0 0 0;
+}
+*/
+
+.annotation-item .name {
+	display: block;
+	font-color: black;
+	line-height: 1em;
+	cursor: help;
 }
 
-.enrichment-legend .name {
-  margin: 0 0 0 5px;
-}
-
-.enrichment-item {
-  margin: 5px 0;
-  padding: 0 5px;
-  line-height: 1em;
-}
-
-.enrichment-item .name {
-  font-color: black;
-  line-height: 1em;
-  cursor: help;
-}
-
-.enrichment-item .id {
+.annotation-item .id {
   font-size: 10px;
 }
 
-.proportion-bar {
-  display: inline-block;
-  width: 200px;
-  height: 10px;
-  background-color: lightgrey;
-}
-
-.proportion-progress {
-  height: 10px;
-  min-width: 5px;
-}
-
-.proportion-progress.network1, .dot.network1 {
-  background-color: green;
-}
-
-.proportion-progress.network2, .dot.network2 {
-  background-color: orange;
-}
-
-.proportion-progress.network3, .dot.network3 {
-  background-color: blue;
-}
-
-.proportion-value {
-  padding: 0 0 0 5px;
-  font-size: 10px;
+.label-wrapper {
+	margin: 0 0 0 5px;
 }
 
 .network-table-wrapper {
@@ -541,3 +513,6 @@ text-shadow: 1px 1px 1px rgba(255,255,255,0.8);}
 	opacity: 1;
 }
 
+.no-display {
+	display: none;
+}

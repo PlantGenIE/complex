@@ -27,8 +27,8 @@
  */
 var alignmentView = (function () {
   const viewContainer = document.getElementById('cytoscapeweb1');
-  const overlayContainer = document.querySelector('.network-overlay');
-  const overlayMessageContainer = document.querySelector('.overlay-message');
+  const overlayContainer = document.getElementById('network-overlay');
+  const overlayMessage = overlayContainer.querySelector('.overlay-message');
   const pvalueThresholdContainer = document.getElementById('pvalueThreshold');
   const pvalueThresholdDisplay = document.getElementById('pvalueThresholdDisplay');
   var cy;
@@ -55,16 +55,12 @@ var alignmentView = (function () {
   var pvalueThreshold = '0.05';
 
   function showOverlay(message) {
-    if (message) {
-      overlayMessageContainer.textContent = message;
-    };
+    if (message) overlayMessage.textContent = message;
     overlayContainer.style.display = 'block';
   };
 
   function hideOverlay() {
-    if (overlayMessageContainer.firstChild) {
-      overlayMessageContainer.firstChild.remove();
-    };
+    if (overlayMessage.firstChild) overlayMessage.firstChild.remove();
     overlayContainer.style.display = 'none';
   };
 

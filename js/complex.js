@@ -29,7 +29,7 @@ window.onload = function () {
   alignmentData.init();
   alignmentView.init();
   alignmentTable.init();
-  enrichment.init();
+  colorAnnotation.init();
   eventLinker.init();
 
   // Add the hide/show accordion event

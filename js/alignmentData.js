@@ -22,12 +22,18 @@
  */
 var alignmentData = (function () {
   var networksData;
+  var annotationsData = [];
   var referenceNetwork;
   var parameters = {
     active_network: '',
     network_ids: [],
     gene_names: [],
     threshold: ''
+  };
+  var databaseEntries = {
+    'Arabidopsis thaliana': 'athaliana',
+    'Populus tremula': 'potra',
+    'Zea mays': ''
   };
 
   function getReferenceNetwork() {
@@ -52,13 +58,16 @@ var alignmentData = (function () {
     }
   };
 
-  function geneNode(id, name, parentName) {
+  function geneNode(id, name, parentName, annotations) {
     this.group = 'nodes';
     this.classes = 'gene';
     this.data = {
       id: id,
       label: name,
-      parent: parentName
+      parent: parentName,
+      go: annotations.go,
+      pfam: annotations.pfam,
+      kegg: annotations.kegg
     }
   };
 
@@ -83,14 +92,17 @@ var alignmentData = (function () {
     }
   };
 
-  function tableRow(id, gene, network) {
+  function tableRow(id, gene, network, annotations) {
     this.id = id;
     this.gene = gene;
     this.network = network;
     this.checkbox = {
       value: null,
       order: 0,
-    }
+    },
+    this.go = annotations.go,
+    this.pfam = annotations.pfam,
+    this.kegg = annotations.kegg
   };
 
   function prepareData() {
@@ -100,14 +112,14 @@ var alignmentData = (function () {
     };
     let referenceTableData = [];
     let alignedTableData = [];
-    let enrichmentData = [];
+    let genesList = [];
 
     networksData.forEach(function (species) {
       for(var networkId in species.networks) {
         if (species.networks.hasOwnProperty(networkId)) {
           let network = species.networks[networkId];
           let isReference = network.isReference;
-          let enrichmentNetwork = {
+          let networkGenesList = {
             species: species.speciesName,
             name: network.name,
             genesNames: []
@@ -118,18 +130,38 @@ var alignmentData = (function () {
           for (var nodeId in network.nodes) {
             if (network.nodes.hasOwnProperty(nodeId)) {
               let gene = network.nodes[nodeId];
-              enrichmentNetwork.genesNames.push(gene.name);
-              let node = new geneNode(nodeId, gene.name, parent.data.id);
+              networkGenesList.genesNames.push(gene.name);
+
+              let nodeAnnotations = { go: '', pfam: '', kegg: '' };
+              let rowAnnotations = { go: '', pfam: '', kegg: '' };
+              ['go', 'pfam', 'kegg'].forEach(function (type) {
+                try {
+                  let terms = [];
+                  let termsIds = [];
+                  let matchingTerms = annotationsData
+                    .find(el => {return el.species === species.speciesName})
+                    [type]
+                    .find(le => {return le.id === gene.name});
+                  matchingTerms.terms.forEach(term => {
+                    termsIds.push(term.id);
+                    terms.push(`${term.id}: ${term.name}`);
+                  });
+                  nodeAnnotations[type] = termsIds.join(', ');
+                  rowAnnotations[type] = terms.join('\n');
+                } catch (error) {}
+              });
+
+              let node = new geneNode(nodeId, gene.name, parent.data.id, nodeAnnotations);
               viewData.nodes.push(node);
               
-              let row = new tableRow(nodeId, gene.name, network.name);
+              let row = new tableRow(nodeId, gene.name, network.name, rowAnnotations);
 
               if (isReference) {
                 for (var orthologId in gene.orthologs) {
                   if (gene.orthologs.hasOwnProperty(orthologId)) {
                     let ortholog = gene.orthologs[orthologId];
                     let edge = new orthologEdge(nodeId, orthologId,
-                      ortholog.methods,
+                      ortholog.methods.join(' '),
                       ortholog.conservation[0].pvalue);
                     viewData.edges.push(edge);
                   };
@@ -148,16 +180,21 @@ var alignmentData = (function () {
               viewData.edges.push(edge);
             });
           };
-          enrichmentData.push(enrichmentNetwork);
+          genesList.push(networkGenesList);
         };
       };
     });
+
+    let colorAnnotationData = {
+      genesList: genesList,
+      annotationsData: annotationsData
+    };
 
     return {
       view: viewData,
       referenceTable: referenceTableData,
       alignedTable: alignedTableData,
-      enrichment: enrichmentData
+      colorAnnotation: colorAnnotationData
     };
   };
 
@@ -168,6 +205,7 @@ var alignmentData = (function () {
     getPrivates: function () {
       return {
         networksData: networksData,
+        annotationsData: annotationsData,
         referenceNetwork: referenceNetwork,
         parameters: parameters
       };
@@ -183,11 +221,61 @@ var alignmentData = (function () {
         dataType: 'json',
         success: function (data) {
           networksData = data;
+          self.fetchAnnotations();
           getReferenceNetwork();
-          self.serveData();
         },
         error: function (jqXHR) {
-          console.error(jqXHR);
+          console.warn(jqXHR);
+        }
+      });
+    },
+
+    fetchAnnotations: function () {
+      let self = this;
+      let speciesCount = networksData.length;
+      let finishedQuerry = 0;
+      annotationsData = [];
+
+      networksData.forEach(function (species) {
+        for (networkId in species.networks) {
+          if (species.networks.hasOwnProperty(networkId)) {
+            let genesLists = [];
+            let network = species.networks[networkId];
+            for (geneId in network.nodes) {
+              if (network.nodes.hasOwnProperty(geneId)) {
+                genesLists.push(network.nodes[geneId].name);
+              };
+            };
+
+            $.ajax({
+              url: `https://microasp.upsc.se:5432/${databaseEntries[species.speciesName]}/gene-to-term`,
+              method: 'POST',
+              data: JSON.stringify({
+                'target': ['go', 'pfam', 'kegg'],
+                'genes': genesLists,
+                'include_defs': true,
+                'include_names': true
+              }),
+              headers: {
+                'content-type': 'application/json'
+              },
+              dataType: "json",
+              success: function(data) {
+                data.species = species.speciesName;
+                annotationsData.push(data);
+              },
+              error: function(jqXHR) {
+                console.warn(jqXHR);
+              },
+              complete: function () {
+                finishedQuerry += 1;
+                if (finishedQuerry === speciesCount) {
+                  self.serveData();
+                };
+              }
+            })
+          };
+          break;
         }
       });
     },
@@ -198,7 +286,7 @@ var alignmentData = (function () {
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.referenceTable,
         preparedData.alignedTable);
-      enrichment.fetchDatabase(preparedData.enrichment);
+      colorAnnotation.setData(preparedData.colorAnnotation);
     },
 
     getIfReference: function (geneId) {
