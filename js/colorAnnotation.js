@@ -4,6 +4,7 @@ var colorAnnotation = (function () {
   const annotationTemplate = document.getElementById('annotation-template');
   const overlayContainer = document.getElementById('annotation-overlay');
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
+  var activeTab;
   var annotationsData = { go: [], pfam: [], kegg: [] };
   var databaseEntries = {
     'Arabidopsis thaliana': 'athaliana',
@@ -70,6 +71,7 @@ var colorAnnotation = (function () {
         });
       }
     }
+    annotationContainer.querySelector('.annotation-tab[value="go"]').click();
     hideOverlay();
   };
 
@@ -92,8 +94,20 @@ var colorAnnotation = (function () {
 
   return {
     init: function () {
-      annotationToggler.addEventListener('click', function (e) {
+      annotationToggler.addEventListener('click', e => {
         annotationContainer.classList.toggle('no-display');
+      });
+
+      annotationContainer.querySelectorAll('.annotation-tab').forEach(tab => {
+        tab.addEventListener('click', e => {
+          let annotationType = e.target.value;
+          activeTab = annotationType;
+
+          annotationContainer.querySelectorAll(`.${annotationType}.annotation-item`)
+                             .forEach(item => { item.classList.remove('no-display'); });
+          annotationContainer.querySelectorAll(`:not(.${annotationType}).annotation-item`)
+                             .forEach(item => { item.classList.add('no-display'); });
+        });
       });
     },
 
