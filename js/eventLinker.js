@@ -40,6 +40,21 @@ var eventLinker = (function () {
       };
       alignmentView.deselectNode(geneId, isReference, orthologsIds);
       alignmentTable.deselectRow(geneId, isReference, orthologsIds);
+    },
+
+    uncolorAll: function () {
+      colorAnnotation.uncolorAll();
+      alignmentView.uncolorAll();
+    },
+
+    colorAnnotation: function (annotationId, linkedGenes, color) {
+      colorAnnotation.colorAnnotation(annotationId, color);
+      alignmentView.colorNodes(linkedGenes, color);
+    },
+
+    uncolorAnnotation: function (annotationId, linkedGenes, color) {
+      colorAnnotation.uncolorAnnotation(annotationId, color);
+      alignmentView.uncolorNodes(linkedGenes, color);
     }
   };
 })();

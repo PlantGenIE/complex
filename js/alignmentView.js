@@ -27,8 +27,8 @@
  */
 var alignmentView = (function () {
   const viewContainer = document.getElementById('cytoscapeweb1');
-  const overlayContainer = document.querySelector('.network-overlay');
-  const overlayMessageContainer = document.querySelector('.overlay-message');
+  const overlayContainer = document.getElementById('network-overlay');
+  const overlayMessage = overlayContainer.querySelector('.overlay-message');
   const pvalueThresholdContainer = document.getElementById('pvalueThreshold');
   const pvalueThresholdDisplay = document.getElementById('pvalueThresholdDisplay');
   var cy;
@@ -55,16 +55,12 @@ var alignmentView = (function () {
   var pvalueThreshold = '0.05';
 
   function showOverlay(message) {
-    if (message) {
-      overlayMessageContainer.textContent = message;
-    };
+    if (message) overlayMessage.textContent = message;
     overlayContainer.style.display = 'block';
   };
 
   function hideOverlay() {
-    if (overlayMessageContainer.firstChild) {
-      overlayMessageContainer.firstChild.remove();
-    };
+    if (overlayMessage.firstChild) overlayMessage.firstChild.remove();
     overlayContainer.style.display = 'none';
   };
 
@@ -182,6 +178,59 @@ var alignmentView = (function () {
             style: {
               'curve-style': 'bezier'
             }
+          }, {
+            selector: '.pie-node',
+            style: {
+              'pie-size': '100%',
+              'pie-1-background-color': '#1b9e77',
+              'pie-1-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-1';
+                });
+              },
+              'pie-2-background-color': '#d95f02',
+              'pie-2-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-2';
+                });
+              },
+              'pie-3-background-color': '#7570b3',
+              'pie-3-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-3';
+                });
+              },
+              'pie-4-background-color': '#e7298a',
+              'pie-4-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-4';
+                });
+              },
+              'pie-5-background-color': '#66a61e',
+              'pie-5-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-5';
+                });
+              },
+              'pie-6-background-color': '#e6ab02',
+              'pie-6-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-6';
+                });
+              },
+              'pie-7-background-color': '#a6761d',
+              'pie-7-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-7';
+                });
+              },
+              'pie-8-background-color': '#666666',
+              'pie-8-background-size': ele => {
+                return 100 / ele.data('colors').length * ele.data('colors').some(ele => {
+                  return ele === 'annotation-color-8';
+                });
+              }
+            }
           }
         ],
         userZoomingEnabled: false,
@@ -268,6 +317,41 @@ var alignmentView = (function () {
         connectedNode.selectify().deselect().unselectify();
         connectedNode.connectedEdges('.orthology').hide();
       });
+    },
+
+    uncolorAll: function () {
+      cy.nodes('.pie-node').forEach(node => {
+        node.removeClass('pie-node');
+        node.data('colors', []);
+      });
+    },
+
+    colorNodes: function (nodesLabel, color) {
+      cy.startBatch();
+      nodesLabel.forEach(label => {
+        let nodes = cy.nodes(`[label='${label}']`);
+        nodes.forEach(node => {
+          if (node.data('colors').length === 0) node.addClass('pie-node');
+          node.data('colors').push(color);
+          node.removeClass('pie-node');
+          node.addClass('pie-node');
+        });
+      });
+      cy.endBatch();
+    },
+
+    uncolorNodes: function (nodesLabel, color) {
+      cy.startBatch();
+      nodesLabel.forEach(label => {
+        let nodes = cy.nodes(`[label='${label}']`);
+        nodes.forEach(node => {
+          node.data('colors').splice(node.data('colors').indexOf(color), 1);
+          node.removeClass('pie-node');
+          node.addClass('pie-node');
+          if (node.data('colors').length === 0) node.removeClass('pie-node');
+        });
+      });
+      cy.endBatch();
     }
   };
 })();

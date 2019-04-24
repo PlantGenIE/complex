@@ -120,35 +120,40 @@ $ext = new Extension_Collection();
       <div class="accordion-content">
         <label for="pvalueThreshold">P-value threshold: &le;<span id="pvalueThresholdDisplay">0.05</span></label>
         <input id="pvalueThreshold" type="range" min="0" max="0.2" step="0.01" value="0.05">
-        <div class="network-overlay">
-          <p class="overlay-message"></p>
-          <div class="loader_color2 spinner"></div>
-        </div>
         <div class="network-wrapper">
-          <div id="cytoscapeweb1" class="network-container"></div>
+          <div id="cytoscapeweb1" class="network-container">
+            <div id="network-overlay" class="overlay">
+              <p class="overlay-message"></p>
+              <div class="loader_color2 spinner"></div>
+            </div>
+          </div>
           
-          <div id="enrichment-wrapper">
-            <div id="enrichment-toggler"></div>
-            <div id="enrichment-content">
-              <template id="legend-template">
-                <div class="enrichment-legend">
-                  <span class="dot"></span><span class="name"></span>
-                </div>
-              </template>
-              <template id="enrichment-template">
-                <div class="enrichment-item">
-                  <span class="name">
-                  </span><div><a class="id" target="_blank"></div>
-                  </a><div class="proportion-wrapper">
+          <div id="annotation-wrapper">
+            <div id="annotation-toggler"></div>
+            <div id="annotation-content">
+              <div id="annotation-overlay" class="overlay">
+                <p class="overlay-message"></p>
+                <div class="loader_color2 spinner"></div>
+              </div>
+              <div id="annotation-tabs">
+                <button class="annotation-tab" value="go">GO</button>
+                <button class="annotation-tab" value="pfam">PFAM</button>
+                <button class="annotation-tab" value="kegg">KEGG</button>
+              </div>
+              <div id="annotation-control">
+                <button id="deselect-annotations">Deselect all</button>
+                <input type="text" id="search-annotation" placeholder="Search...">
+              </div>
+              <div id="annotations-list">
+                <template id="annotation-template">
+                  <div class="annotation-item">
+                    <input type="checkbox">
+                    <div class="label-wrapper">
+                      <label><span class="name"></span><a target="_blank" class="id"></a></label>
+                    </div>
                   </div>
-                </div>
-              </template>
-              <template id="proportion-template">
-                <div class="proportion-bar">
-                  <div class="proportion-progress"></div>
-                </div><span class="proportion-value">
-                </span>
-              </template>
+                </template>
+              </div>
             </div>
           </div>
         </div>
@@ -222,7 +227,7 @@ $ext = new Extension_Collection();
     <script src="js/alignmentData.js"></script>
     <script src="js/alignmentView.js"></script>
     <script src="js/alignmentTable.js"></script>
-    <script src="js/enrichment.js"></script>
+    <script src="js/colorAnnotation.js"></script>
     <script src="js/eventLinker.js"></script>
     <script src="js/complex.js"></script>
     <script>
