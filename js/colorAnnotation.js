@@ -68,6 +68,8 @@ var colorAnnotation = (function () {
   };
 
   function displayAnnotation() {
+    annotationContainer.querySelectorAll('.annotation-item').forEach(node => { node.remove(); });
+
     for (annotationType in annotationsData) {
       if (annotationsData.hasOwnProperty(annotationType)) {
         annotationsData[annotationType].forEach(term => {
@@ -144,7 +146,7 @@ var colorAnnotation = (function () {
 
     setData: function (data) {
       showOverlay('Fetching annotations...');
-      genesList = data.genesList
+      genesList = data.genesList;
       processData(data.annotationsData);
     },
 
