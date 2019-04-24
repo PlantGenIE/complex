@@ -112,6 +112,14 @@ var alignmentView = (function () {
     });
   };
 
+  function overHandler(event) {
+      event.target.addClass('orthology-over');
+  };
+
+  function outHandler(event) {
+      event.target.removeClass('orthology-over');
+  };
+  
   function setPvalueThreshold(newPvalue) {
     pvalueThreshold = newPvalue;
     cy.edges('.orthology[conservation_pvalue >= ' + pvalueThreshold + ']')
@@ -144,9 +152,7 @@ var alignmentView = (function () {
             selector: 'node:selected',
             style: {
               'border-width': '6px',
-              'border-color': 'red',
-              'border-opacity': 0.5,
-              'background-color': '#C5F9FF'
+              'border-color': '#FC784C',
             }
           }, {
             selector: 'node.network',
@@ -164,14 +170,19 @@ var alignmentView = (function () {
           }, {
             selector: 'edge.orthology',
             style: {
-              'label': 'data(conservation_pvalue)',
               'display': 'none',
               'target-arrow-shape': 'triangle',
               'arrow-scale': 2,
-              'width': node => { return `${node.data('support').length * 2}px` },
+              'width': node => { return `${node.data('support').length * 0.5}px` },
               'line-color': '#FC784C',
               'target-arrow-color': '#FC784C',
               'opacity': 0.7
+            }
+          }, {
+            selector: '.orthology-over',
+            style: {
+              'label': 'data(conservation_pvalue)',
+              'opacity': 1
             }
           }, {
             selector: 'edge.extension',
@@ -291,6 +302,8 @@ var alignmentView = (function () {
         }
       }).run();
       cy.elements().unselectify(); // Prevent default select behavior
+      cy.edges('.orthology').on('mouseover', overHandler);
+      cy.edges('.orthology').on('mouseout', outHandler);
     },
 
     deselectAll: function () {
