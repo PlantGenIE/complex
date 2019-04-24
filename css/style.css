@@ -193,6 +193,38 @@ height: 37px;
   font-size: 10px;
 }
 
+.annotation-color-1 {
+	background-color: #1b9e77;
+}
+
+.annotation-color-2 {
+	background-color: #d95f02;
+}
+
+.annotation-color-3 {
+	background-color: #7570b3;
+}
+
+.annotation-color-4 {
+	background-color: #e7298a;
+}
+
+.annotation-color-5 {
+	background-color: #66a61e;
+}
+
+.annotation-color-6 {
+	background-color: #e6ab02;
+}
+
+.annotation-color-7 {
+	background-color: #a6761d;
+}
+
+.annotation-color-8 {
+	background-color: #666666;
+}
+
 .label-wrapper {
 	margin: 0 0 0 5px;
 }

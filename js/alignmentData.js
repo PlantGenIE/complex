@@ -65,10 +65,11 @@ var alignmentData = (function () {
       id: id,
       label: name,
       parent: parentName,
+      colors: [],
       go: annotations.go,
       pfam: annotations.pfam,
       kegg: annotations.kegg
-    }
+    };
   };
 
   function orthologEdge(source, target, support, pvalue) {

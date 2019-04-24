@@ -5,6 +5,7 @@ var colorAnnotation = (function () {
   const overlayContainer = document.getElementById('annotation-overlay');
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
   var activeTab;
+  var genesList;
   var annotationsData = { go: [], pfam: [], kegg: [] };
   var databaseEntries = {
     'Arabidopsis thaliana': 'athaliana',
@@ -22,19 +23,38 @@ var colorAnnotation = (function () {
     overlayContainer.style.display = 'none';
   };
 
+  function handleChange(e) {
+    if (annotationContainer.querySelectorAll('input[type="checkbox"]:checked').length > 8) {
+      e.target.checked = false;
+    } else { 
+      let id = e.target.id;
+      let annotation = annotationsData[activeTab].find(element => { return element.id === id; });
+      let genes = [];
+      genesList.forEach(network => {
+        genes = genes.concat(annotation[network.name]);
+      });
+
+      if (e.target.checked) {
+        eventLinker.selectAnnotation(id, genes);
+      } else {
+        eventLinker.deselectAnnotation(id, genes);
+      }
+    }
+  }
+
   function processData(data) {
-    data.annotationsData.forEach(species => {
+    data.forEach(species => {
       for (annotationType in species) {
         if(species.hasOwnProperty(annotationType) && annotationsData.hasOwnProperty(annotationType)) {
           species[annotationType].forEach(gene => {
             gene.terms.forEach(term => {
               if (!annotationsData[annotationType].find(element => { return element.id == term.id; })) {
-                data.genesList.forEach(network => { term[network.name] = []; });
+                genesList.forEach(network => { term[network.name] = []; });
                 annotationsData[annotationType].push(term);
               }
 
               let annotation = annotationsData[annotationType].find(element => { return element.id == term.id; });
-              data.genesList.forEach(network => {
+              genesList.forEach(network => {
                 if (network.species === species.species) {
                   annotation[network.name].push(gene.id);
                 }
@@ -71,6 +91,11 @@ var colorAnnotation = (function () {
         });
       }
     }
+    annotationContainer.querySelectorAll('.annotation-item').forEach(item => {
+      item.querySelector('input[type="checkbox"]')
+          .addEventListener('change', handleChange);
+    });
+
     annotationContainer.querySelector('.annotation-tab[value="go"]').click();
     hideOverlay();
   };
@@ -117,11 +142,21 @@ var colorAnnotation = (function () {
       };
     },
 
-    setData: function (colorAnnotationData) {
+    setData: function (data) {
       showOverlay('Fetching annotations...');
-      processData(colorAnnotationData);
-    }
+      genesList = data.genesList
+      processData(data.annotationsData);
+    },
 
+    colorAnnotation: function (annotationId, color) {
+      let annotation = document.getElementById(annotationId);
+      annotation.parentNode.classList.add(color);
+    },
+
+    uncolorAnnotation: function (annotationId, color) {
+      let annotation = document.getElementById(annotationId);
+      annotation.parentNode.classList.remove(color);
+    }
   };
 })();
 
