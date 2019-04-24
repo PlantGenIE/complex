@@ -6,7 +6,8 @@ var colorAnnotation = (function () {
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
   var activeTab;
   var genesList;
-  var annotationsData = { go: [], pfam: [], kegg: [] };
+  var annotationsData = {};
+  var annotationsColor = [];
   var databaseEntries = {
     'Arabidopsis thaliana': 'athaliana',
     'Populus tremula': 'potra',
@@ -35,9 +36,11 @@ var colorAnnotation = (function () {
       });
 
       if (e.target.checked) {
-        eventLinker.selectAnnotation(id, genes);
+        let color = attributeColor(id);
+        eventLinker.selectAnnotation(id, genes, color);
       } else {
-        eventLinker.deselectAnnotation(id, genes);
+        let color = freeColor(id);
+        eventLinker.deselectAnnotation(id, genes, color);
       }
     }
   }
@@ -119,6 +122,18 @@ var colorAnnotation = (function () {
     return link;
   };
 
+  function attributeColor(id) {
+    let spot = annotationsColor.find(ele => { return ele.annotation === ''; });
+    spot.annotation = id;
+    return spot.color;
+  };
+
+  function freeColor(id) {
+    let spot = annotationsColor.find(ele => { return ele.annotation === id; });
+    spot.annotation = '';
+    return spot.color;
+  };
+
   return {
     init: function () {
       annotationToggler.addEventListener('click', e => {
@@ -146,6 +161,17 @@ var colorAnnotation = (function () {
 
     setData: function (data) {
       showOverlay('Fetching annotations...');
+      annotationsData = { go: [], pfam: [], kegg: [] };
+      annotationsColor = [
+        { color: 'annotation-color-1', annotation: '' },
+        { color: 'annotation-color-2', annotation: '' },
+        { color: 'annotation-color-3', annotation: '' },
+        { color: 'annotation-color-4', annotation: '' },
+        { color: 'annotation-color-5', annotation: '' },
+        { color: 'annotation-color-6', annotation: '' },
+        { color: 'annotation-color-7', annotation: '' },
+        { color: 'annotation-color-8', annotation: '' }
+      ];
       genesList = data.genesList;
       processData(data.annotationsData);
     },

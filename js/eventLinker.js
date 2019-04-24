@@ -8,28 +8,6 @@
  * @method deselectGene - Determine if the gene is a reference, get its orthologs and call the appropriate method to deselect the genes.
  */
 var eventLinker = (function () {
-  var annotationsColor = [
-    { color: 'annotation-color-1', annotation: '' },
-    { color: 'annotation-color-2', annotation: '' },
-    { color: 'annotation-color-3', annotation: '' },
-    { color: 'annotation-color-4', annotation: '' },
-    { color: 'annotation-color-5', annotation: '' },
-    { color: 'annotation-color-6', annotation: '' },
-    { color: 'annotation-color-7', annotation: '' },
-    { color: 'annotation-color-8', annotation: '' },
-  ];
-
-  function attributeColor(id) {
-    let spot =  annotationsColor.find(element => { return element.annotation === ''; });
-    spot.annotation = id;
-    return spot.color;
-  };
-
-  function freeColor(id) {
-    let spot = annotationsColor.find(element => { return element.annotation === id; })
-    spot.annotation = '';
-    return spot.color;
-  };
 
   return {
     init: function () {
@@ -64,14 +42,12 @@ var eventLinker = (function () {
       alignmentTable.deselectRow(geneId, isReference, orthologsIds);
     },
 
-    selectAnnotation: function (annotationId, linkedGenes) {
-      let color = attributeColor(annotationId);
+    selectAnnotation: function (annotationId, linkedGenes, color) {
       colorAnnotation.colorAnnotation(annotationId, color);
       alignmentView.colorNodes(linkedGenes, color);
     },
 
-    deselectAnnotation: function (annotationId, linkedGenes) {
-      let color = freeColor(annotationId);
+    deselectAnnotation: function (annotationId, linkedGenes, color) {
       colorAnnotation.uncolorAnnotation(annotationId, color);
       alignmentView.uncolorNodes(linkedGenes, color);
     }
