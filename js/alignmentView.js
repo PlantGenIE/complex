@@ -326,6 +326,8 @@ var alignmentView = (function () {
         nodes.forEach(node => {
           if (node.data('colors').length === 0) node.addClass('pie-node');
           node.data('colors').push(color);
+          node.removeClass('pie-node');
+          node.addClass('pie-node');
         });
       });
       cy.endBatch();
@@ -337,6 +339,8 @@ var alignmentView = (function () {
         let nodes = cy.nodes(`[label='${label}']`);
         nodes.forEach(node => {
           node.data('colors').splice(node.data('colors').indexOf(color), 1);
+          node.removeClass('pie-node');
+          node.addClass('pie-node');
           if (node.data('colors').length === 0) node.removeClass('pie-node');
         });
       });
