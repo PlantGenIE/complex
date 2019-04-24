@@ -42,12 +42,17 @@ var eventLinker = (function () {
       alignmentTable.deselectRow(geneId, isReference, orthologsIds);
     },
 
-    selectAnnotation: function (annotationId, linkedGenes, color) {
+    uncolorAll: function () {
+      colorAnnotation.uncolorAll();
+      alignmentView.uncolorAll();
+    },
+
+    colorAnnotation: function (annotationId, linkedGenes, color) {
       colorAnnotation.colorAnnotation(annotationId, color);
       alignmentView.colorNodes(linkedGenes, color);
     },
 
-    deselectAnnotation: function (annotationId, linkedGenes, color) {
+    uncolorAnnotation: function (annotationId, linkedGenes, color) {
       colorAnnotation.uncolorAnnotation(annotationId, color);
       alignmentView.uncolorNodes(linkedGenes, color);
     }

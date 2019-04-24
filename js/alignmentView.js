@@ -319,6 +319,13 @@ var alignmentView = (function () {
       });
     },
 
+    uncolorAll: function () {
+      cy.nodes('.pie-node').forEach(node => {
+        node.removeClass('pie-node');
+        node.data('colors', []);
+      });
+    },
+
     colorNodes: function (nodesLabel, color) {
       cy.startBatch();
       nodesLabel.forEach(label => {

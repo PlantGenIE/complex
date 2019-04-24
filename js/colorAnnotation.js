@@ -2,12 +2,22 @@ var colorAnnotation = (function () {
   const annotationContainer = document.getElementById('annotation-content');
   const annotationToggler = document.getElementById('annotation-toggler');
   const annotationTemplate = document.getElementById('annotation-template');
+  const deselectButton = document.getElementById('deselect-annotations');
   const overlayContainer = document.getElementById('annotation-overlay');
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
   var activeTab;
   var genesList;
   var annotationsData = {};
-  var annotationsColor = [];
+  var annotationsColor = [
+        { color: 'annotation-color-1', annotation: '' },
+        { color: 'annotation-color-2', annotation: '' },
+        { color: 'annotation-color-3', annotation: '' },
+        { color: 'annotation-color-4', annotation: '' },
+        { color: 'annotation-color-5', annotation: '' },
+        { color: 'annotation-color-6', annotation: '' },
+        { color: 'annotation-color-7', annotation: '' },
+        { color: 'annotation-color-8', annotation: '' }
+      ];
   var databaseEntries = {
     'Arabidopsis thaliana': 'athaliana',
     'Populus tremula': 'potra',
@@ -37,10 +47,10 @@ var colorAnnotation = (function () {
 
       if (e.target.checked) {
         let color = attributeColor(id);
-        eventLinker.selectAnnotation(id, genes, color);
+        eventLinker.colorAnnotation(id, genes, color);
       } else {
         let color = freeColor(id);
-        eventLinker.deselectAnnotation(id, genes, color);
+        eventLinker.uncolorAnnotation(id, genes, color);
       }
     }
   }
@@ -151,6 +161,10 @@ var colorAnnotation = (function () {
                              .forEach(item => { item.classList.add('no-display'); });
         });
       });
+
+      deselectButton.addEventListener('click', e => {
+        eventLinker.uncolorAll();
+      });
     },
 
     getPrivates: function () {
@@ -162,18 +176,20 @@ var colorAnnotation = (function () {
     setData: function (data) {
       showOverlay('Fetching annotations...');
       annotationsData = { go: [], pfam: [], kegg: [] };
-      annotationsColor = [
-        { color: 'annotation-color-1', annotation: '' },
-        { color: 'annotation-color-2', annotation: '' },
-        { color: 'annotation-color-3', annotation: '' },
-        { color: 'annotation-color-4', annotation: '' },
-        { color: 'annotation-color-5', annotation: '' },
-        { color: 'annotation-color-6', annotation: '' },
-        { color: 'annotation-color-7', annotation: '' },
-        { color: 'annotation-color-8', annotation: '' }
-      ];
+      annotationsColor.forEach(color => { color.annotation = ''; });
       genesList = data.genesList;
       processData(data.annotationsData);
+    },
+
+    uncolorAll: function () {
+      annotationsColor.forEach(color => { color.annotation = ''; });
+      annotationContainer.querySelectorAll('input[type="checkbox"]:checked').forEach(selectedItem => {
+        let colorClass = Array.from(selectedItem.parentNode.classList).find(ele => {
+          return ele.includes('annotation-color-');
+        });
+        selectedItem.parentNode.classList.remove(colorClass);
+        selectedItem.checked = false;
+      });
     },
 
     colorAnnotation: function (annotationId, color) {
