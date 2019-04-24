@@ -3,6 +3,7 @@ var colorAnnotation = (function () {
   const annotationToggler = document.getElementById('annotation-toggler');
   const annotationTemplate = document.getElementById('annotation-template');
   const deselectButton = document.getElementById('deselect-annotations');
+  const searchBar = document.getElementById('search-annotation');
   const overlayContainer = document.getElementById('annotation-overlay');
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
   var activeTab;
@@ -53,7 +54,19 @@ var colorAnnotation = (function () {
         eventLinker.uncolorAnnotation(id, genes, color);
       }
     }
-  }
+  };
+
+  function handleSearch(e) {
+    let search = new RegExp(e.target.value, 'i');
+    annotationContainer.querySelectorAll(`.${activeTab}`).forEach(node => {
+      node.classList.remove('no-display');
+    });
+    annotationsData[activeTab].forEach(annotation => {
+      if (!annotation.id.match(search) && !annotation.name.match(search) && !annotation.def.match(search)) {
+        document.getElementById(annotation.id).parentNode.classList.add('no-display');
+      }
+    });
+  };
 
   function processData(data) {
     data.forEach(species => {
@@ -165,6 +178,8 @@ var colorAnnotation = (function () {
       deselectButton.addEventListener('click', e => {
         eventLinker.uncolorAll();
       });
+
+      searchBar.addEventListener('input', handleSearch);
     },
 
     getPrivates: function () {

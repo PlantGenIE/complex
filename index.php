@@ -142,7 +142,7 @@ $ext = new Extension_Collection();
               </div>
               <div id="annotation-control">
                 <button id="deselect-annotations">Deselect all</button>
-                <input type="text" placeholder="Search...">
+                <input type="text" id="search-annotation" placeholder="Search...">
               </div>
               <div id="annotations-list">
                 <template id="annotation-template">
