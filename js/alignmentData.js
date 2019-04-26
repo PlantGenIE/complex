@@ -111,8 +111,7 @@ var alignmentData = (function () {
       nodes: [],
       edges: []
     };
-    let referenceTableData = [];
-    let alignedTableData = [];
+    let tableData = { rows: [], referenceNetwork: referenceNetwork.name };
     let genesList = [];
 
     networksData.forEach(function (species) {
@@ -157,21 +156,17 @@ var alignmentData = (function () {
               
               let row = new tableRow(nodeId, gene.name, network.name, rowAnnotations);
 
-              if (isReference) {
-                for (var orthologId in gene.orthologs) {
-                  if (gene.orthologs.hasOwnProperty(orthologId)) {
-                    let ortholog = gene.orthologs[orthologId];
-                    let edge = new orthologEdge(nodeId, orthologId,
-                      ortholog.methods.join(' '),
-                      ortholog.conservation[0].pvalue);
-                    viewData.edges.push(edge);
-                  };
+              for (var orthologId in gene.orthologs) {
+                if (gene.orthologs.hasOwnProperty(orthologId)) {
+                  let ortholog = gene.orthologs[orthologId];
+                  let edge = new orthologEdge(nodeId, orthologId,
+                    ortholog.methods.join(' '),
+                    ortholog.conservation[0].pvalue);
+                  viewData.edges.push(edge);
                 };
-
-                referenceTableData.push(row);
-              } else {
-                alignedTableData.push(row);
               };
+
+              tableData.rows.push(row);
             };
           };
 
@@ -193,8 +188,7 @@ var alignmentData = (function () {
 
     return {
       view: viewData,
-      referenceTable: referenceTableData,
-      alignedTable: alignedTableData,
+      table: tableData,
       colorAnnotation: colorAnnotationData
     };
   };
@@ -285,8 +279,7 @@ var alignmentData = (function () {
       let preparedData = prepareData();
 
       alignmentView.setData(preparedData.view);
-      alignmentTable.setData(preparedData.referenceTable,
-        preparedData.alignedTable);
+      alignmentTable.setData(preparedData.table);
       colorAnnotation.setData(preparedData.colorAnnotation);
     },
 

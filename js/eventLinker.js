@@ -28,8 +28,8 @@ var eventLinker = (function () {
         alignmentView.deselectAll();
         alignmentTable.deselectAll();
       };
-      alignmentView.selectNode(geneId, isReference, orthologsIds);
-      alignmentTable.selectRow(geneId, isReference, orthologsIds);
+      alignmentView.selectNode(geneId, orthologsIds);
+      alignmentTable.selectRow(geneId, orthologsIds);
     },
 
     deselectGene: function (geneId, referenceSelectedIds) {
@@ -38,8 +38,8 @@ var eventLinker = (function () {
       if (isReference) {
         orthologsIds = alignmentData.getOrthologsIds(geneId, isReference, referenceSelectedIds);
       };
-      alignmentView.deselectNode(geneId, isReference, orthologsIds);
-      alignmentTable.deselectRow(geneId, isReference, orthologsIds);
+      alignmentView.deselectNode(geneId, orthologsIds);
+      alignmentTable.deselectRow(geneId, orthologsIds);
     },
 
     uncolorAll: function () {

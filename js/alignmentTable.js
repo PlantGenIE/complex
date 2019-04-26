@@ -18,15 +18,16 @@
  * @method deselectRow - Deselect a row and the connected rows based on orthology data.
  */
 var alignmentTable = (function () {
-  const referenceTableContainer = $('#active-network-table');
-  const alignedTableContainer = $('#other-network-table');
-  var referenceTable;
-  var alignedTable;
+  const tableContainer = $('#alignement-table');
+  var table;
+  var referenceNetwork;
 
   function referenceSelected() {
     let referenceSelectedIds = [];
-    referenceTable.rows('.selected').every(function () {
-      referenceSelectedIds.push(this.id());
+    table.rows('.selected').every(function () {
+      if (this.data().network === referenceNetwork) {
+        referenceSelectedIds.push(this.id());
+      }
     });
     return referenceSelectedIds;
   };
@@ -47,47 +48,23 @@ var alignmentTable = (function () {
 
   return {
     init: function () {
-      referenceTable = referenceTableContainer.DataTable({
-        searching: false,
+      table = tableContainer.DataTable({
+        searching: true,
         columnDefs: [
           {
-            className: 'select-checkbox',
-            targets: 0,
-            defaultContent: '',
-            data: 'checkbox',
-            render: {
-              _: 'value',
-              sort: 'order'
-            },
-            orderSequence: ['desc', 'asc']
-          }, {
-            data: 'gene',
-            targets: 1
-          }
-        ],
-        select: {
-          style: "multi",
-        },
-        rowId: "id",
-        order: [[1, 'asc']]
-      });
-      alignedTable = alignedTableContainer.DataTable({
-        searching: false,
-        columnDefs: [
-          {
-            className: 'select-checkbox',
-            targets: 0,
-            data: 'checkbox',
-            render: {
-              _: 'value',
-              sort: 'order'
-            },
-            orderSequence: ['desc', 'asc']
-          }, {
-            data: 'gene',
-            targets: 1
-          }, {
             data: 'network',
+            targets: 0
+          }, {
+            className: 'select-checkbox',
+            targets: 1,
+            data: 'checkbox',
+            render: {
+              _: 'value',
+              sort: 'order'
+            },
+            orderSequence: ['desc', 'asc']
+          }, {
+            data: 'gene',
             targets: 2
           }
         ],
@@ -97,65 +74,44 @@ var alignmentTable = (function () {
         rowId: "id",
         order: [[1, 'asc']]
       });
-      referenceTable.on('user-select', selectHandler);
-      alignedTable.on('user-select', selectHandler);
+      table.on('user-select', selectHandler);
     },
 
     getPrivates: function () {
       return {
-        referenceTable: referenceTable,
-        alignedTable: alignedTable
+        table: table,
       };
     },
 
-    setData: function (referenceData, alignedData) {
-      referenceTable.clear();
-      alignedTable.clear();
-      referenceTable.rows.add(referenceData).draw();
-      alignedTable.rows.add(alignedData).draw();
+    setData: function (tableData) {
+      table.clear();
+      table.rows.add(tableData.rows).draw();
+      referenceNetwork = tableData.referenceNetwork;
     },
 
     deselectAll: function () {
-      referenceTable.rows().every(function () {
+      table.rows().every(function () {
         this.deselect().data().checkbox.order = 0;
       });
-      alignedTable.rows().every(function () {
-        this.deselect().data().checkbox.order = 0;
+      table.rows().invalidate().draw();
+    },
+
+    selectRow: function (rowId, connectedRows) {
+      table.row("#" + rowId).select().data().checkbox.order = 1;
+      connectedRows.forEach(function (connectedId) {
+        table.row("#" + connectedId).select().data().checkbox.order = 1;
       });
-      referenceTable.rows().invalidate().draw();
-      alignedTable.rows().invalidate().draw();
+
+      table.rows().invalidate().draw();
     },
 
-    selectRow: function (rowId, isReference, connectedRows) {
-      if (isReference) {
-        referenceTable.row("#" + rowId).select().data().checkbox.order = 1;
-        connectedRows.forEach(function (connectedId) {
-          alignedTable.row("#" + connectedId).select().data().checkbox.order = 1;
-        });
-      } else {
-        alignedTable.row("#" + rowId).select().data().checkbox.order = 1;
-        connectedRows.forEach(function (connectedId) {
-          referenceTable.row("#" + connectedId).select().data().checkbox.order = 1;
-        });
-      };
-      referenceTable.rows().invalidate().draw();
-      alignedTable.rows().invalidate().draw();
-    },
-
-    deselectRow: function (rowId, isReference, connectedRows) {
-      if (isReference) {
-        referenceTable.row("#" + rowId).deselect().data().checkbox.order = 0;
-        connectedRows.forEach(function (connectedId) {
-          alignedTable.row("#" + connectedId).deselect().data().checkbox.order = 0;
-        });
-      } else {
-        alignedTable.row("#" + rowId).deselect().data().checkbox.order = 0;
-        connectedRows.forEach(function (connectedId) {
-          referenceTable.row("#" + connectedId).deselect().data().checkbox.order = 0;
-        });
-      };
-      referenceTable.rows().invalidate().draw();
-      alignedTable.rows().invalidate().draw();
+    deselectRow: function (rowId, connectedRows) {
+      table.row("#" + rowId).deselect().data().checkbox.order = 0;
+      connectedRows.forEach(function (connectedId) {
+        table.row("#" + connectedId).deselect().data().checkbox.order = 0;
+      });
+      
+      table.rows().invalidate().draw();
     }
   };
 })();

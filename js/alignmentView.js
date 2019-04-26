@@ -311,7 +311,7 @@ var alignmentView = (function () {
       cy.edges('.orthology').hide();
     },
 
-    selectNode: function (nodeId, isReference, connectedNodes) {
+    selectNode: function (nodeId, connectedNodes) {
       let node = cy.getElementById(nodeId);
       node.selectify().select().unselectify();
       node.connectedEdges('.orthology[conservation_pvalue < ' + pvalueThreshold + ']')
@@ -321,7 +321,7 @@ var alignmentView = (function () {
       });
     },
 
-    deselectNode: function (nodeId, isReference, connectedNodes) {
+    deselectNode: function (nodeId, connectedNodes) {
       let node = cy.getElementById(nodeId);
       node.selectify().deselect().unselectify();
       node.connectedEdges('.orthology').hide();

@@ -163,28 +163,14 @@ $ext = new Extension_Collection();
         Tables
         <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
       </div>
-      <div class="accordion-content network-table-wrapper">
+      <div class="accordion-content">
         <div>
-          <h3>Active network</h3>
-          <table id="active-network-table">
+          <table id="alignement-table">
             <thead>
               <tr>
-                <th></th>
-                <th>Gene</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <h3>Aligned networks</h3>
-          <table id="other-network-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Gene</th>
                 <th>Network</th>
+                <th></th>
+                <th>Gene</th>
               </tr>
             </thead>
             <tbody>
