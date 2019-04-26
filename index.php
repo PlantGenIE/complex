@@ -164,6 +164,11 @@ $ext = new Extension_Collection();
         <span id="network_info" style="border-radius:5;padding:6px;color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"></span>
       </div>
       <div class="accordion-content">
+        <div id="table-tabs">
+          <template id="table-tab-template">
+            <button class="table-tab"></button>
+          </template>
+        </div>
         <div>
           <table id="alignement-table">
             <thead>

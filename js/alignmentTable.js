@@ -19,6 +19,8 @@
  */
 var alignmentTable = (function () {
   const tableContainer = $('#alignement-table');
+  const tableTabsContainer = document.getElementById('table-tabs');
+  const tableTabTemplate = document.getElementById('table-tab-template');
   var table;
   var referenceNetwork;
 
@@ -46,6 +48,30 @@ var alignmentTable = (function () {
     return false;
   };
 
+  function displayTabs() {
+    tableTabsContainer.querySelectorAll('.table-tab').forEach(tab => { tab.remove() });
+
+    let networks = table.column(0).data().unique()
+    for (var i = 0, length = networks.length; i < length; i++) {
+      let network = networks[i];
+      let tab = document.importNode(tableTabTemplate, true).content;
+      let tabButton = tab.querySelector('button');
+
+      tabButton.value = network;
+      tabButton.textContent = network;
+      tableTabsContainer.appendChild(tabButton);
+
+      tableTabsContainer.lastChild.addEventListener('click', e => {
+        $.fn.dataTable.ext.search.pop();
+        $.fn.dataTable.ext.search.push((settings, data, dataIndex) => {
+          return table.row(dataIndex).data().network === network;
+        });
+        table.draw();
+      });
+    }
+    tableTabsContainer.querySelector('.table-tab').click();
+  }
+
   return {
     init: function () {
       table = tableContainer.DataTable({
@@ -53,6 +79,7 @@ var alignmentTable = (function () {
         columnDefs: [
           {
             data: 'network',
+            visible: false,
             targets: 0
           }, {
             className: 'select-checkbox',
@@ -84,9 +111,11 @@ var alignmentTable = (function () {
     },
 
     setData: function (tableData) {
+      referenceNetwork = tableData.referenceNetwork;
+
       table.clear();
       table.rows.add(tableData.rows).draw();
-      referenceNetwork = tableData.referenceNetwork;
+      displayTabs();
     },
 
     deselectAll: function () {
