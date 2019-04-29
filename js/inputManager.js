@@ -329,6 +329,7 @@ var alignTrigger = (function () {
         self.setGenesValues(this.value);
       });
 
+      coexpressionThresholdContainer.value = 0.99;
       coexpressionThresholdContainer.addEventListener('input', function handleInput() {
         coexpressionThresholdDisplay.innerHTML = this.value;
         inputParameters.threshold = this.value;
