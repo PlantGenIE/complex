@@ -93,6 +93,15 @@ var alignmentTable = (function () {
           }, {
             data: 'gene',
             targets: 2
+          }, {
+            data: 'go',
+            targets: 3
+          }, {
+            data: 'pfam',
+            targets: 4
+          }, {
+            data: 'kegg',
+            targets: 5
           }
         ],
         select: {

@@ -176,6 +176,9 @@ $ext = new Extension_Collection();
                 <th>Network</th>
                 <th></th>
                 <th>Gene</th>
+                <th>GO</th>
+                <th>PFAM</th>
+                <th>KEGG</th>
               </tr>
             </thead>
             <tbody>

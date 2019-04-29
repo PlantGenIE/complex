@@ -147,7 +147,7 @@ var alignmentData = (function () {
                     terms.push(`${term.id}: ${term.name}`);
                   });
                   nodeAnnotations[type] = termsIds.join(', ');
-                  rowAnnotations[type] = terms.join('\n');
+                  rowAnnotations[type] = terms.join('<br/>');
                 } catch (error) {}
               });
 
