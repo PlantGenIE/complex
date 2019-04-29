@@ -143,21 +143,20 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
         'conservation' => array(),
         'methods' => explode(',', $o['support'])
       );
-    $ortholog_conservation[$o['gene_id1']][$o['gene_id2']] = array(
-      'networkId' => (int) $o['network_id2'],
-      'pvalue' => (double) $o['pvalue']
-    );
+    $ortholog_conservation[$o['gene_id1']][$o['gene_id2']][$o['network_id2']] = (double) $o['pvalue'];
   }
 
   // Add the conservation statistics
   foreach ($ortholog_conservation as $refgene => $oarr) {
     foreach ($oarr as $ogene => $ostats) {
-      $return_array[$reference_network['species_id']]
-        ['networks'][$active_id]['nodes'][$refgene]
-        ['orthologs'][$ogene]['conservation'][] = array(
-          'networkId' => (int) $ostats['networkId'],
-          'pvalue' => (double) $ostats['pvalue']
-        );
+      foreach ($ostats as $network => $pvalue) {
+        $return_array[$reference_network['species_id']]
+          ['networks'][$active_id]['nodes'][$refgene]
+          ['orthologs'][$ogene]['conservation'][] = array(
+            'networkId' => (int) $network,
+            'pvalue' => (double) $pvalue
+          );
+      }
     }
   }
 
