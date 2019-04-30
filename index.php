@@ -170,7 +170,7 @@ $ext = new Extension_Collection();
           </template>
         </div>
         <div>
-          <table id="alignement-table">
+          <table id="alignement-table" class="stripe nowrap">
             <thead>
               <tr>
                 <th>Network</th>

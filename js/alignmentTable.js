@@ -108,7 +108,7 @@ var alignmentTable = (function () {
           style: "multi",
         },
         rowId: "id",
-        order: [[1, 'asc']]
+        order: [[2, 'asc']]
       });
       table.on('user-select', selectHandler);
     },
