@@ -36,6 +36,55 @@ var alignmentData = (function () {
     'Zea mays': ''
   };
 
+  function manageSameSpecies() {
+    let duplicate = [];
+
+    //Duplicate co-expression edges
+    networksData.forEach(species => {
+      if (Object.keys(species.networks).length > 1) {
+        for (networkId in species.networks) {
+          if (species.networks.hasOwnProperty(networkId)) {
+            duplicate.push(networkId);
+            let network = species.networks[networkId];
+            for (nodeId in network.nodes) {
+              if(network.nodes.hasOwnProperty(nodeId)) {
+                network.nodes[`${nodeId}-${networkId}`] = network.nodes[nodeId];
+                delete network.nodes[nodeId];
+              }
+            }
+
+            network.edges.forEach(edge => {
+              edge.source = `${edge.source}-${networkId}`;
+              edge.target = `${edge.target}-${networkId}`;
+            });
+          }
+        }
+      }
+    });
+
+    //Duplicate orthologs edges
+    if (duplicate.length > 0) {
+      for (nodeId in referenceNetwork.nodes) {
+        if (referenceNetwork.nodes.hasOwnProperty(nodeId)) {
+          let orthologs = referenceNetwork.nodes[nodeId].orthologs;
+          for (orthologId in orthologs) {
+            if (orthologs.hasOwnProperty(orthologId)) {
+              let ortholog = orthologs[orthologId];
+              if (duplicate.some(ele => { return ele == ortholog.conservation[0].networkId; })) {
+                ortholog.conservation.forEach(network => {
+                  let newId = `${orthologId}-${network.networkId}`
+                  orthologs[newId] = ortholog;
+                  orthologs[newId].conservation = [network];
+                });
+                delete orthologs[orthologId];
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
   function getReferenceNetwork() {
     networksData.forEach(function (species) {
       for (var network in species.networks) {
@@ -45,7 +94,6 @@ var alignmentData = (function () {
       };
     });
   };
-
 
   function networkNode(id, name, isReference) {
     this.group = 'nodes';
@@ -216,8 +264,9 @@ var alignmentData = (function () {
         dataType: 'json',
         success: function (data) {
           networksData = data;
-          self.fetchAnnotations();
           getReferenceNetwork();
+          manageSameSpecies();
+          self.fetchAnnotations();
         },
         error: function (jqXHR) {
           console.warn(jqXHR);
