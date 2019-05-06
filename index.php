@@ -188,6 +188,12 @@ $ext = new Extension_Collection();
       </div>
 
       <div class="accordion-head">
+        Output
+      </div>
+      <div class="accordion-content">
+      </div>
+
+      <div class="accordion-head">
         Citation and Contact us
       </div>
       <div class="accordion-content ac-extra-medium">
