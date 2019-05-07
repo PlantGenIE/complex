@@ -67,6 +67,8 @@ var alignmentTable = (function () {
           return table.row(dataIndex).data().network === network;
         });
         table.draw();
+
+        outputManager.changeActive(network);
       });
     }
     tableTabsContainer.querySelector('.table-tab').click();
@@ -131,22 +133,34 @@ var alignmentTable = (function () {
       table.rows().every(function () {
         this.deselect().data().checkbox.order = 0;
       });
+      outputManager.deselectAll();
+
       table.rows().invalidate().draw();
     },
 
     selectRow: function (rowId, connectedRows) {
-      table.row("#" + rowId).select().data().checkbox.order = 1;
+      let rowData = table.row("#" + rowId).select().data();
+      rowData.checkbox.order = 1;
+      outputManager.selectGene(rowData.network, rowData.gene);
+
       connectedRows.forEach(function (connectedId) {
-        table.row("#" + connectedId).select().data().checkbox.order = 1;
+        rowData = table.row("#" + connectedId).select().data();
+        rowData.checkbox.order = 1;
+        outputManager.selectGene(rowData.network, rowData.gene);
       });
 
       table.rows().invalidate().draw();
     },
 
     deselectRow: function (rowId, connectedRows) {
-      table.row("#" + rowId).deselect().data().checkbox.order = 0;
+      let rowData = table.row("#" + rowId).deselect().data();
+      rowData.checkbox.order = 0;
+      outputManager.deselectGene(rowData.network, rowData.gene);
+
       connectedRows.forEach(function (connectedId) {
-        table.row("#" + connectedId).deselect().data().checkbox.order = 0;
+        rowData = table.row("#" + connectedId).deselect().data();
+        rowData.checkbox.order = 0;
+        outputManager.deselectGene(rowData.network, rowData.gene);
       });
       
       table.rows().invalidate().draw();

@@ -1,7 +1,8 @@
 [
     {
         "name": "atgenie_tair10",
-        "species": "artha",
+		"species": "Arabidopsis thaliana",
+        "code": "artha",
         "list-example": [
             {
                 "gene_basket_name": "Load example",
@@ -11,7 +12,7 @@
     },
     {
         "name": "congenie_piabi_v11",
-        "species": "piabi",
+        "code": "piabi",
         "list-example": [
             {
                 "gene_basket_name": "Load example",
@@ -21,7 +22,7 @@
     },
     { 
         "name": "eucgenie_egrandis_v2_new",
-        "species": "egran",
+        "code": "egran",
         "list-example": [
             {
                 "gene_basket_name": "Load example",
@@ -31,7 +32,8 @@
     },
     {
         "name": "popgenie_potri_v31",
-        "species": "potra",
+		"species": "Populus tremula",
+        "code": "potra",
         "list-example": [
             {
                 "gene_basket_name": "Load example",
@@ -40,8 +42,9 @@
         ]
     },
     {
-        "name": "maize_no_db",
-        "species": "zemay",
+        "name": "",
+		"species": "Zea mays",
+        "code": "zemay",
         "list-example": [
             {
                 "gene_basket_name": "Load example",

@@ -32,6 +32,9 @@ window.onload = function () {
   colorAnnotation.init();
   eventLinker.init();
 
+  // Initialize input manager modules
+  outputManager.init();
+
   // Add the hide/show accordion event
   $('.accordion .accordion-head').addClass('opened').click(function() {
     $(this).next().toggle();

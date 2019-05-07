@@ -184,13 +184,14 @@ var genesLists = (function () {
   const fingerprint = window.localStorage.getItem('fingerprint');
   const listsDisplayContainer = document.getElementById('genes-lists');
   const genesDisplayContainer = document.getElementById('sink1');
+  var referenceNetwork;
   var databases = [];
   var lists = [];
 
   function loadExamples() {
     databases.forEach(function (database) {
       // slice() allow to pass the value instead of reference
-      lists[database.species] = database['list-example'].slice();
+      lists[database.code] = database['list-example'].slice();
     });
   };
 
@@ -229,6 +230,7 @@ var genesLists = (function () {
     },
 
     fetchDatabasesLists: function () {
+      let self = this;
       lists = [];
       loadExamples();
       if (fingerprint) {
@@ -244,7 +246,10 @@ var genesLists = (function () {
               console.error(jqXHR);
             },
             success: function (data) {
-             lists[database.species].push.apply(lists[database.species], data);
+              lists[database.code].push.apply(lists[database.code], data);
+            },
+            complete: function () {
+              self.updateDisplay(referenceNetwork);
             }
           });
         });
@@ -253,6 +258,7 @@ var genesLists = (function () {
 
     updateDisplay: function (species) {
       if (lists[species]) {
+        referenceNetwork = species;
         listsDisplayContainer.options.length = 0;
         lists[species].forEach(function (list) {
           listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));

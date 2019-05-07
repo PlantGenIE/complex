@@ -191,6 +191,11 @@ $ext = new Extension_Collection();
         Output
       </div>
       <div class="accordion-content">
+        Active network:
+        <span id="active-network"></span>
+        <textarea id="output-list" class="no-display"></textarea>
+        <button id="output-copy">Copy to clipboard</button>
+        <button id="output-save">Save gene list</button>
       </div>
 
       <div class="accordion-head">
@@ -229,6 +234,7 @@ $ext = new Extension_Collection();
     <script src="js/alignmentTable.js"></script>
     <script src="js/colorAnnotation.js"></script>
     <script src="js/eventLinker.js"></script>
+    <script src="js/outputManager.js"></script>
     <script src="js/complex.js"></script>
     <script>
       //Very cool custom functions

@@ -160,6 +160,7 @@ var alignmentData = (function () {
       edges: []
     };
     let tableData = { rows: [], referenceNetwork: referenceNetwork.name };
+    let outputData = []
     let genesList = [];
 
     networksData.forEach(function (species) {
@@ -174,6 +175,7 @@ var alignmentData = (function () {
           };
           let parent = new networkNode(networkId, network.name, isReference);
           viewData.nodes.push(parent);
+          outputData.push({ name: network.name, species: species.speciesName });
 
           for (var nodeId in network.nodes) {
             if (network.nodes.hasOwnProperty(nodeId)) {
@@ -237,7 +239,8 @@ var alignmentData = (function () {
     return {
       view: viewData,
       table: tableData,
-      colorAnnotation: colorAnnotationData
+      colorAnnotation: colorAnnotationData,
+      output: outputData
     };
   };
 
@@ -327,6 +330,7 @@ var alignmentData = (function () {
     serveData: function () {
       let preparedData = prepareData();
 
+      outputManager.setData(preparedData.output);
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.table);
       colorAnnotation.setData(preparedData.colorAnnotation);
