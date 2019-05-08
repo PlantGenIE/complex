@@ -131,6 +131,17 @@ $ext = new Extension_Collection();
           <div id="annotation-wrapper">
             <div id="annotation-toggler"></div>
             <div id="annotation-content">
+              <div id="node-info">
+                <template id="node-info-template">
+                  <div>
+                    Id: <span></span><br>
+                    Label: <span></span><br>
+                    Parent: <span></span><br>
+                    Coexpression edges: <span></span><br>
+                    Orthology edges: <span></span><br>
+                  </div>
+                </template>
+              </div>
               <div id="annotation-overlay" class="overlay">
                 <p class="overlay-message"></p>
                 <div class="loader_color2 spinner"></div>

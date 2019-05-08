@@ -31,6 +31,8 @@ var alignmentView = (function () {
   const overlayMessage = overlayContainer.querySelector('.overlay-message');
   const pvalueThresholdContainer = document.getElementById('pvalueThreshold');
   const pvalueThresholdDisplay = document.getElementById('pvalueThresholdDisplay');
+  const nodeInfoContainer = document.getElementById('node-info');
+  const nodeInfoTemplate = document.getElementById('node-info-template');
   var cy;
   var cxtmenuItems = {
     setActive: {
@@ -112,14 +114,34 @@ var alignmentView = (function () {
     });
   };
 
-  function overHandler(event) {
+  function overNodeHandler(event) {
+    let node = event.target;
+    let nodeInfo = document.importNode(nodeInfoTemplate, true).content;
+    let infoSpans = nodeInfo.querySelectorAll('span');
+
+    infoSpans[0].textContent = node.data('id');
+    infoSpans[1].textContent = node.data('label');
+    infoSpans[2].textContent = node.data('parent');
+    infoSpans[3].textContent = node.connectedEdges('.co-expression').length;
+    infoSpans[4].textContent = node.connectedEdges('.orthology').length;
+
+    nodeInfoContainer.insertBefore(nodeInfo, nodeInfoContainer.firstChild);
+  }
+
+  function outNodeHandler(envent) {
+    while (nodeInfoContainer.firstChild) {
+      nodeInfoContainer.firstChild.remove();
+    }
+  }
+
+  function overEdgeHandler(event) {
       event.target.addClass('orthology-over');
   };
 
-  function outHandler(event) {
+  function outEdgeHandler(event) {
       event.target.removeClass('orthology-over');
   };
-  
+
   function setPvalueThreshold(newPvalue) {
     pvalueThreshold = newPvalue;
     cy.edges('.orthology[conservation_pvalue >= ' + pvalueThreshold + ']')
@@ -302,8 +324,10 @@ var alignmentView = (function () {
         }
       }).run();
       cy.elements().unselectify(); // Prevent default select behavior
-      cy.edges('.orthology').on('mouseover', overHandler);
-      cy.edges('.orthology').on('mouseout', outHandler);
+      cy.nodes('[parent]').on('mouseover', overNodeHandler);
+      cy.nodes('[parent]').on('mouseout', outNodeHandler);
+      cy.edges('.orthology').on('mouseover', overEdgeHandler);
+      cy.edges('.orthology').on('mouseout', outEdgeHandler);
     },
 
     deselectAll: function () {

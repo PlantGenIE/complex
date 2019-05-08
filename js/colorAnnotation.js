@@ -1,6 +1,7 @@
 var colorAnnotation = (function () {
   const annotationContainer = document.getElementById('annotation-content');
   const annotationToggler = document.getElementById('annotation-toggler');
+  const annotationListContainer = document.getElementById('annotations-list');
   const annotationTemplate = document.getElementById('annotation-template');
   const deselectButton = document.getElementById('deselect-annotations');
   const searchBar = document.getElementById('search-annotation');
@@ -36,7 +37,7 @@ var colorAnnotation = (function () {
   };
 
   function handleChange(e) {
-    if (annotationContainer.querySelectorAll('input[type="checkbox"]:checked').length > 8) {
+    if (annotationListContainer.querySelectorAll('input[type="checkbox"]:checked').length > 8) {
       e.target.checked = false;
     } else { 
       let id = e.target.id;
@@ -58,7 +59,7 @@ var colorAnnotation = (function () {
 
   function handleSearch(e) {
     let search = new RegExp(e.target.value, 'i');
-    annotationContainer.querySelectorAll(`.${activeTab}`).forEach(node => {
+    annotationListContainer.querySelectorAll(`.${activeTab}`).forEach(node => {
       node.classList.remove('no-display');
     });
     annotationsData[activeTab].forEach(annotation => {
@@ -94,7 +95,7 @@ var colorAnnotation = (function () {
   };
 
   function displayAnnotation() {
-    annotationContainer.querySelectorAll('.annotation-item').forEach(node => { node.remove(); });
+    annotationListContainer.querySelectorAll('.annotation-item').forEach(node => { node.remove(); });
 
     for (annotationType in annotationsData) {
       if (annotationsData.hasOwnProperty(annotationType)) {
@@ -115,11 +116,11 @@ var colorAnnotation = (function () {
           annotationId.textContent = term.id;
           annotationId.href = constructIdLink(term.id, annotationType);
 
-          annotationContainer.appendChild(annotationItem);
+          annotationListContainer.appendChild(annotationItem);
         });
       }
     }
-    annotationContainer.querySelectorAll('.annotation-item').forEach(item => {
+    annotationListContainer.querySelectorAll('.annotation-item').forEach(item => {
       item.querySelector('input[type="checkbox"]')
           .addEventListener('change', handleChange);
     });
