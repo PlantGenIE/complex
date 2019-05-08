@@ -51,6 +51,7 @@ var outputManager = (function () {
         outputListContainer.focus();
         outputListContainer.select();
         document.execCommand('copy');
+        outputListContainer.classList.add('no-display');
       });
 
       saveButton.addEventListener('click', () => {
