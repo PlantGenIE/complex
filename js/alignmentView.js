@@ -165,10 +165,8 @@ var alignmentView = (function () {
           {
             selector: 'node',
             style: {
-              content: 'data(label)',
-              'border-width': '2px',
-              'border-color': '#333333',
-              'background-color': '#C5F9FF'
+              'content': 'data(label)',
+              'background-color': '#F7EFDB'
             }
           }, {
             selector: 'node:selected',
@@ -179,15 +177,19 @@ var alignmentView = (function () {
           }, {
             selector: 'node.network',
             style: {
-              'border-width': '2px',
-              'border-color': '#777777',
+              'border-width': '0px',
               'font-size': '3em',
-              'background-color': '#EEEEEE'
+              'background-color': '#BBBBBB'
             }
           }, {
             selector: 'node.network.active',
             style: {
-              'background-color': '#EAFFF5'
+              'background-color': '#AFC27F'
+            }
+          }, {
+            selector: 'edge.co-expression',
+            style: {
+              
             }
           }, {
             selector: 'edge.orthology',
