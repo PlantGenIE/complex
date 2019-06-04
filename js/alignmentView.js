@@ -189,7 +189,7 @@ var alignmentView = (function () {
           }, {
             selector: 'edge.co-expression',
             style: {
-              
+              'line-color': '#999999',
             }
           }, {
             selector: 'edge.orthology',
