@@ -39,45 +39,38 @@ height: 37px;
 .input-group {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .network-input {
     display: flex;
     flex-direction: column;
+	justify-content: center;
     margin: 10px 0px;
 }
 
-.input-group > :first-child {
+.input-group > .network-input:first-child {
   width: 300px;
   flex-grow: 1;
   margin-right: 10px;
 }
 
-.input-group > :nth-child(2) {
+.input-group > .network-input:first-child + .network-input {
   width: 600px;
   flex-grow: 2;
 }
 
-.network-input .network-button-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    border: 1px solid #666;
-    min-height: 50px;
-    padding: 0 0 1em 1ex;
-}
-
-.network-input .network-button-container.token-over {
-    border-style: dashed;
-}
-
-.network-input .network-button-container .network-token {
+.network-selection-token {
     background-color: white;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
-    margin: 1em 1ex 0 1ex;
-	padding: 10px;
+    margin: 0 10px 20px 10px;
+	padding: 1em 2em;
 	user-select: none;
+}
+
+.selected-token {
+	background-color: #E49C52;
 }
 
 .network-input .network-button-container .network-token.inactive {
