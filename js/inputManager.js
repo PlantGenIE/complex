@@ -24,6 +24,7 @@
 var networksList = (function () {
   const networkItemsContainer = document.getElementById('network-selection-wrapper');
   const networkItemTemplate = document.getElementById('network-selection-template');
+  const networkReferenceBorder = document.getElementById('network-reference-border');
   var availableNetworks = [];
   var selectedNetworks = [];
   var referenceNetwork;
@@ -70,6 +71,12 @@ var networksList = (function () {
     let radioValue = e.target.value;
     let relatedToken = radio.previousSibling;
     referenceNetwork = radioValue;
+
+console.log(relatedToken.offsetWidth);
+console.log(radio.parentNode.offsetLeft);
+console.log(networkReferenceBorder);
+    networkReferenceBorder.style.width = `${relatedToken.offsetWidth + 10}px`;
+    networkReferenceBorder.style.left = `${radio.parentNode.offsetLeft}px`;
 
     relatedToken.click();
     alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);

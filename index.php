@@ -43,6 +43,7 @@ $ext = new Extension_Collection();
       <div class="accordion-content input-container">
 
         <div id="network-selection-wrapper" class="input-group">
+          <div id="network-reference-border"></div>
           <template id="network-selection-template">
             <div class="network-selection-item network-input">
               <button class="network-selection-token"></button
