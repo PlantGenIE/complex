@@ -41,14 +41,16 @@ $ext = new Extension_Collection();
       </div>
 
       <div class="accordion-content input-container">
-        <div class="network-input">
-          <label>Available networks</label>
-          <div id="network-buttons" class="network-button-container"></div>
-        </div>
 
-        <div class="network-input">
-          <label>Selected networks</label>
-          <div id="selected-network-buttons" class="network-button-container"></div>
+        <div id="network-selection-wrapper" class="input-group">
+          <div id="network-reference-border"></div>
+          <div id="network-reference-line"></div>
+          <template id="network-selection-template">
+            <div class="network-selection-item network-input">
+              <button class="network-selection-token"></button
+              ><input class="network-selection-radio" type="radio" name="reference">
+            </div>
+          </template>
         </div>
 
         <div class="input-group">

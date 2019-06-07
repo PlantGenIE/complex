@@ -22,116 +22,81 @@
  * @method fetchDatabase - Get the available networks from the database.
  */
 var networksList = (function () {
-  const availableNetworksContainer = document.getElementById('network-buttons');
-  const selectedNetworksContainer = document.getElementById('selected-network-buttons');
+  const networkItemsContainer = document.getElementById('network-selection-wrapper');
+  const networkItemTemplate = document.getElementById('network-selection-template');
+  const networkReferenceBorder = document.getElementById('network-reference-border');
+  const networkReferenceLine = document.getElementById('network-reference-line');
   var availableNetworks = [];
   var selectedNetworks = [];
   var referenceNetwork;
-  var draggedToken;
 
-  function createTokens(tokensData) {
-    tokensData.forEach(function (tokenData) {
-      let token = document.createElement('div');
-      token.setAttribute('data-species', tokenData.shortname);
-      token.setAttribute('data-network', tokenData.id);
-      token.setAttribute('draggable', true);
-      token.classList.add('network-token');
-      token.id = 'network' + tokenData.id + '-token';
-      token.textContent = tokenData.name;
+  function createItems(itemsData) {
+    itemsData.forEach(itemData => {
+      let item = document.importNode(networkItemTemplate, true).content;
 
-      token.addEventListener('dragstart', handleDragStart, false);
-      token.addEventListener('dragover', handleDragOver, false);
-      token.addEventListener('drop', handleReorderDrop, false);
-      token.addEventListener('dragend', handleDragEnd, false);
+      let token = item.querySelector('.network-selection-token');
+      token.textContent = itemData.name;
+      token.value = itemData.id;
+      token.setAttribute('data-species', itemData.shortname);
+      token.addEventListener('click', handleSelectionClick, false);
 
-      availableNetworksContainer.appendChild(token);
-      availableNetworks.push(tokenData.id);
+      let radio = item.querySelector('.network-selection-radio');
+      radio.value = itemData.id
+      radio.setAttribute('data-species', itemData.shortname);
+      radio.addEventListener('click', handleReferenceClick, false);
+
+      networkItemsContainer.appendChild(item);
+      availableNetworks.push(itemData.id);
     });
-  };
 
-  function handleDragStart(event) {
-    event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text/plain', this.id);
-    draggedToken = this;
-    draggedToken.classList.add('inactive');
-  };
+    networkItemsContainer.querySelector('.network-selection-radio').click();
+  }
 
-  function handleDragOver(event) {
-    if (event.stopPropagation) {event.stopPropagation()};
-    if (event.preventDefault) {event.preventDefault()};
+  function handleSelectionClick(e) {
+    let token = e.target;
+    let tokenId = e.target.value;
     
-    event.dataTransfer.dropEffect = 'move';
-  };
+    if (selectedNetworks.indexOf(tokenId) === -1) {
+      token.classList.add('selected-token');
+      selectedNetworks.push(tokenId);
+    } else {
+      if (tokenId !== referenceNetwork) {
+        token.classList.remove('selected-token');
+        selectedNetworks.splice(selectedNetworks.indexOf(tokenId), 1);
+      }
+    }
 
-  function handleSelectionDrop(event) {
-    if (event.stopPropagation) {event.stopPropagation()};
-    if (event.preventDefault) {event.preventDefault()};
+    alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
+  }
 
-    if (this !== draggedToken.parentNode) {
-      if (this === selectedNetworksContainer) {
-        draggedToken.classList.add('selected');
-      } else {
-        draggedToken.classList.remove('selected');
-      };
-      draggedToken.parentNode.removeChild(draggedToken);
-      this.appendChild(draggedToken);
-      checkNetworksState();
-    };
-  };
+  function handleReferenceClick(e) {
+    let radio = e.target;
+    let radioValue = e.target.value;
+    let relatedToken = radio.previousSibling;
+    let oldReferenceToken = networkItemsContainer.querySelector(`.network-selection-token[value="${referenceNetwork}"]`);
+    referenceNetwork = radioValue;
 
-  function handleReorderDrop(event) {
-    if (event.stopPropagation) {event.stopPropagation()};
-    if (event.preventDefault) {event.preventDefault()};
+    networkReferenceBorder.style.width = `${relatedToken.offsetWidth + 10}px`;
+    networkReferenceBorder.style.left = `${radio.parentNode.offsetLeft}px`;
+    networkReferenceLine.style.left = `${radio.parentNode.offsetLeft + 8 + (relatedToken.offsetWidth / 2)}px`;
 
-    if (draggedToken.parentNode === this.parentNode && this.parentNode === selectedNetworksContainer) {
-      if (draggedToken !== this) {
-        var insertionPoint, elem = this;
-        
-        do {
-          elem = elem.nextSibling;
-        } while (elem && elem !== draggedToken);
-        
-        insertionPoint = elem ? this : this.nextSibling;
-        this.parentNode.insertBefore(draggedToken, insertionPoint);
-        
-        checkNetworksState();
-      };
-    };
-  };
-
-  function handleDragEnd(event) {
-    draggedToken.classList.remove('inactive');
-    draggedToken = null;
-  };
-
-  function checkNetworksState() {
-    let oldReference = referenceNetwork;
-    let oldSelected = selectedNetworks;
-    let referenceNode = selectedNetworksContainer.firstChild
-
-    referenceNetwork = referenceNode ? referenceNode.getAttribute('data-network') : '';
-    selectedNetworks = [];
-
-    selectedNetworksContainer.childNodes.forEach(function (network) {
-      selectedNetworks.push(network.getAttribute('data-network'));
-    });
-
-    if (oldReference !== referenceNetwork || oldSelected !== selectedNetworks) {
-      alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
-      if (referenceNode) {
-        genesLists.updateDisplay(referenceNode.getAttribute('data-species'));
-      };
-    };
-  };
+    relatedToken.click();
+    if (oldReferenceToken) { oldReferenceToken.click(); }
+    alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
+    genesLists.updateDisplay(radio.getAttribute('data-species'));
+  }
 
   return {
     init: function () {
-      this.fetchDatabase();
-      availableNetworksContainer.addEventListener('dragover', handleDragOver, false);
-      availableNetworksContainer.addEventListener('drop', handleSelectionDrop, false);
-      selectedNetworksContainer.addEventListener('dragover', handleDragOver, false);
-      selectedNetworksContainer.addEventListener('drop', handleSelectionDrop, false);
-      checkNetworksState();
+      $.ajax({
+        url: 'service/metadata.php',
+        type: 'POST',
+        data: {method: 'get_networks'},
+        dataType: 'JSON',
+        success: function (data) {
+          createItems(data);
+        }
+      });
     },
 
     getPrivates: function () {
@@ -141,24 +106,6 @@ var networksList = (function () {
         referenceNetwork: referenceNetwork
       };
     },
-
-    fetchDatabase: function () {
-      while (availableNetworksContainer.firstChild) {
-        availableNetworksContainer.removeChild(availableNetworksContainer.firstChild);
-      };
-      while (selectedNetworksContainer.firstChild) {
-        selectedNetworksContainer.removeChild(selectedNetworksContainer.firstChild);
-      };
-      $.ajax({
-        url: 'service/metadata.php',
-        type: 'POST',
-        data: {method: 'get_networks'},
-        dataType: 'JSON',
-        success: function (data) {
-          createTokens(data);
-        }
-      });
-    }
   };
 })();
 
