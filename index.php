@@ -44,6 +44,7 @@ $ext = new Extension_Collection();
 
         <div id="network-selection-wrapper" class="input-group">
           <div id="network-reference-border"></div>
+          <div id="network-reference-line"></div>
           <template id="network-selection-template">
             <div class="network-selection-item network-input">
               <button class="network-selection-token"></button

@@ -46,7 +46,7 @@ height: 37px;
 .network-input {
     display: flex;
     flex-direction: column;
-	justify-content: center;
+	justify-content: center;	
     margin: 10px 0px;
 }
 
@@ -61,17 +61,26 @@ height: 37px;
   flex-grow: 2;
 }
 
+.network-selection-item {
+	align-items: center;
+}
+
 .network-selection-token {
     background-color: white;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     margin: 0 10px 20px 10px;
 	padding: 1em 2em;
-	user-select: none;
+	cursor: pointer;
+	transition: background-color 0.2s linear 0s;
+}
+
+.network-selection-token:not(.selected-token):hover {
+	background-color: #BBBBBB;
 }
 
 .selected-token {
-	background-color: #E49C52;
+	background-color: #63C0C4;
 }
 
 .network-input .network-button-container .network-token.inactive {
@@ -82,14 +91,42 @@ height: 37px;
 	background-color: #EAFFF5;
 }
 
+input[type=radio] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+
+	border: 2px solid #999;
+	transition: 0.2s all linear;
+	outline: none;
+}
+
+input[type=radio]:checked {
+	border: 6px solid #FFBB80;
+}
+
 #network-reference-border {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 0px;
 	height: 48px;
-	border: 5px solid red;
+	border: 5px solid #FFBB80;
 	border-radius: 10px;
+	transition: all 1s ease 0s;
+}
+
+#network-reference-line {
+	position: absolute;
+	top: 58px;
+	left: 0px;
+	width: 0px;
+	height: 8px;
+	border: 2px solid #FFBB80;
 	transition: all 1s ease 0s;
 }
 

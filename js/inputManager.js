@@ -25,6 +25,7 @@ var networksList = (function () {
   const networkItemsContainer = document.getElementById('network-selection-wrapper');
   const networkItemTemplate = document.getElementById('network-selection-template');
   const networkReferenceBorder = document.getElementById('network-reference-border');
+  const networkReferenceLine = document.getElementById('network-reference-line');
   var availableNetworks = [];
   var selectedNetworks = [];
   var referenceNetwork;
@@ -72,36 +73,14 @@ var networksList = (function () {
     let relatedToken = radio.previousSibling;
     referenceNetwork = radioValue;
 
-console.log(relatedToken.offsetWidth);
-console.log(radio.parentNode.offsetLeft);
-console.log(networkReferenceBorder);
     networkReferenceBorder.style.width = `${relatedToken.offsetWidth + 10}px`;
     networkReferenceBorder.style.left = `${radio.parentNode.offsetLeft}px`;
+    networkReferenceLine.style.left = `${radio.parentNode.offsetLeft + 8 + (relatedToken.offsetWidth / 2)}px`;
 
     relatedToken.click();
     alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
     genesLists.updateDisplay(radio.getAttribute('data-species'));
   }
-
-  function checkNetworksState() {
-    let oldReference = referenceNetwork;
-    let oldSelected = selectedNetworks;
-    let referenceNode = selectedNetworksContainer.firstChild
-
-    referenceNetwork = referenceNode ? referenceNode.getAttribute('data-network') : '';
-    selectedNetworks = [];
-
-    selectedNetworksContainer.childNodes.forEach(function (network) {
-      selectedNetworks.push(network.getAttribute('data-network'));
-    });
-
-    if (oldReference !== referenceNetwork || oldSelected !== selectedNetworks) {
-      alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
-      if (referenceNode) {
-        genesLists.updateDisplay(referenceNode.getAttribute('data-species'));
-      };
-    };
-  };
 
   return {
     init: function () {
