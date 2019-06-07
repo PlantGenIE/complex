@@ -68,7 +68,7 @@ var alignmentTable = (function () {
         });
         table.draw();
 
-        outputManager.changeActive(network);
+        exportManager.changeActive(network);
       });
     }
     tableTabsContainer.querySelector('.table-tab').click();
@@ -133,7 +133,7 @@ var alignmentTable = (function () {
       table.rows().every(function () {
         this.deselect().data().checkbox.order = 0;
       });
-      outputManager.deselectAll();
+      exportManager.deselectAll();
 
       table.rows().invalidate().draw();
     },
@@ -141,12 +141,12 @@ var alignmentTable = (function () {
     selectRow: function (rowId, connectedRows) {
       let rowData = table.row("#" + rowId).select().data();
       rowData.checkbox.order = 1;
-      outputManager.selectGene(rowData.network, rowData.gene);
+      exportManager.selectGene(rowData.network, rowData.gene);
 
       connectedRows.forEach(function (connectedId) {
         rowData = table.row("#" + connectedId).select().data();
         rowData.checkbox.order = 1;
-        outputManager.selectGene(rowData.network, rowData.gene);
+        exportManager.selectGene(rowData.network, rowData.gene);
       });
 
       table.rows().invalidate().draw();
@@ -155,12 +155,12 @@ var alignmentTable = (function () {
     deselectRow: function (rowId, connectedRows) {
       let rowData = table.row("#" + rowId).deselect().data();
       rowData.checkbox.order = 0;
-      outputManager.deselectGene(rowData.network, rowData.gene);
+      exporttManager.deselectGene(rowData.network, rowData.gene);
 
       connectedRows.forEach(function (connectedId) {
         rowData = table.row("#" + connectedId).deselect().data();
         rowData.checkbox.order = 0;
-        outputManager.deselectGene(rowData.network, rowData.gene);
+        exportManager.deselectGene(rowData.network, rowData.gene);
       });
       
       table.rows().invalidate().draw();

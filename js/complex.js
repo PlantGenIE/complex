@@ -33,7 +33,7 @@ window.onload = function () {
   eventLinker.init();
 
   // Initialize input manager modules
-  outputManager.init();
+  exportManager.init();
 
   // Add the hide/show accordion event
   $('.accordion .accordion-head').addClass('opened').click(function() {

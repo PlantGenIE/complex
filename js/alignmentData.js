@@ -330,7 +330,7 @@ var alignmentData = (function () {
     serveData: function () {
       let preparedData = prepareData();
 
-      outputManager.setData(preparedData.output);
+      exportManager.setData(preparedData.output);
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.table);
       colorAnnotation.setData(preparedData.colorAnnotation);

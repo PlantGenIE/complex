@@ -241,13 +241,15 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
     <script src="js/fingerprint.js"></script>
     <script src="js/complexmessage.min.js"></script>
-    <script src="js/inputManager.js"></script>
+    <script src="js/networksList.js"></script>
+    <script src="js/genesLists.js"></script>
+    <script src="js/alignTrigger.js"></script>
     <script src="js/alignmentData.js"></script>
     <script src="js/alignmentView.js"></script>
     <script src="js/alignmentTable.js"></script>
     <script src="js/colorAnnotation.js"></script>
     <script src="js/eventLinker.js"></script>
-    <script src="js/outputManager.js"></script>
+    <script src="js/exportManager.js"></script>
     <script src="js/complex.js"></script>
     <script>
       //Very cool custom functions
