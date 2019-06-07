@@ -48,6 +48,8 @@ var networksList = (function () {
       networkItemsContainer.appendChild(item);
       availableNetworks.push(itemData.id);
     });
+
+    networkItemsContainer.querySelector('.network-selection-radio').click();
   }
 
   function handleSelectionClick(e) {
@@ -71,6 +73,7 @@ var networksList = (function () {
     let radio = e.target;
     let radioValue = e.target.value;
     let relatedToken = radio.previousSibling;
+    let oldReferenceToken = networkItemsContainer.querySelector(`.network-selection-token[value="${referenceNetwork}"]`);
     referenceNetwork = radioValue;
 
     networkReferenceBorder.style.width = `${relatedToken.offsetWidth + 10}px`;
@@ -78,6 +81,7 @@ var networksList = (function () {
     networkReferenceLine.style.left = `${radio.parentNode.offsetLeft + 8 + (relatedToken.offsetWidth / 2)}px`;
 
     relatedToken.click();
+    if (oldReferenceToken) { oldReferenceToken.click(); }
     alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
     genesLists.updateDisplay(radio.getAttribute('data-species'));
   }
