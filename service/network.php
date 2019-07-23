@@ -87,6 +87,12 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
   $reference_gene_ids = array_map(function($x) { return $x['id']; },
     $reference_genes);
 
+  if (count($reference_genes) === 0) {
+    http_response_code(400);
+    echo json_encode(array('error' => 'no valid gene names given'));
+    exit(1);
+  }
+
   $reference_nodes = array();
   foreach ($reference_genes as $gene) {
     $reference_nodes[$gene['id']] = array(
