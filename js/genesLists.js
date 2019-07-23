@@ -38,7 +38,7 @@ var genesLists = (function () {
         genesDisplayContainer.value = listsDisplayContainer.value;
         alignTrigger.setGenesValues(listsDisplayContainer.value);
       });
-      this.fetchDatabases();
+      return this.fetchDatabases();
     },
 
     getPrivates: function () {
@@ -50,7 +50,7 @@ var genesLists = (function () {
 
     fetchDatabases: function () {
       var self = this;
-      $.ajax( {
+      return $.ajax( {
         url: 'databases.json',
         datatype: 'json',
         error: function (jqXHR, textStatus) {

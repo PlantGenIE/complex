@@ -48,8 +48,6 @@ var networksList = (function () {
       networkItemsContainer.appendChild(item);
       availableNetworks.push(itemData.id);
     });
-
-    networkItemsContainer.querySelector('.network-selection-radio').click();
   }
 
   function handleSelectionClick(e) {
@@ -88,7 +86,7 @@ var networksList = (function () {
 
   return {
     init: function () {
-      $.ajax({
+      return $.ajax({
         url: 'service/metadata.php',
         type: 'POST',
         data: {method: 'get_networks'},
@@ -97,6 +95,10 @@ var networksList = (function () {
           createItems(data);
         }
       });
+    },
+
+    selectDefault: function() {
+      networkItemsContainer.querySelector('.network-selection-radio').click();
     },
 
     getPrivates: function () {
