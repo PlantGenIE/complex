@@ -98,40 +98,44 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
   $return_array[$reference_network['species_id']]
     ['networks'][$active_id]['nodes'] = $reference_nodes;
 
-  // Get the orthologs of the reference genes in the other
-  // requested networks.
-  $ortholog_query = 'SELECT
-      c.gene_id1,
-      c.gene_id2,
-      g2.name AS gene2_name,
-      c.network_id1,
-      c.network_id2,
-      n.species_id,
-      n.name AS network2_name,
-      CONCAT(COALESCE(o1.type, ""), COALESCE(o2.type, "")) AS support,
-      c.pvalue
-    FROM conservation AS c
-    INNER JOIN gene AS g2
-      ON g2.id = c.gene_id2
-    INNER JOIN network AS n
-      ON c.network_id2 = n.id
-    LEFT OUTER JOIN orthology AS o1
-      ON o1.gene_id1 = c.gene_id1 AND o1.gene_id2 = c.gene_id2 
-    LEFT OUTER JOIN orthology AS o2
-      ON o2.gene_id1 = c.gene_id2 AND o2.gene_id2 = c.gene_id1
-    WHERE network_id1 = :reference_network
-      AND network_id2 IN ('.
-        prepare_in('network', $network_ids).')
-      AND c.gene_id1 IN ('.
-        prepare_in('gene', $reference_gene_ids).')';
+  if (count($network_ids) > 0) {
+    // Get the orthologs of the reference genes in the other
+    // requested networks.
+    $ortholog_query = 'SELECT
+        c.gene_id1,
+        c.gene_id2,
+        g2.name AS gene2_name,
+        c.network_id1,
+        c.network_id2,
+        n.species_id,
+        n.name AS network2_name,
+        CONCAT(COALESCE(o1.type, ""), COALESCE(o2.type, "")) AS support,
+        c.pvalue
+      FROM conservation AS c
+      INNER JOIN gene AS g2
+        ON g2.id = c.gene_id2
+      INNER JOIN network AS n
+        ON c.network_id2 = n.id
+      LEFT OUTER JOIN orthology AS o1
+        ON o1.gene_id1 = c.gene_id1 AND o1.gene_id2 = c.gene_id2 
+      LEFT OUTER JOIN orthology AS o2
+        ON o2.gene_id1 = c.gene_id2 AND o2.gene_id2 = c.gene_id1
+      WHERE network_id1 = :reference_network
+        AND network_id2 IN ('.
+          prepare_in('network', $network_ids).')
+        AND c.gene_id1 IN ('.
+          prepare_in('gene', $reference_gene_ids).')';
 
-  $stmt = $db->prepare($ortholog_query);
-  $stmt->execute(array_merge(
-    array(':reference_network' => $active_id),
-    build_in_array('network', $network_ids),
-    build_in_array('gene', $reference_gene_ids)
-  ));
-  $orthologs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $db->prepare($ortholog_query);
+    $stmt->execute(array_merge(
+      array(':reference_network' => $active_id),
+      build_in_array('network', $network_ids),
+      build_in_array('gene', $reference_gene_ids)
+    ));
+    $orthologs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } else {
+    $orthologs = array();
+  }
 
   // Add the orthologs and collect conservation statistics.
   $ortholog_conservation = array();
@@ -192,18 +196,22 @@ function get_network($network_ids, $active_id, $gene_names, $gene_ids, $threshol
 
   // Set up the nodes in the other networks.
   // First get the species
-  $network_query = 'SELECT
-      species.id AS species_id,
-      species.sciname,
-      species.shortname
-    FROM network
-    INNER JOIN species
-      ON network.species_id = species.id
-    WHERE network.id IN ('.prepare_in('network', $network_ids).')';
+  if (count($network_ids) > 0) {
+    $network_query = 'SELECT
+        species.id AS species_id,
+        species.sciname,
+        species.shortname
+      FROM network
+      INNER JOIN species
+        ON network.species_id = species.id
+      WHERE network.id IN ('.prepare_in('network', $network_ids).')';
 
-  $stmt = $db->prepare($network_query);
-  $stmt->execute(build_in_array('network', $network_ids));
-  $species = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $db->prepare($network_query);
+    $stmt->execute(build_in_array('network', $network_ids));
+    $species = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } else {
+    $species = array();
+  }
 
   foreach ($species as $s) {
     $return_array[$s['species_id']] = array(
