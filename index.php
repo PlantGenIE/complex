@@ -241,6 +241,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
     <script src="js/fingerprint.js"></script>
     <script src="js/complexmessage.min.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/networksList.js"></script>
     <script src="js/genesLists.js"></script>
     <script src="js/alignTrigger.js"></script>
