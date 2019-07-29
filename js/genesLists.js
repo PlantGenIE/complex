@@ -71,6 +71,9 @@ var genesLists = (function () {
       loadExamples();
       if (fingerprint) {
         databases.forEach(function (database) {
+          if (!database.name) {
+            return;
+          }
           $.ajax( {
             url: config.get('genie').url + '/genelist/get_all?table='
                  + database.name + '&fingerprint='
@@ -78,8 +81,8 @@ var genesLists = (function () {
             method: 'GET',
             datatype: 'json',
             timeout: 0,
-            error: function (jqXHR) {
-              console.error(jqXHR);
+            error: function (jqXHR, status, err) {
+              console.error(`${status}: ${err}`);
             },
             success: function (data) {
               lists[database.code].push.apply(lists[database.code], data);
