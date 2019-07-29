@@ -72,7 +72,7 @@ var genesLists = (function () {
       if (fingerprint) {
         databases.forEach(function (database) {
           $.ajax( {
-            url: 'https://api.plantgenie.org/genelist/get_all?table='
+            url: config.get('genie').url + '/genelist/get_all?table='
                  + database.name + '&fingerprint='
                  + fingerprint + '&name=plantgenie_genelist',
             method: 'GET',

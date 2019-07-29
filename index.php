@@ -144,6 +144,7 @@ $ext = new Extension_Collection();
                   </div>
                 </template>
               </div>
+              <?php if ($config['gofer2']['enabled']): ?>
               <div id="annotation-overlay" class="overlay">
                 <p class="overlay-message"></p>
                 <div class="loader_color2 spinner"></div>
@@ -167,6 +168,7 @@ $ext = new Extension_Collection();
                   </div>
                 </template>
               </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
