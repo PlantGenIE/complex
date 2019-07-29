@@ -1,3 +1,9 @@
+/**
+ * @module config - Access to configuration variables
+ *
+ * @method get  - fetch a particular configuration variable.
+ * @method list - list all features that are available.
+ */
 var config = (function() {
   var config;
   var ready = false;
@@ -17,6 +23,10 @@ var config = (function() {
         throw new Error("config not ready yet");
       }
       return config[name];
+    },
+
+    list: function() {
+      return Object.keys(config);
     }
   }
 })();
