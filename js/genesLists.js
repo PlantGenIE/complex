@@ -12,7 +12,6 @@
  *
  * @method init                - Populate the genes lists and add the event listeners on the containers.
  * @method getPrivates         - Return `databases` and `lists`.
- * @method fetchDatabases      - Get the databases iformations.
  * @method fetchDatabasesLists - Get the genes lists from the databases.
  * @method updateDisplay       - Change the displayed lists to match the reference network.
  */
@@ -27,7 +26,7 @@ var genesLists = (function () {
   function loadExamples() {
     databases.forEach(function (database) {
       // slice() allow to pass the value instead of reference
-      lists[database.code] = database['list-example'].slice();
+      lists[database.code] = database['defaultLists'].slice();
     });
   };
 
@@ -38,7 +37,8 @@ var genesLists = (function () {
         genesDisplayContainer.value = listsDisplayContainer.value;
         alignTrigger.setGenesValues(listsDisplayContainer.value);
       });
-      return this.fetchDatabases();
+      databases = config.get('genie').instances;
+      this.fetchDatabasesLists();
     },
 
     getPrivates: function () {
@@ -48,38 +48,25 @@ var genesLists = (function () {
       };
     },
 
-    fetchDatabases: function () {
-      var self = this;
-      return $.ajax( {
-        url: 'databases.json',
-        datatype: 'json',
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        },
-        success: function (data) {
-          databases = data;
-        },
-        complete: function () {
-          self.fetchDatabasesLists();
-        }
-     });
-    },
-
     fetchDatabasesLists: function () {
       let self = this;
       lists = [];
       loadExamples();
       if (fingerprint) {
         databases.forEach(function (database) {
+          if (!database.name) {
+            return;
+          }
           $.ajax( {
-            url: 'https://api.plantgenie.org/genelist/get_all?table='
+            url: config.get('genie').url
+                 + '/genelist/get_all?table='
                  + database.name + '&fingerprint='
                  + fingerprint + '&name=plantgenie_genelist',
             method: 'GET',
             datatype: 'json',
             timeout: 0,
-            error: function (jqXHR) {
-              console.error(jqXHR);
+            error: function (jqXHR, status, err) {
+              console.error(`${status}: ${err}`);
             },
             success: function (data) {
               lists[database.code].push.apply(lists[database.code], data);
@@ -99,7 +86,7 @@ var genesLists = (function () {
         lists[species].forEach(function (list) {
           listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));
         });
-        genesDisplayContainer.placeholder = 'Example : ' + lists[species][0]['gene_list'];
+        genesDisplayContainer.placeholder = lists[species][0]['gene_list'];
       };
     },
   };

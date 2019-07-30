@@ -21,32 +21,34 @@ window.onload = function () {
   $('#loader').hide();
 
   // Initialize input manager modules
-  let initPromises = [];
-  initPromises.push(networksList.init());
-  initPromises.push(genesLists.init());
+  genesLists.init();
   alignTrigger.init();
 
-  Promise.all(initPromises).then(function() {
-    networksList.selectDefault();
-  });
+  networksList.init().then(networksList.selectDefault);
 
-  // Initialize display modules
-  alignmentData.init();
-  alignmentView.init();
-  alignmentTable.init();
-  colorAnnotation.init();
-  eventLinker.init();
+  // Guarantee that the config is initialised
+  // before the following modules are initialised.
+  config.ready().then(function () {
+    // Initialize display modules
+    alignmentData.init();
+    alignmentView.init();
+    alignmentTable.init();
+    if (colorAnnotation) {
+      colorAnnotation.init();
+    }
+    eventLinker.init();
 
-  // Initialize input manager modules
-  exportManager.init();
+    // Initialize input manager modules
+    exportManager.init();
 
-  // Add the hide/show accordion event
-  $('.accordion .accordion-head').addClass('opened').click(function() {
-    $(this).next().toggle();
-    $(this).toggleClass('opened');
-    $(this).toggleClass('collapsed');
-    alignmentView.getPrivates().cy.resize();
-    return false;
+    // Add the hide/show accordion event
+    $('.accordion .accordion-head').addClass('opened').click(function() {
+      $(this).next().toggle();
+      $(this).toggleClass('opened');
+      $(this).toggleClass('collapsed');
+      alignmentView.getPrivates().cy.resize();
+      return false;
+    });
   });
 
   // Hide scripts loader

@@ -144,6 +144,7 @@ $ext = new Extension_Collection();
                   </div>
                 </template>
               </div>
+              <?php if ($config['gofer2']['enabled']): ?>
               <div id="annotation-overlay" class="overlay">
                 <p class="overlay-message"></p>
                 <div class="loader_color2 spinner"></div>
@@ -167,6 +168,7 @@ $ext = new Extension_Collection();
                   </div>
                 </template>
               </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -241,6 +243,7 @@ $ext = new Extension_Collection();
     <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
     <script src="js/fingerprint.js"></script>
     <script src="js/complexmessage.min.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/networksList.js"></script>
     <script src="js/genesLists.js"></script>
     <script src="js/alignTrigger.js"></script>

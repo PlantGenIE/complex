@@ -269,7 +269,11 @@ var alignmentData = (function () {
           networksData = data;
           getReferenceNetwork();
           manageSameSpecies();
-          self.fetchAnnotations();
+          if (config.get('gofer2').enabled) {
+            self.fetchAnnotations();
+          } else {
+            self.serveData();
+          }
         },
         error: function (jqXHR) {
           console.warn(jqXHR);
@@ -295,7 +299,7 @@ var alignmentData = (function () {
             };
 
             $.ajax({
-              url: `https://microasp.upsc.se:5432/${databaseEntries[species.speciesName]}/gene-to-term`,
+              url: `${config.get('gofer2').url}/${databaseEntries[species.speciesName]}/gene-to-term`,
               method: 'POST',
               data: JSON.stringify({
                 'target': ['go', 'pfam', 'kegg'],
@@ -333,7 +337,9 @@ var alignmentData = (function () {
       exportManager.setData(preparedData.output);
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.table);
-      colorAnnotation.setData(preparedData.colorAnnotation);
+      if (colorAnnotation) {
+        colorAnnotation.setData(preparedData.colorAnnotation);
+      }
     },
 
     getIfReference: function (geneId) {
