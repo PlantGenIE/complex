@@ -41,6 +41,11 @@ window.onload = function () {
     // Initialize input manager modules
     exportManager.init();
 
+    // Extensions
+    if (config.get('extensions').enabled) {
+      extensions.init();
+    }
+
     // Add the hide/show accordion event
     $('.accordion .accordion-head').addClass('opened').click(function() {
       $(this).next().toggle();

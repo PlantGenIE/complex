@@ -79,7 +79,7 @@ $ext = new Extension_Collection();
         </div>
       </div>
 
-      <?php if (!$ext->is_empty()): ?>
+      <?php if (!$ext->is_empty() && $config["extensions"]["enabled"]): ?>
       <div class="accordion-head">
         Extensions
       </div>
@@ -253,6 +253,7 @@ $ext = new Extension_Collection();
     <script src="js/colorAnnotation.js"></script>
     <script src="js/eventLinker.js"></script>
     <script src="js/exportManager.js"></script>
+    <script src="js/extensions.js"></script>
     <script src="js/complex.js"></script>
     <script>
       //Very cool custom functions

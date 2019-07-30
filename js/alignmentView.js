@@ -332,6 +332,10 @@ var alignmentView = (function () {
       cy.edges('.orthology').on('mouseout', outEdgeHandler);
     },
 
+    nodes: function() {
+      return cy.nodes('.gene').map(node => node.id());
+    },
+
     deselectAll: function () {
       cy.nodes().selectify().deselect().unselectify();
       cy.edges('.orthology').hide();

@@ -43,13 +43,16 @@ $config["db"]["port"] = 3306;
  *
  * Variables
  * ---------
+ * enabled           - Boolean controlling whether extensions are
+ *                     enabled or not.
  * dir               - Directory where extension files are stored.
  * active_extensions - Array of names of extensions that should be
  *                     enabled. If the base name of an extension
  *                     JSON file matches with any of the strings in
  *                     this array, the extension will be active.
  */
-$config["extensions"]["extension_dir"] = dirname(__FILE__).'/extensions';
+$config["extensions"]["enabled"] = false;
+$config["extensions"]["dir"] = dirname(__FILE__).'/extensions';
 $config["extensions"]["active_extensions"] = array();
 
 /**
@@ -126,8 +129,11 @@ require_once("local_config.php");
 if (isset($_GET["init"])) {
   file_put_contents(
     "config.json",
-    json_encode(array("gofer2" => $config["gofer2"],
-                      "genie" => $config["genie"]))
+    json_encode(array(
+      "gofer2" => $config["gofer2"],
+      "genie" => $config["genie"],
+      "extensions" => $config["extensions"])
+    )
   );
 }
 

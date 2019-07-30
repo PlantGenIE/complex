@@ -59,7 +59,7 @@ class Extension {
 
   public static function from_id($extension_id) {
     global $config;
-    return Extension::from_json($config['extension_dir'].'/'.$extension_id.'.json');
+    return Extension::from_json($config['extensions']['dir'].'/'.$extension_id.'.json');
   }
 
   public function get_genes() {
@@ -129,7 +129,7 @@ class Extension_Collection implements Iterator {
   public function __construct() {
     global $config;
     $this->position = 0;
-    $extension_files = $this->get_extensions($config['extension_dir']);
+    $extension_files = $this->get_extensions($config['extensions']['dir']);
     foreach ($extension_files as $extjson) {
       $this->extensions[] = Extension::from_json($extjson);
     }
@@ -183,7 +183,7 @@ class Extension_Collection implements Iterator {
         }, $json_files)
       ), function($x) {
         return preg_match('/^[^\.]/', $x);
-      }), $config["active_extensions"]);
+      }), $config['extensions']['active_extensions']);
 
     $extension_array = array_map(function($x) use (&$dir) {
       return $dir.'/'.$x.'.json';
