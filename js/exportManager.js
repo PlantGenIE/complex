@@ -20,7 +20,8 @@ var exportManager = (function () {
       if (listName === "") { listName = "complex_list"; }
       if (listName !== null) {
         $.ajax( {
-          url: 'https://api.plantgenie.org/genelist/create_list_by_name?name=plantgenie_genelist'
+          url: config.get('genie').url
+               + '/genelist/create_list_by_name?name=plantgenie_genelist'
                + '&fingerprint=' + fingerprint
                + '&list=' + activeNetwork.selected.join(',')
                + '&list_name=' + listName
@@ -35,7 +36,7 @@ var exportManager = (function () {
             console.warn(jqXHR);
           },
           success: function () {
-            genesLists.fetchDatabases()
+            genesLists.fetchDatabasesLists()
           }
         });
       }
@@ -44,7 +45,7 @@ var exportManager = (function () {
 
   return {
     init: function () {
-      this.fetchDatabases();
+      databases = config.get('genie').instances;
 
       copyButton.addEventListener('click', () => {
         outputListContainer.classList.remove('no-display');
@@ -63,20 +64,6 @@ var exportManager = (function () {
       return {
         selectedList: selectedList
       }
-    },
-
-    fetchDatabases: function () {
-      var self = this;
-      $.ajax( {
-        url: 'databases.json',
-        datatype: 'json',
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        },
-        success: function (data) {
-          databases = data;
-        },
-      });
     },
 
     setData: function (data) {

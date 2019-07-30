@@ -27,11 +27,6 @@ config.ready().then(function() {
           { color: 'annotation-color-7', annotation: '' },
           { color: 'annotation-color-8', annotation: '' }
         ];
-    var databaseEntries = {
-      'Arabidopsis thaliana': 'athaliana',
-      'Populus tremula': 'potra',
-      'Zea mays': ''
-    };
 
     function showOverlay(message) {
       if (message) overlayMessage.textContent = message;

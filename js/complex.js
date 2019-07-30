@@ -21,14 +21,10 @@ window.onload = function () {
   $('#loader').hide();
 
   // Initialize input manager modules
-  let initPromises = [];
-  initPromises.push(networksList.init());
-  initPromises.push(genesLists.init());
+  genesLists.init();
   alignTrigger.init();
 
-  Promise.all(initPromises).then(function() {
-    networksList.selectDefault();
-  });
+  networksList.init().then(networksList.selectDefault);
 
   // Guarantee that the config is initialised
   // before the following modules are initialised.

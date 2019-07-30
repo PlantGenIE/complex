@@ -155,7 +155,7 @@ var alignmentTable = (function () {
     deselectRow: function (rowId, connectedRows) {
       let rowData = table.row("#" + rowId).deselect().data();
       rowData.checkbox.order = 0;
-      exporttManager.deselectGene(rowData.network, rowData.gene);
+      exportManager.deselectGene(rowData.network, rowData.gene);
 
       connectedRows.forEach(function (connectedId) {
         rowData = table.row("#" + connectedId).deselect().data();
