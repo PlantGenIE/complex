@@ -1,14 +1,15 @@
 var extensions = (function() {
 
   function toggleExtension(event) {
+    let extensionId = event.target.dataset.extensionId;
     if (event.target.checked) {
       console.log('loading extension');
-      getGenes(event.target.dataset.extensionId, () => {});
-      getEdges(event.target.dataset.extensionId, () => {});
+      getGenes(extensionId, highlightNodes);
+      getEdges(extensionId, () => {});
     } else {
       console.log('removing extension');
-      getGenes(event.target.dataset.extensionId, () => {});
-      getEdges(event.target.dataset.extensionId, () => {});
+      getGenes(extensionId, () => {});
+      getEdges(extensionId, () => {});
     }
   }
 
@@ -19,7 +20,7 @@ var extensions = (function() {
       data: {
         method: 'getGenes',
         extension: extension,
-        genes: alignmentView.nodes()
+        genes: alignmentView.nodeIds()
       },
       error: function(jqXHR, textStatus) {
         if (jqXHR.responseJSON) {
@@ -41,7 +42,7 @@ var extensions = (function() {
       data: {
         method: 'getEdges',
         extension: extension,
-        genes: alignmentView.nodes()
+        genes: alignmentView.nodeIds()
       },
       error: function(jqXHR, textStatus) {
         if (jqXHR.responseJSON) {
@@ -56,9 +57,37 @@ var extensions = (function() {
     });
   }
 
+  function highlightNodes(data, extension) {
+    for (let subext in data) {
+      let eles = alignmentView.nodes().filter(node => {
+        return $.inArray(
+          node.id(),
+          data[subext].genes.map(x => x.toString())
+        ) !== -1;
+      });
+
+      eles.addClass(`${subext}-highlight`);
+      eles.addClass('extension');
+
+      eles.each(x => {
+        for (let attr in data[subext].style) {
+          if (attr === 'background-color') {
+            if (!x.data('extension')) {
+              x.data('extension', []);
+            }
+            let extensionData = x.data('extension');
+            extensionData.push({name: subext, color: data[subext].style[attr]});
+            x.data('extension', extensionData);
+          } else {
+            console.warn(`warning: ${attr} not supported yet`);
+          }
+        }
+      });
+    }
+  }
+
   return {
     init: function() {
-      console.log('initialising extensions');
       Array.from(document.getElementsByClassName('extension-checkbox'))
         .forEach(element => {
           element.addEventListener('change', toggleExtension);

@@ -157,8 +157,22 @@ var alignmentView = (function () {
       });
   };
 
+  function extensionPieSize(node, slice) {
+    if (node.data('extension') && node.data('extension').length >= slice) {
+      return 100.0 / node.data('extension').length;
+    }
+    return 0;
+  }
+
+  function extensionPieColor(node, slice) {
+    if (node.data('extension') && node.data('extension').length >= slice) {
+      return node.data('extension')[slice-1].color;
+    }
+    return 'black';
+  }
+
   return {
-    init: function (viewSettings, cxtmenuSettings) {
+    init: function () {
       cy = cytoscape({
         container: viewContainer,
         style: [
@@ -266,6 +280,35 @@ var alignmentView = (function () {
                 });
               }
             }
+          }, {
+            selector: 'node.extension',
+            style: {
+              'pie-size': '100%',
+              'pie-1-background-color': node => extensionPieColor(node, 1),
+              'pie-1-background-size': node => extensionPieSize(node, 1),
+              'pie-2-background-color': node => extensionPieColor(node, 2),
+              'pie-2-background-size': node => extensionPieSize(node, 2),
+              'pie-3-background-color': node => extensionPieColor(node, 3),
+              'pie-3-background-size': node => extensionPieSize(node, 3),
+              'pie-4-background-color': node => extensionPieColor(node, 4),
+              'pie-4-background-size': node => extensionPieSize(node, 4),
+              'pie-5-background-color': node => extensionPieColor(node, 5),
+              'pie-5-background-size': node => extensionPieSize(node, 5),
+              'pie-6-background-color': node => extensionPieColor(node, 6),
+              'pie-6-background-size': node => extensionPieSize(node, 6),
+              'pie-7-background-color': node => extensionPieColor(node, 7),
+              'pie-7-background-size': node => extensionPieSize(node, 7),
+              'pie-8-background-color': node => extensionPieColor(node, 8),
+              'pie-8-background-size': node => extensionPieSize(node, 8),
+              'pie-9-background-color': node => extensionPieColor(node, 9),
+              'pie-9-background-size': node => extensionPieSize(node, 9),
+              'pie-10-background-color': node => extensionPieColor(node, 10),
+              'pie-10-background-size': node => extensionPieSize(node, 10),
+              'pie-11-background-color': node => extensionPieColor(node, 11),
+              'pie-11-background-size': node => extensionPieSize(node, 11),
+              'pie-12-background-color': node => extensionPieColor(node, 12),
+              'pie-12-background-size': node => extensionPieSize(node, 12)
+            }
           }
         ],
         userZoomingEnabled: false,
@@ -332,8 +375,12 @@ var alignmentView = (function () {
       cy.edges('.orthology').on('mouseout', outEdgeHandler);
     },
 
-    nodes: function() {
+    nodeIds: function() {
       return cy.nodes('.gene').map(node => node.id());
+    },
+
+    nodes: function(selector) {
+      return cy.nodes(selector);
     },
 
     deselectAll: function () {
