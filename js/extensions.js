@@ -9,7 +9,7 @@ var extensions = (function() {
     } else {
       console.log('removing extension');
       getGenes(extensionId, removeNodeHighlight);
-      getEdges(extensionId, () => {});
+      getEdges(extensionId, removeEdges);
     }
   }
 
@@ -112,7 +112,7 @@ var extensions = (function() {
         }
         edgeData.push({
           group: 'edges',
-          classes: `${subext}-edge extension`,
+          classes: `${subext} extension`,
           data: {
             id: `${subext}-${e[0]}-${e[1]}`,
             source: e[0],
@@ -128,6 +128,12 @@ var extensions = (function() {
       }
     }
     alignmentView.add(edgeData);
+  }
+
+  function removeEdges(data, extension) {
+    for (let subext in data) {
+      alignmentView.edges(`.${subext}`).remove();
+    }
   }
 
   return {
