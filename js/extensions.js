@@ -13,11 +13,9 @@ var extensions = (function() {
   function toggleExtension(event) {
     let extensionId = event.target.dataset.extensionId;
     if (event.target.checked) {
-      console.log('loading extension');
       getGenes(extensionId, highlightNodes);
       getEdges(extensionId, addEdges);
     } else {
-      console.log('removing extension');
       getGenes(extensionId, removeNodeHighlight);
       getEdges(extensionId, removeEdges);
     }

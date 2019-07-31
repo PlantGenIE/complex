@@ -111,6 +111,9 @@ $ext = new Extension_Collection();
           </div>
         <?php endforeach; ?>
         </div>
+        <?php if ($config["gofer2"]["enabled"]): ?>
+        <p><small>Note: extensions take precedence over other annotations.</small></p>
+        <?php endif; ?>
       </div>
       <?php endif; ?>
 
