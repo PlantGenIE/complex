@@ -397,6 +397,7 @@ var alignmentView = (function () {
       cy.nodes('[parent]').on('mouseout', outNodeHandler);
       cy.edges('.orthology').on('mouseover', overEdgeHandler);
       cy.edges('.orthology').on('mouseout', outEdgeHandler);
+      extensions.update();
     },
 
     nodeIds: function() {

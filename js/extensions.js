@@ -1,4 +1,14 @@
 var extensions = (function() {
+  var ready = false;
+
+  function reloadExtensions() {
+    Array.from(document.getElementsByClassName('extension-checkbox')).forEach(ele => {
+      if (ele.checked) {
+        getGenes(ele.dataset.extensionId, highlightNodes);
+        getEdges(ele.dataset.extensionId, addEdges);
+      }
+    });
+  }
 
   function toggleExtension(event) {
     let extensionId = event.target.dataset.extensionId;
@@ -142,6 +152,13 @@ var extensions = (function() {
         .forEach(element => {
           element.addEventListener('change', toggleExtension);
         });
+      this.ready = true;
+    },
+
+    update: function() {
+      if (this.ready) {
+        reloadExtensions();
+      }
     }
   };
 })()
