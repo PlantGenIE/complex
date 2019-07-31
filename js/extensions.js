@@ -8,7 +8,7 @@ var extensions = (function() {
       getEdges(extensionId, () => {});
     } else {
       console.log('removing extension');
-      getGenes(extensionId, () => {});
+      getGenes(extensionId, removeNodeHighlight);
       getEdges(extensionId, () => {});
     }
   }
@@ -81,6 +81,21 @@ var extensions = (function() {
           } else {
             console.warn(`warning: ${attr} not supported yet`);
           }
+        }
+      });
+    }
+  }
+
+  function removeNodeHighlight(data, extension) {
+    for (let subext in data) {
+      let eles = alignmentView.nodes(`.${subext}-highlight`);
+      eles.each(node => {
+        let extensionData = node.data('extension')
+          .filter(x => x.name != subext)
+        node.data('extension', extensionData);
+        node.removeClass(`.${subext}-highlight`);
+        if (extensionData.length === 0) {
+          node.removeClass('extension');
         }
       });
     }
