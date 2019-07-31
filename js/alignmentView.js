@@ -223,11 +223,6 @@ var alignmentView = (function () {
               'opacity': 1
             }
           }, {
-            selector: 'edge.extension',
-            style: {
-              'curve-style': 'bezier'
-            }
-          }, {
             selector: '.pie-node',
             style: {
               'pie-size': '100%',
@@ -309,6 +304,35 @@ var alignmentView = (function () {
               'pie-12-background-color': node => extensionPieColor(node, 12),
               'pie-12-background-size': node => extensionPieSize(node, 12)
             }
+          }, {
+            selector: 'edge.extension',
+            style: {
+              'curve-style': 'bezier',
+              'width': edge => {
+                if (edge.data('extension') &&
+                    edge.data('extension').length > 0 &&
+                    edge.data('extension')[0].width) {
+                  return edge.data('extension')[0].width;
+                }
+                return 1;
+              },
+              'line-style': edge => {
+                if (edge.data('extension') &&
+                    edge.data('extension').length > 0 &&
+                    edge.data('extension')[0].lineStyle) {
+                  return edge.data('extension')[0].lineStyle;
+                }
+                return 'solid';
+              },
+              'line-color': edge => {
+                if (edge.data('extension') &&
+                    edge.data('extension').length > 0 &&
+                    edge.data('extension')[0].lineColor) {
+                  return edge.data('extension')[0].lineColor;
+                }
+                return '#999999';
+              },
+            }
           }
         ],
         userZoomingEnabled: false,
@@ -381,6 +405,14 @@ var alignmentView = (function () {
 
     nodes: function(selector) {
       return cy.nodes(selector);
+    },
+
+    edges: function(selector) {
+      return cy.edges(selector);
+    },
+
+    add: function(data) {
+      return cy.add(data);
     },
 
     deselectAll: function () {

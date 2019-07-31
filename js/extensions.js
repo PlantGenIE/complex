@@ -5,7 +5,7 @@ var extensions = (function() {
     if (event.target.checked) {
       console.log('loading extension');
       getGenes(extensionId, highlightNodes);
-      getEdges(extensionId, () => {});
+      getEdges(extensionId, addEdges);
     } else {
       console.log('removing extension');
       getGenes(extensionId, removeNodeHighlight);
@@ -99,6 +99,35 @@ var extensions = (function() {
         }
       });
     }
+  }
+
+  function addEdges(data, extension) {
+    let edgeData = [];
+    for (let subext in data) {
+      for (let i in data[subext].edges) {
+        let e = data[subext].edges[i];
+        if (alignmentView.nodes(`#${e[0]}`).length === 0 ||
+            alignmentView.nodes(`#${e[1]}`).length === 0) {
+          continue;
+        }
+        edgeData.push({
+          group: 'edges',
+          classes: `${subext}-edge extension`,
+          data: {
+            id: `${subext}-${e[0]}-${e[1]}`,
+            source: e[0],
+            target: e[1],
+            extension: [{
+              name: subext,
+              lineColor: data[subext].style['line-color'],
+              lineStyle: data[subext].style['line-style'],
+              width: data[subext].style['width']
+            }]
+          }
+        });
+      }
+    }
+    alignmentView.add(edgeData);
   }
 
   return {
