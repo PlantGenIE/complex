@@ -1,5 +1,6 @@
 var extensions = (function() {
   var ready = false;
+  var hideNonExtensionsCheckbox;
 
   function reloadExtensions() {
     Array.from(document.getElementsByClassName('extension-checkbox')).forEach(ele => {
@@ -94,6 +95,7 @@ var extensions = (function() {
         }
       });
     }
+    updateNonExtensionHiding();
   }
 
   function removeNodeHighlight(data, extension) {
@@ -109,6 +111,7 @@ var extensions = (function() {
         }
       });
     }
+    updateNonExtensionHiding();
   }
 
   function addEdges(data, extension) {
@@ -146,12 +149,33 @@ var extensions = (function() {
     }
   }
 
+  function hideNonExtensions() {
+    alignmentView.nodes('.gene').hide();
+    alignmentView.nodes('.extension').show();
+  }
+
+  function showNonExtensions() {
+    alignmentView.nodes().show();
+  }
+
+  function updateNonExtensionHiding() {
+    if (hideNonExtensionsCheckbox.checked) {
+      hideNonExtensions();
+    } else {
+      showNonExtensions();
+    }
+  }
+
   return {
     init: function() {
+      hideNonExtensionsCheckbox = document.getElementById('show-only-extensions-checkbox');
+      hideNonExtensionsCheckbox.addEventListener('change', updateNonExtensionHiding);
+
       Array.from(document.getElementsByClassName('extension-checkbox'))
         .forEach(element => {
           element.addEventListener('change', toggleExtension);
         });
+
       this.ready = true;
     },
 

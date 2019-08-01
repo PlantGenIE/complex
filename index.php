@@ -111,6 +111,8 @@ $ext = new Extension_Collection();
           </div>
         <?php endforeach; ?>
         </div>
+        <input id="show-only-extensions-checkbox" type="checkbox">
+        <label for="show-only-extensions-checkbox">Only show genes part of enabled extensions</label>
         <?php if ($config["gofer2"]["enabled"]): ?>
         <p><small>Note: extensions take precedence over other annotations.</small></p>
         <?php endif; ?>
