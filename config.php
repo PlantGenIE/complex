@@ -27,12 +27,15 @@ $config = array();
  * password - Password associated with the username.
  * database - Database name.
  * port     - Port on the server to access.
+ * networks - Array of names of networks that should
+ *            be displayed in Complex.
  */
 $config["db"]["host"] = null;
 $config["db"]["user"] = null;
 $config["db"]["password"] = null;
 $config["db"]["database"] = null;
 $config["db"]["port"] = 3306;
+$config["db"]["networks"] = array();
 
 /**
  * ==========
