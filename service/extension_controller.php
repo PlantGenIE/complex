@@ -12,8 +12,8 @@ require_once(dirname(__FILE__).'/extensions.php');
  */
 function getGenes() {
   global $config;
-  $extension_id = isset($_GET['extension']) ? $_GET['extension'] : null;
-  $gene_subset = isset($_GET['genes']) ? $_GET['genes'] : null;
+  $extension_id = isset($_POST['extension']) ? $_POST['extension'] : null;
+  $gene_subset = isset($_POST['genes']) ? $_POST['genes'] : null;
   if (is_null($extension_id)) {
     http_response_code(400);
     echo json_encode(array('error' => 'no extension given'));
@@ -48,8 +48,8 @@ function getGenes() {
  */
 function getEdges() {
   global $config;
-  $extension_id = isset($_GET['extension']) ? $_GET['extension'] : null;
-  $gene_subset = isset($_GET['genes']) ? $_GET['genes'] : null;
+  $extension_id = isset($_POST['extension']) ? $_POST['extension'] : null;
+  $gene_subset = isset($_POST['genes']) ? $_POST['genes'] : null;
   if (is_null($extension_id)) {
     http_response_code(400);
     echo json_encode(array('error' => 'no extension given'));
@@ -78,7 +78,7 @@ function getEdges() {
   echo json_encode($ext);
 }
 
-$method = isset($_GET['method']) ? $_GET['method'] : null;
+$method = isset($_POST['method']) ? $_POST['method'] : null;
 
 if (!is_callable($method)) {
   http_response_code(400);

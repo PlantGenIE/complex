@@ -25,6 +25,7 @@ var extensions = (function() {
     $.ajax({
       url: 'service/extension_controller.php',
       dataType: 'json',
+      method: 'POST',
       data: {
         method: 'getGenes',
         extension: extension,
@@ -47,6 +48,7 @@ var extensions = (function() {
     $.ajax({
       url: 'service/extension_controller.php',
       dataType: 'json',
+      method: 'POST',
       data: {
         method: 'getEdges',
         extension: extension,
