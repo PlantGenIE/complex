@@ -30,11 +30,6 @@ var alignmentData = (function () {
     gene_names: [],
     threshold: ''
   };
-  var databaseEntries = {
-    'Arabidopsis thaliana': 'athaliana',
-    'Populus tremula': 'potra',
-    'Zea mays': ''
-  };
 
   function manageSameSpecies() {
     let duplicate = [];
@@ -284,10 +279,16 @@ var alignmentData = (function () {
     fetchAnnotations: function () {
       let self = this;
       let speciesCount = networksData.length;
-      let finishedQuerry = 0;
+      let promises = [];
+
       annotationsData = [];
 
       networksData.forEach(function (species) {
+        if (!config.get('gofer2').species[species.speciesName]) {
+          console.warn(`annotations not available for ${species.speciesName}`);
+          return;
+        }
+
         for (networkId in species.networks) {
           if (species.networks.hasOwnProperty(networkId)) {
             let genesLists = [];
@@ -295,11 +296,11 @@ var alignmentData = (function () {
             for (geneId in network.nodes) {
               if (network.nodes.hasOwnProperty(geneId)) {
                 genesLists.push(network.nodes[geneId].name);
-              };
-            };
+              }
+            }
 
-            $.ajax({
-              url: `${config.get('gofer2').url}/${databaseEntries[species.speciesName]}/gene-to-term`,
+            promises.push($.ajax({
+              url: `${config.get('gofer2').url}/${config.get('gofer2').species[species.speciesName]}/gene-to-term`,
               method: 'POST',
               data: JSON.stringify({
                 'target': ['go', 'pfam', 'kegg'],
@@ -317,17 +318,15 @@ var alignmentData = (function () {
               },
               error: function(jqXHR) {
                 console.warn(jqXHR);
-              },
-              complete: function () {
-                finishedQuerry += 1;
-                if (finishedQuerry === speciesCount) {
-                  self.serveData();
-                };
               }
-            })
-          };
+            }));
+          }
           break;
         }
+      });
+
+      Promise.all(promises).then(self.serveData).catch((e) => {
+        console.error(`fetching of annotations failed for one or more species: ${e.statusText}`);
       });
     },
 

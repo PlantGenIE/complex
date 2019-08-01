@@ -69,9 +69,18 @@ $config["extensions"]["active_extensions"] = array();
  * ---------
  * enabled - Boolean to decide whether gofer2 should be used or not.
  * url     - The url to the gofer2 API, including port.
+ * species - Associative array between species and the corresponding
+ *           species code used by gofer2.
+ *
+ *           Example:
+ *           array(
+ *             "Arabidopsis thaliana" => "athaliana",
+ *             "Populus tremula" => "potra"
+ *           )
  */
 $config["gofer2"]["enabled"] = false;
 $config["gofer2"]["url"] = null;
+$config["gofer2"]["species"] = array();
 
 /**
  * GenIE API settings
