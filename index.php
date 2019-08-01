@@ -79,7 +79,7 @@ $ext = new Extension_Collection();
         </div>
       </div>
 
-      <?php if (!$ext->is_empty()): ?>
+      <?php if (!$ext->is_empty() && $config["extensions"]["enabled"]): ?>
       <div class="accordion-head">
         Extensions
       </div>
@@ -101,8 +101,8 @@ $ext = new Extension_Collection();
             <?php foreach ($e->subextensions as $x): ?>
               <div class="extension-legend-item">
                 <svg width="40px" height="20px" xmlns="http://www.w3.org/2000/svg">
-                <line class="edge" x1="0" y1="10" x2="30" y2="10" style="<?php echo !is_null($edge_style[$x->id]['line-color']) ? 'stroke: '.$edge_style[$x->id]['line-color'].';' : ''; ?><?php echo !is_null($edge_style[$x->id]['width']) ? 'stroke-width: '.$edge_style[$x->id]['width'].';' : '' ?><?php echo $edge_style[$x->id]['line-style'] === 'dashed' ? 'stroke-dasharray: 5,3;' : ''; ?>" />
-                <circle class="node" cx="30" cy="10" r="9" style="<?php echo !is_null($gene_style[$x->id]['background-color']) ? 'fill: '.$gene_style[$x->id]['background-color'].';' : ''; ?>" />
+                <line class="edge" x1="0" y1="10" x2="30" y2="10" style="<?php echo isset($edge_style[$x->id]['line-color']) && !is_null($edge_style[$x->id]['line-color']) ? 'stroke: '.$edge_style[$x->id]['line-color'].';' : ''; ?><?php echo isset($edge_style[$x->id]['width']) && !is_null($edge_style[$x->id]['width']) ? 'stroke-width: '.$edge_style[$x->id]['width'].';' : '' ?><?php echo isset($edge_style[$x->id]['line-style']) && !is_null($edge_style[$x->id]['line-style']) && $edge_style[$x->id]['line-style'] === 'dashed' ? 'stroke-dasharray: 5,3;' : ''; ?>" />
+                <circle class="node" cx="30" cy="10" r="9" style="<?php echo isset($gene_style[$x->id]['background-color']) && !is_null($gene_style[$x->id]['background-color']) ? 'fill: '.$gene_style[$x->id]['background-color'].';' : ''; ?>" />
                 </svg>
                 <abbr title="<?php echo $x->description; ?>"><?php echo $x->name; ?></abbr>
               </div>
@@ -111,6 +111,11 @@ $ext = new Extension_Collection();
           </div>
         <?php endforeach; ?>
         </div>
+        <input id="show-only-extensions-checkbox" type="checkbox">
+        <label for="show-only-extensions-checkbox">Only show genes part of enabled extensions</label>
+        <?php if ($config["gofer2"]["enabled"]): ?>
+        <p><small>Note: extensions take precedence over other annotations.</small></p>
+        <?php endif; ?>
       </div>
       <?php endif; ?>
 
@@ -253,6 +258,7 @@ $ext = new Extension_Collection();
     <script src="js/colorAnnotation.js"></script>
     <script src="js/eventLinker.js"></script>
     <script src="js/exportManager.js"></script>
+    <script src="js/extensions.js"></script>
     <script src="js/complex.js"></script>
     <script>
       //Very cool custom functions
