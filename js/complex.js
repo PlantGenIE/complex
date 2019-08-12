@@ -20,15 +20,15 @@ window.onload = function () {
   // Hide webpage loader
   $('#loader').hide();
 
-  // Initialize input manager modules
-  genesLists.init();
-  alignTrigger.init();
-
-  networksList.init().then(networksList.selectDefault);
-
   // Guarantee that the config is initialised
   // before the following modules are initialised.
   config.ready().then(function () {
+    // Initialize input manager modules
+    genesLists.init();
+    alignTrigger.init();
+
+    networksList.init().then(networksList.selectDefault);
+
     // Initialize display modules
     alignmentData.init();
     alignmentView.init();
