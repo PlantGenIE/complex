@@ -23,8 +23,8 @@ $ext = new Extension_Collection();
     <link rel="stylesheet" type="text/css" href="css/demo.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-html5-1.5.1/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape.js-panzoom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://unpkg.com/cytoscape-panzoom@2.5.2/cytoscape.js-panzoom.css">
+    <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.css">
     <link href="css/complexmessage.min.css" media="screen" type="text/css" rel="stylesheet">
   </head>
   <body>
@@ -134,7 +134,7 @@ $ext = new Extension_Collection();
               <div class="loader_color2 spinner"></div>
             </div>
           </div>
-          
+
           <div id="annotation-wrapper">
             <div id="annotation-toggler"></div>
             <div id="annotation-content">
@@ -240,12 +240,12 @@ $ext = new Extension_Collection();
 
     <script src="lib/jquery.qtip-1.0.0-rc3.min.js"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/r-2.2.1/sl-1.2.5/datatables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.7/cytoscape.min.js"></script>
-    <script src="https://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
-    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
-    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cola/v2.2.4/cytoscape-cola.js"></script>
-    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-panzoom/2.5.2/cytoscape-panzoom.js"></script>
-    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cxtmenu/v3.0.2/cytoscape-cxtmenu.js"></script>
+    <script src="https://unpkg.com/cytoscape@3.2.7/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/webcola@3.4.0/WebCola/cola.js"></script>
+    <script src="https://unpkg.com/cytoscape-cose-bilkent@1.6.5/cytoscape-cose-bilkent.js"></script>
+    <script src="https://unpkg.com/cytoscape-cola@2.2.4/cytoscape-cola.js"></script>
+    <script src="https://unpkg.com/cytoscape-panzoom@2.5.2/cytoscape-panzoom.js"></script>
+    <script src="https://unpkg.com/cytoscape-cxtmenu@3.0.2/cytoscape-cxtmenu.js"></script>
     <script src="js/fingerprint.js"></script>
     <script src="js/complexmessage.min.js"></script>
     <script src="js/config.js"></script>
@@ -275,4 +275,3 @@ if (typeof $_GET('workflow') != 'undefined') {
     </script>
   </body>
 </html>
-
