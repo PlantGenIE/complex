@@ -1,13 +1,18 @@
 var colorAnnotation = null;
 
 config.ready().then(function() {
-  if (!config.get('gofer2').enabled) {
-    return;
-  }
-
   colorAnnotation = (function () {
     const annotationContainer = document.getElementById('annotation-content');
     const annotationToggler = document.getElementById('annotation-toggler');
+    if (!config.get('gofer2').enabled) {
+      return {
+        init: function() {
+          annotationToggler.addEventListener('click', e => {
+            annotationContainer.classList.toggle('no-display');
+          });
+        }
+      };
+    }
     const annotationListContainer = document.getElementById('annotations-list');
     const annotationTemplate = document.getElementById('annotation-template');
     const deselectButton = document.getElementById('deselect-annotations');

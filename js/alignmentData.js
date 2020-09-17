@@ -336,7 +336,7 @@ var alignmentData = (function () {
       exportManager.setData(preparedData.output);
       alignmentView.setData(preparedData.view);
       alignmentTable.setData(preparedData.table);
-      if (colorAnnotation) {
+      if (colorAnnotation.setData) {
         colorAnnotation.setData(preparedData.colorAnnotation);
       }
     },
