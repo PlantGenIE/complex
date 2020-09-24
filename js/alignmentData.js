@@ -198,7 +198,7 @@ var alignmentData = (function () {
 
               let node = new geneNode(nodeId, gene.name, parent.data.id, nodeAnnotations);
               viewData.nodes.push(node);
-              
+
               let row = new tableRow(nodeId, gene.name, network.name, rowAnnotations);
 
               for (var orthologId in gene.orthologs) {
@@ -266,9 +266,8 @@ var alignmentData = (function () {
           manageSameSpecies();
           if (config.get('gofer2').enabled) {
             self.fetchAnnotations();
-          } else {
-            self.serveData();
           }
+          self.serveData();
         },
         error: function (jqXHR) {
           console.warn(jqXHR);
@@ -387,4 +386,3 @@ var alignmentData = (function () {
     }
   };
 })();
-
