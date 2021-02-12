@@ -74,12 +74,15 @@ var networksList = (function () {
     let oldReferenceToken = networkItemsContainer.querySelector(`.network-selection-token[value="${referenceNetwork}"]`);
     referenceNetwork = radioValue;
 
-    networkReferenceBorder.style.width = `${relatedToken.offsetWidth + 10}px`;
-    networkReferenceBorder.style.left = `${radio.parentNode.offsetLeft}px`;
-    networkReferenceLine.style.left = `${radio.parentNode.offsetLeft + 8 + (relatedToken.offsetWidth / 2)}px`;
+    networkReferenceBorder.style.top = `${relatedToken.offsetTop - 5}px`;
+    networkReferenceBorder.style.left = `${relatedToken.offsetLeft - 5}px`;
+    networkReferenceBorder.style.height = `${relatedToken.offsetHeight}px`;
+    networkReferenceBorder.style.width = `${relatedToken.offsetWidth}px`;
+    networkReferenceLine.style.left = `${radio.offsetLeft - 2 + radio.offsetWidth / 2}px`;
+    networkReferenceLine.style.top = `${relatedToken.offsetTop + relatedToken.offsetHeight}px`;
+    networkReferenceLine.style.height = `${radio.offsetTop - networkReferenceLine.offsetTop}px`;
 
     relatedToken.click();
-    if (oldReferenceToken) { oldReferenceToken.click(); }
     alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
     genesLists.updateDisplay(radio.getAttribute('data-species'));
   }
