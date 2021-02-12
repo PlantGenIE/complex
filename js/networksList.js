@@ -83,7 +83,6 @@ var networksList = (function () {
     networkReferenceLine.style.height = `${radio.offsetTop - networkReferenceLine.offsetTop}px`;
 
     relatedToken.click();
-    if (oldReferenceToken) { oldReferenceToken.click(); }
     alignTrigger.setNetworksValues(referenceNetwork, selectedNetworks);
     genesLists.updateDisplay(radio.getAttribute('data-species'));
   }
