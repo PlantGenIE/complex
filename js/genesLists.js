@@ -41,7 +41,7 @@ var genesLists = (function () {
         });
       } else {
         loadExampleButton.addEventListener('click', () => {
-          genesDisplayContainer.value = genesDisplayContainer.placeholder;
+          genesDisplayContainer.value = lists[referenceNetwork][0].gene_list;
           alignTrigger.setGenesValues(genesDisplayContainer.value);
         });
       }
@@ -96,7 +96,6 @@ var genesLists = (function () {
             listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));
           });
         }
-        genesDisplayContainer.placeholder = lists[species][0]['gene_list'];
       };
     },
   };
