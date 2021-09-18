@@ -20,6 +20,8 @@ window.onload = function () {
   // Hide webpage loader
   $('#loader').hide();
 
+  documentation.init();
+
   // Guarantee that the config is initialised
   // before the following modules are initialised.
   config.ready().then(function () {
