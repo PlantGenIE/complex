@@ -93,6 +93,8 @@ $config["gofer2"]["species"] = array();
  *
  * Variables
  * ---------
+ * enabled   - Boolean to decide whether the GenIE integration should
+ *             be enabled.
  * url       - URL to the GenIE API.
  * instances - An array of arrays of GenIE instances that are available.
  *             Each instance should have the keys species (full species
@@ -118,6 +120,7 @@ $config["gofer2"]["species"] = array();
  *               )
  *             )
  */
+$config["gene"]["enabled"] = false;
 $config["genie"]["url"] = null;
 $config["genie"]["instances"] = array();
 

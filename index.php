@@ -54,16 +54,25 @@ $ext = new Extension_Collection();
         </div>
 
         <div class="input-group">
+          <?php if ($config["genie"]["enabled"]): ?>
           <div class="network-input">
             <label for="genes-lists">Genes list</label>
             <select id="genes-lists"  size="7">
               <option value="No network selected...">Load example</option>
             </select>
           </div>
+          <?php endif; ?>
 
           <div class="network-input">
+            <?php if (!$config["genie"]["enabled"]): ?>
+            <div>
+            <?php endif; ?>
             <label for="sink1">Genes</label>
-            <textarea name="sp1gene" id="sink1" rows="6" placeholder="No network selected..."></textarea>
+            <?php if (!$config["genie"]["enabled"]): ?>
+            <button class="btn btn-4" id="example-genelist-button">Load example</button>
+            </div>
+            <?php endif; ?>
+            <textarea name="sp1gene" id="sink1" rows="6" placeholder="<?php echo $config["genie"]["enabled"] ? "No network selected..." : "Enter gene IDs"; ?>"></textarea>
           </div>
         </div>
 
@@ -246,7 +255,7 @@ $ext = new Extension_Collection();
     <script src="https://unpkg.com/cytoscape-cola@2.2.4/cytoscape-cola.js"></script>
     <script src="https://unpkg.com/cytoscape-panzoom@2.5.2/cytoscape-panzoom.js"></script>
     <script src="https://unpkg.com/cytoscape-cxtmenu@3.0.2/cytoscape-cxtmenu.js"></script>
-    <script src="js/fingerprint.js"></script>
+    <!-- <script src="js/fingerprint.js"></script> -->
     <script src="js/complexmessage.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/networksList.js"></script>
