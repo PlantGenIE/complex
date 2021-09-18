@@ -270,7 +270,8 @@ var alignmentData = (function () {
           self.serveData();
         },
         error: function (jqXHR) {
-          console.warn(jqXHR);
+          console.warn(jqXHR.responseJSON.error);
+          complexmessage.error(jqXHR.responseJSON.error);
         }
       });
     },
