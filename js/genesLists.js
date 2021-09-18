@@ -19,6 +19,7 @@ var genesLists = (function () {
   const fingerprint = window.localStorage.getItem('fingerprint');
   const listsDisplayContainer = document.getElementById('genes-lists');
   const genesDisplayContainer = document.getElementById('sink1');
+  const loadExampleButton = document.getElementById('example-genelist-button');
   var referenceNetwork;
   var databases = [];
   var lists = [];
@@ -33,10 +34,17 @@ var genesLists = (function () {
   return {
     init: function () {
       genesDisplayContainer.value = '';
-      listsDisplayContainer.addEventListener('change', function handleChange() {
-        genesDisplayContainer.value = listsDisplayContainer.value;
-        alignTrigger.setGenesValues(listsDisplayContainer.value);
-      });
+      if (config.get('genie').enabled) {
+        listsDisplayContainer.addEventListener('change', function handleChange() {
+          genesDisplayContainer.value = listsDisplayContainer.value;
+          alignTrigger.setGenesValues(listsDisplayContainer.value);
+        });
+      } else {
+        loadExampleButton.addEventListener('click', () => {
+          genesDisplayContainer.value = lists[referenceNetwork][0].gene_list;
+          alignTrigger.setGenesValues(genesDisplayContainer.value);
+        });
+      }
       databases = config.get('genie').instances;
       this.fetchDatabasesLists();
     },
@@ -52,7 +60,7 @@ var genesLists = (function () {
       let self = this;
       lists = [];
       loadExamples();
-      if (fingerprint) {
+      if (config.get('genie').enabled && fingerprint) {
         databases.forEach(function (database) {
           if (!database.name) {
             return;
@@ -82,11 +90,12 @@ var genesLists = (function () {
     updateDisplay: function (species) {
       if (lists[species]) {
         referenceNetwork = species;
-        listsDisplayContainer.options.length = 0;
-        lists[species].forEach(function (list) {
-          listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));
-        });
-        genesDisplayContainer.placeholder = lists[species][0]['gene_list'];
+        if (config.get('genie').enabled) {
+          listsDisplayContainer.options.length = 0;
+          lists[species].forEach(function (list) {
+            listsDisplayContainer.options.add(new Option(list.gene_basket_name, list.gene_list));
+          });
+        }
       };
     },
   };
