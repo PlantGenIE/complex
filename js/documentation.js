@@ -1,4 +1,5 @@
 var documentation = (function () {
+    const helpButton = document.getElementById('help-button');
     const docFade = document.getElementById('documentation-fade');
     const doc = document.getElementById('documentation-article');
     let isVisible = null;
@@ -11,7 +12,7 @@ var documentation = (function () {
                 this.show();
             }
 
-            document.getElementById('help-button').addEventListener('click', (e) => {
+            helpButton.addEventListener('click', (e) => {
                 if (isVisible) {
                     self.hide();
                 } else {
@@ -26,11 +27,20 @@ var documentation = (function () {
                     self.hide();
                 }
             });
+
+            window.addEventListener('keydown', (e) => {
+                if (isVisible) {
+                    if (e.code === 'Escape') {
+                        this.hide();
+                    }
+                }
+            });
         },
 
         show: function () {
             docFade.classList.remove('hide');
             doc.classList.remove('hide');
+            helpButton.innerHTML = 'X';
             location.hash = '#documentation';
             isVisible = true;
         },
@@ -38,6 +48,7 @@ var documentation = (function () {
         hide: function () {
             docFade.classList.add('hide');
             doc.classList.add('hide');
+            helpButton.innerHTML = '?';
             location.hash = '';
             isVisible = false;
         }
