@@ -8,7 +8,13 @@
         <p>
             Complex is a tool for exploring conservation of gene co-expression across species.
             The co-expression conservation has been calculated by comparing network neighbourhoods of orthologous genes in different species.
+            This works by selecting a gene in one of the networks and fetching its neighbourhood (first-degree neighbours).
+            The corresponding gene, or genes, is identified in another network through orthology, and their network neighbourhoods are obtained.
             If the overlap between the neighbourhoods is larger than expected by chance, the co-expression of the starting gene is considered to be conserved.
+        </p>
+
+        <p>
+            See <a href="https://doi.org/10.1186/1471-2164-15-106">Netotea <i>et al.</i> for a more detailed description of the methodology.</a>.
         </p>
     </section>
 
@@ -38,7 +44,7 @@
 
         <p>
             To visualise the networks, click the "Align" button.
-            This will fetch a subnetwork for the genes you have entered from the reference network.
+            This will fetch a subnetwork from the reference network for the genes you have entered.
             If you have selected more than one network, the corresponding subnetwork in these will be fetched, based on gene orthology.
         </p>
     </section>
