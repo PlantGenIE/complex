@@ -138,7 +138,7 @@ $ext = new Extension_Collection();
         <span style="color:#D84C4F;text-transform:none;font-family:Cambria, Palatino"  id="newtrok_mode2"></span>
       </div>
       <div class="accordion-content">
-        <label for="pvalueThreshold">P-value threshold: &le;<span id="pvalueThresholdDisplay">0.05</span></label>
+        <label for="pvalueThreshold">Conservation p-value threshold: &le;<span id="pvalueThresholdDisplay">0.05</span></label>
         <input id="pvalueThreshold" type="range" min="0" max="0.2" step="0.01" value="0.05">
         <div class="network-wrapper">
           <div id="cytoscapeweb1" class="network-container">
