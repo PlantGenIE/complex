@@ -28,6 +28,12 @@ var documentation = (function () {
                 }
             });
 
+            docFade.addEventListener('click', (e) => {
+                if (isVisible && e.isTrusted) {
+                    this.hide();
+                }
+            });
+
             window.addEventListener('keydown', (e) => {
                 if (isVisible) {
                     if (e.code === 'Escape') {
