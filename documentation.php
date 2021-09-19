@@ -14,7 +14,7 @@
         </p>
 
         <p>
-            See <a href="https://doi.org/10.1186/1471-2164-15-106">Netotea <i>et al.</i> for a more detailed description of the methodology.</a>.
+            See <a href="https://doi.org/10.1186/1471-2164-15-106">Netotea <i>et al.</i></a> for a more detailed description of the methodology.
         </p>
     </section>
 
