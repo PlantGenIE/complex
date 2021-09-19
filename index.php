@@ -34,7 +34,7 @@ $ext = new Extension_Collection();
 
     <button class="floating-help" id="help-button">?</button>
     <div id="documentation-fade" class="fade hide"></div>
-    <?php include("documentation.html") ?>
+    <?php include("documentation.php") ?>
 
     <header>
       <img src="images/complex_logo.png" alt="Complex logo">
