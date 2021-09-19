@@ -631,9 +631,41 @@ td {
 	position: fixed;
 	top: 10%;
 	left: 10%;
-	width: 80%;
+	width: 70%;
 	height: 70%;
 	z-index: 1000;
 	background-color: white;
 	color: black;
+	padding: 5%;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1em;
+	overflow: scroll;
 }
+
+	.documentation h1,
+		.documentation h2,
+		.documentation h3 {
+			font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+			margin: 0.5em 0;
+	}
+
+	.documentation h1 {
+		font-size: 3em;
+	}
+
+	.documentation h2 {
+		font-size: 2em;
+	}
+
+	.documentation h3 {
+		font-size: 1.5em;
+	}
+
+	.documentation p {
+		margin: 1em 0;
+		font-size: 1.2em;
+	}
+
+	.documentation p:last-child {
+		margin-bottom: 2em;
+	}
